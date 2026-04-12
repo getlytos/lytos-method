@@ -181,6 +181,24 @@ Vague 5 :
 
 ---
 
+## État actuel vs vision
+
+**Aujourd'hui** (avril 2026), la plupart des outils IA (Claude Code, Cursor, GPT) exécutent les tâches **séquentiellement**. Un humain lance un agent, l'agent fait une tâche, puis l'humain lance le suivant. La parallélisation native avec orchestration coordonnée n'est pas encore standard.
+
+**Ce que le graph de dépendances apporte dès maintenant** :
+- Il **ordonne** les tâches — on sait quoi faire en premier, et pourquoi
+- Il **révèle les blocages** — si ISS-0002 dépend de ISS-0001, on ne commence pas ISS-0002 tant que ISS-0001 n'est pas terminée
+- Il **prépare la scalabilité** — le jour où les outils supporteront nativement les sous-agents parallèles, le sprint est déjà structuré pour en profiter
+
+**Ce qui viendra** :
+- Orchestration multi-agents native dans les outils IA
+- Exécution parallèle réelle des vagues
+- Allocation dynamique du nombre d'agents selon la complexité
+
+Le Socle est conçu pour cette transition. La méthode est prête, les outils suivront.
+
+---
+
 ## Règles de l'orchestrateur
 
 1. **Ne jamais lancer une tâche dont les dépendances ne sont pas terminées**
