@@ -41,12 +41,23 @@ Déterminer quelle issue est à traiter. Sources possibles :
 
 Une fois l'issue identifiée, charger **uniquement** ce qui est pertinent :
 
-#### Le skill assigné
+#### Le modèle approprié
 
-Lire le champ `Agent-skill` dans l'issue → charger le fichier skill correspondant.
+Lire le champ `complexity` dans le frontmatter de l'issue et consulter la table **Modèles IA par complexité** dans le manifest pour savoir quel modèle utiliser.
 
 ```
-Issue dit "Agent-skill: testing" → charger .socle/skills/testing.md
+Issue dit "complexity: heavy" → le manifest dit "heavy = Claude Opus" → utiliser Opus
+Issue dit "complexity: light" → le manifest dit "light = Claude Haiku" → utiliser Haiku
+```
+
+Si la complexité n'est pas spécifiée, utiliser le modèle `standard` par défaut. Si la table n'est pas remplie dans le manifest, signaler à l'humain.
+
+#### Le skill assigné
+
+Lire le champ `skill` dans l'issue → charger le fichier skill correspondant.
+
+```
+Issue dit "skill: testing" → charger .socle/skills/testing.md
 ```
 
 #### Les sections de memory pertinentes

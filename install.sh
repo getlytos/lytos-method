@@ -186,6 +186,18 @@ cat > "$SOCLE_DIR/manifest.md" << MANIFEST
 
 ---
 
+## Modèles IA par complexité
+
+*Mapper vos propres modèles selon votre budget et vos outils. Mettre à jour quand de meilleurs modèles sortent.*
+
+| Complexité | Usage | Modèle |
+|------------|-------|--------|
+| \`light\` | Documentation, formatage, renommage, boilerplate | |
+| \`standard\` | Développement courant, code review, tests | |
+| \`heavy\` | Architecture complexe, algorithmes critiques, sécurité | |
+
+---
+
 ## Liens importants
 
 | Ressource | URL |

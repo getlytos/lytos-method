@@ -4,6 +4,7 @@ title: "[Titre de la tâche]"
 type: task
 priority: P1-haute | P2-moyenne | P3-basse
 effort: XS | S
+complexity: light | standard | heavy
 skill: "[skill à invoquer]"
 status: 0-icebox
 depends: []

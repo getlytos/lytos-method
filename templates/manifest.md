@@ -91,6 +91,18 @@ Exemples (à remplacer par les vôtres) :
 
 ---
 
+## Modèles IA par complexité
+
+*Le Socle définit 3 niveaux de complexité pour les tâches. Chaque projet mappe ses propres modèles selon son budget et ses outils. Mettre à jour cette table quand de meilleurs modèles sortent.*
+
+| Complexité | Usage | Modèle |
+|------------|-------|--------|
+| `light` | Documentation, formatage, renommage, boilerplate, tâches mécaniques | |
+| `standard` | Développement courant, code review, tests, refactoring | |
+| `heavy` | Architecture complexe, algorithmes critiques, sécurité, code à haute valeur | |
+
+---
+
 ## Liens importants
 
 | Ressource | URL |

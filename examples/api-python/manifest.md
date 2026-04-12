@@ -79,6 +79,16 @@ Les applications de suivi de lecture existantes sont soit trop complexes (Goodre
 
 ---
 
+## Modèles IA par complexité
+
+| Complexité | Usage | Modèle |
+|------------|-------|--------|
+| `light` | Documentation, formatage, boilerplate | Claude Haiku |
+| `standard` | Développement courant, code review, tests | Claude Sonnet |
+| `heavy` | Architecture, requêtes SQL complexes, sécurité auth | Claude Opus |
+
+---
+
 ## Liens importants
 
 | Ressource | URL |

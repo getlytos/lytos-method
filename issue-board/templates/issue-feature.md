@@ -4,6 +4,7 @@ title: "[Titre de l'issue]"
 type: feat | fix | refactor | chore
 priority: P0-critique | P1-haute | P2-moyenne | P3-basse
 effort: XS | S | M | L | XL
+complexity: light | standard | heavy
 domain: []
 skill: "[skill principal à invoquer]"
 skills_aux: []

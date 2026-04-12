@@ -71,6 +71,16 @@ Les outils de gestion de tâches existants sont soit trop lourds (Jira), soit tr
 
 ---
 
+## Modèles IA par complexité
+
+| Complexité | Usage | Modèle |
+|------------|-------|--------|
+| `light` | Documentation, CSS, renommage, boilerplate | GPT-4o-mini |
+| `standard` | Composants React, hooks, tests | GPT-4o |
+| `heavy` | Architecture state management, optimisation rendering, SSR | Claude Opus |
+
+---
+
 ## Liens importants
 
 | Ressource | URL |
