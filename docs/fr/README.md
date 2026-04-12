@@ -6,9 +6,23 @@
 
 ---
 
-## Par où commencer ?
+## Pourquoi Le Socle ?
 
-**Démarrer maintenant** — une seule commande :
+Tu utilises l'IA pour coder. À chaque session, tu repars de zéro — tu réexpliques ton projet, tes contraintes, tes conventions. L'IA oublie tout. Tu te répètes. Le résultat est générique.
+
+Tu as essayé de donner un persona à ton agent — "Tu es un développeur Senior avec 20 ans d'expérience." Ça change le ton. Ça ne change pas la qualité.
+
+**Le Socle règle ce problème.** Au lieu de déguiser ton IA, tu lui donnes ce qui la rend vraiment meilleure : du contexte qui persiste, des procédures précises, et des critères de qualité vérifiables.
+
+Une installation. Ton IA comprend ton projet, se souvient de ce qu'elle apprend, suit tes procédures, et respecte tes standards — dès la première session.
+
+[Lire la philosophie complète → MANIFESTE.md](./MANIFESTE.md)
+
+---
+
+## Démarrer
+
+Une seule commande :
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | bash
@@ -18,15 +32,11 @@ Puis ouvre ton outil IA et dis-lui : **"Aide-moi à configurer le Socle pour ce 
 
 Guide complet → [DEMARRER.md](./DEMARRER.md)
 
-**Comprendre la philosophie** → [MANIFESTE.md](./MANIFESTE.md)
-
-**Contribuer** → [CONTRIBUTING.md](../../CONTRIBUTING.md)
-
 ---
 
-## Le problème
+## L'idée
 
-L'industrie IA reproduit l'organisation humaine — des agents avec des rôles, des titres, des personas. Un "LeadDev", un "Expert UX", tous en costume. C'est rassurant. Ce n'est pas efficace.
+L'industrie IA reproduit l'organisation humaine — des agents avec des rôles, des titres, des personas. C'est rassurant. Ce n'est pas efficace.
 
 Un agent IA n'a pas de mémoire limitée, pas de fatigue, pas d'ego. Lui imposer un rôle fixe, c'est le limiter.
 

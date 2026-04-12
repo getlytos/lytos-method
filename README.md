@@ -6,9 +6,23 @@
 
 ---
 
+## Why Le Socle?
+
+You use AI to code. Every session, you start from scratch — re-explaining your project, your constraints, your conventions. The AI forgets everything. You repeat yourself. The output is generic.
+
+You've tried giving your agent a persona — "You are a Senior Developer with 20 years of experience." It changes the tone. It doesn't change the quality.
+
+**Le Socle fixes this.** Instead of dressing up your AI in a costume, you give it what actually makes it better: context that persists, procedures that are precise, and quality criteria that are verifiable.
+
+One install. Your AI understands your project, remembers what it learns, follows your procedures, and respects your standards — from the first session.
+
+[Read the full philosophy → MANIFESTO.md](./MANIFESTO.md)
+
+---
+
 ## Get started
 
-**Start now** — one command:
+One command:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | bash
@@ -16,17 +30,13 @@ curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | ba
 
 Then open your AI tool and say: **"Help me configure Le Socle for this project."**
 
-Full guide → [docs/en/QUICKSTART.md](./docs/en/QUICKSTART.md) | [Guide en français](./docs/fr/DEMARRER.md)
-
-**Understand the philosophy** → [MANIFESTO.md](./MANIFESTO.md)
-
-**Contribute** → [CONTRIBUTING.md](./CONTRIBUTING.md)
+Full guide → [QUICKSTART.md](./docs/en/QUICKSTART.md) | [Guide en français](./docs/fr/DEMARRER.md)
 
 ---
 
-## The problem
+## The idea
 
-The AI industry copies human organization — agents with roles, titles, personas. A "Senior Dev", a "UX Expert", all wearing costumes. It's comforting. It's not effective.
+The AI industry copies human organization — agents with roles, titles, personas. It's comforting. It's not effective.
 
 An AI agent has no limited memory, no fatigue, no ego. Giving it a fixed role is limiting it.
 
