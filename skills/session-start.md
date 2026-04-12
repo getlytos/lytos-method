@@ -65,7 +65,7 @@ Consulter le sommaire `MEMORY.md` → charger les fichiers selon le domaine de l
 
 #### Les rules spécifiques
 
-Si des fichiers de rules spécifiques au projet existent (ex: `rules/wordpress-rules.md`), les charger aussi.
+Si des fichiers de rules spécifiques au projet existent (ex: `rules/bookshelf-rules.md`), les charger aussi.
 
 #### Les principes du manifest pour arbitrer
 

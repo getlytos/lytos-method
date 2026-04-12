@@ -41,7 +41,7 @@ memory/                         Scalables selon la complexité
 
 | Pilier | C'est quoi | Exemple concret |
 |--------|-----------|-----------------|
-| **Manifest** | La constitution du projet — le pourquoi | "Ce projet est un plugin WordPress de réservation pour..." |
+| **Manifest** | La constitution du projet — le pourquoi | "Ce projet est une API de gestion de bibliothèque pour..." |
 | **Skills** | Les procédures réutilisables — le comment | "Pour faire une code review, vérifier lisibilité, sécurité, tests..." |
 | **Rules** | Les critères de qualité — le standard | "Fichiers < 300 lignes, pas de valeurs en dur, tests obligatoires" |
 | **Memory** | Le cerveau persistant — ce qu'on a appris | "On a choisi l'API REST plutôt que admin-ajax parce que..." |
@@ -125,13 +125,16 @@ le-socle/
 ├── MANIFESTE.md              ← la philosophie complète
 ├── CONTRIBUER.md             ← guide de contribution
 ├── templates/                ← templates à copier dans ton projet
-├── skills/                   ← 6 skills de base
-│   ├── session-start.md      ← démarrage de session
+├── skills/                   ← 7 skills de base
+│   ├── session-start.md      ← démarrage et fin de session
 │   ├── code-review.md        ← revue de code
 │   ├── testing.md            ← tests unitaires et E2E
 │   ├── documentation.md      ← documentation et memory
 │   ├── git-workflow.md       ← conventions Git
-│   └── code-structure.md     ← structure et nommage
+│   ├── code-structure.md     ← structure et nommage
+│   └── deployment.md         ← déploiement et CI/CD
+├── scripts/                  ← outils d'automatisation
+│   └── generate-board.py     ← régénère le BOARD.md depuis les frontmatter
 ├── rules/                    ← règles de qualité par défaut
 ├── memory/                   ← template de mémoire
 │   ├── MEMORY.md             ← sommaire (lu à chaque session)
@@ -139,7 +142,7 @@ le-socle/
 ├── agents/                   ← documentation orchestrateur
 ├── adapters/                 ← connecteurs multi-IA
 ├── issue-board/              ← board Kanban (dossier = statut)
-└── examples/                 ← exemple concret (WordPress)
+└── examples/                 ← exemples concrets (API Python, App React)
 ```
 
 ---

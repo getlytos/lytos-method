@@ -35,4 +35,4 @@ Créer `.socle/rules/[nom-du-projet]-rules.md` avec les règles propres au proje
 
 ## Notes
 
-Voir `rules/README.md` pour le format attendu et des exemples de rules spécifiques (WordPress, API).
+Voir `rules/README.md` pour le format attendu et des exemples de rules spécifiques.

@@ -47,15 +47,6 @@ Pour ajouter des règles spécifiques à votre projet, créez un nouveau fichier
 
 ### Exemples de rules spécifiques
 
-**`wordpress-rules.md`** — pour un projet WordPress :
-```markdown
-| Règle | Détail |
-|-------|--------|
-| Préfixe des fonctions | Toutes les fonctions commencent par `monsitewp_` |
-| Hooks documentés | Chaque add_action/add_filter a un commentaire |
-| Pas de requêtes SQL directes | Utiliser $wpdb ou WP_Query |
-```
-
 **`api-rules.md`** — pour une API REST :
 ```markdown
 | Règle | Détail |
@@ -63,6 +54,15 @@ Pour ajouter des règles spécifiques à votre projet, créez un nouveau fichier
 | Codes HTTP corrects | 201 pour création, 204 pour suppression, pas 200 partout |
 | Pagination obligatoire | Tout endpoint qui liste des ressources est paginé |
 | Versioning | Toutes les routes commencent par /api/v1/ |
+```
+
+**`frontend-rules.md`** — pour une app React/Next.js :
+```markdown
+| Règle | Détail |
+|-------|--------|
+| Composants < 150 lignes | Au-delà, découper en sous-composants |
+| Server Components par défaut | `'use client'` uniquement quand nécessaire |
+| Accessibilité | Tout composant interactif navigable au clavier + ARIA |
 ```
 
 ### Principes pour écrire de bonnes rules

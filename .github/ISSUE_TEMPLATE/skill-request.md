@@ -28,7 +28,7 @@ assignees: ''
 
 ## Projets concernés
 
-*Sur quel type de projet ce skill serait utile ? (Web, mobile, API, WordPress, etc.)*
+*Sur quel type de projet ce skill serait utile ? (Web, mobile, API, CLI, etc.)*
 
 ## Prêt à contribuer ?
 

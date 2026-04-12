@@ -148,29 +148,27 @@ L'effort estimé influence l'orchestration :
 
 ---
 
-## Exemple complet — Sprint d'un plugin WordPress
+## Exemple complet — Sprint d'une API REST
 
 ```
-Sprint #02 — MVP du plugin de réservation
-Objectif : livrer le formulaire de réservation fonctionnel
+Sprint #01 — CRUD livres et collections (BookShelf API)
+Objectif : livrer les endpoints CRUD pour les livres et les collections
 
-ISS-0010  Créer la table wp_reservations          [M] code-structure    depends: []
-ISS-0011  Créer les constantes et config du plugin [XS] code-structure   depends: []
-ISS-0012  Implémenter le CRUD des réservations     [M] code-structure    depends: [ISS-0010]
-ISS-0013  Créer le formulaire front                [M] code-structure    depends: [ISS-0011]
-ISS-0014  Connecter le formulaire au CRUD          [S] code-structure    depends: [ISS-0012, ISS-0013]
-ISS-0015  Tests unitaires du CRUD                  [S] testing           depends: [ISS-0012]
-ISS-0016  Tests E2E du parcours réservation        [M] testing           depends: [ISS-0014]
-ISS-0017  Documentation utilisateur                [S] documentation     depends: [ISS-0014]
-ISS-0018  Code review finale                       [S] code-review       depends: [ISS-0015, ISS-0016, ISS-0017]
+ISS-0001  Créer les modèles SQLAlchemy             [M] code-structure    depends: []
+ISS-0002  Implémenter le repository Book           [S] code-structure    depends: [ISS-0001]
+ISS-0003  Créer les routes CRUD /books             [M] code-structure    depends: [ISS-0002]
+ISS-0004  Implémenter le repository Collection     [S] code-structure    depends: [ISS-0001]
+ISS-0005  Créer les routes CRUD /collections       [M] code-structure    depends: [ISS-0004]
+ISS-0006  Tests unitaires des repositories         [S] testing           depends: [ISS-0002, ISS-0004]
+ISS-0007  Tests E2E des routes                     [M] testing           depends: [ISS-0003, ISS-0005]
+ISS-0008  Documentation API                        [S] documentation     depends: [ISS-0003, ISS-0005]
 
 Exécution event-driven :
-→ ISS-0010 et ISS-0011 partent immédiatement (pas de dépendances)
-→ ISS-0010 terminée → ISS-0012 et ISS-0015 débloquées
-→ ISS-0011 terminée → ISS-0013 débloquée
-→ ISS-0012 + ISS-0013 terminées → ISS-0014 débloquée
-→ ISS-0014 terminée → ISS-0016 et ISS-0017 débloquées (sans attendre ISS-0015)
-→ ISS-0015 + ISS-0016 + ISS-0017 terminées → ISS-0018 débloquée
+→ ISS-0001 part immédiatement (pas de dépendances)
+→ ISS-0001 terminée → ISS-0002 et ISS-0004 débloquées → lancées en parallèle
+→ ISS-0002 terminée → ISS-0003 et ISS-0006 débloquées
+→ ISS-0004 terminée → ISS-0005 et ISS-0006 débloquées (ISS-0006 attendait les deux)
+→ ISS-0003 + ISS-0005 terminées → ISS-0007 et ISS-0008 débloquées
 ```
 
 ---
