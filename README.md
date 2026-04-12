@@ -8,7 +8,13 @@
 
 ## Par où commencer ?
 
-**Tu veux démarrer maintenant** → [DEMARRER.md](./DEMARRER.md) — opérationnel en 5 minutes
+**Tu veux démarrer maintenant** → une seule commande :
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | bash
+```
+
+Ou lis le guide complet → [DEMARRER.md](./DEMARRER.md)
 
 **Tu veux comprendre la philosophie** → [MANIFESTE.md](./MANIFESTE.md) — pourquoi cette méthode existe
 

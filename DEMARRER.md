@@ -1,25 +1,36 @@
 # Démarrer en 5 minutes
 
-*Tu viens d'installer Le Socle. Ce guide te rend opérationnel immédiatement — manifest + memory, c'est tout. Le reste viendra quand tu en auras besoin.*
+*Ce guide te rend opérationnel immédiatement — une commande, un manifest à remplir, et c'est parti.*
 
 ---
 
 ## Étape 1 — Installer (30 secondes)
 
+### Installation recommandée (une commande)
+
 ```bash
 cd ton-projet/
-git submodule add https://github.com/le-socle/socle .socle
+curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | bash
 ```
 
-Tu as maintenant un dossier `.socle/` avec tout ce qu'il faut.
+Le script te demande le nom du projet et ton outil IA, puis crée tout le nécessaire : manifest pré-rempli, memory, skills, rules, issue-board et le fichier de config pour ton outil (CLAUDE.md ou .cursorrules).
 
-## Étape 2 — Remplir ton manifest (3 minutes)
-
-Copie le template :
+Tu peux aussi passer les options directement :
 
 ```bash
+curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | bash -s -- --name "Mon Projet" --tool claude
+```
+
+### Alternative — Git submodule
+
+Si tu préfères avoir le repo complet (exemples, documentation, adapters) :
+
+```bash
+git submodule add https://github.com/le-socle/socle .socle
 cp .socle/templates/manifest.md .socle/manifest.md
 ```
+
+## Étape 2 — Remplir ton manifest (3 minutes)
 
 Ouvre `.socle/manifest.md` et remplis **seulement ces 4 sections** :
 
@@ -30,17 +41,21 @@ Ouvre `.socle/manifest.md` et remplis **seulement ces 4 sections** :
 
 Le reste peut attendre. Ces 4 sections suffisent pour qu'un agent IA comprenne ton projet.
 
-## Étape 3 — Initialiser ta memory (1 minute)
+## Étape 3 — C'est fait
 
-La memory est déjà prête dans `.socle/memory/`. Ouvre `.socle/memory/MEMORY.md` et remplace `[Nom du projet]` par le nom de ton projet.
+Si tu as utilisé le script d'installation, la memory est initialisée et ton outil IA est configuré. Tout est prêt.
 
-C'est tout. La memory se remplira naturellement au fil du travail.
+Si tu as utilisé le submodule, initialise la memory :
 
-## Étape 4 — Connecter ton outil IA (1 minute)
+```bash
+# Remplacer [Nom du projet] dans .socle/memory/MEMORY.md
+```
 
-### Si tu utilises Claude Code
+Et crée le fichier de connexion pour ton outil (voir ci-dessous).
 
-Crée un fichier `CLAUDE.md` à la racine de ton projet :
+### Connexion pour Claude Code
+
+Le script crée automatiquement `CLAUDE.md`. Sinon, crée-le à la racine :
 
 ```markdown
 # CLAUDE.md
@@ -48,21 +63,16 @@ Crée un fichier `CLAUDE.md` à la racine de ton projet :
 Au démarrage de chaque session, lis ces fichiers :
 1. .socle/manifest.md
 2. .socle/memory/MEMORY.md
+3. .socle/rules/default-rules.md
 ```
 
-### Si tu utilises Cursor
+### Connexion pour Cursor
 
-Crée un fichier `.cursorrules` à la racine de ton projet :
+Le script crée automatiquement `.cursorrules`. Sinon, crée-le à la racine avec le même contenu.
 
-```
-Au démarrage de chaque session, lis ces fichiers :
-1. .socle/manifest.md
-2. .socle/memory/MEMORY.md
-```
+### Autre outil
 
-### Si tu utilises un autre outil
-
-Mets ces deux lignes dans les instructions système de ton outil, ou colle-les au début de ta conversation.
+Mets ces lignes dans les instructions système de ton outil, ou colle-les au début de ta conversation.
 
 ---
 
