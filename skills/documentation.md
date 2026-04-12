@@ -126,17 +126,21 @@ $resultat = MonModule::faire($input);
 
 La memory est le cerveau persistant du projet. Elle doit être mise à jour dans ces situations :
 
-### Quand mettre à jour
+### Où écrire
 
-| Situation | Section de la memory |
-|-----------|---------------------|
-| Décision architecturale prise | Architecture & Décisions techniques |
-| Pattern de code qui fonctionne bien | Patterns découverts |
-| Bug récurrent résolu | Problèmes récurrents & Solutions |
-| Approche testée et abandonnée | Ce qui ne fonctionne pas |
-| Nouveau fichier critique créé | Fichiers clés |
-| Apprentissage métier | Contexte métier accumulé |
-| Fin de sprint | Historique des sprints |
+La memory est structurée en fichiers spécialisés dans `memory/cortex/`. Écrire dans le bon fichier :
+
+| Situation | Fichier cortex |
+|-----------|----------------|
+| Décision architecturale prise | `cortex/architecture.md` |
+| Pattern de code qui fonctionne bien | `cortex/patterns.md` |
+| Bug récurrent résolu | `cortex/bugs.md` |
+| Apprentissage backend (API, BDD) | `cortex/backend.md` |
+| Apprentissage frontend (UI, JS, CSS) | `cortex/frontend.md` |
+| Apprentissage métier | `cortex/business.md` |
+| Fin de sprint | `cortex/sprints.md` |
+
+Après ajout, mettre à jour le compteur d'entrées et le résumé vivant dans `MEMORY.md`.
 
 ### Format d'une entrée memory
 
@@ -152,10 +156,39 @@ Chaque entrée est concise et actionnable :
 
 ### Règles de la memory
 
-- Ne jamais supprimer une entrée — seulement ajouter ou mettre à jour
-- Consolider les entrées redondantes lors des reviews de fin de sprint
 - Garder chaque entrée sous 5 lignes — si c'est plus long, c'est de la documentation, pas de la mémoire
 - Toujours dater les entrées
+- Écrire dans le fichier cortex correspondant au domaine, pas dans MEMORY.md
+
+### Consolidation de la memory — procédure de fin de sprint
+
+La memory grossit à chaque sprint. Sans entretien, elle devient du bruit. À chaque fin de sprint, effectuer cette consolidation :
+
+#### 1. Nettoyer
+
+Pour chaque fichier dans `cortex/` :
+
+- **Supprimer** les entrées qui ne sont plus vraies (décision inversée, code supprimé, bug corrigé définitivement)
+- **Fusionner** les entrées redondantes (deux entrées qui disent la même chose → une seule, plus précise)
+- **Archiver** les entrées qui ne sont plus utiles au quotidien mais qu'on veut garder (les déplacer dans une section `## Archive` en bas du fichier)
+
+#### 2. Vérifier la taille
+
+Chaque fichier cortex devrait rester sous **50 entrées**. Au-delà, c'est un signe que :
+- Des entrées sont devenues de la documentation (→ les déplacer dans le code ou un README)
+- Des entrées sont obsolètes (→ les supprimer ou archiver)
+- Le fichier couvre trop de domaines (→ le découper en deux fichiers cortex)
+
+#### 3. Mettre à jour le sommaire
+
+Après la consolidation :
+- Mettre à jour le compteur dans `MEMORY.md`
+- Mettre à jour le **résumé vivant** (3-5 lignes qui décrivent l'état actuel du projet)
+- Ajouter le sprint à `cortex/sprints.md`
+
+#### 4. Valider avec l'humain
+
+La consolidation est proposée par l'agent, validée par l'humain. On ne supprime pas de la mémoire sans accord.
 
 ---
 
