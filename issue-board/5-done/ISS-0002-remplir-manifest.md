@@ -1,37 +1,32 @@
-# ISS-0002 — Remplir le manifest du projet
-
-**Type** : `docs`
-**Priorité** : `P0-critique`
-**Effort** : `S`
-**Agent-skill** : documentation
-**Status** : `5-done`
-**Créé** : YYYY-MM-DD
-**Depends** : ISS-0001
-
 ---
+id: ISS-0002
+title: "Remplir le manifest du projet"
+type: docs
+priority: P0-critique
+effort: S
+skill: documentation
+status: 5-done
+depends: [ISS-0001]
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+---
+
+# ISS-0002 — Remplir le manifest du projet
 
 ## Contexte
 
 Le manifest est la constitution du projet — sans lui, les agents n'ont aucun contexte. C'est la première chose à remplir après l'installation du Socle.
 
-## Checklist
+## Critère de done
 
 - [ ] Copier `.socle/templates/manifest.md` vers `.socle/manifest.md`
-- [ ] Remplir la section **Identité** (nom, description, responsable)
-- [ ] Remplir la section **Pourquoi ce projet existe** (3-5 phrases)
-- [ ] Remplir la section **Ce que ce projet est** et **n'est pas**
-- [ ] Remplir la section **Stack technique**
-- [ ] Remplir la section **Vocabulaire du projet** (au moins 3 termes)
-- [ ] Remplir la section **Contraintes fondamentales**
+- [ ] Section **Identité** remplie (nom, description, responsable)
+- [ ] Section **Pourquoi ce projet existe** remplie (3-5 phrases)
+- [ ] Section **Ce que ce projet est** et **n'est pas** remplies
+- [ ] Section **Stack technique** remplie
+- [ ] Section **Vocabulaire du projet** remplie (au moins 3 termes)
+- [ ] Section **Principes de développement** remplie (au moins 2 arbitrages)
 
 ## Fichiers concernés
 
 - `.socle/manifest.md` (nouveau, copié depuis le template)
-
-## Critère de done
-
-Le manifest est rempli avec les informations réelles du projet. Un agent qui le lit comprend le projet, ses contraintes et son vocabulaire.
-
----
-
-*Dernière mise à jour : YYYY-MM-DD*

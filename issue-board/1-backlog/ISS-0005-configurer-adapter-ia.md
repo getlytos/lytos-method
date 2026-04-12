@@ -1,14 +1,16 @@
-# ISS-0005 — Configurer l'adapter IA du projet
-
-**Type** : `chore`
-**Priorité** : `P1-haute`
-**Effort** : `XS`
-**Agent-skill** : —
-**Status** : `1-backlog`
-**Créé** : YYYY-MM-DD
-**Depends** : ISS-0002
-
 ---
+id: ISS-0005
+title: "Configurer l'adapter IA du projet"
+type: chore
+priority: P1-haute
+effort: XS
+skill: ~
+status: 1-backlog
+depends: [ISS-0002]
+created: YYYY-MM-DD
+---
+
+# ISS-0005 — Configurer l'adapter IA du projet
 
 ## Quoi faire
 
@@ -25,8 +27,4 @@ Selon l'outil :
 
 ## Critère de done
 
-L'outil IA charge automatiquement le manifest et la memory à chaque nouvelle session. Un test : démarrer une session et demander "Quel est le projet sur lequel on travaille ?" — l'agent doit répondre correctement.
-
----
-
-*Dernière mise à jour : YYYY-MM-DD*
+L'outil IA charge automatiquement le manifest et la memory à chaque nouvelle session. Test : démarrer une session et demander "Quel est le projet sur lequel on travaille ?" — l'agent doit répondre correctement.

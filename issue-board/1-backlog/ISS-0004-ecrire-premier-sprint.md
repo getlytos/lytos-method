@@ -1,14 +1,16 @@
-# ISS-0004 — Écrire le premier sprint
-
-**Type** : `docs`
-**Priorité** : `P1-haute`
-**Effort** : `S`
-**Agent-skill** : documentation
-**Status** : `1-backlog`
-**Créé** : YYYY-MM-DD
-**Depends** : ISS-0003
-
 ---
+id: ISS-0004
+title: "Écrire le premier sprint"
+type: docs
+priority: P1-haute
+effort: S
+skill: documentation
+status: 1-backlog
+depends: [ISS-0003]
+created: YYYY-MM-DD
+---
+
+# ISS-0004 — Écrire le premier sprint
 
 ## Quoi faire
 
@@ -22,7 +24,3 @@ Copier `.socle/templates/sprint.md` vers `.socle/sprint.md` et le remplir avec l
 ## Critère de done
 
 Le sprint est rempli avec au moins 3 issues concrètes, les dépendances sont tracées, et l'objectif du sprint est clair en une phrase.
-
----
-
-*Dernière mise à jour : YYYY-MM-DD*

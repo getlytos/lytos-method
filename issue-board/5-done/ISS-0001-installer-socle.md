@@ -1,14 +1,17 @@
-# ISS-0001 — Installer Le Socle dans le projet
-
-**Type** : `chore`
-**Priorité** : `P0-critique`
-**Effort** : `XS`
-**Agent-skill** : —
-**Status** : `5-done`
-**Créé** : YYYY-MM-DD
-**Depends** : —
-
 ---
+id: ISS-0001
+title: "Installer Le Socle dans le projet"
+type: chore
+priority: P0-critique
+effort: XS
+skill: ~
+status: 5-done
+depends: []
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+---
+
+# ISS-0001 — Installer Le Socle dans le projet
 
 ## Quoi faire
 
@@ -26,7 +29,3 @@ git submodule add https://github.com/le-socle/socle .socle
 ## Critère de done
 
 Le dossier `.socle/` existe à la racine du projet avec toute la structure du Socle : skills, rules, templates, issue-board.
-
----
-
-*Dernière mise à jour : YYYY-MM-DD*
