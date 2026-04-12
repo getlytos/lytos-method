@@ -104,6 +104,24 @@ Manifest + memory. Ton IA comprend ton projet et se souvient de ce qu'elle appre
 
 ---
 
+## Interopérabilité — une question de survie
+
+Ce n'est pas un avantage technique. C'est une position philosophique.
+
+GPT-4 remplacé par GPT-4o remplacé par o1 remplacé par o3. Claude 2 → 3 → 3.5 → 4. Les modèles changent tous les 3–6 mois. Les APIs évoluent. Les prix changent. Des features disparaissent. Des vendors pivotent.
+
+Sans Le Socle, ton contexte projet vit dans des conversations propriétaires. Ton workflow est câblé sur un outil spécifique. Le jour où le vendor change ses conditions, augmente ses prix, ou sort un nouveau modèle qui casse ton workflow — tu recommences à zéro.
+
+C'est exactement le problème du vendor lock-in qu'on a connu avec AWS, Salesforce, Adobe. Sauf que là, ça change quatre fois par an.
+
+**La réponse du Socle :** tout est du markdown. Le manifest, les skills, la memory, les rules — des fichiers texte que tu possèdes, que tu versionnes dans git, que tu migres librement. L'IA est un moteur. Les moteurs se changent. Le socle est ce qui persiste.
+
+Ça tourne sur Claude Code aujourd'hui. Ça tournera sur le modèle de demain. Ça peut tourner sur un LLM local si les conditions d'un vendor deviennent inacceptables.
+
+**Ton savoir projet t'appartient. Pas à un vendor.**
+
+---
+
 ## Principes fondateurs
 
 1. **Le manifest prime.** Tout part de ce que l'humain a défini.
@@ -112,6 +130,7 @@ Manifest + memory. Ton IA comprend ton projet et se souvient de ce qu'elle appre
 4. **Le contrôle est humain.** Les agents exécutent. L'humain valide et oriente.
 5. **Complémentarité, pas mimétisme.** L'IA n'est pas un humain dématérialisé.
 6. **Progressif par design.** On commence petit, on ajoute quand on en a besoin.
+7. **La souveraineté par le texte.** Le savoir projet vit dans des fichiers que tu possèdes — pas chez un vendor. L'IA est un moteur interchangeable.
 
 ---
 

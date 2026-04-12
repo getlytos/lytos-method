@@ -148,6 +148,24 @@ Le Socle is language-agnostic. Skills and rules work with Python, JavaScript, PH
 
 ---
 
+## Interoperability — a matter of survival
+
+This is not a technical advantage. It is a philosophical position.
+
+GPT-4 replaced by GPT-4o replaced by o1 replaced by o3. Claude 2 → 3 → 3.5 → 4. Models change every 3–6 months. APIs evolve. Prices shift. Features disappear. Vendors pivot.
+
+Without Le Socle, your project context lives inside proprietary conversations. Your workflow is wired to a specific tool. The day the vendor changes terms, raises prices, or ships a new model that breaks your workflow — you start over from zero.
+
+This is the vendor lock-in problem we already lived through with AWS, Salesforce, Adobe. Except now it changes four times a year.
+
+**Le Socle's answer:** everything is markdown. The manifest, the skills, the memory, the rules — plain text files that you own, version in git, and migrate freely. The AI is an engine. Engines are swapped. The socle is what persists.
+
+It runs on Claude Code today. It will run on tomorrow's model. It can run on a local LLM if a vendor's conditions become unacceptable.
+
+**Your project knowledge belongs to you. Not to a vendor.**
+
+---
+
 ## Repository structure
 
 ```
@@ -186,6 +204,7 @@ le-socle/
 4. **Control is human.** Agents execute. The human validates and steers.
 5. **Complement, don't mimic.** AI is not a virtual human.
 6. **Progressive by design.** Start small, add when needed.
+7. **Sovereignty through text.** Project knowledge lives in files you own — not inside a vendor. The AI is an interchangeable engine.
 
 ---
 

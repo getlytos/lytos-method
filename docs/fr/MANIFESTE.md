@@ -170,6 +170,8 @@ Le Socle est l'interface entre les deux.
 
 7. **La structure avant l'échelle.** On ne scale pas le chaos. Un socle bien défini d'abord, des agents en nombre ensuite.
 
+8. **La souveraineté par le texte.** Le savoir projet ne vit pas chez un vendor. Il vit dans des fichiers que tu possèdes, que tu versionnes, que tu migres librement. Le manifest est du markdown. Les skills sont du markdown. La memory est du markdown. Les rules sont du markdown. L'IA est un moteur interchangeable. Le socle est ce qui persiste. Le jour où un vendor change ses conditions, augmente ses prix, ou sort un modèle qui casse ton workflow — tu changes le moteur. Tu ne recommences pas à zéro.
+
 ---
 
 ## X. Pour qui
