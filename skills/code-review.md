@@ -75,7 +75,7 @@ Appliquer chaque point de cette checklist sur le code soumis :
 - [ ] Les assets sont optimisés si modifiés
 
 #### Documentation
-- [ ] Les fonctions publiques ont une PHPDoc / JSDoc
+- [ ] Les fonctions publiques sont documentées (docstring, PHPDoc, JSDoc, GoDoc...)
 - [ ] Les comportements non évidents ont un commentaire
 - [ ] Le README est mis à jour si l'interface publique change
 
@@ -102,16 +102,16 @@ Suggestion de correction (si applicable).
 Exemple :
 
 ```
-[CRITIQUE] src/auth/login.php:42
-La variable $password est logguée en clair dans le fichier de debug.
-→ Supprimer le var_dump() ou remplacer par un hash avant logging.
+[CRITIQUE] src/auth/login.py:42
+Le mot de passe est loggué en clair dans le fichier de debug.
+→ Supprimer le print() ou remplacer par un hash avant logging.
 
-[AVERTISSEMENT] src/components/ProductCard.js:128
+[AVERTISSEMENT] src/components/ProductCard.tsx:128
 Couleur #FF6B35 en dur dans le style inline.
-→ Utiliser la variable CSS --color-accent définie dans le thème.
+→ Utiliser une variable de thème ou une constante nommée.
 
-[SUGGESTION] src/utils/format.js:15
-La fonction formatDate pourrait utiliser Intl.DateTimeFormat pour un meilleur support i18n.
+[SUGGESTION] src/utils/format.go:15
+La fonction FormatDate pourrait utiliser time.Format avec un layout plus standard.
 ```
 
 ### 5. Synthèse

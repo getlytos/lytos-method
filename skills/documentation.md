@@ -15,35 +15,32 @@
 
 ## Documentation du code
 
-### PHPDoc
+### Principe universel
 
-Toute fonction et méthode publique doit avoir un bloc PHPDoc complet.
+Toute fonction et méthode publique doit être documentée. Le format dépend du langage, le contenu est le même :
 
-```php
-/**
- * Calcule le prix TTC à partir du prix HT et du taux de TVA.
- *
- * @param float $prixHT    Le prix hors taxes en euros.
- * @param float $tauxTVA   Le taux de TVA (ex: 0.20 pour 20%).
- *
- * @return float Le prix TTC arrondi à 2 décimales.
- *
- * @throws InvalidArgumentException Si le prix HT est négatif.
- */
-public function calculerTTC(float $prixHT, float $tauxTVA): float
+1. **Première ligne** : ce que fait la fonction (verbe à l'infinitif)
+2. **Paramètres** : type + nom + description en une phrase
+3. **Retour** : type + description, incluant les cas limites (liste vide, null, erreur)
+4. **Erreurs** : chaque exception ou erreur possible avec sa condition
+
+### Exemples par langage
+
+```python
+def calculer_ttc(prix_ht: float, taux_tva: float) -> float:
+    """Calcule le prix TTC à partir du prix HT et du taux de TVA.
+
+    Args:
+        prix_ht: Le prix hors taxes en euros.
+        taux_tva: Le taux de TVA (ex: 0.20 pour 20%).
+
+    Returns:
+        Le prix TTC arrondi à 2 décimales.
+
+    Raises:
+        ValueError: Si le prix HT est négatif.
+    """
 ```
-
-#### Règles PHPDoc
-
-- Première ligne : **ce que fait** la fonction (verbe à l'infinitif)
-- `@param` : type + nom + description en une phrase
-- `@return` : type + description de ce qui est retourné
-- `@throws` : chaque exception possible avec sa condition
-- Pas de PHPDoc sur les getters/setters triviaux sans logique
-
-### JSDoc
-
-Même logique pour JavaScript/TypeScript.
 
 ```javascript
 /**
@@ -56,25 +53,42 @@ Même logique pour JavaScript/TypeScript.
 function filtrerProduits(produits, criteres) {
 ```
 
-#### Règles JSDoc
+```go
+// CalculerTTC calcule le prix TTC à partir du prix HT et du taux de TVA.
+// Retourne une erreur si le prix HT est négatif.
+func CalculerTTC(prixHT, tauxTVA float64) (float64, error) {
+```
 
-- Première ligne : ce que fait la fonction
-- `@param` : `{type}` nom - description
-- `@returns` : `{type}` description, incluant les cas limites (tableau vide, null)
-- Pour TypeScript avec des types explicites : la JSDoc reste utile pour la description en langage naturel
+```php
+/**
+ * Calcule le prix TTC à partir du prix HT et du taux de TVA.
+ *
+ * @param float $prixHT    Le prix hors taxes en euros.
+ * @param float $tauxTVA   Le taux de TVA (ex: 0.20 pour 20%).
+ * @return float Le prix TTC arrondi à 2 décimales.
+ * @throws InvalidArgumentException Si le prix HT est négatif.
+ */
+public function calculerTTC(float $prixHT, float $tauxTVA): float
+```
+
+### Pas de documentation sur
+
+- Les getters/setters triviaux sans logique
+- Les fonctions privées dont le nom est suffisamment explicite
+- Les wrappers évidents d'une seule ligne
 
 ### Commentaires inline
 
 Les commentaires inline ne servent **pas** à répéter ce que fait le code — ils servent à expliquer **pourquoi**.
 
-```javascript
-// ✅ Bon — explique le pourquoi
-// On arrondit à l'entier supérieur car l'API de paiement n'accepte pas les centimes
-const montant = Math.ceil(total);
+```python
+# ✅ Bon — explique le pourquoi
+# On arrondit à l'entier supérieur car l'API de paiement n'accepte pas les centimes
+montant = math.ceil(total)
 
-// ❌ Mauvais — répète le code
-// On arrondit le total
-const montant = Math.ceil(total);
+# ❌ Mauvais — répète le code
+# On arrondit le total
+montant = math.ceil(total)
 ```
 
 #### Quand commenter

@@ -19,7 +19,7 @@
 
 | Règle | Détail |
 |-------|--------|
-| PHPDoc / JSDoc obligatoire | Sur toute fonction et méthode publique |
+| Documentation obligatoire (docstring, JSDoc, PHPDoc, GoDoc...) | Sur toute fonction et méthode publique |
 | Commentaires inline | Seulement pour expliquer le **pourquoi**, jamais le **quoi** |
 | README par module | Chaque module majeur a un README minimal |
 
@@ -53,8 +53,7 @@ Aucune valeur magique dans le code de production.
 
 | Interdit | Pourquoi |
 |----------|----------|
-| `console.log()` | Utiliser un logger structuré |
-| `var_dump()` / `dd()` | Outils de debug, pas de production |
+| `console.log()`, `print()`, `var_dump()`, `fmt.Println()` | Utiliser un logger structuré — pas de debug en production |
 | `// TODO` sans référence | Un TODO doit pointer vers une issue : `// TODO(ISS-XXXX)` |
 | Code commenté | Si c'est commenté, c'est mort — le supprimer. Git est l'historique |
 | `@ts-ignore` / `@phpstan-ignore` sans justification | Si on ignore un warning, expliquer pourquoi |

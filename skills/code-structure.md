@@ -61,23 +61,28 @@ module/
 
 ### Fichiers
 
+Suivre la convention du langage et de l'écosystème du projet :
+
 | Langage | Convention | Exemple |
 |---------|-----------|---------|
+| Python | snake_case | `product_service.py` |
+| JavaScript/TypeScript | kebab-case | `product-service.js` |
 | PHP (classes) | PascalCase | `ProductService.php` |
-| PHP (fonctions) | kebab-case | `format-helpers.php` |
-| JS/TS | kebab-case | `product-service.js` |
+| Go | snake_case | `product_service.go` |
+| Rust | snake_case | `product_service.rs` |
 | CSS/SCSS | kebab-case | `product-card.scss` |
-| Tests | suffixe `.test` ou `.spec` | `product-service.test.js` |
 
 ### Variables
 
-| Type | Convention | Exemple |
-|------|-----------|---------|
-| Variables locales | camelCase | `$prixTotal`, `const prixTotal` |
-| Constantes | UPPER_SNAKE_CASE | `MAX_RETRY_COUNT`, `API_BASE_URL` |
-| Booléens | préfixe is/has/can/should | `$isActive`, `hasPermission` |
-| Tableaux/listes | pluriel | `$produits`, `const utilisateurs` |
-| Élément unique | singulier | `$produit`, `const utilisateur` |
+Suivre les conventions du langage. Les principes universels :
+
+| Principe | Exemple |
+|----------|---------|
+| Constantes en UPPER_SNAKE_CASE | `MAX_RETRY_COUNT`, `API_BASE_URL` |
+| Booléens : préfixe is/has/can/should | `is_active`, `hasPermission` |
+| Listes/tableaux : pluriel | `produits`, `users` |
+| Élément unique : singulier | `produit`, `user` |
+| Pas d'abréviation obscure | `utilisateur` pas `usr`, `response` pas `resp` |
 
 ### Fonctions
 
@@ -100,37 +105,42 @@ module/
 
 ## Organisation des imports
 
-Les imports sont organisés dans cet ordre, séparés par une ligne vide :
+Les imports sont organisés par catégorie, séparés par une ligne vide. L'ordre est le même quel que soit le langage :
+
+1. **Bibliothèque standard** (built-in)
+2. **Dépendances externes** (packages tiers)
+3. **Modules internes** (chemins absolus dans le projet)
+4. **Modules relatifs** (même dossier/module)
+
+```python
+# 1. Standard
+import os
+from pathlib import Path
+
+# 2. Externe
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+# 3. Interne
+from app.services.product import ProductService
+
+# 4. Relatif
+from .helpers import format_price
+```
 
 ```javascript
-// 1. Modules natifs / built-in
+// 1. Standard
 import path from 'path';
-import fs from 'fs';
 
-// 2. Dépendances externes (node_modules)
+// 2. Externe
 import express from 'express';
 import { z } from 'zod';
 
-// 3. Modules internes — chemins absolus
-import { authMiddleware } from '@/middlewares/auth';
+// 3. Interne
 import { ProductService } from '@/services/product';
 
-// 4. Modules relatifs — même module
+// 4. Relatif
 import { formatPrice } from './helpers';
-import { PRODUCT_STATUS } from './constants';
-```
-
-```php
-// 1. Namespace du framework
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-
-// 2. Dépendances externes
-use Stripe\Stripe;
-
-// 3. Namespace du projet
-use App\Services\ProductService;
-use App\Models\Product;
 ```
 
 ---
@@ -147,45 +157,41 @@ use App\Models\Product;
 - Maximum **3 niveaux** d'imbrication
 - Utiliser le **early return** pour réduire le nesting
 
-```php
-// ✅ Bon — early return
-function traiterCommande($commande) {
-    if (!$commande->estValide()) {
-        return new Erreur('Commande invalide');
-    }
+```python
+# ✅ Bon — early return
+def traiter_commande(commande):
+    if not commande.est_valide():
+        raise ValueError("Commande invalide")
 
-    if (!$commande->client->peutCommander()) {
-        return new Erreur('Client non autorisé');
-    }
+    if not commande.client.peut_commander():
+        raise PermissionError("Client non autorisé")
 
-    return $this->executerCommande($commande);
-}
+    return executer_commande(commande)
 
-// ❌ Mauvais — nesting profond
-function traiterCommande($commande) {
-    if ($commande->estValide()) {
-        if ($commande->client->peutCommander()) {
-            return $this->executerCommande($commande);
-        } else {
-            return new Erreur('Client non autorisé');
-        }
-    } else {
-        return new Erreur('Commande invalide');
-    }
-}
+# ❌ Mauvais — nesting profond
+def traiter_commande(commande):
+    if commande.est_valide():
+        if commande.client.peut_commander():
+            return executer_commande(commande)
+        else:
+            raise PermissionError("Client non autorisé")
+    else:
+        raise ValueError("Commande invalide")
 ```
+
+Le principe est identique dans tous les langages : sortir tôt des cas d'erreur pour garder le chemin principal au niveau d'indentation le plus bas.
 
 ### Paramètres
 
 - Maximum **4 paramètres** par fonction
-- Au-delà, regrouper dans un objet ou un DTO
+- Au-delà, regrouper dans un objet, un dict, un struct ou un DTO
 
-```javascript
-// ✅ Bon — objet de configuration
-function creerUtilisateur({ nom, email, role, departement }) {
+```python
+# ✅ Bon — objet de configuration
+def creer_utilisateur(config: UserConfig):
 
-// ❌ Mauvais — trop de paramètres
-function creerUtilisateur(nom, email, role, departement, dateDebut, manager) {
+# ❌ Mauvais — trop de paramètres
+def creer_utilisateur(nom, email, role, departement, date_debut, manager):
 ```
 
 ---
@@ -194,23 +200,29 @@ function creerUtilisateur(nom, email, role, departement, dateDebut, manager) {
 
 Aucune valeur magique dans le code. Tout doit être nommé.
 
+```python
+# ✅ Bon
+TVA_FRANCE = 0.20
+prix_ttc = prix_ht * (1 + TVA_FRANCE)
+
+# ❌ Mauvais
+prix_ttc = prix_ht * 1.20
+```
+
 ```javascript
 // ✅ Bon
-const TVA_FRANCE = 0.20;
-const prixTTC = prixHT * (1 + TVA_FRANCE);
-
+const MAX_RETRIES = 3;
 // ❌ Mauvais
-const prixTTC = prixHT * 1.20;
+if (attempts > 3) {
 ```
+
+Pour le CSS, même principe — utiliser des variables, pas des valeurs en dur :
 
 ```css
 /* ✅ Bon */
 color: var(--color-primary);
-margin: var(--spacing-md);
-
 /* ❌ Mauvais */
 color: #3B82F6;
-margin: 16px;
 ```
 
 ---
