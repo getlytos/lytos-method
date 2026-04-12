@@ -116,7 +116,8 @@ download "$REPO_RAW/rules/default-rules.md" "$SOCLE_DIR/rules/default-rules.md"
 download "$REPO_RAW/rules/README.md" "$SOCLE_DIR/rules/README.md"
 ok "Rules installed"
 
-info "Downloading issue templates..."
+info "Downloading templates..."
+download "$REPO_RAW/templates/sprint.md" "$SOCLE_DIR/templates/sprint.md"
 download "$REPO_RAW/issue-board/templates/issue-feature.md" "$SOCLE_DIR/issue-board/templates/issue-feature.md"
 download "$REPO_RAW/issue-board/templates/issue-task.md" "$SOCLE_DIR/issue-board/templates/issue-task.md"
 ok "Templates installed"
@@ -126,147 +127,147 @@ download "$REPO_RAW/scripts/generate-board.py" "$SOCLE_DIR/scripts/generate-boar
 chmod +x "$SOCLE_DIR/scripts/generate-board.py"
 ok "Script installed"
 
-# --- Créer le manifest pré-rempli ---
+# --- Create pre-filled manifest ---
 info "Creating manifest..."
 cat > "$SOCLE_DIR/manifest.md" << MANIFEST
 # Manifest — $PROJECT_NAME
 
-*Ce manifest est la constitution du projet $PROJECT_NAME. Il est lu par les agents au démarrage de chaque session de travail.*
+*This file is the project's constitution. It is read by agents at the start of each work session.*
 
 ---
 
-## Identité
+## Identity
 
-| Champ | Valeur |
-|-------|--------|
-| Nom | $PROJECT_NAME |
+| Field | Value |
+|-------|-------|
+| Name | $PROJECT_NAME |
 | Description | |
-| Responsable | |
+| Owner | |
 | Repo | |
 
 ---
 
-## Pourquoi ce projet existe
+## Why this project exists
 
-*3-5 phrases. Le "pourquoi" de ce projet.*
-
----
-
-## Ce que ce projet est
-
--
-
-## Ce que ce projet n'est pas
-
--
+*3-5 sentences. The "why" of this project.*
 
 ---
 
-## Stack technique
+## What this project is
 
-| Composant | Technologie |
-|-----------|-------------|
-| Langage | |
+-
+
+## What this project is not
+
+-
+
+---
+
+## Tech stack
+
+| Component | Technology |
+|-----------|------------|
+| Language | |
 | Framework | |
-| Base de données | |
+| Database | |
 | Tests | |
 
 ---
 
-## Vocabulaire du projet
+## Project vocabulary
 
-| Terme | Définition |
-|-------|------------|
+| Term | Definition |
+|------|-----------|
 | | |
 
 ---
 
-## Principes de développement
+## Development principles
 
-*Quand un agent hésite entre deux approches, il consulte ces principes pour trancher. Formuler comme des arbitrages : "on préfère X plutôt que Y, parce que Z."*
+*When an agent hesitates between two approaches, it consults these principles to decide. Formulate as trade-offs: "we prefer X over Y, because Z."*
 
 -
 -
 
 ---
 
-## Modèles IA par complexité
+## AI models by complexity
 
-*Mapper vos propres modèles selon votre budget et vos outils. Mettre à jour quand de meilleurs modèles sortent.*
+*Map your own models based on your budget and tools. Update when better models come out.*
 
-| Complexité | Usage | Modèle |
-|------------|-------|--------|
-| \`light\` | Documentation, formatage, renommage, boilerplate | |
-| \`standard\` | Développement courant, code review, tests | |
-| \`heavy\` | Architecture complexe, algorithmes critiques, sécurité | |
+| Complexity | Usage | Model |
+|------------|-------|-------|
+| \`light\` | Documentation, formatting, renaming, boilerplate | |
+| \`standard\` | Day-to-day development, code review, tests | |
+| \`heavy\` | Complex architecture, critical algorithms, security | |
 
 ---
 
-## Liens importants
+## Important links
 
-| Ressource | URL |
-|-----------|-----|
-| Repo principal | |
+| Resource | URL |
+|----------|-----|
+| Main repo | |
 | Documentation | |
 | Staging | |
 | Production | |
 
 ---
 
-*Dernière mise à jour : $(date +%Y-%m-%d)*
+*Last updated: $(date +%Y-%m-%d)*
 MANIFEST
 ok "Manifest created — to be filled in"
 
-# --- Créer la memory ---
+# --- Create memory ---
 info "Creating memory..."
 cat > "$SOCLE_DIR/memory/MEMORY.md" << MEMORY
 # Memory — $PROJECT_NAME
 
-*Ce fichier est le sommaire de la mémoire du projet. Ne pas tout lire — charger uniquement ce qui est pertinent pour la tâche en cours.*
+*This file is the project memory's table of contents. Do not read everything — load only what is relevant to the current task.*
 
-> **Dernière mise à jour** : $(date +%Y-%m-%d)
-> **Nombre d'entrées** : 0
-
----
-
-## Index des sections
-
-| Fichier | Contenu | Charger quand... |
-|---------|---------|------------------|
-| [architecture.md](./cortex/architecture.md) | Décisions architecturales, choix techniques | Toute tâche structurante |
-| [backend.md](./cortex/backend.md) | Patterns et pièges côté serveur | Tâche backend |
-| [frontend.md](./cortex/frontend.md) | Patterns et pièges côté client | Tâche frontend |
-| [patterns.md](./cortex/patterns.md) | Patterns de code récurrents | Code review, nouveau code |
-| [bugs.md](./cortex/bugs.md) | Problèmes récurrents et solutions | Debug, fix |
-| [business.md](./cortex/business.md) | Contexte métier, vocabulaire | Logique métier, UX |
-| [sprints.md](./cortex/sprints.md) | Historique des sprints | Planification |
+> **Last updated**: $(date +%Y-%m-%d)
+> **Number of entries**: 0
 
 ---
 
-## Résumé vivant
+## Section index
 
-*3-5 lignes. L'état actuel du projet en un coup d'œil.*
+| File | Content | Load when... |
+|------|---------|--------------|
+| [architecture.md](./cortex/architecture.md) | Architectural decisions, technical choices | Any structural task |
+| [backend.md](./cortex/backend.md) | Server-side patterns and pitfalls | Backend task |
+| [frontend.md](./cortex/frontend.md) | Client-side patterns and pitfalls | Frontend task |
+| [patterns.md](./cortex/patterns.md) | Recurring code patterns | Code review, new code |
+| [bugs.md](./cortex/bugs.md) | Recurring problems and solutions | Debug, fix |
+| [business.md](./cortex/business.md) | Business context, vocabulary | Business logic, UX |
+| [sprints.md](./cortex/sprints.md) | Sprint history | Planning |
 
 ---
 
-*Le dossier est la structure. Le fichier est le contenu. Ce sommaire est la carte.*
+## Living summary
+
+*3-5 lines. The current state of the project at a glance.*
+
+---
+
+*The folder is the structure. The file is the content. This table of contents is the map.*
 MEMORY
 
-# Créer les fichiers cortex pré-remplis avec exemples
+# Create pre-filled cortex files with examples
 cat > "$SOCLE_DIR/memory/cortex/architecture.md" << 'CORTEX'
-# Memory — Architecture & Décisions techniques
+# Memory — Architecture & Technical Decisions
 
-*Charger ce fichier pour toute tâche qui touche à la structure du projet.*
+*Load this file for any task that affects the project structure.*
 
 ---
 
-<!-- Exemple à adapter ou supprimer :
+<!-- Example to adapt or remove:
 
-### 2026-04-12 — Choix de la base de données
+### 2026-04-12 — Database choice
 
-**Contexte** : Hésitation entre SQLite (simple) et PostgreSQL (robuste).
-**Décision** : PostgreSQL dès le début.
-**Conséquence** : Besoin de Docker pour le dev local, mais pas de migration douloureuse plus tard.
+**Context**: Hesitation between SQLite (simple) and PostgreSQL (robust).
+**Decision**: PostgreSQL from the start.
+**Consequence**: Requires Docker for local dev, but no painful migration later.
 
 -->
 CORTEX
@@ -274,19 +275,19 @@ CORTEX
 cat > "$SOCLE_DIR/memory/cortex/backend.md" << 'CORTEX'
 # Memory — Backend
 
-*Charger ce fichier pour toute tâche backend : API, base de données, services.*
+*Load this file for any backend task: API, database, services.*
 
 ---
 
-<!-- Exemple à adapter ou supprimer :
+<!-- Example to adapt or remove:
 
-### Fichiers clés
+### Key files
 
-| Fichier | Rôle |
-|---------|------|
-| `src/main.py` | Point d'entrée de l'application |
-| `src/models/` | Modèles de données |
-| `src/routes/` | Endpoints API |
+| File | Role |
+|------|------|
+| `src/main.py` | Application entry point |
+| `src/models/` | Data models |
+| `src/routes/` | API endpoints |
 
 -->
 CORTEX
@@ -294,131 +295,131 @@ CORTEX
 cat > "$SOCLE_DIR/memory/cortex/frontend.md" << 'CORTEX'
 # Memory — Frontend
 
-*Charger ce fichier pour toute tâche frontend : UI, composants, styles.*
+*Load this file for any frontend task: UI, components, styles.*
 
 ---
 
-<!-- Exemple à adapter ou supprimer :
+<!-- Example to adapt or remove:
 
-### Fichiers clés
+### Key files
 
-| Fichier | Rôle |
-|---------|------|
-| `src/App.tsx` | Composant racine |
-| `src/components/` | Composants réutilisables |
-| `src/hooks/` | Hooks custom |
+| File | Role |
+|------|------|
+| `src/App.tsx` | Root component |
+| `src/components/` | Reusable components |
+| `src/hooks/` | Custom hooks |
 
 -->
 CORTEX
 
 cat > "$SOCLE_DIR/memory/cortex/patterns.md" << 'CORTEX'
-# Memory — Patterns découverts
+# Memory — Discovered Patterns
 
-*Charger ce fichier pour du code review, du refactoring, ou de l'écriture de nouveau code.*
+*Load this file for code review, refactoring, or writing new code.*
 
 ---
 
-<!-- Exemple à adapter ou supprimer :
+<!-- Example to adapt or remove:
 
-### Nom du pattern
+### Pattern name
 
-**Quoi** : Description du pattern en une phrase.
-**Où** : Fichier(s) où il est appliqué.
-**Pourquoi ça marche** : Ce qui le rend efficace dans ce contexte.
+**What**: One-sentence description of the pattern.
+**Where**: File(s) where it is applied.
+**Why it works**: What makes it effective in this context.
 
 -->
 CORTEX
 
 cat > "$SOCLE_DIR/memory/cortex/bugs.md" << 'CORTEX'
-# Memory — Problèmes récurrents & Solutions
+# Memory — Recurring Problems & Solutions
 
-*Charger ce fichier avant de debug — le problème a peut-être déjà été résolu.*
+*Load this file before debugging — the problem may have already been solved.*
 
 ---
 
-<!-- Exemple à adapter ou supprimer :
+<!-- Example to adapt or remove:
 
-| Problème | Cause | Solution |
-|----------|-------|----------|
-| Les tests échouent sur CI mais passent en local | Variables d'env manquantes dans le pipeline | Ajouter les secrets dans les settings CI |
+| Problem | Cause | Solution |
+|---------|-------|----------|
+| Tests fail on CI but pass locally | Missing env variables in pipeline | Add secrets in CI settings |
 
 -->
 CORTEX
 
 cat > "$SOCLE_DIR/memory/cortex/business.md" << 'CORTEX'
-# Memory — Contexte métier
+# Memory — Business Context
 
-*Charger ce fichier pour toute tâche qui touche à la logique métier ou à l'UX.*
+*Load this file for any task involving business logic or UX.*
 
 ---
 
-<!-- Exemple à adapter ou supprimer :
+<!-- Example to adapt or remove:
 
-### Nom du concept métier
+### Business concept name
 
-**Règle** : Ce que le métier impose.
-**Pourquoi** : La raison métier (pas technique).
-**Impact code** : Ce que ça implique concrètement.
+**Rule**: What the business requires.
+**Why**: The business reason (not technical).
+**Code impact**: What this means concretely in the code.
 
 -->
 CORTEX
 
 cat > "$SOCLE_DIR/memory/cortex/sprints.md" << 'CORTEX'
-# Memory — Historique des sprints
+# Memory — Sprint History
 
-*Charger ce fichier en début de sprint, en rétrospective, ou en planification.*
+*Load this file at sprint start, retrospective, or planning.*
 
 ---
 
-| Sprint | Objectif | Résultat | Apprentissage clé |
-|--------|----------|----------|-------------------|
+| Sprint | Objective | Result | Key learning |
+|--------|-----------|--------|--------------|
 
 CORTEX
 ok "Memory initialized"
 
-# --- Créer le BOARD.md ---
+# --- Create BOARD.md ---
 info "Creating board..."
 cat > "$SOCLE_DIR/issue-board/BOARD.md" << BOARD
 # Issue Board — $PROJECT_NAME
 
-> Chaque issue = un fichier \`ISS-XXXX-titre.md\` dans le dossier de son statut.
+> Each issue = a \`ISS-XXXX-title.md\` file in the folder matching its status.
 >
-> **Dernière mise à jour** : $(date +%Y-%m-%d)
-> **Prochain numéro** : ISS-0001
+> **Last updated**: $(date +%Y-%m-%d)
+> **Next number**: ISS-0001
 
-> Régénérer : \`python .socle/scripts/generate-board.py\`
+> Regenerate: \`python .socle/scripts/generate-board.py\`
 
 ---
 
-## Index des issues
+## Issue index
 
-### 0-icebox (idées)
+### 0-icebox (ideas)
 
-_Aucune issue._
+_No issues._
 
-### 1-backlog (priorisé)
+### 1-backlog (prioritized)
 
-_Aucune issue._
+_No issues._
 
-### 2-sprint (engagé)
+### 2-sprint (committed)
 
-_Aucune issue._
+_No issues._
 
-### 3-in-progress (en dev)
+### 3-in-progress (in dev)
 
-_Aucune issue._
+_No issues._
 
 ### 4-review (review/test)
 
-_Aucune issue._
+_No issues._
 
-### 5-done (terminé)
+### 5-done (completed)
 
-_Aucune issue._
+_No issues._
 
 ---
 
-*Le frontmatter YAML est la source de vérité. Le dossier est le statut visuel. Le BOARD.md est la carte.*
+*The YAML frontmatter is the source of truth. The folder is the visual status. The BOARD.md is the map.*
 BOARD
 ok "Board created"
 

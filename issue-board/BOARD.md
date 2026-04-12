@@ -58,8 +58,8 @@ _No issues._
 
 | # | Title | Completed |
 |---|-------|-----------|
-| [ISS-0001](5-done/ISS-0001-installer-socle.md) | Install Le Socle in the project | YYYY-MM-DD |
-| [ISS-0002](5-done/ISS-0002-remplir-manifest.md) | Fill in the project manifest | YYYY-MM-DD |
+| [ISS-0001](5-done/ISS-0001-installer-socle.md) | Install Le Socle in the project | 2026-04-12 |
+| [ISS-0002](5-done/ISS-0002-remplir-manifest.md) | Fill in the project manifest | 2026-04-12 |
 
 ---
 

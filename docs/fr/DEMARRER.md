@@ -6,19 +6,20 @@
 
 ## Étape 1 — Installer (30 secondes)
 
-### Installation recommandée (une commande)
+### Installation recommandée (interactive)
 
 ```bash
 cd ton-projet/
-curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh -o install.sh
+bash install.sh
 ```
 
 Le script te demande le nom du projet et ton outil IA, puis crée tout le nécessaire : manifest pré-rempli, memory, skills, rules, issue-board et le fichier de config pour ton outil (CLAUDE.md ou .cursorrules).
 
-Tu peux aussi passer les options directement :
+Tu peux aussi passer les options directement (pas d'interaction) :
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | bash -s -- --name "Mon Projet" --tool claude
+bash install.sh --name "Mon Projet" --tool claude
 ```
 
 ### Alternative — Git submodule

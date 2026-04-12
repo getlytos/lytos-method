@@ -48,7 +48,7 @@ def parse_frontmatter(filepath):
 
 
 def find_issues(board_dir):
-    """Trouve toutes les issues dans les sous-dossiers de statut."""
+    """Find all issues in status subdirectories. Uses frontmatter status as source of truth."""
     issues = []
     status_dirs = ["0-icebox", "1-backlog", "2-sprint", "3-in-progress", "4-review", "5-done"]
 
@@ -59,9 +59,13 @@ def find_issues(board_dir):
         for filepath in sorted(dir_path.glob("ISS-*.md")):
             fm = parse_frontmatter(filepath)
             if fm:
-                # Le dossier est la vérité pour le statut visuel
-                fm["_status_dir"] = status_dir
+                fm["_folder"] = status_dir
                 fm["_filename"] = filepath.name
+                # Frontmatter status is the source of truth
+                fm_status = fm.get("status", "")
+                if fm_status and fm_status != status_dir:
+                    print(f"  Warning: {filepath.name} is in {status_dir}/ but frontmatter says status: {fm_status}")
+                fm["_status_dir"] = fm_status if fm_status else status_dir
                 issues.append(fm)
 
     return issues

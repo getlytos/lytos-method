@@ -46,4 +46,4 @@ cp .socle/templates/manifest.md .socle/manifest.md
 # Remplir le manifest, initialiser la memory, c'est parti
 ```
 
-Voir [DEMARRER.md](../../DEMARRER.md) pour le guide complet.
+See [QUICKSTART.md](../../docs/en/QUICKSTART.md) for the full guide.

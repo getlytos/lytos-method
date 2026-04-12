@@ -69,7 +69,7 @@ Issues have YAML frontmatter. The important fields:
 - `complexity: light | standard | heavy` — determines which model to use (see table in the manifest)
 - `skill` — the main skill to load
 - `depends` — issues that must be completed before this one
-- `status` — the folder in which the file is located (source of truth)
+- `status` — the canonical status (source of truth). The file should also be in the matching folder, but if there's a conflict, the frontmatter takes precedence
 
 ## Expected behavior
 

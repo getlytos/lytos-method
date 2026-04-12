@@ -6,19 +6,20 @@
 
 ## Step 1 — Install (30 seconds)
 
-### Recommended (one command)
+### Recommended (interactive)
 
 ```bash
 cd your-project/
-curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh -o install.sh
+bash install.sh
 ```
 
 The script asks for your project name and AI tool, then creates everything: pre-filled manifest, memory, skills, rules, issue-board and the config file for your tool (CLAUDE.md or .cursorrules).
 
-You can also pass options directly:
+Or pass options directly (no interaction needed):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | bash -s -- --name "My Project" --tool claude
+bash install.sh --name "My Project" --tool claude
 ```
 
 ### Alternative — Git submodule

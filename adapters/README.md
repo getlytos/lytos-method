@@ -37,7 +37,7 @@ Pour ajouter un adapter pour un nouvel outil IA :
    - Comment invoquer un skill explicitement
    - Comment structurer les agents sans personas (skill-first)
    - Un exemple de configuration complet
-3. Soumettre une PR en suivant [CONTRIBUER.md](../CONTRIBUER.md)
+3. Submit a PR following [CONTRIBUTING.md](../CONTRIBUTING.md)
 
 ### Principes à respecter
 

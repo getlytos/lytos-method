@@ -38,7 +38,7 @@ Guide complet → [DEMARRER.md](./DEMARRER.md)
 
 L'industrie IA reproduit l'organisation humaine — des agents avec des rôles, des titres, des personas. C'est rassurant. Ce n'est pas efficace.
 
-Un agent IA n'a pas de mémoire limitée, pas de fatigue, pas d'ego. Lui imposer un rôle fixe, c'est le limiter.
+Un agent IA n'a pas de fatigue, pas d'ego, pas de politique de bureau. Mais il a une fenêtre de contexte limitée — et il oublie tout entre les sessions. Lui donner un rôle fixe ne résout pas ça. Lui donner le bon contexte, si.
 
 **Le Socle propose un renversement** : on ne gère plus les agents, on définit le cadre dans lequel ils opèrent.
 

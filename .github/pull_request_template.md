@@ -21,7 +21,7 @@
 - [ ] Les noms de fichiers et dossiers sont en anglais
 - [ ] Le format des fichiers existants est respecté
 - [ ] Pas de jargon inutile — compréhensible par un non-développeur
-- [ ] J'ai lu [CONTRIBUER.md](../CONTRIBUER.md)
+- [ ] I have read [CONTRIBUTING.md](../CONTRIBUTING.md)
 
 ## Tests
 

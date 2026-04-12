@@ -22,10 +22,14 @@ One install. Your AI understands your project, remembers what it learns, follows
 
 ## Get started
 
-One command:
+```bash
+curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh -o install.sh && bash install.sh
+```
+
+The script asks your project name and AI tool, then creates everything. Or pass options directly:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | bash
+bash install.sh --name "My API" --tool claude
 ```
 
 Then open your AI tool and say: **"Help me configure Le Socle for this project."**
@@ -38,7 +42,7 @@ Full guide → [QUICKSTART.md](./docs/en/QUICKSTART.md) | [Guide en français](.
 
 The AI industry copies human organization — agents with roles, titles, personas. It's comforting. It's not effective.
 
-An AI agent has no limited memory, no fatigue, no ego. Giving it a fixed role is limiting it.
+An AI agent has no fatigue, no ego, no office politics. But it does have a limited context window — and it forgets everything between sessions. Giving it a fixed role doesn't solve this. Giving it the right context does.
 
 **Le Socle proposes a reversal**: instead of managing agents, you define the framework in which they operate.
 
