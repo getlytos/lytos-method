@@ -62,14 +62,14 @@ if [ -t 0 ] && [ -z "$PROJECT_NAME" ]; then
     echo ""
     echo -e "${BOLD}Le Socle${NC} — Installation"
     echo ""
-    read -p "Nom du projet : " PROJECT_NAME
+    read -p "Project name: " PROJECT_NAME
     echo ""
-    echo "Quel outil IA utilises-tu ?"
+    echo "Which AI tool do you use?"
     echo "  1) Claude Code"
     echo "  2) Cursor"
     echo "  3) OpenAI / Autre"
     echo ""
-    read -p "Choix (1/2/3) : " tool_choice
+    read -p "Choice (1/2/3): " tool_choice
     case $tool_choice in
         1) TOOL="claude" ;;
         2) TOOL="cursor" ;;
@@ -78,18 +78,18 @@ if [ -t 0 ] && [ -z "$PROJECT_NAME" ]; then
     esac
 fi
 
-PROJECT_NAME="${PROJECT_NAME:-Mon Projet}"
+PROJECT_NAME="${PROJECT_NAME:-My Project}"
 
 # --- Vérifications ---
 if [ -d "$SOCLE_DIR" ]; then
-    err "Le dossier $SOCLE_DIR existe déjà. Supprime-le d'abord ou utilise --dir."
+    err "Directory $SOCLE_DIR already exists. Remove it first or use --dir."
 fi
 
 echo ""
-info "Installation du Socle dans $SOCLE_DIR/"
+info "Installing Le Socle in $SOCLE_DIR/"
 
 # --- Créer la structure ---
-info "Création de la structure..."
+info "Creating directory structure..."
 
 mkdir -p "$SOCLE_DIR"/{memory/cortex,rules,skills,issue-board/{0-icebox,1-backlog,2-sprint,3-in-progress,4-review,5-done,templates},scripts}
 
@@ -98,36 +98,36 @@ for dir in 0-icebox 1-backlog 2-sprint 3-in-progress 4-review 5-done; do
     touch "$SOCLE_DIR/issue-board/$dir/.gitkeep"
 done
 
-ok "Structure créée"
+ok "Structure created"
 
 # --- Télécharger les fichiers essentiels ---
-info "Téléchargement des skills..."
+info "Downloading skills..."
 for skill in session-start code-review testing documentation git-workflow code-structure deployment; do
     download "$REPO_RAW/skills/$skill.md" "$SOCLE_DIR/skills/$skill.md"
 done
-ok "7 skills installés"
+ok "7 skills installed"
 
-info "Téléchargement du briefing IA..."
+info "Downloading AI briefing..."
 download "$REPO_RAW/SOCLE.md" "$SOCLE_DIR/SOCLE.md"
-ok "Briefing installé"
+ok "Briefing installed"
 
-info "Téléchargement des rules..."
+info "Downloading rules..."
 download "$REPO_RAW/rules/default-rules.md" "$SOCLE_DIR/rules/default-rules.md"
 download "$REPO_RAW/rules/README.md" "$SOCLE_DIR/rules/README.md"
-ok "Rules installées"
+ok "Rules installed"
 
-info "Téléchargement des templates d'issues..."
+info "Downloading issue templates..."
 download "$REPO_RAW/issue-board/templates/issue-feature.md" "$SOCLE_DIR/issue-board/templates/issue-feature.md"
 download "$REPO_RAW/issue-board/templates/issue-task.md" "$SOCLE_DIR/issue-board/templates/issue-task.md"
-ok "Templates installés"
+ok "Templates installed"
 
-info "Téléchargement du script generate-board..."
+info "Downloading generate-board script..."
 download "$REPO_RAW/scripts/generate-board.py" "$SOCLE_DIR/scripts/generate-board.py"
 chmod +x "$SOCLE_DIR/scripts/generate-board.py"
-ok "Script installé"
+ok "Script installed"
 
 # --- Créer le manifest pré-rempli ---
-info "Création du manifest..."
+info "Creating manifest..."
 cat > "$SOCLE_DIR/manifest.md" << MANIFEST
 # Manifest — $PROJECT_NAME
 
@@ -215,10 +215,10 @@ cat > "$SOCLE_DIR/manifest.md" << MANIFEST
 
 *Dernière mise à jour : $(date +%Y-%m-%d)*
 MANIFEST
-ok "Manifest créé — à remplir"
+ok "Manifest created — to be filled in"
 
 # --- Créer la memory ---
-info "Création de la memory..."
+info "Creating memory..."
 cat > "$SOCLE_DIR/memory/MEMORY.md" << MEMORY
 # Memory — $PROJECT_NAME
 
@@ -374,10 +374,10 @@ cat > "$SOCLE_DIR/memory/cortex/sprints.md" << 'CORTEX'
 |--------|----------|----------|-------------------|
 
 CORTEX
-ok "Memory initialisée"
+ok "Memory initialized"
 
 # --- Créer le BOARD.md ---
-info "Création du board..."
+info "Creating board..."
 cat > "$SOCLE_DIR/issue-board/BOARD.md" << BOARD
 # Issue Board — $PROJECT_NAME
 
@@ -420,11 +420,11 @@ _Aucune issue._
 
 *Le frontmatter YAML est la source de vérité. Le dossier est le statut visuel. Le BOARD.md est la carte.*
 BOARD
-ok "Board créé"
+ok "Board created"
 
 # --- Créer le fichier de connexion IA ---
 if [ "$TOOL" = "claude" ]; then
-    info "Création du CLAUDE.md..."
+    info "Creating CLAUDE.md..."
     cat > "CLAUDE.md" << CLAUDE
 # CLAUDE.md
 
@@ -456,10 +456,10 @@ Lis ces fichiers dans l'ordre :
 
 Documentation : https://github.com/le-socle/socle
 CLAUDE
-    ok "CLAUDE.md créé à la racine du projet"
+    ok "CLAUDE.md created at project root"
 
 elif [ "$TOOL" = "cursor" ]; then
-    info "Création du .cursorrules..."
+    info "Creating .cursorrules..."
     cat > ".cursorrules" << CURSOR
 Ce projet utilise Le Socle — une méthode de travail humain-IA.
 
@@ -482,31 +482,31 @@ Règles :
 
 Documentation : https://github.com/le-socle/socle
 CURSOR
-    ok ".cursorrules créé à la racine du projet"
+    ok ".cursorrules created at project root"
 fi
 
 # --- Résumé ---
 echo ""
 echo -e "${BOLD}${GREEN}Le Socle est installé.${NC}"
 echo ""
-echo "  Prochaine étape — lance ton IA et dis-lui :"
+echo "  Next step — open your AI tool and say:"
 echo ""
-echo -e "  ${BOLD}\"Aide-moi à configurer le Socle pour ce projet.\"${NC}"
+echo -e "  ${BOLD}\"Help me configure Le Socle for this project.\"${NC}"
 echo ""
-echo "  L'IA va lire le briefing, comprendre la méthode, et te poser"
-echo "  les bonnes questions pour remplir ton manifest."
+echo "  The AI will read the briefing, understand the method, and ask"
+echo "  you the right questions to fill your manifest."
 echo ""
-echo "  Structure installée :"
+echo "  Installed structure:"
 echo "  $SOCLE_DIR/"
-echo "  ├── SOCLE.md              ← briefing IA (lu à la première session)"
-echo "  ├── manifest.md           ← à remplir avec l'aide de ton IA"
+echo "  ├── SOCLE.md              <- AI briefing (read on first session)"
+echo "  ├── manifest.md           <- fill with your AI's help"
 echo "  ├── memory/"
 echo "  │   ├── MEMORY.md"
-echo "  │   └── cortex/           ← se remplira au fil du travail"
-echo "  ├── skills/               ← 7 skills opérationnels"
-echo "  ├── rules/                ← critères de qualité"
-echo "  ├── issue-board/          ← board Kanban"
-echo "  └── scripts/              ← outils d'automatisation"
+echo "  │   └── cortex/           <- will fill up as you work"
+echo "  ├── skills/               <- 7 operational skills"
+echo "  ├── rules/                <- quality criteria"
+echo "  ├── issue-board/          <- Kanban board"
+echo "  └── scripts/              <- automation tools"
 echo ""
 echo "  Documentation : https://github.com/le-socle/socle"
 echo ""

@@ -1,15 +1,15 @@
-# Memory — Patterns découverts
+# Memory — Discovered Patterns
 
-*Les patterns de code, de structure ou d'organisation qui ont émergé et qui fonctionnent bien sur ce projet. Charger ce fichier pour du code review, du refactoring, ou de l'écriture de nouveau code.*
+*Code, structure, or organization patterns that have emerged and work well on this project. Load this file for code review, refactoring, or writing new code.*
 
 ---
 
-<!-- Format d'une entrée :
+<!-- Entry format:
 
-### Nom du pattern
+### Pattern name
 
-**Quoi** : Description du pattern en une phrase.
-**Où** : Fichier(s) où il est appliqué.
-**Pourquoi ça marche** : Ce qui le rend efficace dans ce contexte.
+**What**: Description of the pattern in one sentence.
+**Where**: File(s) where it is applied.
+**Why it works**: What makes it effective in this context.
 
 -->

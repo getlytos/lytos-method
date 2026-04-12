@@ -1,15 +1,15 @@
 # Memory — Backend
 
-*Patterns, pièges et solutions côté serveur. Charger ce fichier pour toute tâche backend : API, base de données, services, authentification.*
+*Patterns, pitfalls, and solutions on the server side. Load this file for any backend task: API, database, services, authentication.*
 
 ---
 
-<!-- Format d'une entrée :
+<!-- Entry format:
 
-### YYYY-MM-DD — Titre court
+### YYYY-MM-DD — Short title
 
-**Contexte** : Situation rencontrée.
-**Apprentissage** : Ce qu'on a découvert.
-**À retenir** : Ce qu'un agent doit savoir pour ne pas retomber dedans.
+**Context**: Situation encountered.
+**Learning**: What was discovered.
+**Takeaway**: What an agent needs to know to avoid falling into the same trap.
 
 -->

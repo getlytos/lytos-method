@@ -1,13 +1,13 @@
-# Memory — Historique des sprints
+# Memory — Sprint History
 
-*Historique des sprints passés avec les apprentissages clés. Charger ce fichier en début de sprint, en rétrospective, ou en planification.*
+*History of past sprints with key learnings. Load this file at sprint start, during retrospective, or during planning.*
 
 ---
 
-<!-- Format d'une entrée :
+<!-- Entry format:
 
-| Sprint | Objectif | Résultat | Apprentissage clé |
-|--------|----------|----------|-------------------|
-| #XX | Objectif en une phrase | Livré / Partiel / Bloqué | Ce qu'on retient |
+| Sprint | Objective | Result | Key Learning |
+|--------|-----------|--------|--------------|
+| #XX | Objective in one sentence | Delivered / Partial / Blocked | What we learned |
 
 -->

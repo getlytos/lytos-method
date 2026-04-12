@@ -1,215 +1,215 @@
 # Skill — Git Workflow
 
-*Ce skill définit les conventions Git à suivre sur un projet utilisant Le Socle. Il couvre le nommage des branches, le format des commits, le workflow de merge et les règles de collaboration. Un agent chargé de ce skill applique ces conventions sans écart.*
+*This skill defines the Git conventions to follow on a project using Le Socle. It covers branch naming, commit format, merge workflow, and collaboration rules. An agent loaded with this skill applies these conventions without deviation.*
 
 ---
 
-## Quand invoquer ce skill
+## When to invoke this skill
 
-- À chaque création de branche
-- À chaque commit
-- Lors de l'ouverture d'une PR
-- En cas de conflit ou de question sur le workflow
+- At each branch creation
+- At each commit
+- When opening a PR
+- In case of conflict or question about the workflow
 
 ---
 
-## Convention de nommage des branches
+## Branch naming convention
 
 ### Format
 
 ```
-type/ISS-XXXX-slug-descriptif
+type/ISS-XXXX-descriptive-slug
 ```
 
-### Types de branches
+### Branch types
 
-| Type | Usage | Exemple |
+| Type | Usage | Example |
 |------|-------|---------|
-| `feat` | Nouvelle fonctionnalité | `feat/ISS-0012-ajout-panier` |
-| `fix` | Correction de bug | `fix/ISS-0034-erreur-connexion` |
-| `refactor` | Refactoring sans changement fonctionnel | `refactor/ISS-0045-extraction-service-auth` |
-| `chore` | Tâche technique (config, deps, CI) | `chore/ISS-0050-mise-a-jour-dependencies` |
-| `docs` | Documentation uniquement | `docs/ISS-0022-readme-module-paiement` |
-| `test` | Ajout ou correction de tests | `test/ISS-0028-tests-unitaires-calcul-tva` |
+| `feat` | New feature | `feat/ISS-0012-add-cart` |
+| `fix` | Bug fix | `fix/ISS-0034-login-error` |
+| `refactor` | Refactoring with no functional change | `refactor/ISS-0045-extract-auth-service` |
+| `chore` | Technical task (config, deps, CI) | `chore/ISS-0050-update-dependencies` |
+| `docs` | Documentation only | `docs/ISS-0022-readme-payment-module` |
+| `test` | Adding or fixing tests | `test/ISS-0028-unit-tests-tax-calculation` |
 
-### Règles
+### Rules
 
-- Toujours lier à une issue (ISS-XXXX)
-- Le slug est en kebab-case, en français ou anglais selon le projet
-- Pas de branche sans issue — si le travail n'est pas dans une issue, créer l'issue d'abord
-- Pas de branches longues — une branche = une issue = un périmètre défini
+- Always link to an issue (ISS-XXXX)
+- The slug is in kebab-case, in French or English depending on the project
+- No branch without an issue — if the work isn't in an issue, create the issue first
+- No long-lived branches — one branch = one issue = one defined scope
 
 ---
 
-## Format des commits
+## Commit format
 
 ### Format
 
 ```
-type(scope): message court
+type(scope): short message
 
-Corps optionnel — explication du pourquoi si nécessaire.
+Optional body — explanation of the why if needed.
 
 Refs: ISS-XXXX
 ```
 
-### Exemples
+### Examples
 
 ```
-feat(panier): ajouter le calcul de TVA par pays
+feat(cart): add tax calculation by country
 
-Le taux de TVA est maintenant déterminé dynamiquement selon
-le pays de livraison au lieu d'utiliser un taux fixe.
+The tax rate is now dynamically determined based on the
+shipping country instead of using a fixed rate.
 
 Refs: ISS-0012
 ```
 
 ```
-fix(auth): corriger la redirection après connexion OAuth
+fix(auth): fix redirect after OAuth login
 
-Le callback OAuth renvoyait vers /home au lieu de la page
-d'origine stockée en session.
+The OAuth callback was redirecting to /home instead of the
+original page stored in session.
 
 Refs: ISS-0034
 ```
 
 ```
-chore(deps): mettre à jour Laravel 11.x vers 11.5
+chore(deps): update Laravel 11.x to 11.5
 
 Refs: ISS-0050
 ```
 
-### Types de commits
+### Commit types
 
 | Type | Description |
 |------|-------------|
-| `feat` | Nouvelle fonctionnalité visible par l'utilisateur |
-| `fix` | Correction de bug |
-| `refactor` | Changement de code sans modification de comportement |
-| `chore` | Tâche technique sans impact fonctionnel |
-| `docs` | Modification de documentation uniquement |
-| `test` | Ajout ou modification de tests |
-| `style` | Formatage, espaces, points-virgules (pas de changement logique) |
-| `perf` | Amélioration de performance |
+| `feat` | New user-facing feature |
+| `fix` | Bug fix |
+| `refactor` | Code change with no behavior modification |
+| `chore` | Technical task with no functional impact |
+| `docs` | Documentation change only |
+| `test` | Adding or modifying tests |
+| `style` | Formatting, whitespace, semicolons (no logic change) |
+| `perf` | Performance improvement |
 
-### Règles des commits
+### Commit rules
 
-- Le message court fait **max 72 caractères**
-- Le message est en français ou anglais — cohérent avec le projet
-- Le verbe est à l'**infinitif** en français ("ajouter", "corriger") ou impératif en anglais ("add", "fix")
-- Un commit = un changement logique. Pas de commits fourre-tout
-- Pas de `WIP` ou `temp` dans l'historique final (squash avant merge si nécessaire)
-- Toujours référencer l'issue avec `Refs: ISS-XXXX`
+- The short message is **max 72 characters**
+- The message is in French or English — consistent with the project
+- The verb is in the **infinitive** in French ("ajouter", "corriger") or **imperative** in English ("add", "fix")
+- One commit = one logical change. No catch-all commits
+- No `WIP` or `temp` in the final history (squash before merge if needed)
+- Always reference the issue with `Refs: ISS-XXXX`
 
 ---
 
 ## Workflow
 
-### Le cycle standard
+### The standard cycle
 
-Le dossier de l'issue représente son statut. Déplacer le fichier `.md` à chaque changement d'étape.
+The issue folder represents its status. Move the `.md` file at each step change.
 
 ```
-1. Créer l'issue           →  issue-board/0-icebox/ISS-XXXX-titre.md
-2. Prioriser               →  déplacer vers 1-backlog/
-3. Planifier dans le sprint →  déplacer vers 2-sprint/
-4. Démarrer le travail     →  créer la branche type/ISS-XXXX-slug
-                              déplacer vers 3-in-progress/
-                              mettre à jour BOARD.md
-5. Développer              →  commits atomiques, bien nommés
-6. Pousser                 →  git push -u origin type/ISS-XXXX-slug
-7. Ouvrir une PR           →  vers la branche dev (ou main selon le projet)
-                              déplacer vers 4-review/
-                              mettre à jour BOARD.md
-8. Code review             →  via le skill code-review
-9. Corrections si besoin   →  commits supplémentaires sur la branche
-10. Merge                  →  squash & merge, supprimer la branche
-                              déplacer vers 5-done/
-                              mettre à jour BOARD.md
-11. Mettre à jour la memory → si apprentissage
+1. Create the issue        ->  issue-board/0-icebox/ISS-XXXX-title.md
+2. Prioritize              ->  move to 1-backlog/
+3. Plan in the sprint      ->  move to 2-sprint/
+4. Start work              ->  create branch type/ISS-XXXX-slug
+                               move to 3-in-progress/
+                               update BOARD.md
+5. Develop                 ->  atomic, well-named commits
+6. Push                    ->  git push -u origin type/ISS-XXXX-slug
+7. Open a PR               ->  target the dev branch (or main depending on the project)
+                               move to 4-review/
+                               update BOARD.md
+8. Code review             ->  via the code-review skill
+9. Corrections if needed   ->  additional commits on the branch
+10. Merge                  ->  squash & merge, delete the branch
+                               move to 5-done/
+                               update BOARD.md
+11. Update the memory      -> if learning occurred
 ```
 
-> **Règle** : le fichier .md DOIT être déplacé à chaque changement de statut.
-> Le BOARD.md DOIT être mis à jour à chaque déplacement.
+> **Rule**: the .md file MUST be moved at each status change.
+> The BOARD.md MUST be updated at each move.
 
-### Branches principales
+### Main branches
 
-| Branche | Rôle | Qui merge |
-|---------|------|-----------|
-| `main` | Production — toujours stable | L'humain uniquement |
-| `dev` | Intégration — PR cible par défaut | Après review approuvée |
-| `type/ISS-XXXX-*` | Branche de travail — éphémère | L'auteur de la PR |
+| Branch | Role | Who merges |
+|--------|------|------------|
+| `main` | Production — always stable | Human only |
+| `dev` | Integration — default PR target | After approved review |
+| `type/ISS-XXXX-*` | Work branch — ephemeral | The PR author |
 
-### Règles de merge
+### Merge rules
 
-- **Jamais** de push direct sur `main` ou `dev`
-- Toute modification passe par une PR
-- Une PR doit avoir au moins une review (agent ou humain)
-- Les conflits se résolvent sur la branche de travail, pas sur `dev`
-- Après merge, la branche est supprimée
+- **Never** push directly to `main` or `dev`
+- Every change goes through a PR
+- A PR must have at least one review (agent or human)
+- Conflicts are resolved on the work branch, not on `dev`
+- After merge, the branch is deleted
 
 ---
 
 ## Pull Requests
 
-### Titre de PR
+### PR title
 
 ```
-[ISS-XXXX] Type: Description courte
+[ISS-XXXX] Type: Short description
 ```
 
-Exemples :
-- `[ISS-0012] feat: Ajout du calcul de TVA par pays`
-- `[ISS-0034] fix: Correction redirection OAuth`
+Examples:
+- `[ISS-0012] feat: Add tax calculation by country`
+- `[ISS-0034] fix: Fix OAuth redirect`
 
-### Corps de PR
+### PR body
 
 ```markdown
-## Contexte
-Pourquoi cette PR existe — lien vers l'issue.
+## Context
+Why this PR exists — link to the issue.
 
-## Changements
-- Liste des modifications principales
-- Pas chaque ligne changée — les points importants
+## Changes
+- List of main modifications
+- Not every line changed — the important points
 
 ## Tests
-- Comment vérifier que ça fonctionne
-- Tests ajoutés ou modifiés
+- How to verify it works
+- Tests added or modified
 
-## Captures d'écran
-(si changement visuel)
+## Screenshots
+(if visual change)
 ```
 
-### Checklist PR
+### PR checklist
 
-- [ ] Les tests passent
-- [ ] Le code respecte les rules du projet
-- [ ] La documentation est à jour
-- [ ] L'issue est liée
-- [ ] La branche est à jour avec `dev`
-
----
-
-## Gestion des conflits
-
-1. Se placer sur la branche de travail
-2. Récupérer les dernières modifications de `dev` : `git rebase dev` ou `git merge dev`
-3. Résoudre les conflits fichier par fichier
-4. Vérifier que les tests passent après résolution
-5. Pousser la branche mise à jour
-
-**Ne jamais** résoudre un conflit en écrasant aveuglément les changements de l'autre branche.
+- [ ] Tests pass
+- [ ] Code follows the project rules
+- [ ] Documentation is up to date
+- [ ] Issue is linked
+- [ ] Branch is up to date with `dev`
 
 ---
 
-## Checklist avant de considérer le workflow terminé
+## Conflict resolution
 
-- [ ] La branche suit la convention de nommage
-- [ ] Les commits suivent le format `type(scope): message`
-- [ ] Chaque commit référence l'issue
-- [ ] La PR est ouverte avec titre et corps corrects
-- [ ] La review est demandée
+1. Switch to the work branch
+2. Pull the latest changes from `dev`: `git rebase dev` or `git merge dev`
+3. Resolve conflicts file by file
+4. Verify that tests pass after resolution
+5. Push the updated branch
+
+**Never** resolve a conflict by blindly overwriting changes from the other branch.
 
 ---
 
-*Ce skill est opérationnel immédiatement. Un agent qui le charge applique les conventions Git du projet sans interprétation supplémentaire.*
+## Checklist before considering the workflow complete
+
+- [ ] The branch follows the naming convention
+- [ ] Commits follow the `type(scope): message` format
+- [ ] Each commit references the issue
+- [ ] The PR is opened with correct title and body
+- [ ] Review is requested
+
+---
+
+*This skill is immediately operational. An agent that loads it applies the project's Git conventions without further interpretation.*

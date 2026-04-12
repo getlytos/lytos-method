@@ -1,10 +1,10 @@
 ---
 id: ISS-0003
-title: "Définir les rules spécifiques du projet"
+title: "Define project-specific rules"
 type: docs
-priority: P1-haute
+priority: P1-high
 effort: S
-domain: [qualité]
+domain: [quality]
 skill: documentation
 status: 3-in-progress
 depends: [ISS-0002]
@@ -12,27 +12,27 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
 
-# ISS-0003 — Définir les rules spécifiques du projet
+# ISS-0003 — Define project-specific rules
 
-## Contexte
+## Context
 
-Les rules par défaut du Socle (`rules/default-rules.md`) couvrent les bonnes pratiques universelles. Mais chaque projet a ses propres contraintes : préfixes de fonctions, conventions CSS, contraintes de compatibilité, etc.
+Le Socle's default rules (`rules/default-rules.md`) cover universal best practices. But each project has its own constraints: function prefixes, CSS conventions, compatibility requirements, etc.
 
-## Solution proposée
+## Proposed solution
 
-Créer `.socle/rules/[nom-du-projet]-rules.md` avec les règles propres au projet, en s'inspirant du format des rules par défaut.
+Create `.socle/rules/[project-name]-rules.md` with the project's own rules, following the format of the default rules.
 
-## Critère de done
+## Definition of done
 
-- [ ] Conventions de nommage spécifiques identifiées
-- [ ] Contraintes techniques identifiées
-- [ ] Fichier de rules rédigé au format tableau
-- [ ] Validé avec l'équipe / le responsable du projet
+- [ ] Project-specific naming conventions identified
+- [ ] Technical constraints identified
+- [ ] Rules file written in table format
+- [ ] Validated with the team / project owner
 
-## Fichiers concernés
+## Relevant files
 
-- `.socle/rules/[nom-du-projet]-rules.md` (nouveau)
+- `.socle/rules/[project-name]-rules.md` (new)
 
 ## Notes
 
-Voir `rules/README.md` pour le format attendu et des exemples de rules spécifiques.
+See `rules/README.md` for the expected format and examples of project-specific rules.

@@ -1,74 +1,64 @@
-# Manifest — [Nom du projet]
+# Manifest — [Project Name]
 
-*Ce fichier est la constitution du projet. Il est écrit par l'humain, lu par les agents à chaque session. Il ne change que si la vision change.*
-
----
-
-## Identité
-
-**Nom du projet** : 
-**Description courte** : 
-**Date de création** : 
-**Responsable** : 
-**Version du socle** : 
+*This file is the project's constitution. It is written by the human, read by agents at each session. It only changes if the vision changes.*
 
 ---
 
-## Pourquoi ce projet existe
+## Identity
 
-*Le "pourquoi" fondamental. Ce qu'on cherche à accomplir, pour qui, et pourquoi maintenant. 3-5 phrases max.*
-
----
-
-## Ce que ce projet est
-
-*Description concrète de ce qu'on construit. Fonctionnalités principales, périmètre.*
+**Project name**: 
+**Short description**: 
+**Creation date**: 
+**Owner**: 
+**Le Socle version**: 
 
 ---
 
-## Ce que ce projet n'est pas
+## Why this project exists
 
-*Les limites explicites. Ce qu'on ne fait pas, ce qui est hors scope. Évite les dérives.*
+*The fundamental "why". What we're trying to accomplish, for whom, and why now. 3-5 sentences max.*
 
 ---
 
-## Stack technique
+## What this project is
+
+*Concrete description of what we're building. Main features, scope.*
+
+---
+
+## What this project is not
+
+*Explicit boundaries. What we don't do, what's out of scope. Prevents scope creep.*
+
+---
+
+## Tech stack
 
 ```
-Langage(s)     : 
+Language(s)    : 
 Framework(s)   : 
-Base de données: 
-Hébergement    : 
-Outils IA      : 
-Autres         : 
+Database       : 
+Hosting        : 
+AI tools       : 
+Other          : 
 ```
 
 ---
 
-## Vocabulaire du projet
+## Project vocabulary
 
-*Les termes spécifiques à ce projet et leur définition. Les agents s'y réfèrent pour rester cohérents.*
+*Terms specific to this project and their definitions. Agents refer to this to stay consistent.*
 
-| Terme | Définition |
-|-------|-----------|
-|       |           |
-|       |           |
-
----
-
-## Contraintes fondamentales
-
-*Les contraintes qui ne bougent pas. Performance, sécurité, compatibilité, légal.*
-
-- 
-- 
-- 
+| Term | Definition |
+|------|-----------|
+|      |           |
+|      |           |
 
 ---
 
-## Critères de succès
+## Fundamental constraints
 
-*Comment on sait que le projet avance bien. Métriques, jalons, définition de "done".*
+*Constraints that don't change. Performance, security, compatibility, legal.*
 
 - 
 - 
@@ -76,42 +66,52 @@ Autres         :
 
 ---
 
-## Principes de développement
+## Success criteria
 
-*Les principes qui guident les décisions techniques sur ce projet spécifique. Ce ne sont pas des vœux pieux — ce sont des critères de décision. Quand un agent hésite entre deux approches, il consulte cette section pour trancher.*
+*How we know the project is progressing well. Metrics, milestones, definition of "done".*
 
-*Chaque principe doit être formulé comme un arbitrage : "On préfère X plutôt que Y, parce que Z."*
-
-Exemples (à remplacer par les vôtres) :
-
-- **Simplicité plutôt que flexibilité** — on ne construit pas pour un cas d'usage hypothétique. Si on n'a pas le besoin aujourd'hui, on ne le code pas.
-- **Lisibilité plutôt que concision** — un code que tout le monde comprend vaut mieux qu'un code élégant que personne ne maintient.
-- **Convention plutôt que configuration** — on suit les conventions du framework plutôt que d'inventer les nôtres. Moins de décisions = moins d'erreurs.
-- **Stabilité plutôt que nouveauté** — on ne met pas à jour une dépendance sans raison. Une version stable qui fonctionne vaut mieux qu'une version récente non testée.
+- 
+- 
+- 
 
 ---
 
-## Modèles IA par complexité
+## Development principles
 
-*Le Socle définit 3 niveaux de complexité pour les tâches. Chaque projet mappe ses propres modèles selon son budget et ses outils. Mettre à jour cette table quand de meilleurs modèles sortent.*
+*The principles that guide technical decisions on this specific project. These are not wishful thinking — they are decision criteria. When an agent hesitates between two approaches, it consults this section to decide.*
 
-| Complexité | Usage | Modèle |
-|------------|-------|--------|
-| `light` | Documentation, formatage, renommage, boilerplate, tâches mécaniques | |
-| `standard` | Développement courant, code review, tests, refactoring | |
-| `heavy` | Architecture complexe, algorithmes critiques, sécurité, code à haute valeur | |
+*Each principle should be formulated as a trade-off: "We prefer X over Y, because Z."*
+
+Examples (replace with your own):
+
+- **Simplicity over flexibility** — we don't build for a hypothetical use case. If we don't need it today, we don't code it.
+- **Readability over conciseness** — code that everyone understands is better than elegant code that nobody maintains.
+- **Convention over configuration** — we follow framework conventions rather than inventing our own. Fewer decisions = fewer mistakes.
+- **Stability over novelty** — we don't update a dependency without reason. A working stable version is better than an untested recent version.
 
 ---
 
-## Liens importants
+## AI models by complexity
 
-| Ressource | URL |
-|-----------|-----|
-| Repo principal | |
+*Le Socle defines 3 complexity levels for tasks. Each project maps its own models based on its budget and tools. Update this table when better models come out.*
+
+| Complexity | Usage | Model |
+|------------|-------|-------|
+| `light` | Documentation, formatting, renaming, boilerplate, mechanical tasks | |
+| `standard` | Day-to-day development, code review, tests, refactoring | |
+| `heavy` | Complex architecture, critical algorithms, security, high-value code | |
+
+---
+
+## Important links
+
+| Resource | URL |
+|----------|-----|
+| Main repo | |
 | Documentation | |
 | Staging | |
 | Production | |
 
 ---
 
-*Dernière mise à jour : YYYY-MM-DD*
+*Last updated: YYYY-MM-DD*

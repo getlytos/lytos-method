@@ -1,138 +1,138 @@
-# Skill — Démarrage de session
+# Skill — Session Start
 
-*Ce skill définit ce qu'un agent fait au tout début d'une session de travail. Il garantit que l'agent a le bon contexte avant de commencer, sans charger plus que nécessaire.*
-
----
-
-## Quand invoquer ce skill
-
-- Au début de chaque session de travail avec un agent
-- Quand un agent est invoqué sur une nouvelle tâche
-- Quand on reprend le travail après une interruption
+*This skill defines what an agent does at the very beginning of a work session. It ensures the agent has the right context before starting, without loading more than necessary.*
 
 ---
 
-## Procédure
+## When to invoke this skill
 
-### 1. Charger le contexte global (toujours)
+- At the beginning of each work session with an agent
+- When an agent is invoked on a new task
+- When resuming work after an interruption
 
-Ces fichiers sont lus à **chaque** session, sans exception :
+---
 
-```
-.socle/manifest.md              ← la constitution du projet (qui, quoi, pourquoi)
-.socle/memory/MEMORY.md         ← le sommaire de la memory (pas les sous-fichiers)
-.socle/rules/default-rules.md   ← les critères qualité de base
-.socle/issue-board/BOARD.md     ← l'état actuel du board
-```
+## Procedure
 
-Temps estimé : quelques secondes. Ce socle de contexte ne change pas selon la tâche.
+### 1. Load global context (always)
 
-### 2. Identifier la tâche en cours
-
-Déterminer quelle issue est à traiter. Sources possibles :
-
-- L'humain la donne explicitement ("travaille sur ISS-0012")
-- Le board : regarder `3-in-progress/` pour les issues en cours
-- Le sprint : regarder `sprint.md` pour les tâches engagées
-
-**Résultat attendu** : un fichier issue identifié, par exemple `issue-board/3-in-progress/ISS-0012-titre.md`.
-
-### 3. Charger le contexte spécifique à la tâche
-
-Une fois l'issue identifiée, charger **uniquement** ce qui est pertinent :
-
-#### Le modèle approprié
-
-Lire le champ `complexity` dans le frontmatter de l'issue et consulter la table **Modèles IA par complexité** dans le manifest pour savoir quel modèle utiliser.
+These files are read at **every** session, without exception:
 
 ```
-Issue dit "complexity: heavy" → le manifest dit "heavy = Claude Opus" → utiliser Opus
-Issue dit "complexity: light" → le manifest dit "light = Claude Haiku" → utiliser Haiku
+.socle/manifest.md              <- the project constitution (who, what, why)
+.socle/memory/MEMORY.md         <- the memory summary (not the sub-files)
+.socle/rules/default-rules.md   <- the baseline quality criteria
+.socle/issue-board/BOARD.md     <- the current board state
 ```
 
-Si la complexité n'est pas spécifiée, utiliser le modèle `standard` par défaut. Si la table n'est pas remplie dans le manifest, signaler à l'humain.
+Estimated time: a few seconds. This context foundation does not change based on the task.
 
-#### Le skill assigné
+### 2. Identify the current task
 
-Lire le champ `skill` dans l'issue → charger le fichier skill correspondant.
+Determine which issue needs to be worked on. Possible sources:
+
+- The human gives it explicitly ("work on ISS-0012")
+- The board: look at `3-in-progress/` for issues in progress
+- The sprint: look at `sprint.md` for committed tasks
+
+**Expected result**: an identified issue file, e.g. `issue-board/3-in-progress/ISS-0012-title.md`.
+
+### 3. Load task-specific context
+
+Once the issue is identified, load **only** what is relevant:
+
+#### The appropriate model
+
+Read the `complexity` field in the issue frontmatter and check the **AI Models by complexity** table in the manifest to determine which model to use.
 
 ```
-Issue dit "skill: testing" → charger .socle/skills/testing.md
+Issue says "complexity: heavy" -> manifest says "heavy = Claude Opus" -> use Opus
+Issue says "complexity: light" -> manifest says "light = Claude Haiku" -> use Haiku
 ```
 
-#### Les sections de memory pertinentes
+If complexity is not specified, use the `standard` model by default. If the table is not filled in the manifest, flag it to the human.
 
-Consulter le sommaire `MEMORY.md` → charger les fichiers selon le domaine de la tâche.
+#### The assigned skill
 
-| Domaine de la tâche | Fichiers memory à charger (dans `cortex/`) |
-|---------------------|---------------------------------------------|
-| Backend (API, BDD, services) | `architecture.md` + `backend.md` |
-| Frontend (UI, composants, styles) | `architecture.md` + `frontend.md` |
+Read the `skill` field in the issue -> load the corresponding skill file.
+
+```
+Issue says "skill: testing" -> load .socle/skills/testing.md
+```
+
+#### The relevant memory sections
+
+Check the `MEMORY.md` summary -> load files based on the task domain.
+
+| Task domain | Memory files to load (in `cortex/`) |
+|-------------|-------------------------------------|
+| Backend (API, DB, services) | `architecture.md` + `backend.md` |
+| Frontend (UI, components, styles) | `architecture.md` + `frontend.md` |
 | Full-stack | `architecture.md` + `backend.md` + `frontend.md` |
-| Bug fix | `bugs.md` + le domaine concerné |
+| Bug fix | `bugs.md` + the relevant domain |
 | Code review | `architecture.md` + `patterns.md` |
-| Nouveau sprint | `sprints.md` |
-| Logique métier / UX | `business.md` |
+| New sprint | `sprints.md` |
+| Business logic / UX | `business.md` |
 
-#### Les rules spécifiques
+#### Specific rules
 
-Si des fichiers de rules spécifiques au projet existent (ex: `rules/bookshelf-rules.md`), les charger aussi.
+If project-specific rule files exist (e.g. `rules/bookshelf-rules.md`), load them too.
 
-#### Les principes du manifest pour arbitrer
+#### Manifest principles for decision-making
 
-Quand un choix technique se présente (deux approches possibles, un compromis à faire), consulter la section **Principes de développement** du manifest. Ces principes sont formulés comme des arbitrages ("on préfère X plutôt que Y") — ils servent exactement à trancher ce genre de décision.
-
-```
-Exemple :
-Le manifest dit "Simplicité plutôt que flexibilité"
-→ Je choisis l'approche directe, pas l'abstraction générique.
-```
-
-Si les principes ne couvrent pas la situation, signaler l'arbitrage à l'humain plutôt que deviner.
-
-### 4. Vérifier l'état du travail
-
-Avant de commencer à coder :
-
-- [ ] L'issue est-elle à jour ? (status, checkboxes)
-- [ ] Y a-t-il une branche git existante pour cette issue ?
-- [ ] Y a-t-il des commits récents sur cette branche ?
-- [ ] Y a-t-il des blocages signalés dans le sprint ?
-
-Si une branche existe déjà, se positionner dessus. Sinon, la créer selon la convention : `type/ISS-XXXX-titre-kebab`.
-
-### 5. Résumé de contexte
-
-Avant de commencer le travail, formuler (mentalement ou explicitement) :
+When a technical choice arises (two possible approaches, a trade-off to make), check the **Development principles** section of the manifest. These principles are formulated as trade-offs ("we prefer X over Y") — they serve exactly to settle this kind of decision.
 
 ```
-Projet : [nom du manifest]
-Issue  : ISS-XXXX — [titre]
-Skill  : [skill chargé]
-Memory : [sections chargées]
-Branch : [branche git]
-État   : [ce qui a déjà été fait / ce qui reste]
+Example:
+The manifest says "Simplicity over flexibility"
+-> I choose the straightforward approach, not the generic abstraction.
 ```
 
-L'agent est maintenant prêt à travailler.
+If the principles don't cover the situation, flag the trade-off to the human rather than guessing.
+
+### 4. Check work status
+
+Before starting to code:
+
+- [ ] Is the issue up to date? (status, checkboxes)
+- [ ] Is there an existing git branch for this issue?
+- [ ] Are there recent commits on this branch?
+- [ ] Are there any blockers flagged in the sprint?
+
+If a branch already exists, switch to it. Otherwise, create it following the convention: `type/ISS-XXXX-title-kebab`.
+
+### 5. Context summary
+
+Before starting work, formulate (mentally or explicitly):
+
+```
+Project : [manifest name]
+Issue   : ISS-XXXX — [title]
+Skill   : [loaded skill]
+Memory  : [loaded sections]
+Branch  : [git branch]
+Status  : [what's already done / what remains]
+```
+
+The agent is now ready to work.
 
 ---
 
-## Ce qu'il ne faut PAS faire au démarrage
+## What NOT to do at startup
 
-- **Ne pas lire tous les fichiers memory** — seulement les sections pertinentes
-- **Ne pas relire tous les skills** — seulement celui assigné à la tâche
-- **Ne pas parcourir tout le code source** — se limiter aux fichiers concernés par l'issue
-- **Ne pas commencer à coder avant d'avoir le contexte** — un agent sans contexte produit du code générique
+- **Do not read all memory files** — only the relevant sections
+- **Do not re-read all skills** — only the one assigned to the task
+- **Do not browse the entire source code** — limit yourself to the files related to the issue
+- **Do not start coding before having context** — an agent without context produces generic code
 
 ---
 
-## Variante — Session de planification
+## Variant — Planning session
 
-Si la session n'est pas du développement mais de la planification (sprint, issues, rétrospective) :
+If the session is not development but planning (sprint, issues, retrospective):
 
 ```
-Charger :
+Load:
 .socle/manifest.md
 .socle/memory/MEMORY.md
 .socle/memory/cortex/sprints.md
@@ -141,63 +141,63 @@ Charger :
 .socle/skills/documentation.md
 ```
 
-Pas besoin des memory techniques (backend, frontend, bugs).
+No need for technical memory (backend, frontend, bugs).
 
 ---
 
-## Variante — Session de code review
+## Variant — Code review session
 
 ```
-Charger :
+Load:
 .socle/manifest.md
 .socle/memory/MEMORY.md
 .socle/memory/cortex/architecture.md
 .socle/memory/cortex/patterns.md
 .socle/skills/code-review.md
-.socle/rules/*.md (toutes les rules)
+.socle/rules/*.md (all rules)
 ```
 
-La review a besoin de tout le cadre qualité, pas du contexte technique détaillé.
+The review needs the full quality framework, not detailed technical context.
 
 ---
 
-## Fin de tâche — 3 actions obligatoires
+## Task completion — 3 mandatory actions
 
-Quand la tâche est terminée (tous les critères de done remplis), l'agent effectue ces 3 actions dans cet ordre :
+When the task is done (all done criteria met), the agent performs these 3 actions in this order:
 
-### 1. Mettre à jour le frontmatter de l'issue
+### 1. Update the issue frontmatter
 
-Le frontmatter YAML est la **source de vérité**. Mettre à jour le champ `status` :
+The YAML frontmatter is the **source of truth**. Update the `status` field:
 
 ```yaml
-status: 5-done    # était 3-in-progress
+status: 5-done    # was 3-in-progress
 updated: 2026-04-12
 ```
 
-### 2. Déplacer le fichier d'issue
+### 2. Move the issue file
 
-Le dossier représente le statut visuellement. Déplacer le fichier :
+The folder represents the status visually. Move the file:
 
 ```bash
-git mv .socle/issue-board/3-in-progress/ISS-XXXX-titre.md .socle/issue-board/5-done/
+git mv .socle/issue-board/3-in-progress/ISS-XXXX-title.md .socle/issue-board/5-done/
 ```
 
-### 3. Mettre à jour le BOARD.md
+### 3. Update the BOARD.md
 
-Déplacer la ligne de l'issue dans la section correspondante du BOARD.md. Si l'issue passe en `5-done`, ajouter la date de complétion.
+Move the issue line to the corresponding section in BOARD.md. If the issue moves to `5-done`, add the completion date.
 
-### Si apprentissage
+### If learning occurred
 
-Si un apprentissage significatif a eu lieu pendant la tâche, ajouter une entrée dans le fichier cortex correspondant et mettre à jour le compteur dans `MEMORY.md`.
-
----
-
-## Source de vérité
-
-Le frontmatter YAML de l'issue est la source de vérité pour le statut, les dépendances et le skill assigné.
-
-Le BOARD.md est une **vue d'ensemble maintenue par l'agent** — pas une source de vérité indépendante. En cas de conflit entre le frontmatter et le BOARD.md, c'est le frontmatter qui prime.
+If significant learning happened during the task, add an entry in the corresponding cortex file and update the counter in `MEMORY.md`.
 
 ---
 
-*Ce skill est opérationnel immédiatement. Un agent qui le charge sait exactement quoi lire, comment travailler, et comment clôturer proprement.*
+## Source of truth
+
+The issue's YAML frontmatter is the source of truth for status, dependencies, and assigned skill.
+
+The BOARD.md is an **overview maintained by the agent** — not an independent source of truth. In case of conflict between the frontmatter and the BOARD.md, the frontmatter takes precedence.
+
+---
+
+*This skill is immediately operational. An agent that loads it knows exactly what to read, how to work, and how to close out cleanly.*

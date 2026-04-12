@@ -1,26 +1,26 @@
 ---
 id: ISS-XXXX
-title: "[Titre de la tâche]"
+title: "[Task Title]"
 type: task
-priority: P1-haute | P2-moyenne | P3-basse
+priority: P1-high | P2-normal | P3-low
 effort: XS | S
 complexity: light | standard | heavy
-skill: "[skill à invoquer]"
+skill: "[skill to invoke]"
 status: 0-icebox
 depends: []
 created: YYYY-MM-DD
 ---
 
-# ISS-XXXX — [Titre de la tâche]
+# ISS-XXXX — [Task Title]
 
-## Quoi faire
+## What to do
 
-*Une ou deux phrases max. Si c'est plus long, utilise issue-feature.md.*
+*One or two sentences max. If it's longer, use issue-feature.md.*
 
-## Fichiers concernés
+## Relevant files
 
-- `chemin/vers/fichier`
+- `path/to/file`
 
-## Critère de done
+## Definition of done
 
-*Comment on sait que c'est terminé.*
+*How we know it's finished.*

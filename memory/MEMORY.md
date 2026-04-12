@@ -1,41 +1,41 @@
-# Memory — [Nom du projet]
+# Memory — [Project Name]
 
-*Ce fichier est le sommaire de la mémoire du projet. Il est lu par les agents au démarrage de chaque session pour savoir quelles sections charger. Ne pas tout lire — charger uniquement ce qui est pertinent pour la tâche en cours.*
+*This file is the project memory's table of contents. It is read by agents at the start of each session to know which sections to load. Do not read everything — load only what is relevant to the current task.*
 
-> **Dernière mise à jour** : YYYY-MM-DD
-> **Nombre d'entrées** : 0
-
----
-
-## Comment utiliser cette memory
-
-1. L'agent lit ce sommaire au démarrage de session
-2. Il identifie les sections pertinentes pour sa tâche (via le domaine de l'issue)
-3. Il charge uniquement les fichiers nécessaires
-4. Après la tâche, il met à jour le fichier concerné et ce sommaire si besoin
-
-**Règle** : un agent qui travaille sur le front n'a pas besoin de lire `backend.md`. Un agent qui fait une code review lit `architecture.md` et `patterns.md`, pas `business.md`.
+> **Last updated**: YYYY-MM-DD
+> **Number of entries**: 0
 
 ---
 
-## Index des sections
+## How to Use This Memory
 
-| Fichier | Contenu | Charger quand... |
-|---------|---------|------------------|
-| [architecture.md](./cortex/architecture.md) | Décisions architecturales, choix techniques structurants | Toute tâche qui touche à la structure du projet |
-| [backend.md](./cortex/backend.md) | Patterns, pièges et solutions côté serveur | Tâche backend (API, BDD, services, auth) |
-| [frontend.md](./cortex/frontend.md) | Patterns, pièges et solutions côté client | Tâche frontend (UI, composants, styles, JS) |
-| [patterns.md](./cortex/patterns.md) | Patterns de code récurrents qui fonctionnent bien | Code review, refactoring, écriture de nouveau code |
-| [bugs.md](./cortex/bugs.md) | Problèmes récurrents et leurs solutions | Debug, fix, et avant d'explorer une piste déjà tentée |
-| [business.md](./cortex/business.md) | Contexte métier, vocabulaire, règles implicites | Tâche qui touche à la logique métier ou à l'UX |
-| [sprints.md](./cortex/sprints.md) | Historique des sprints passés et apprentissages clés | Début de sprint, rétrospective, planification |
+1. The agent reads this table of contents at session startup
+2. It identifies the sections relevant to its task (via the issue domain)
+3. It loads only the necessary files
+4. After the task, it updates the relevant file and this table of contents if needed
+
+**Rule**: an agent working on the front end does not need to read `backend.md`. An agent doing a code review reads `architecture.md` and `patterns.md`, not `business.md`.
 
 ---
 
-## Résumé vivant
+## Section Index
 
-*3-5 lignes max. L'état actuel du projet en un coup d'œil. Mis à jour à chaque fin de sprint.*
+| File | Content | Load when... |
+|------|---------|--------------|
+| [architecture.md](./cortex/architecture.md) | Architectural decisions, structural technical choices | Any task that affects the project structure |
+| [backend.md](./cortex/backend.md) | Patterns, pitfalls, and solutions on the server side | Backend task (API, DB, services, auth) |
+| [frontend.md](./cortex/frontend.md) | Patterns, pitfalls, and solutions on the client side | Frontend task (UI, components, styles, JS) |
+| [patterns.md](./cortex/patterns.md) | Recurring code patterns that work well | Code review, refactoring, writing new code |
+| [bugs.md](./cortex/bugs.md) | Recurring problems and their solutions | Debug, fix, and before exploring a path already tried |
+| [business.md](./cortex/business.md) | Business context, vocabulary, implicit rules | Task that involves business logic or UX |
+| [sprints.md](./cortex/sprints.md) | History of past sprints and key learnings | Sprint start, retrospective, planning |
 
 ---
 
-*Le dossier est la structure. Le fichier est le contenu. Ce sommaire est la carte.*
+## Living Summary
+
+*3-5 lines max. The current state of the project at a glance. Updated at the end of each sprint.*
+
+---
+
+*The folder is the structure. The file is the content. This table of contents is the map.*

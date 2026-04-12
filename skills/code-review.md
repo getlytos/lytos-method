@@ -1,149 +1,149 @@
 # Skill — Code Review
 
-*Ce skill définit comment effectuer une code review sur un projet utilisant Le Socle. Un agent chargé de ce skill sait exactement quoi vérifier, dans quel ordre, et comment formuler ses retours.*
+*This skill defines how to perform a code review on a project using Le Socle. An agent loaded with this skill knows exactly what to check, in what order, and how to formulate feedback.*
 
 ---
 
-## Quand invoquer ce skill
+## When to invoke this skill
 
-- Après chaque PR avant merge
-- À la demande explicite de l'humain sur un fichier ou module
-- En fin de sprint, pour un audit qualité global
+- After each PR before merge
+- At the human's explicit request on a file or module
+- At the end of a sprint, for a global quality audit
 
 ---
 
-## Procédure
+## Procedure
 
-### 1. Prise de contexte
+### 1. Gather context
 
-Avant de commencer la review :
+Before starting the review:
 
-- Lire le **manifest** du projet — comprendre les contraintes fondamentales
-- Lire la **memory** — vérifier s'il y a des décisions architecturales pertinentes
-- Lire les **rules** actives — ce sont les critères de qualité à appliquer
-- Lire l'**issue liée** — comprendre le "pourquoi" du changement
+- Read the project **manifest** — understand the fundamental constraints
+- Read the **memory** — check for relevant architectural decisions
+- Read the active **rules** — these are the quality criteria to apply
+- Read the **linked issue** — understand the "why" behind the change
 
-### 2. Checklist de review
+### 2. Review checklist
 
-Appliquer chaque point de cette checklist sur le code soumis :
+Apply each point of this checklist to the submitted code:
 
-#### Lisibilité
-- [ ] Le code se lit de haut en bas sans effort
-- [ ] Les noms de variables, fonctions et classes sont explicites
-- [ ] Pas d'abréviation obscure (sauf conventions établies du projet)
-- [ ] Les blocs logiques sont séparés visuellement
+#### Readability
+- [ ] The code reads top to bottom effortlessly
+- [ ] Variable, function, and class names are explicit
+- [ ] No obscure abbreviations (except established project conventions)
+- [ ] Logical blocks are visually separated
 
 #### Structure
-- [ ] Chaque fichier fait moins de 300 lignes
-- [ ] Une fonction = une responsabilité
-- [ ] Pas de nesting excessif (max 3 niveaux)
-- [ ] Les imports sont organisés et triés
+- [ ] Each file is under 300 lines
+- [ ] One function = one responsibility
+- [ ] No excessive nesting (max 3 levels)
+- [ ] Imports are organized and sorted
 
-#### Nommage
-- [ ] Les fonctions décrivent ce qu'elles font (verbe + nom)
-- [ ] Les variables décrivent ce qu'elles contiennent
-- [ ] Les constantes sont en UPPER_SNAKE_CASE
-- [ ] Le nommage est cohérent avec le reste du projet
+#### Naming
+- [ ] Functions describe what they do (verb + noun)
+- [ ] Variables describe what they contain
+- [ ] Constants are in UPPER_SNAKE_CASE
+- [ ] Naming is consistent with the rest of the project
 
 #### Duplication
-- [ ] Pas de copier-coller — si un pattern se répète 3+ fois, il doit être factorisé
-- [ ] Les fonctions utilitaires existantes sont réutilisées
-- [ ] Pas de réinvention de ce qui existe déjà dans les dépendances
+- [ ] No copy-paste — if a pattern repeats 3+ times, it must be factored out
+- [ ] Existing utility functions are reused
+- [ ] No reinventing what already exists in dependencies
 
-#### Gestion d'erreurs
-- [ ] Les erreurs sont gérées explicitement (pas de fail silencieux)
-- [ ] Les messages d'erreur sont compréhensibles
-- [ ] Les cas limites sont couverts
-- [ ] Pas de `catch` vide ou de `try/catch` qui avale tout
+#### Error handling
+- [ ] Errors are handled explicitly (no silent failures)
+- [ ] Error messages are understandable
+- [ ] Edge cases are covered
+- [ ] No empty `catch` or `try/catch` that swallows everything
 
-#### Sécurité
-- [ ] Pas d'injection possible (SQL, XSS, commande)
-- [ ] Les entrées utilisateur sont validées et échappées
-- [ ] Pas de secret en dur dans le code (clé API, mot de passe, token)
-- [ ] Les permissions sont vérifiées avant chaque action sensible
+#### Security
+- [ ] No injection possible (SQL, XSS, command)
+- [ ] User inputs are validated and escaped
+- [ ] No hardcoded secrets in the code (API key, password, token)
+- [ ] Permissions are checked before every sensitive action
 
 #### Tests
-- [ ] Les nouvelles fonctions ont des tests unitaires
-- [ ] Les cas limites sont testés
-- [ ] Les tests existants passent toujours
-- [ ] La couverture ne régresse pas
+- [ ] New functions have unit tests
+- [ ] Edge cases are tested
+- [ ] Existing tests still pass
+- [ ] Coverage does not regress
 
 #### Performance
-- [ ] Pas de requête en base dans une boucle (N+1)
-- [ ] Pas de calcul coûteux non mis en cache
-- [ ] Pas de chargement inutile de données
-- [ ] Les assets sont optimisés si modifiés
+- [ ] No database query in a loop (N+1)
+- [ ] No expensive computation left uncached
+- [ ] No unnecessary data loading
+- [ ] Assets are optimized if modified
 
 #### Documentation
-- [ ] Les fonctions publiques sont documentées (docstring, PHPDoc, JSDoc, GoDoc...)
-- [ ] Les comportements non évidents ont un commentaire
-- [ ] Le README est mis à jour si l'interface publique change
+- [ ] Public functions are documented (docstring, PHPDoc, JSDoc, GoDoc...)
+- [ ] Non-obvious behaviors have a comment
+- [ ] The README is updated if the public interface changes
 
-### 3. Classification des retours
+### 3. Feedback classification
 
-Chaque retour de review doit être classifié :
+Each review comment must be classified:
 
-| Niveau | Signification | Action attendue |
-|--------|--------------|-----------------|
-| **CRITIQUE** | Bug, faille de sécurité, perte de données | Bloque le merge — doit être corrigé |
-| **AVERTISSEMENT** | Mauvaise pratique, dette technique, risque futur | Doit être corrigé sauf justification explicite |
-| **SUGGESTION** | Amélioration possible, style, optimisation | À la discrétion du développeur |
+| Level | Meaning | Expected action |
+|-------|---------|-----------------|
+| **CRITICAL** | Bug, security flaw, data loss | Blocks the merge — must be fixed |
+| **WARNING** | Bad practice, technical debt, future risk | Must be fixed unless explicitly justified |
+| **SUGGESTION** | Possible improvement, style, optimization | At the developer's discretion |
 
-### 4. Format de sortie
+### 4. Output format
 
-Chaque retour suit ce format :
-
-```
-[CRITIQUE | AVERTISSEMENT | SUGGESTION] fichier:ligne
-Description du problème.
-Suggestion de correction (si applicable).
-```
-
-Exemple :
+Each comment follows this format:
 
 ```
-[CRITIQUE] src/auth/login.py:42
-Le mot de passe est loggué en clair dans le fichier de debug.
-→ Supprimer le print() ou remplacer par un hash avant logging.
+[CRITICAL | WARNING | SUGGESTION] file:line
+Description of the problem.
+Suggested fix (if applicable).
+```
 
-[AVERTISSEMENT] src/components/ProductCard.tsx:128
-Couleur #FF6B35 en dur dans le style inline.
-→ Utiliser une variable de thème ou une constante nommée.
+Example:
+
+```
+[CRITICAL] src/auth/login.py:42
+The password is logged in plain text in the debug file.
+-> Remove the print() or replace with a hash before logging.
+
+[WARNING] src/components/ProductCard.tsx:128
+Color #FF6B35 hardcoded in inline style.
+-> Use a theme variable or a named constant.
 
 [SUGGESTION] src/utils/format.go:15
-La fonction FormatDate pourrait utiliser time.Format avec un layout plus standard.
+The FormatDate function could use time.Format with a more standard layout.
 ```
 
-### 5. Synthèse
+### 5. Summary
 
-À la fin de la review, produire un résumé :
+At the end of the review, produce a summary:
 
 ```
-## Résumé de review
+## Review Summary
 
-**Fichiers revus** : X
-**Critiques** : X (bloquants)
-**Avertissements** : X
-**Suggestions** : X
+**Files reviewed**: X
+**Critical**: X (blocking)
+**Warnings**: X
+**Suggestions**: X
 
-**Verdict** : ✅ Prêt à merger | ⛔ Corrections requises | ⚠️ Corrections mineures recommandées
+**Verdict**: ✅ Ready to merge | ⛔ Corrections required | ⚠️ Minor corrections recommended
 
-**Points forts** :
+**Strengths**:
 - ...
 
-**Points d'attention** :
+**Areas of concern**:
 - ...
 ```
 
 ---
 
-## Règles spécifiques à ce skill
+## Rules specific to this skill
 
-- Ne jamais approuver un code avec un retour CRITIQUE non résolu
-- Ne pas faire de review sur son propre code — un autre agent ou l'humain doit valider
-- Si un pattern problématique est récurrent, le signaler pour ajout dans les **rules**
-- Si une décision architecturale est découverte pendant la review, la documenter dans la **memory**
+- Never approve code with an unresolved CRITICAL comment
+- Do not review your own code — another agent or the human must validate
+- If a problematic pattern is recurring, flag it for addition to the **rules**
+- If an architectural decision is discovered during the review, document it in the **memory**
 
 ---
 
-*Ce skill est opérationnel immédiatement. Un agent qui le charge peut effectuer une code review complète sans interprétation supplémentaire.*
+*This skill is immediately operational. An agent that loads it can perform a complete code review without further interpretation.*

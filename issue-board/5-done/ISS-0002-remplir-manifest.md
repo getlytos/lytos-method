@@ -1,8 +1,8 @@
 ---
 id: ISS-0002
-title: "Remplir le manifest du projet"
+title: "Fill in the project manifest"
 type: docs
-priority: P0-critique
+priority: P0-critical
 effort: S
 skill: documentation
 status: 5-done
@@ -11,22 +11,22 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
 
-# ISS-0002 — Remplir le manifest du projet
+# ISS-0002 — Fill in the project manifest
 
-## Contexte
+## Context
 
-Le manifest est la constitution du projet — sans lui, les agents n'ont aucun contexte. C'est la première chose à remplir après l'installation du Socle.
+The manifest is the project's constitution — without it, agents have no context. It's the first thing to fill in after installing Le Socle.
 
-## Critère de done
+## Definition of done
 
-- [ ] Copier `.socle/templates/manifest.md` vers `.socle/manifest.md`
-- [ ] Section **Identité** remplie (nom, description, responsable)
-- [ ] Section **Pourquoi ce projet existe** remplie (3-5 phrases)
-- [ ] Section **Ce que ce projet est** et **n'est pas** remplies
-- [ ] Section **Stack technique** remplie
-- [ ] Section **Vocabulaire du projet** remplie (au moins 3 termes)
-- [ ] Section **Principes de développement** remplie (au moins 2 arbitrages)
+- [ ] Copy `.socle/templates/manifest.md` to `.socle/manifest.md`
+- [ ] **Identity** section filled in (name, description, owner)
+- [ ] **Why this project exists** section filled in (3-5 sentences)
+- [ ] **What this project is** and **is not** sections filled in
+- [ ] **Tech stack** section filled in
+- [ ] **Project vocabulary** section filled in (at least 3 terms)
+- [ ] **Development principles** section filled in (at least 2 trade-offs)
 
-## Fichiers concernés
+## Relevant files
 
-- `.socle/manifest.md` (nouveau, copié depuis le template)
+- `.socle/manifest.md` (new, copied from the template)

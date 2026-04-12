@@ -1,8 +1,8 @@
 ---
 id: ISS-0004
-title: "Écrire le premier sprint"
+title: "Write the first sprint"
 type: docs
-priority: P1-haute
+priority: P1-high
 effort: S
 skill: documentation
 status: 1-backlog
@@ -10,17 +10,17 @@ depends: [ISS-0003]
 created: YYYY-MM-DD
 ---
 
-# ISS-0004 — Écrire le premier sprint
+# ISS-0004 — Write the first sprint
 
-## Quoi faire
+## What to do
 
-Copier `.socle/templates/sprint.md` vers `.socle/sprint.md` et le remplir avec les premières issues du projet. Définir l'objectif du sprint, prioriser les tâches, et tracer le graph de dépendances.
+Copy `.socle/templates/sprint.md` to `.socle/sprint.md` and fill it in with the project's first issues. Define the sprint objective, prioritize the tasks, and draw the dependency graph.
 
-## Fichiers concernés
+## Relevant files
 
-- `.socle/sprint.md` (nouveau, copié depuis le template)
-- `.socle/issue-board/` (issues à créer pour alimenter le sprint)
+- `.socle/sprint.md` (new, copied from the template)
+- `.socle/issue-board/` (issues to create to populate the sprint)
 
-## Critère de done
+## Definition of done
 
-Le sprint est rempli avec au moins 3 issues concrètes, les dépendances sont tracées, et l'objectif du sprint est clair en une phrase.
+The sprint is filled in with at least 3 concrete issues, dependencies are mapped, and the sprint objective is clear in one sentence.

@@ -1,54 +1,54 @@
 ---
 id: ISS-XXXX
-title: "[Titre de l'issue]"
+title: "[Issue Title]"
 type: feat | fix | refactor | chore
-priority: P0-critique | P1-haute | P2-moyenne | P3-basse
+priority: P0-critical | P1-high | P2-normal | P3-low
 effort: XS | S | M | L | XL
 complexity: light | standard | heavy
 domain: []
-skill: "[skill principal à invoquer]"
+skill: "[main skill to invoke]"
 skills_aux: []
 status: 0-icebox
-branch: "type/ISS-XXXX-slug-titre"
+branch: "type/ISS-XXXX-slug-title"
 depends: []
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
 
-# ISS-XXXX — [Titre de l'issue]
+# ISS-XXXX — [Issue Title]
 
-## Contexte
+## Context
 
-*Pourquoi cette issue existe. Quel problème elle résout. Quelle est la situation actuelle.*
+*Why this issue exists. What problem it solves. What the current situation is.*
 
-## Solution proposée
+## Proposed solution
 
-*Ce qu'on va faire concrètement pour résoudre le problème.*
+*What we'll concretely do to solve the problem.*
 
-## Critère de done
+## Definition of done
 
-*Comment on sait que cette issue est terminée. Plus l'issue est grosse, plus le done doit être précis.*
+*How we know this issue is finished. The bigger the issue, the more precise the done criteria should be.*
 
-- [ ] Critère vérifiable 1
-- [ ] Critère vérifiable 2
-- [ ] Tests écrits et passants
-- [ ] Documentation à jour
+- [ ] Verifiable criterion 1
+- [ ] Verifiable criterion 2
+- [ ] Tests written and passing
+- [ ] Documentation up to date
 
 ## Checklist
 
-### [Domaine 1]
-- [ ] Tâche précise avec fichier concerné
-- [ ] Tâche précise avec fichier concerné
+### [Domain 1]
+- [ ] Specific task with relevant file
+- [ ] Specific task with relevant file
 
-### [Domaine 2]
-- [ ] Tâche précise avec fichier concerné
-- [ ] Tâche précise avec fichier concerné
+### [Domain 2]
+- [ ] Specific task with relevant file
+- [ ] Specific task with relevant file
 
-## Fichiers concernés
+## Relevant files
 
-- `chemin/vers/fichier`
-- `chemin/vers/fichier`
+- `path/to/file`
+- `path/to/file`
 
 ## Notes
 
-*Références, liens, dépendances documentées, décisions d'implémentation.*
+*References, links, documented dependencies, implementation decisions.*

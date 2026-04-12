@@ -1,8 +1,8 @@
 ---
 id: ISS-0005
-title: "Configurer l'adapter IA du projet"
+title: "Configure the project's AI adapter"
 type: chore
-priority: P1-haute
+priority: P1-high
 effort: XS
 skill: ~
 status: 1-backlog
@@ -10,21 +10,21 @@ depends: [ISS-0002]
 created: YYYY-MM-DD
 ---
 
-# ISS-0005 — Configurer l'adapter IA du projet
+# ISS-0005 — Configure the project's AI adapter
 
-## Quoi faire
+## What to do
 
-Configurer l'outil IA utilisé sur le projet pour qu'il charge automatiquement le manifest, la memory et les rules du Socle au démarrage de chaque session.
+Configure the AI tool used on the project so that it automatically loads Le Socle's manifest, memory, and rules at the start of each session.
 
-Selon l'outil :
-- **Claude Code** → créer `CLAUDE.md` (voir `.socle/adapters/claude-code/`)
-- **Cursor** → créer `.cursorrules` (voir `.socle/adapters/cursor/`)
-- **OpenAI** → configurer les instructions système (voir `.socle/adapters/openai/`)
+Depending on the tool:
+- **Claude Code** → create `CLAUDE.md` (see `.socle/adapters/claude-code/`)
+- **Cursor** → create `.cursorrules` (see `.socle/adapters/cursor/`)
+- **OpenAI** → configure the system instructions (see `.socle/adapters/openai/`)
 
-## Fichiers concernés
+## Relevant files
 
-- `CLAUDE.md` ou `.cursorrules` (nouveau, à la racine du projet)
+- `CLAUDE.md` or `.cursorrules` (new, at the project root)
 
-## Critère de done
+## Definition of done
 
-L'outil IA charge automatiquement le manifest et la memory à chaque nouvelle session. Test : démarrer une session et demander "Quel est le projet sur lequel on travaille ?" — l'agent doit répondre correctement.
+The AI tool automatically loads the manifest and memory at each new session. Test: start a session and ask "What project are we working on?" — the agent must answer correctly.

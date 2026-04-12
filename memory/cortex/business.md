@@ -1,15 +1,15 @@
-# Memory — Contexte métier
+# Memory — Business Context
 
-*Ce qu'on a appris sur le domaine métier au fil du projet. Vocabulaire spécifique, règles implicites, comportements attendus. Charger ce fichier pour toute tâche qui touche à la logique métier ou à l'UX.*
+*What has been learned about the business domain throughout the project. Specific vocabulary, implicit rules, expected behaviors. Load this file for any task that involves business logic or UX.*
 
 ---
 
-<!-- Format d'une entrée :
+<!-- Entry format:
 
-### Domaine / Concept
+### Domain / Concept
 
-**Règle** : Ce que le métier impose.
-**Pourquoi** : La raison métier derrière (pas technique).
-**Impact code** : Ce que ça implique concrètement dans le code.
+**Rule**: What the business requires.
+**Why**: The business reason behind it (not technical).
+**Code impact**: What it concretely implies in the code.
 
 -->

@@ -1,22 +1,22 @@
-# Memory — Problèmes récurrents & Solutions
+# Memory — Recurring Problems & Solutions
 
-*Les problèmes qui reviennent souvent et comment on les résout. Charger ce fichier avant de debug ou d'explorer une piste — le problème a peut-être déjà été résolu.*
+*Problems that come up often and how to solve them. Load this file before debugging or exploring a path — the problem may have already been solved.*
 
 ---
 
-<!-- Format d'une entrée :
+<!-- Entry format:
 
-| Problème | Cause | Solution |
-|----------|-------|----------|
-| Description courte | Pourquoi ça arrive | Comment on résout |
+| Problem | Cause | Solution |
+|---------|-------|----------|
+| Short description | Why it happens | How to solve it |
 
-Ou pour les problèmes complexes :
+Or for complex problems:
 
-### YYYY-MM-DD — Titre du problème
+### YYYY-MM-DD — Problem title
 
-**Symptôme** : Ce qu'on observe.
-**Cause racine** : Pourquoi ça arrive.
-**Solution** : Ce qui a fonctionné.
-**Piège** : Ce qu'on a essayé et qui ne marche PAS.
+**Symptom**: What is observed.
+**Root cause**: Why it happens.
+**Solution**: What worked.
+**Pitfall**: What was tried and does NOT work.
 
 -->

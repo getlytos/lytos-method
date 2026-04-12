@@ -1,8 +1,8 @@
 ---
 id: ISS-0001
-title: "Installer Le Socle dans le projet"
+title: "Install Le Socle in the project"
 type: chore
-priority: P0-critique
+priority: P0-critical
 effort: XS
 skill: ~
 status: 5-done
@@ -11,21 +11,21 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
 
-# ISS-0001 — Installer Le Socle dans le projet
+# ISS-0001 — Install Le Socle in the project
 
-## Quoi faire
+## What to do
 
-Ajouter Le Socle comme submodule Git dans le dossier `.socle/` à la racine du projet.
+Add Le Socle as a Git submodule in the `.socle/` folder at the project root.
 
 ```bash
 git submodule add https://github.com/le-socle/socle .socle
 ```
 
-## Fichiers concernés
+## Relevant files
 
 - `.gitmodules`
-- `.socle/` (nouveau dossier)
+- `.socle/` (new folder)
 
-## Critère de done
+## Definition of done
 
-Le dossier `.socle/` existe à la racine du projet avec toute la structure du Socle : skills, rules, templates, issue-board.
+The `.socle/` folder exists at the project root with the full Le Socle structure: skills, rules, templates, issue-board.

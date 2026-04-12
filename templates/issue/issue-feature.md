@@ -1,55 +1,55 @@
-# ISS-XXXX — [Titre de l'issue]
+# ISS-XXXX — [Issue Title]
 
-**Type** : `feat` | `fix` | `refactor` | `chore`
-**Priorité** : `P0-critique` | `P1-haute` | `P2-normale` | `P3-basse`
-**Effort** : `XS` | `S` | `M` | `L` | `XL`
-**Domaine** : [domaines concernés]
-**Agent-skill** : [skill à invoquer]
-**Assignee** : —
-**Branche** : `type/ISS-XXXX-slug-titre`
-**Status** : `open` | `in-progress` | `review` | `done`
-**Créé** : YYYY-MM-DD
-**Modifié** : YYYY-MM-DD
-**Depends** : ISS-XXXX | —
+**Type**: `feat` | `fix` | `refactor` | `chore`
+**Priority**: `P0-critical` | `P1-high` | `P2-normal` | `P3-low`
+**Effort**: `XS` | `S` | `M` | `L` | `XL`
+**Domain**: [relevant domains]
+**Agent-skill**: [skill to invoke]
+**Assignee**: —
+**Branch**: `type/ISS-XXXX-slug-title`
+**Status**: `open` | `in-progress` | `review` | `done`
+**Created**: YYYY-MM-DD
+**Updated**: YYYY-MM-DD
+**Depends**: ISS-XXXX | —
 
 ---
 
-## Contexte
+## Context
 
-*Pourquoi cette issue existe. Quel problème elle résout. Quelle est la situation actuelle.*
+*Why this issue exists. What problem it solves. What the current situation is.*
 
-## Solution proposée
+## Proposed solution
 
-*Ce qu'on va faire concrètement pour résoudre le problème.*
+*What we'll concretely do to solve the problem.*
 
 ## Checklist
 
-### [Domaine 1 — ex: PHP]
-- [ ] Tâche précise avec fichier concerné
-- [ ] Tâche précise avec fichier concerné
+### [Domain 1 — e.g.: PHP]
+- [ ] Specific task with relevant file
+- [ ] Specific task with relevant file
 
-### [Domaine 2 — ex: JS]
-- [ ] Tâche précise avec fichier concerné
-- [ ] Tâche précise avec fichier concerné
+### [Domain 2 — e.g.: JS]
+- [ ] Specific task with relevant file
+- [ ] Specific task with relevant file
 
 ### QA
-- [ ] Test unitaire écrit et passant
-- [ ] Test Playwright écrit et passant
-- [ ] Validation visuelle
+- [ ] Unit test written and passing
+- [ ] Playwright test written and passing
+- [ ] Visual validation
 
-## Fichiers concernés
+## Relevant files
 
-### [Partie 1 — ex: Plugin]
-- `chemin/vers/fichier.php`
-- `chemin/vers/fichier.js`
+### [Part 1 — e.g.: Plugin]
+- `path/to/file.php`
+- `path/to/file.js`
 
-### [Partie 2 — ex: Thème]
-- `chemin/vers/fichier.css`
+### [Part 2 — e.g.: Theme]
+- `path/to/file.css`
 
 ## Notes
 
-*Références, liens, dépendances documentées, décisions d'implémentation.*
+*References, links, documented dependencies, implementation decisions.*
 
 ---
 
-*Dernière mise à jour : YYYY-MM-DD*
+*Last updated: YYYY-MM-DD*

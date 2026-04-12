@@ -1,87 +1,87 @@
 # Agents
 
-*Ce dossier documente le fonctionnement des agents dans Le Socle. Les agents ne sont pas le sujet — le socle l'est. Mais comprendre comment ils sont invoqués et orchestrés est essentiel.*
+*This folder documents how agents work in Le Socle. Agents are not the subject — Le Socle is. But understanding how they are invoked and orchestrated is essential.*
 
 ---
 
-## Philosophie
+## Philosophy
 
-Dans Le Socle, les agents sont traités comme des **pods Kubernetes** — de l'intelligence computationnelle scalable, sans identité fixe.
+In Le Socle, agents are treated as **Kubernetes pods** — scalable computational intelligence, with no fixed identity.
 
-### Ce que les agents sont
+### What agents are
 
-- **Stateless** — ils ne conservent rien entre deux invocations
-- **Sans identité** — pas de persona, pas de nom, pas de backstory
-- **Invoqués par skill** — ils reçoivent une procédure, pas un rôle
-- **Éphémères** — ils sont créés pour une tâche et libérés après
+- **Stateless** — they retain nothing between two invocations
+- **Without identity** — no persona, no name, no backstory
+- **Invoked by skill** — they receive a procedure, not a role
+- **Ephemeral** — they are created for a task and released after
 
-### Ce que les agents ne sont pas
+### What agents are not
 
-- Pas des membres d'équipe permanents
-- Pas des personas avec des traits de caractère
-- Pas des experts spécialisés figés dans un domaine
-- Pas des entités autonomes qui décident de leur propre chef
+- Not permanent team members
+- Not personas with character traits
+- Not specialized experts locked into a domain
+- Not autonomous entities that decide on their own
 
 ---
 
-## Cycle de vie d'un agent
+## Agent Lifecycle
 
 ```
-1. L'orchestrateur lit le sprint.md
-2. Il identifie une tâche à exécuter
-3. Il invoque un agent avec :
-   - Le manifest du projet (contexte global)
-   - La memory (connaissances accumulées)
-   - Le skill assigné à la tâche (procédure à suivre)
-   - L'issue courante (périmètre précis)
-   - Les rules actives (critères de qualité)
-4. L'agent exécute la tâche dans ce cadre
-5. L'agent produit son output (code, documentation, review...)
-6. Si un apprentissage a eu lieu → écriture dans la memory
-7. L'agent est libéré
+1. The orchestrator reads sprint.md
+2. It identifies a task to execute
+3. It invokes an agent with:
+   - The project manifest (global context)
+   - The memory (accumulated knowledge)
+   - The skill assigned to the task (procedure to follow)
+   - The current issue (precise scope)
+   - The active rules (quality criteria)
+4. The agent executes the task within this framework
+5. The agent produces its output (code, documentation, review...)
+6. If a learning occurred → write to memory
+7. The agent is released
 ```
 
 ---
 
-## Ce que lit un agent au démarrage
+## What an Agent Reads at Startup
 
-| Source | Contenu | Obligatoire |
-|--------|---------|-------------|
-| `manifest.md` | Identité et intention du projet | Oui |
-| `memory/MEMORY.md` | Connaissances accumulées | Oui |
-| `skills/[skill].md` | Procédure à suivre pour cette tâche | Oui |
-| `rules/*.md` | Critères de qualité à respecter | Oui |
-| `issue-board/[statut]/ISS-XXXX-titre.md` | Périmètre précis de la tâche | Oui |
-| `sprint.md` | Contexte du sprint en cours | Recommandé |
-
----
-
-## Ce qu'un agent écrit
-
-| Cible | Quand |
-|-------|-------|
-| Fichiers du projet | Toujours — c'est son output principal |
-| `memory/MEMORY.md` | Si un apprentissage significatif a eu lieu |
-| `issue-board/[statut]/ISS-XXXX-titre.md` | Pour mettre à jour le statut (déplacer entre dossiers) |
-
-Un agent **ne modifie jamais** le manifest, les skills ou les rules. Seul l'humain a ce pouvoir.
+| Source | Content | Required |
+|--------|---------|----------|
+| `manifest.md` | Project identity and intent | Yes |
+| `memory/MEMORY.md` | Accumulated knowledge | Yes |
+| `skills/[skill].md` | Procedure to follow for this task | Yes |
+| `rules/*.md` | Quality criteria to comply with | Yes |
+| `issue-board/[status]/ISS-XXXX-title.md` | Precise scope of the task | Yes |
+| `sprint.md` | Current sprint context | Recommended |
 
 ---
 
-## Scalabilité
+## What an Agent Writes
 
-Le nombre d'agents est déterminé par la complexité du sprint, pas par une organisation fixe.
+| Target | When |
+|--------|------|
+| Project files | Always — this is its main output |
+| `memory/MEMORY.md` | If a significant learning occurred |
+| `issue-board/[status]/ISS-XXXX-title.md` | To update the status (move between folders) |
 
-- Sprint simple (3-4 issues indépendantes) → 1 agent séquentiel suffit
-- Sprint complexe (10+ issues avec dépendances) → plusieurs agents en parallèle
-- L'orchestrateur gère l'allocation selon le graph de dépendances
-
----
-
-## Documentation complémentaire
-
-- [orchestrator.md](./orchestrator.md) — Comment l'orchestrateur lit les dépendances et alloue les agents
+An agent **never modifies** the manifest, skills, or rules. Only the human has that power.
 
 ---
 
-*Les agents sont le véhicule. Le Socle est la route. Le manifest est la destination.*
+## Scalability
+
+The number of agents is determined by the sprint complexity, not by a fixed organization.
+
+- Simple sprint (3-4 independent issues) → 1 sequential agent is enough
+- Complex sprint (10+ issues with dependencies) → multiple agents in parallel
+- The orchestrator manages allocation based on the dependency graph
+
+---
+
+## Additional Documentation
+
+- [orchestrator.md](./orchestrator.md) — How the orchestrator reads dependencies and allocates agents
+
+---
+
+*Agents are the vehicle. Le Socle is the road. The manifest is the destination.*

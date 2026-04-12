@@ -1,55 +1,55 @@
 # Skill — Code Structure
 
-*Ce skill définit les règles de structure de fichiers, de nommage et d'organisation du code sur un projet utilisant Le Socle. Un agent chargé de ce skill produit du code propre, cohérent et maintenable.*
+*This skill defines the rules for file structure, naming, and code organization on a project using Le Socle. An agent loaded with this skill produces clean, consistent, and maintainable code.*
 
 ---
 
-## Quand invoquer ce skill
+## When to invoke this skill
 
-- Lors de l'écriture de tout nouveau code
-- Lors d'un refactoring
-- En complément du skill code-review pour vérifier la structure
-- Lors de la création d'un nouveau module ou composant
-
----
-
-## Règle fondamentale — 300 lignes max par fichier
-
-Un fichier ne doit jamais dépasser 300 lignes de code (hors commentaires et lignes vides).
-
-**Pourquoi** : un fichier trop long est un signe de responsabilités multiples. Il est plus difficile à lire, à tester et à maintenir.
-
-**Quand un fichier dépasse 300 lignes** :
-1. Identifier les responsabilités distinctes dans le fichier
-2. Extraire chaque responsabilité dans son propre fichier
-3. Garder le fichier original comme point d'entrée si nécessaire
-4. Mettre à jour les imports et dépendances
+- When writing any new code
+- During a refactoring
+- As a complement to the code-review skill to verify structure
+- When creating a new module or component
 
 ---
 
-## Séparation des responsabilités
+## Fundamental rule — 300 lines max per file
 
-### Principe
+A file must never exceed 300 lines of code (excluding comments and blank lines).
 
-Chaque fichier, chaque fonction, chaque classe a **une seule raison de changer**.
+**Why**: a file that's too long is a sign of multiple responsibilities. It is harder to read, test, and maintain.
 
-### En pratique
+**When a file exceeds 300 lines**:
+1. Identify the distinct responsibilities in the file
+2. Extract each responsibility into its own file
+3. Keep the original file as an entry point if needed
+4. Update imports and dependencies
 
-| Mauvais | Bon |
-|---------|-----|
-| Un fichier qui gère la route, la validation, la logique métier et la réponse | Route → Controller → Service → Repository |
-| Une fonction qui calcule, formate et envoie | `calculer()` + `formater()` + `envoyer()` |
-| Un composant React qui fetch, traite et affiche | Hook `useProduits()` + Composant `ListeProduits` |
+---
 
-### Structure type d'un module
+## Separation of concerns
+
+### Principle
+
+Each file, each function, each class has **one single reason to change**.
+
+### In practice
+
+| Bad | Good |
+|-----|------|
+| One file handling the route, validation, business logic, and response | Route -> Controller -> Service -> Repository |
+| One function that computes, formats, and sends | `compute()` + `format()` + `send()` |
+| A React component that fetches, processes, and displays | Hook `useProducts()` + Component `ProductList` |
+
+### Typical module structure
 
 ```
 module/
-├── index.js          ← point d'entrée, exports publics
-├── service.js        ← logique métier
-├── repository.js     ← accès aux données
-├── validator.js      ← validation des entrées
-├── types.js          ← types/interfaces (TS)
+├── index.js          <- entry point, public exports
+├── service.js        <- business logic
+├── repository.js     <- data access
+├── validator.js      <- input validation
+├── types.js          <- types/interfaces (TS)
 └── __tests__/
     ├── service.test.js
     └── validator.test.js
@@ -57,14 +57,14 @@ module/
 
 ---
 
-## Nommage
+## Naming
 
-### Fichiers
+### Files
 
-Suivre la convention du langage et de l'écosystème du projet :
+Follow the language and ecosystem conventions of the project:
 
-| Langage | Convention | Exemple |
-|---------|-----------|---------|
+| Language | Convention | Example |
+|----------|-----------|---------|
 | Python | snake_case | `product_service.py` |
 | JavaScript/TypeScript | kebab-case | `product-service.js` |
 | PHP (classes) | PascalCase | `ProductService.php` |
@@ -74,57 +74,57 @@ Suivre la convention du langage et de l'écosystème du projet :
 
 ### Variables
 
-Suivre les conventions du langage. Les principes universels :
+Follow the language conventions. Universal principles:
 
-| Principe | Exemple |
-|----------|---------|
-| Constantes en UPPER_SNAKE_CASE | `MAX_RETRY_COUNT`, `API_BASE_URL` |
-| Booléens : préfixe is/has/can/should | `is_active`, `hasPermission` |
-| Listes/tableaux : pluriel | `produits`, `users` |
-| Élément unique : singulier | `produit`, `user` |
-| Pas d'abréviation obscure | `utilisateur` pas `usr`, `response` pas `resp` |
+| Principle | Example |
+|-----------|---------|
+| Constants in UPPER_SNAKE_CASE | `MAX_RETRY_COUNT`, `API_BASE_URL` |
+| Booleans: prefix with is/has/can/should | `is_active`, `hasPermission` |
+| Lists/arrays: plural | `products`, `users` |
+| Single element: singular | `product`, `user` |
+| No obscure abbreviations | `user` not `usr`, `response` not `resp` |
 
-### Fonctions
+### Functions
 
-| Règle | Exemple ✅ | Contre-exemple ❌ |
-|-------|-----------|-------------------|
-| Verbe + nom | `calculerTTC()` | `ttc()` |
-| Décrire l'action | `envoyerEmailConfirmation()` | `email()` |
-| Pas d'abréviation | `obtenirUtilisateurParId()` | `getUsrById()` |
-| Booléen retourné → question | `estActif()`, `peutCommander()` | `actif()`, `commande()` |
+| Rule | Example ✅ | Counter-example ❌ |
+|------|-----------|-------------------|
+| Verb + noun | `calculateGross()` | `gross()` |
+| Describe the action | `sendConfirmationEmail()` | `email()` |
+| No abbreviation | `getUserById()` | `getUsrById()` |
+| Boolean return -> question | `isActive()`, `canOrder()` | `active()`, `order()` |
 
 ### Classes
 
-| Règle | Exemple |
-|-------|---------|
+| Rule | Example |
+|------|---------|
 | PascalCase | `ProductService` |
-| Nom = responsabilité | `InvoiceGenerator`, pas `InvoiceManager` |
-| Un suffixe clair | `Controller`, `Service`, `Repository`, `Validator` |
+| Name = responsibility | `InvoiceGenerator`, not `InvoiceManager` |
+| A clear suffix | `Controller`, `Service`, `Repository`, `Validator` |
 
 ---
 
-## Organisation des imports
+## Import organization
 
-Les imports sont organisés par catégorie, séparés par une ligne vide. L'ordre est le même quel que soit le langage :
+Imports are organized by category, separated by a blank line. The order is the same regardless of language:
 
-1. **Bibliothèque standard** (built-in)
-2. **Dépendances externes** (packages tiers)
-3. **Modules internes** (chemins absolus dans le projet)
-4. **Modules relatifs** (même dossier/module)
+1. **Standard library** (built-in)
+2. **External dependencies** (third-party packages)
+3. **Internal modules** (absolute paths within the project)
+4. **Relative modules** (same folder/module)
 
 ```python
 # 1. Standard
 import os
 from pathlib import Path
 
-# 2. Externe
+# 2. External
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-# 3. Interne
+# 3. Internal
 from app.services.product import ProductService
 
-# 4. Relatif
+# 4. Relative
 from .helpers import format_price
 ```
 
@@ -132,112 +132,112 @@ from .helpers import format_price
 // 1. Standard
 import path from 'path';
 
-// 2. Externe
+// 2. External
 import express from 'express';
 import { z } from 'zod';
 
-// 3. Interne
+// 3. Internal
 import { ProductService } from '@/services/product';
 
-// 4. Relatif
+// 4. Relative
 import { formatPrice } from './helpers';
 ```
 
 ---
 
-## Structure des fonctions
+## Function structure
 
-### Longueur
+### Length
 
-- Une fonction fait idéalement **moins de 30 lignes**
-- Si elle dépasse 50 lignes, envisager un découpage
+- A function is ideally **under 30 lines**
+- If it exceeds 50 lines, consider splitting it
 
 ### Nesting
 
-- Maximum **3 niveaux** d'imbrication
-- Utiliser le **early return** pour réduire le nesting
+- Maximum **3 levels** of nesting
+- Use **early return** to reduce nesting
 
 ```python
-# ✅ Bon — early return
-def traiter_commande(commande):
-    if not commande.est_valide():
-        raise ValueError("Commande invalide")
+# ✅ Good — early return
+def process_order(order):
+    if not order.is_valid():
+        raise ValueError("Invalid order")
 
-    if not commande.client.peut_commander():
-        raise PermissionError("Client non autorisé")
+    if not order.client.can_order():
+        raise PermissionError("Unauthorized client")
 
-    return executer_commande(commande)
+    return execute_order(order)
 
-# ❌ Mauvais — nesting profond
-def traiter_commande(commande):
-    if commande.est_valide():
-        if commande.client.peut_commander():
-            return executer_commande(commande)
+# ❌ Bad — deep nesting
+def process_order(order):
+    if order.is_valid():
+        if order.client.can_order():
+            return execute_order(order)
         else:
-            raise PermissionError("Client non autorisé")
+            raise PermissionError("Unauthorized client")
     else:
-        raise ValueError("Commande invalide")
+        raise ValueError("Invalid order")
 ```
 
-Le principe est identique dans tous les langages : sortir tôt des cas d'erreur pour garder le chemin principal au niveau d'indentation le plus bas.
+The principle is identical across all languages: exit early from error cases to keep the main path at the lowest indentation level.
 
-### Paramètres
+### Parameters
 
-- Maximum **4 paramètres** par fonction
-- Au-delà, regrouper dans un objet, un dict, un struct ou un DTO
+- Maximum **4 parameters** per function
+- Beyond that, group into an object, dict, struct, or DTO
 
 ```python
-# ✅ Bon — objet de configuration
-def creer_utilisateur(config: UserConfig):
+# ✅ Good — configuration object
+def create_user(config: UserConfig):
 
-# ❌ Mauvais — trop de paramètres
-def creer_utilisateur(nom, email, role, departement, date_debut, manager):
+# ❌ Bad — too many parameters
+def create_user(name, email, role, department, start_date, manager):
 ```
 
 ---
 
-## Valeurs en dur — interdit
+## Hardcoded values — forbidden
 
-Aucune valeur magique dans le code. Tout doit être nommé.
+No magic values in the code. Everything must be named.
 
 ```python
-# ✅ Bon
-TVA_FRANCE = 0.20
-prix_ttc = prix_ht * (1 + TVA_FRANCE)
+# ✅ Good
+FRANCE_TAX_RATE = 0.20
+gross_price = net_price * (1 + FRANCE_TAX_RATE)
 
-# ❌ Mauvais
-prix_ttc = prix_ht * 1.20
+# ❌ Bad
+gross_price = net_price * 1.20
 ```
 
 ```javascript
-// ✅ Bon
+// ✅ Good
 const MAX_RETRIES = 3;
-// ❌ Mauvais
+// ❌ Bad
 if (attempts > 3) {
 ```
 
-Pour le CSS, même principe — utiliser des variables, pas des valeurs en dur :
+For CSS, same principle — use variables, not hardcoded values:
 
 ```css
-/* ✅ Bon */
+/* ✅ Good */
 color: var(--color-primary);
-/* ❌ Mauvais */
+/* ❌ Bad */
 color: #3B82F6;
 ```
 
 ---
 
-## Checklist avant de considérer le code structuré
+## Checklist before considering the code properly structured
 
-- [ ] Aucun fichier ne dépasse 300 lignes
-- [ ] Chaque fichier a une seule responsabilité
-- [ ] Les fonctions font moins de 30 lignes (50 max)
-- [ ] Le nesting ne dépasse pas 3 niveaux
-- [ ] Les noms sont explicites et suivent les conventions
-- [ ] Les imports sont organisés par catégorie
-- [ ] Aucune valeur en dur — tout est nommé dans des constantes ou variables
-- [ ] Les fonctions ont 4 paramètres max
+- [ ] No file exceeds 300 lines
+- [ ] Each file has a single responsibility
+- [ ] Functions are under 30 lines (50 max)
+- [ ] Nesting does not exceed 3 levels
+- [ ] Names are explicit and follow conventions
+- [ ] Imports are organized by category
+- [ ] No hardcoded values — everything is named in constants or variables
+- [ ] Functions have 4 parameters max
 
 ---
 
-*Ce skill est opérationnel immédiatement. Un agent qui le charge produit du code structuré, lisible et maintenable sans interprétation supplémentaire.*
+*This skill is immediately operational. An agent that loads it produces structured, readable, and maintainable code without further interpretation.*

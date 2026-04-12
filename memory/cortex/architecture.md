@@ -1,15 +1,15 @@
-# Memory — Architecture & Décisions techniques
+# Memory — Architecture & Technical Decisions
 
-*Les décisions architecturales importantes, pourquoi elles ont été prises, ce qu'elles impliquent. Charger ce fichier pour toute tâche qui touche à la structure du projet.*
+*Important architectural decisions, why they were made, what they imply. Load this file for any task that affects the project structure.*
 
 ---
 
-<!-- Format d'une entrée :
+<!-- Entry format:
 
-### YYYY-MM-DD — Titre court
+### YYYY-MM-DD — Short title
 
-**Contexte** : Pourquoi cette décision a été prise.
-**Décision** : Ce qui a été choisi.
-**Conséquence** : Ce que ça implique pour la suite.
+**Context**: Why this decision was made.
+**Decision**: What was chosen.
+**Consequence**: What it implies going forward.
 
 -->

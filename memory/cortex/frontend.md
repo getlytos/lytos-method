@@ -1,15 +1,15 @@
 # Memory — Frontend
 
-*Patterns, pièges et solutions côté client. Charger ce fichier pour toute tâche frontend : UI, composants, styles, JavaScript.*
+*Patterns, pitfalls, and solutions on the client side. Load this file for any frontend task: UI, components, styles, JavaScript.*
 
 ---
 
-<!-- Format d'une entrée :
+<!-- Entry format:
 
-### YYYY-MM-DD — Titre court
+### YYYY-MM-DD — Short title
 
-**Contexte** : Situation rencontrée.
-**Apprentissage** : Ce qu'on a découvert.
-**À retenir** : Ce qu'un agent doit savoir pour ne pas retomber dedans.
+**Context**: Situation encountered.
+**Learning**: What was discovered.
+**Takeaway**: What an agent needs to know to avoid falling into the same trap.
 
 -->

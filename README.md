@@ -1,70 +1,72 @@
 # Le Socle
 
-> Une méthode de travail humain-IA qui place les Skills, la Memory et les Rules au centre — pas les agents.
+> A human-first method for working with AI agents. Skills, Memory and Rules — not personas.
 
-*A human-first method for working with AI agents. Skills, Memory and Rules over personas.*
+[Lire en français](./docs/fr/README.md)
 
 ---
 
-## Par où commencer ?
+## Get started
 
-**Tu veux démarrer maintenant** → une seule commande :
+**Start now** — one command:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | bash
 ```
 
-Ou lis le guide complet → [DEMARRER.md](./DEMARRER.md)
+Then open your AI tool and say: **"Help me configure Le Socle for this project."**
 
-**Tu veux comprendre la philosophie** → [MANIFESTE.md](./MANIFESTE.md) — pourquoi cette méthode existe
+Full guide → [docs/en/QUICKSTART.md](./docs/en/QUICKSTART.md) | [Guide en français](./docs/fr/DEMARRER.md)
 
-**Tu veux contribuer** → [CONTRIBUER.md](./CONTRIBUER.md) — comment participer au projet
+**Understand the philosophy** → [MANIFESTO.md](./MANIFESTO.md)
 
----
-
-## Le problème
-
-L'industrie IA reproduit l'organisation humaine — des agents avec des rôles, des titres, des personas. Un "LeadDev", un "Expert UX", tous en costume. C'est rassurant. Ce n'est pas efficace.
-
-Un agent IA n'a pas de mémoire limitée, pas de fatigue, pas d'ego. Lui imposer un rôle fixe, c'est le limiter.
-
-**Le Socle propose un renversement** : on ne gère plus les agents, on définit le cadre dans lequel ils opèrent.
+**Contribute** → [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ---
 
-## Comment ça marche
+## The problem
+
+The AI industry copies human organization — agents with roles, titles, personas. A "Senior Dev", a "UX Expert", all wearing costumes. It's comforting. It's not effective.
+
+An AI agent has no limited memory, no fatigue, no ego. Giving it a fixed role is limiting it.
+
+**Le Socle proposes a reversal**: instead of managing agents, you define the framework in which they operate.
+
+---
+
+## How it works
 
 ```
-L'humain définit          →    Les agents exécutent
-─────────────────               ──────────────────
-manifest.md                     Invoqués selon le besoin
-skills/                         Stateless, sans identité fixe  
-rules/                          Libérés après exécution
-memory/                         Scalables selon la complexité
+The human defines          →    Agents execute
+─────────────────               ──────────────
+manifest.md                     Invoked as needed
+skills/                         Stateless, no fixed identity
+rules/                          Released after execution
+memory/                         Scalable to complexity
 ```
 
-### Les 4 piliers
+### The 4 pillars
 
-| Pilier | C'est quoi | Exemple concret |
+| Pillar | What it is | Concrete example |
 |--------|-----------|-----------------|
-| **Manifest** | La constitution du projet — le pourquoi | "Ce projet est une API de gestion de bibliothèque pour..." |
-| **Skills** | Les procédures réutilisables — le comment | "Pour faire une code review, vérifier lisibilité, sécurité, tests..." |
-| **Rules** | Les critères de qualité — le standard | "Fichiers < 300 lignes, pas de valeurs en dur, tests obligatoires" |
-| **Memory** | Le cerveau persistant — ce qu'on a appris | "On a choisi l'API REST plutôt que admin-ajax parce que..." |
+| **Manifest** | The project's constitution — the why | "This project is a library management API for..." |
+| **Skills** | Reusable procedures — the how | "For code review, check readability, security, tests..." |
+| **Rules** | Quality criteria — the standard | "Files < 300 lines, no magic numbers, tests required" |
+| **Memory** | Persistent brain — what we learned | "We chose REST API over admin-ajax because..." |
 
-Les agents ne sont pas le sujet. Le socle l'est.
+Agents are not the subject. The foundation is.
 
 ---
 
-## 3 niveaux d'adoption
+## 3 adoption levels
 
-Le Socle s'adapte à ton besoin. Pas besoin de tout utiliser dès le premier jour.
+Le Socle adapts to your needs. No need to use everything on day one.
 
-### Niveau 1 — Le minimum (5 minutes)
+### Level 1 — The minimum (5 minutes)
 
-Tu remplis ton **manifest** et tu initialises ta **memory**. Ton IA comprend ton projet et se souvient de ce qu'elle apprend.
+Fill in your **manifest** and initialize your **memory**. Your AI understands your project and remembers what it learns.
 
-> Idéal pour : commencer avec l'IA, améliorer chaque session sans effort.
+> Ideal for: getting started with AI, improving every session effortlessly.
 
 ```
 .socle/
@@ -74,11 +76,11 @@ Tu remplis ton **manifest** et tu initialises ta **memory**. Ton IA comprend ton
     └── cortex/
 ```
 
-### Niveau 2 — La qualité (30 minutes)
+### Level 2 — Quality (30 minutes)
 
-Tu ajoutes les **rules** et tu charges les **skills**. Ton IA suit des procédures précises et respecte des critères de qualité.
+Add **rules** and load **skills**. Your AI follows precise procedures and respects quality criteria.
 
-> Idéal pour : des projets sérieux, du code maintenable, du travail en équipe.
+> Ideal for: serious projects, maintainable code, team work.
 
 ```
 .socle/
@@ -88,11 +90,11 @@ Tu ajoutes les **rules** et tu charges les **skills**. Ton IA suit des procédur
 └── skills/
 ```
 
-### Niveau 3 — La méthode complète (1 heure)
+### Level 3 — The full method (1 hour)
 
-Tu utilises l'**issue-board**, le **sprint** et l'**orchestrateur**. Tu gères un vrai projet structuré avec des agents coordonnés.
+Use the **issue-board**, the **sprint** and the **orchestrator**. Manage a structured project with coordinated agents.
 
-> Idéal pour : des projets complexes, multi-domaines, multi-sprints.
+> Ideal for: complex projects, multi-domain, multi-sprint.
 
 ```
 .socle/
@@ -106,68 +108,68 @@ Tu utilises l'**issue-board**, le **sprint** et l'**orchestrateur**. Tu gères u
 
 ---
 
-## Compatible avec tout
+## Works with everything
 
-### Tout langage
+### Any language
 
-Le Socle est agnostique. Les skills et les rules fonctionnent avec Python, JavaScript, PHP, Go, Rust, Swift, ou tout autre langage.
+Le Socle is language-agnostic. Skills and rules work with Python, JavaScript, PHP, Go, Rust, Swift, or any other language.
 
-### Tout outil IA
+### Any AI tool
 
-| Outil | Adapter | Status |
-|-------|---------|--------|
-| Claude Code | [adapters/claude-code/](./adapters/claude-code/) | Disponible |
-| Cursor | [adapters/cursor/](./adapters/cursor/) | Disponible |
-| OpenAI / GPT | [adapters/openai/](./adapters/openai/) | Disponible |
-| Autre | [Créer un adapter](./adapters/README.md) | Guide fourni |
+| Tool | Adapter | Status |
+|------|---------|--------|
+| Claude Code | [adapters/claude-code/](./adapters/claude-code/) | Available |
+| Cursor | [adapters/cursor/](./adapters/cursor/) | Available |
+| OpenAI / GPT | [adapters/openai/](./adapters/openai/) | Available |
+| Other | [Create an adapter](./adapters/README.md) | Guide provided |
 
 ---
 
-## Structure du repo
+## Repository structure
 
 ```
 le-socle/
-├── DEMARRER.md               ← guide de démarrage rapide
-├── MANIFESTE.md              ← la philosophie complète
-├── CONTRIBUER.md             ← guide de contribution
-├── templates/                ← templates à copier dans ton projet
-├── skills/                   ← 7 skills de base
-│   ├── session-start.md      ← démarrage et fin de session
-│   ├── code-review.md        ← revue de code
-│   ├── testing.md            ← tests unitaires et E2E
-│   ├── documentation.md      ← documentation et memory
-│   ├── git-workflow.md       ← conventions Git
-│   ├── code-structure.md     ← structure et nommage
-│   └── deployment.md         ← déploiement et CI/CD
-├── scripts/                  ← outils d'automatisation
-│   └── generate-board.py     ← régénère le BOARD.md depuis les frontmatter
-├── rules/                    ← règles de qualité par défaut
-├── memory/                   ← template de mémoire
-│   ├── MEMORY.md             ← sommaire (lu à chaque session)
-│   └── cortex/               ← zones spécialisées (à la demande)
-├── agents/                   ← documentation orchestrateur
-├── adapters/                 ← connecteurs multi-IA
-├── issue-board/              ← board Kanban (dossier = statut)
-└── examples/                 ← exemples concrets (API Python, App React)
+├── docs/                     ← localized documentation (fr, en, ...)
+├── MANIFESTO.md              ← the full philosophy
+├── CONTRIBUTING.md           ← contribution guide
+├── templates/                ← templates to copy into your project
+├── skills/                   ← 7 built-in skills
+│   ├── session-start.md      ← session start & end
+│   ├── code-review.md        ← code review
+│   ├── testing.md            ← unit & E2E tests
+│   ├── documentation.md      ← documentation & memory
+│   ├── git-workflow.md       ← Git conventions
+│   ├── code-structure.md     ← structure & naming
+│   └── deployment.md         ← deployment & CI/CD
+├── scripts/                  ← automation tools
+│   └── generate-board.py     ← regenerate BOARD.md from frontmatter
+├── rules/                    ← default quality rules
+├── memory/                   ← memory template
+│   ├── MEMORY.md             ← index (read every session)
+│   └── cortex/               ← specialized zones (loaded on demand)
+├── agents/                   ← orchestrator documentation
+├── adapters/                 ← multi-AI connectors
+├── issue-board/              ← Kanban board (folder = status)
+└── examples/                 ← concrete examples (Python API, React App)
 ```
 
 ---
 
-## Principes fondateurs
+## Founding principles
 
-1. **Le manifest prime.** Tout part de ce que l'humain a défini.
-2. **Les agents sont sans forme.** Pas de persona, pas de rôle fixe.
-3. **La mémoire est vivante.** Elle grandit à chaque sprint — et elle se consolide.
-4. **Le contrôle est humain.** Les agents exécutent. L'humain valide et oriente.
-5. **Complémentarité, pas mimétisme.** L'IA n'est pas un humain dématérialisé.
-6. **Progressif par design.** On commence petit, on ajoute quand on en a besoin.
-
----
-
-## Licence
-
-MIT — voir [LICENSE](./LICENSE)
+1. **The manifest comes first.** Everything starts from what the human defined.
+2. **Agents are formless.** No persona, no fixed role.
+3. **Memory is alive.** It grows with each sprint — and it consolidates.
+4. **Control is human.** Agents execute. The human validates and steers.
+5. **Complement, don't mimic.** AI is not a virtual human.
+6. **Progressive by design.** Start small, add when needed.
 
 ---
 
-*Le Socle est né d'un constat simple : on ne demande pas à une entité différente de l'humain de se comporter comme un humain. On construit autour de ce qu'elle est vraiment.*
+## License
+
+MIT — see [LICENSE](./LICENSE)
+
+---
+
+*Le Socle was born from a simple observation: you don't ask an entity fundamentally different from a human to behave like one. You build around what it truly is.*

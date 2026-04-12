@@ -1,145 +1,145 @@
 # Skill — Testing
 
-*Ce skill définit comment écrire des tests sur un projet utilisant Le Socle. Il couvre les tests unitaires et les tests end-to-end. Un agent chargé de ce skill sait quoi tester, comment structurer ses tests, et quels critères de couverture respecter.*
+*This skill defines how to write tests on a project using Le Socle. It covers unit tests and end-to-end tests. An agent loaded with this skill knows what to test, how to structure tests, and what coverage criteria to meet.*
 
 ---
 
-## Quand invoquer ce skill
+## When to invoke this skill
 
-- Après l'écriture d'une nouvelle fonctionnalité
-- Après un fix — le test doit prouver que le bug ne reviendra pas
-- Lors d'un refactoring — les tests existants doivent continuer à passer
-- En audit qualité — vérifier la couverture globale
+- After writing a new feature
+- After a fix — the test must prove the bug won't come back
+- During a refactoring — existing tests must continue to pass
+- During a quality audit — check overall coverage
 
 ---
 
-## Tests unitaires
+## Unit tests
 
-### Principes
+### Principles
 
-- Un test unitaire teste **une seule chose**
-- Il est **indépendant** — ne dépend pas de l'ordre d'exécution ni d'un autre test
-- Il est **rapide** — pas d'appel réseau, pas de base de données (utiliser des mocks)
-- Il est **déterministe** — le même input donne toujours le même résultat
+- A unit test tests **one single thing**
+- It is **independent** — does not depend on execution order or another test
+- It is **fast** — no network calls, no database (use mocks)
+- It is **deterministic** — the same input always gives the same result
 
-### Structure d'un fichier de test
+### Test file structure
 
 ```
 tests/
 ├── unit/
 │   ├── [module]/
-│   │   └── [module].test.*    ← selon le langage du projet
+│   │   └── [module].test.*    <- depends on the project language
 │   └── ...
 └── e2e/
-    ├── [feature].spec.*       ← tests end-to-end
+    ├── [feature].spec.*       <- end-to-end tests
     └── ...
 ```
 
-Conventions de nommage par langage :
+Naming conventions by language:
 
-| Langage | Fichier de test | Exemple |
-|---------|----------------|---------|
-| JavaScript/TypeScript | `module.test.js` ou `module.spec.ts` | `cart.test.js` |
+| Language | Test file | Example |
+|----------|-----------|---------|
+| JavaScript/TypeScript | `module.test.js` or `module.spec.ts` | `cart.test.js` |
 | Python | `test_module.py` | `test_cart.py` |
 | PHP | `ModuleTest.php` | `CartTest.php` |
 | Go | `module_test.go` | `cart_test.go` |
-| Rust | `mod tests` dans le fichier ou `tests/` | `#[cfg(test)]` |
+| Rust | `mod tests` in the file or `tests/` | `#[cfg(test)]` |
 
-### Nommage des tests
+### Test naming
 
-Le nom d'un test décrit le **comportement attendu**, pas l'implémentation.
+The test name describes the **expected behavior**, not the implementation.
 
 ```javascript
-// ✅ Bon
-it('retourne un tableau vide quand aucun produit ne correspond au filtre')
-// ❌ Mauvais
+// ✅ Good
+it('returns an empty array when no product matches the filter')
+// ❌ Bad
 it('test filterProducts')
 ```
 
 ```python
-# ✅ Bon
-def test_retourne_none_si_utilisateur_inexistant():
-# ❌ Mauvais
+# ✅ Good
+def test_returns_none_if_user_does_not_exist():
+# ❌ Bad
 def test_get_user():
 ```
 
 ```go
-// ✅ Bon
-func TestRetourneErreurSiPanierVide(t *testing.T) {
-// ❌ Mauvais
+// ✅ Good
+func TestReturnsErrorIfCartIsEmpty(t *testing.T) {
+// ❌ Bad
 func TestCheckout(t *testing.T) {
 ```
 
-### Pattern AAA (Arrange, Act, Assert)
+### AAA Pattern (Arrange, Act, Assert)
 
-Chaque test suit cette structure, quel que soit le langage :
+Every test follows this structure, regardless of language:
 
 ```python
-def test_calcule_prix_ttc_avec_tva():
-    # Arrange — préparer les données
-    prix_ht = 100
-    taux_tva = 0.20
+def test_calculates_gross_price_with_tax():
+    # Arrange — prepare the data
+    net_price = 100
+    tax_rate = 0.20
 
-    # Act — exécuter l'action
-    prix_ttc = calculer_ttc(prix_ht, taux_tva)
+    # Act — execute the action
+    gross_price = calculate_gross(net_price, tax_rate)
 
-    # Assert — vérifier le résultat
-    assert prix_ttc == 120
+    # Assert — verify the result
+    assert gross_price == 120
 ```
 
 ```javascript
-it('calcule le prix TTC avec la TVA', () => {
+it('calculates the gross price with tax', () => {
   // Arrange
-  const prixHT = 100;
-  const tauxTVA = 0.20;
+  const netPrice = 100;
+  const taxRate = 0.20;
 
   // Act
-  const prixTTC = calculerTTC(prixHT, tauxTVA);
+  const grossPrice = calculateGross(netPrice, taxRate);
 
   // Assert
-  expect(prixTTC).toBe(120);
+  expect(grossPrice).toBe(120);
 });
 ```
 
-### Ce qu'il faut tester
+### What to test
 
-- Le **cas nominal** — le chemin principal qui fonctionne
-- Les **cas limites** — valeurs nulles, listes vides, chaînes vides, zéro
-- Les **cas d'erreur** — entrées invalides, exceptions attendues
-- Les **cas de bordure** — valeurs min/max, overflow, formats inattendus
+- The **nominal case** — the main path that works
+- **Edge cases** — null values, empty lists, empty strings, zero
+- **Error cases** — invalid inputs, expected exceptions
+- **Boundary cases** — min/max values, overflow, unexpected formats
 
-### Ce qu'il ne faut PAS tester
+### What NOT to test
 
-- L'implémentation interne (les détails privés)
-- Le code du framework lui-même
-- Les getters/setters triviaux sans logique
-- Les constantes
+- Internal implementation (private details)
+- The framework code itself
+- Trivial getters/setters with no logic
+- Constants
 
 ---
 
-## Tests E2E (end-to-end)
+## E2E tests (end-to-end)
 
-### Principes
+### Principles
 
-- Un test E2E simule un **parcours utilisateur complet**
-- Il teste l'application **de bout en bout** — interface, API, base de données
-- Il est plus lent et plus fragile qu'un test unitaire — ne tester que les parcours critiques
-- Il vérifie le **comportement visible**, pas l'implémentation
+- An E2E test simulates a **complete user journey**
+- It tests the application **end-to-end** — interface, API, database
+- It is slower and more fragile than a unit test — only test critical journeys
+- It verifies **visible behavior**, not implementation
 
-### Outils selon le contexte
+### Tools by context
 
-| Contexte | Outils courants |
-|----------|----------------|
-| Application web | Playwright, Cypress, Selenium |
-| API REST/GraphQL | Supertest, httpx, Postman/Newman |
-| Application mobile | Detox, Appium, XCTest |
-| CLI | Tests shell, subprocess |
+| Context | Common tools |
+|---------|-------------|
+| Web application | Playwright, Cypress, Selenium |
+| REST/GraphQL API | Supertest, httpx, Postman/Newman |
+| Mobile application | Detox, Appium, XCTest |
+| CLI | Shell tests, subprocess |
 
-### Exemple — Application web (Playwright)
+### Example — Web application (Playwright)
 
 ```typescript
-test.describe('Connexion utilisateur', () => {
-  test('un utilisateur peut se connecter avec des identifiants valides', async ({ page }) => {
+test.describe('User login', () => {
+  test('a user can log in with valid credentials', async ({ page }) => {
     await page.goto('/login');
     await page.fill('[data-testid="email"]', 'user@example.com');
     await page.fill('[data-testid="password"]', 'motdepasse123');
@@ -151,10 +151,10 @@ test.describe('Connexion utilisateur', () => {
 });
 ```
 
-### Exemple — API (Python httpx)
+### Example — API (Python httpx)
 
 ```python
-def test_creer_reservation_retourne_201():
+def test_create_reservation_returns_201():
     response = client.post("/api/reservations", json={
         "date": "2026-04-15",
         "heure": "14:00",
@@ -164,39 +164,39 @@ def test_creer_reservation_retourne_201():
     assert response.json()["nom"] == "Jean Dupont"
 ```
 
-### Conventions E2E
+### E2E conventions
 
-- Cibler les éléments par `data-testid` ou identifiants stables — jamais par sélecteurs CSS fragiles
-- Chaque test doit pouvoir tourner indépendamment
-- Regrouper les tests par fonctionnalité
-- Attendre les éléments explicitement
+- Target elements by `data-testid` or stable identifiers — never by fragile CSS selectors
+- Each test must be able to run independently
+- Group tests by feature
+- Wait for elements explicitly
 
-### Quoi tester en E2E
+### What to test in E2E
 
-- Les parcours critiques : inscription, connexion, achat, soumission de formulaire
-- Les parcours qui impliquent plusieurs étapes
-- Les intégrations tierces visibles par l'utilisateur
+- Critical journeys: sign-up, login, purchase, form submission
+- Journeys that involve multiple steps
+- Third-party integrations visible to the user
 
-### Quoi NE PAS tester en E2E
+### What NOT to test in E2E
 
-- Les cas limites unitaires — c'est le job des tests unitaires
-- Chaque variante d'un formulaire — tester le cas nominal et un cas d'erreur
-- Le style visuel — sauf si critique pour l'UX
+- Unit-level edge cases — that's the job of unit tests
+- Every variation of a form — test the nominal case and one error case
+- Visual styling — unless critical for UX
 
 ---
 
-## Critères de couverture
+## Coverage criteria
 
-| Type | Couverture minimum | Objectif |
-|------|--------------------|----------|
-| Tests unitaires | 80% des fonctions publiques | 100% des fonctions critiques (auth, paiement, données) |
-| Tests E2E | 100% des parcours critiques | Tous les parcours principaux de l'application |
+| Type | Minimum coverage | Target |
+|------|-----------------|--------|
+| Unit tests | 80% of public functions | 100% of critical functions (auth, payment, data) |
+| E2E tests | 100% of critical journeys | All main application journeys |
 
-### Comment mesurer
+### How to measure
 
-| Langage | Commande de couverture |
-|---------|----------------------|
-| JavaScript | `jest --coverage` ou `vitest --coverage` |
+| Language | Coverage command |
+|----------|----------------|
+| JavaScript | `jest --coverage` or `vitest --coverage` |
 | Python | `pytest --cov` |
 | PHP | `phpunit --coverage-html` |
 | Go | `go test -cover` |
@@ -204,23 +204,23 @@ def test_creer_reservation_retourne_201():
 
 ---
 
-## Checklist avant de considérer les tests terminés
+## Checklist before considering tests complete
 
-- [ ] Tous les tests passent
-- [ ] Les tests E2E passent
-- [ ] La couverture ne régresse pas par rapport au sprint précédent
-- [ ] Les nouveaux tests suivent le pattern AAA
-- [ ] Les tests sont nommés de manière descriptive
-- [ ] Pas de test commenté ou skip sans justification dans l'issue
-
----
-
-## Quand mettre à jour la memory
-
-- Un pattern de test récurrent émerge → le documenter dans `cortex/patterns.md`
-- Un piège de test spécifique au projet est découvert → le noter dans `cortex/bugs.md`
-- Une décision sur la stratégie de test est prise → `cortex/architecture.md`
+- [ ] All tests pass
+- [ ] E2E tests pass
+- [ ] Coverage does not regress compared to the previous sprint
+- [ ] New tests follow the AAA pattern
+- [ ] Tests are descriptively named
+- [ ] No commented-out or skipped test without justification in the issue
 
 ---
 
-*Ce skill est opérationnel immédiatement. Un agent qui le charge peut écrire des tests unitaires et E2E sans interprétation supplémentaire.*
+## When to update the memory
+
+- A recurring test pattern emerges -> document it in `cortex/patterns.md`
+- A project-specific test pitfall is discovered -> note it in `cortex/bugs.md`
+- A decision about test strategy is made -> `cortex/architecture.md`
+
+---
+
+*This skill is immediately operational. An agent that loads it can write unit and E2E tests without further interpretation.*

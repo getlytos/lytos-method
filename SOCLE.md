@@ -1,83 +1,83 @@
-# Le Socle — Briefing IA
+# Le Socle — AI Briefing
 
-*Ce fichier explique la méthode Le Socle à l'IA qui travaille sur ce projet. Il est lu une seule fois au démarrage de la première session pour comprendre le cadre. Par la suite, seuls le manifest et la memory sont nécessaires.*
-
----
-
-## Ce qu'est Le Socle
-
-Le Socle est une méthode de travail humain-IA. Elle remplace les "personas" d'agents (LeadDev, Expert UX...) par des procédures opérationnelles (skills), des critères de qualité (rules), et une mémoire persistante (memory). L'humain est l'architecte, l'IA exécute dans le cadre défini.
-
-## Les fichiers et leur rôle
-
-| Fichier | Rôle | Quand le lire |
-|---------|------|---------------|
-| `manifest.md` | La constitution du projet — identité, stack, principes de décision, modèles IA | À chaque session |
-| `memory/MEMORY.md` | Sommaire de la mémoire — pointe vers les fichiers spécialisés dans `cortex/` | À chaque session |
-| `memory/cortex/*.md` | Zones spécialisées (architecture, backend, frontend, patterns, bugs, business, sprints) | Charger uniquement ce qui est pertinent pour la tâche |
-| `rules/default-rules.md` | Critères de qualité universels | À chaque session |
-| `rules/*-rules.md` | Rules spécifiques au projet (si elles existent) | À chaque session |
-| `skills/*.md` | Procédures opérationnelles (code-review, testing, documentation, etc.) | Charger le skill assigné à la tâche |
-| `issue-board/BOARD.md` | Vue Kanban — l'état d'avancement des tâches | Quand on travaille sur une tâche |
-| `issue-board/[statut]/ISS-*.md` | Les issues avec frontmatter YAML (source de vérité) | Lire l'issue assignée |
-| `scripts/generate-board.py` | Régénère le BOARD.md depuis les frontmatter | Utiliser en fin de tâche si besoin |
-
-## Comment les pièces s'emboîtent
-
-```
-manifest.md          → Donne le contexte et les principes de décision
-    ↓
-memory/MEMORY.md     → Donne l'historique et les apprentissages passés
-    ↓
-rules/               → Définit les critères de qualité à respecter
-    ↓
-skills/              → Définit la procédure à suivre pour la tâche
-    ↓
-issue-board/         → Définit le périmètre exact de la tâche (frontmatter = source de vérité)
-```
-
-## Aider l'humain à remplir le manifest
-
-Si le manifest est vide ou incomplet, aider l'humain à le remplir en posant des questions :
-
-### Identité
-- "Comment s'appelle le projet et que fait-il en une phrase ?"
-
-### Pourquoi ce projet existe
-- "Quel problème ce projet résout ? Pour qui ?"
-
-### Stack technique
-- Regarder les fichiers du projet (package.json, requirements.txt, go.mod, composer.json) pour détecter la stack automatiquement.
-
-### Vocabulaire
-- "Quels termes sont spécifiques à ce projet ? Qu'est-ce qu'un [terme métier] dans ce contexte ?"
-
-### Principes de développement
-Les principes sont des **arbitrages**, pas des vœux pieux. Chaque principe dit "on préfère X plutôt que Y, parce que Z." Exemples :
-- "Simplicité plutôt que flexibilité — on ne code pas pour un besoin hypothétique"
-- "Convention plutôt que configuration — on suit le framework, on n'invente pas"
-
-Si l'humain dit "écrire du code propre", reformuler en arbitrage vérifiable.
-
-### Modèles IA par complexité
-- Demander quels modèles sont disponibles (budget, outils)
-- Proposer une répartition : le modèle le moins cher pour la doc et le formatage, le modèle standard pour le développement courant, le plus puissant pour l'architecture et la sécurité
-
-## Aider l'humain à créer des issues
-
-Les issues ont un frontmatter YAML. Les champs importants :
-- `complexity: light | standard | heavy` — détermine le modèle à utiliser (voir table dans le manifest)
-- `skill` — le skill principal à charger
-- `depends` — les issues qui doivent être terminées avant celle-ci
-- `status` — le dossier dans lequel se trouve le fichier (source de vérité)
-
-## Comportement attendu
-
-1. **Ne pas interpréter silencieusement** — si une instruction est ambiguë, demander plutôt que deviner
-2. **Tracer les décisions** — quand un choix technique est fait, le mentionner avec la raison
-3. **En fin de tâche** — mettre à jour le frontmatter de l'issue, déplacer le fichier, mettre à jour le BOARD.md
-4. **Enrichir la memory** — si un apprentissage significatif a lieu, l'ajouter dans le fichier cortex correspondant
+*This file explains the Le Socle method to the AI working on this project. It is read once at the start of the first session to understand the framework. Afterwards, only the manifest and memory are needed.*
 
 ---
 
-*Ce briefing est opérationnel. L'IA qui le lit comprend la méthode et peut guider l'humain dans la mise en place du Socle.*
+## What Le Socle is
+
+Le Socle is a human-AI working method. It replaces agent "personas" (LeadDev, UX Expert...) with operational procedures (skills), quality criteria (rules), and persistent memory (memory). The human is the architect, the AI executes within the defined framework.
+
+## Files and their roles
+
+| File | Role | When to read it |
+|------|------|-----------------|
+| `manifest.md` | The project's constitution — identity, stack, decision principles, AI models | At each session |
+| `memory/MEMORY.md` | Memory summary — points to specialized files in `cortex/` | At each session |
+| `memory/cortex/*.md` | Specialized zones (architecture, backend, frontend, patterns, bugs, business, sprints) | Load only what's relevant to the task |
+| `rules/default-rules.md` | Universal quality criteria | At each session |
+| `rules/*-rules.md` | Project-specific rules (if they exist) | At each session |
+| `skills/*.md` | Operational procedures (code-review, testing, documentation, etc.) | Load the skill assigned to the task |
+| `issue-board/BOARD.md` | Kanban view — task progress status | When working on a task |
+| `issue-board/[status]/ISS-*.md` | Issues with YAML frontmatter (source of truth) | Read the assigned issue |
+| `scripts/generate-board.py` | Regenerates BOARD.md from the frontmatter | Use at the end of a task if needed |
+
+## How the pieces fit together
+
+```
+manifest.md          → Provides context and decision principles
+    ↓
+memory/MEMORY.md     → Provides history and past learnings
+    ↓
+rules/               → Defines quality criteria to follow
+    ↓
+skills/              → Defines the procedure to follow for the task
+    ↓
+issue-board/         → Defines the exact scope of the task (frontmatter = source of truth)
+```
+
+## Helping the human fill in the manifest
+
+If the manifest is empty or incomplete, help the human fill it in by asking questions:
+
+### Identity
+- "What is the project called and what does it do in one sentence?"
+
+### Why this project exists
+- "What problem does this project solve? For whom?"
+
+### Tech stack
+- Look at the project files (package.json, requirements.txt, go.mod, composer.json) to automatically detect the stack.
+
+### Vocabulary
+- "What terms are specific to this project? What is a [business term] in this context?"
+
+### Development principles
+Principles are **trade-offs**, not wishful thinking. Each principle says "we prefer X over Y, because Z." Examples:
+- "Simplicity over flexibility — we don't code for a hypothetical need"
+- "Convention over configuration — we follow the framework, we don't invent"
+
+If the human says "write clean code", reformulate it as a verifiable trade-off.
+
+### AI models by complexity
+- Ask which models are available (budget, tools)
+- Suggest a distribution: the cheapest model for docs and formatting, the standard model for day-to-day development, the most powerful for architecture and security
+
+## Helping the human create issues
+
+Issues have YAML frontmatter. The important fields:
+- `complexity: light | standard | heavy` — determines which model to use (see table in the manifest)
+- `skill` — the main skill to load
+- `depends` — issues that must be completed before this one
+- `status` — the folder in which the file is located (source of truth)
+
+## Expected behavior
+
+1. **Don't interpret silently** — if an instruction is ambiguous, ask rather than guess
+2. **Trace decisions** — when a technical choice is made, mention it with the reason
+3. **At the end of a task** — update the issue's frontmatter, move the file, update the BOARD.md
+4. **Enrich the memory** — if a significant learning occurs, add it to the corresponding cortex file
+
+---
+
+*This briefing is operational. The AI reading it understands the method and can guide the human in setting up Le Socle.*

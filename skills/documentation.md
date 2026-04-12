@@ -1,30 +1,30 @@
 # Skill — Documentation
 
-*Ce skill définit comment documenter le code, les modules et les apprentissages sur un projet utilisant Le Socle. Un agent chargé de ce skill sait quoi documenter, dans quel format, et quand mettre à jour la mémoire du projet.*
+*This skill defines how to document code, modules, and learnings on a project using Le Socle. An agent loaded with this skill knows what to document, in what format, and when to update the project memory.*
 
 ---
 
-## Quand invoquer ce skill
+## When to invoke this skill
 
-- Après l'écriture ou la modification d'une fonction publique
-- Après un sprint, pour consolider les apprentissages dans la memory
-- Lors de la création d'un nouveau module ou composant
-- Pour rédiger ou mettre à jour une issue
+- After writing or modifying a public function
+- After a sprint, to consolidate learnings into the memory
+- When creating a new module or component
+- To write or update an issue
 
 ---
 
-## Documentation du code
+## Code documentation
 
-### Principe universel
+### Universal principle
 
-Toute fonction et méthode publique doit être documentée. Le format dépend du langage, le contenu est le même :
+Every public function and method must be documented. The format depends on the language, the content is the same:
 
-1. **Première ligne** : ce que fait la fonction (verbe à l'infinitif)
-2. **Paramètres** : type + nom + description en une phrase
-3. **Retour** : type + description, incluant les cas limites (liste vide, null, erreur)
-4. **Erreurs** : chaque exception ou erreur possible avec sa condition
+1. **First line**: what the function does (infinitive verb)
+2. **Parameters**: type + name + one-sentence description
+3. **Return**: type + description, including edge cases (empty list, null, error)
+4. **Errors**: each possible exception or error with its condition
 
-### Exemples par langage
+### Examples by language
 
 ```python
 def calculer_ttc(prix_ht: float, taux_tva: float) -> float:
@@ -71,177 +71,177 @@ func CalculerTTC(prixHT, tauxTVA float64) (float64, error) {
 public function calculerTTC(float $prixHT, float $tauxTVA): float
 ```
 
-### Pas de documentation sur
+### Do not document
 
-- Les getters/setters triviaux sans logique
-- Les fonctions privées dont le nom est suffisamment explicite
-- Les wrappers évidents d'une seule ligne
+- Trivial getters/setters with no logic
+- Private functions whose name is explicit enough
+- Obvious one-line wrappers
 
-### Commentaires inline
+### Inline comments
 
-Les commentaires inline ne servent **pas** à répéter ce que fait le code — ils servent à expliquer **pourquoi**.
+Inline comments are **not** for repeating what the code does — they explain **why**.
 
 ```python
-# ✅ Bon — explique le pourquoi
-# On arrondit à l'entier supérieur car l'API de paiement n'accepte pas les centimes
-montant = math.ceil(total)
+# ✅ Good — explains the why
+# We round up because the payment API doesn't accept cents
+amount = math.ceil(total)
 
-# ❌ Mauvais — répète le code
-# On arrondit le total
-montant = math.ceil(total)
+# ❌ Bad — repeats the code
+# We round the total
+amount = math.ceil(total)
 ```
 
-#### Quand commenter
+#### When to comment
 
-- Une décision technique non évidente
-- Un workaround ou une contrainte externe
-- Un comportement contre-intuitif volontaire
-- Un TODO avec référence à l'issue : `// TODO(ISS-0042): refactorer quand l'API v2 sera stable`
+- A non-obvious technical decision
+- A workaround or external constraint
+- An intentionally counter-intuitive behavior
+- A TODO with issue reference: `// TODO(ISS-0042): refactor when API v2 is stable`
 
-#### Quand ne PAS commenter
+#### When NOT to comment
 
-- Le code est lisible et le nommage suffit
-- Pour expliquer du code trop complexe → simplifier le code plutôt que commenter
+- The code is readable and naming is sufficient
+- To explain overly complex code -> simplify the code rather than commenting
 
 ---
 
-## Documentation des modules
+## Module documentation
 
-Chaque module ou composant majeur a un README dans son dossier.
+Each major module or component has a README in its folder.
 
 ```markdown
-# [Nom du module]
+# [Module name]
 
-*Une phrase qui dit ce que fait ce module.*
+*One sentence describing what this module does.*
 
-## Responsabilité
+## Responsibility
 
-Ce module gère [X]. Il ne gère pas [Y] (voir `chemin/vers/autre-module`).
+This module handles [X]. It does not handle [Y] (see `path/to/other-module`).
 
-## Utilisation
+## Usage
 
 \`\`\`php
-$resultat = MonModule::faire($input);
+$result = MyModule::do($input);
 \`\`\`
 
-## Dépendances
+## Dependencies
 
-- `autre-module` — pour [raison]
-- `lib-externe` v2.x — pour [raison]
+- `other-module` — for [reason]
+- `external-lib` v2.x — for [reason]
 
-## Points d'attention
+## Gotchas
 
-- [Contrainte ou piège connu]
+- [Known constraint or pitfall]
 ```
 
 ---
 
-## Mise à jour de la Memory
+## Updating the Memory
 
-La memory est le cerveau persistant du projet. Elle doit être mise à jour dans ces situations :
+The memory is the project's persistent brain. It must be updated in these situations:
 
-### Où écrire
+### Where to write
 
-La memory est structurée en fichiers spécialisés dans `memory/cortex/`. Écrire dans le bon fichier :
+The memory is structured in specialized files in `memory/cortex/`. Write in the correct file:
 
-| Situation | Fichier cortex |
-|-----------|----------------|
-| Décision architecturale prise | `cortex/architecture.md` |
-| Pattern de code qui fonctionne bien | `cortex/patterns.md` |
-| Bug récurrent résolu | `cortex/bugs.md` |
-| Apprentissage backend (API, BDD) | `cortex/backend.md` |
-| Apprentissage frontend (UI, JS, CSS) | `cortex/frontend.md` |
-| Apprentissage métier | `cortex/business.md` |
-| Fin de sprint | `cortex/sprints.md` |
+| Situation | Cortex file |
+|-----------|-------------|
+| Architectural decision made | `cortex/architecture.md` |
+| Code pattern that works well | `cortex/patterns.md` |
+| Recurring bug resolved | `cortex/bugs.md` |
+| Backend learning (API, DB) | `cortex/backend.md` |
+| Frontend learning (UI, JS, CSS) | `cortex/frontend.md` |
+| Business learning | `cortex/business.md` |
+| End of sprint | `cortex/sprints.md` |
 
-Après ajout, mettre à jour le compteur d'entrées et le résumé vivant dans `MEMORY.md`.
+After adding, update the entry counter and living summary in `MEMORY.md`.
 
-### Format d'une entrée memory
+### Memory entry format
 
-Chaque entrée est concise et actionnable :
+Each entry is concise and actionable:
 
 ```markdown
-### [Date] — [Titre court]
+### [Date] — [Short title]
 
-**Contexte** : Pourquoi cette entrée existe.
-**Décision** : Ce qui a été décidé ou découvert.
-**Conséquence** : Ce que ça implique pour la suite.
+**Context**: Why this entry exists.
+**Decision**: What was decided or discovered.
+**Consequence**: What this implies going forward.
 ```
 
-### Règles de la memory
+### Memory rules
 
-- Garder chaque entrée sous 5 lignes — si c'est plus long, c'est de la documentation, pas de la mémoire
-- Toujours dater les entrées
-- Écrire dans le fichier cortex correspondant au domaine, pas dans MEMORY.md
+- Keep each entry under 5 lines — if it's longer, it's documentation, not memory
+- Always date entries
+- Write in the cortex file corresponding to the domain, not in MEMORY.md
 
-### Consolidation de la memory — procédure de fin de sprint
+### Memory consolidation — end-of-sprint procedure
 
-La memory grossit à chaque sprint. Sans entretien, elle devient du bruit. À chaque fin de sprint, effectuer cette consolidation :
+The memory grows each sprint. Without maintenance, it becomes noise. At each end of sprint, perform this consolidation:
 
-#### 1. Nettoyer
+#### 1. Clean up
 
-Pour chaque fichier dans `cortex/` :
+For each file in `cortex/`:
 
-- **Supprimer** les entrées qui ne sont plus vraies (décision inversée, code supprimé, bug corrigé définitivement)
-- **Fusionner** les entrées redondantes (deux entrées qui disent la même chose → une seule, plus précise)
-- **Archiver** les entrées qui ne sont plus utiles au quotidien mais qu'on veut garder (les déplacer dans une section `## Archive` en bas du fichier)
+- **Delete** entries that are no longer true (reversed decision, deleted code, permanently fixed bug)
+- **Merge** redundant entries (two entries saying the same thing -> one, more precise)
+- **Archive** entries that are no longer useful day-to-day but worth keeping (move them to an `## Archive` section at the bottom of the file)
 
-#### 2. Vérifier la taille
+#### 2. Check size
 
-Chaque fichier cortex devrait rester sous **50 entrées**. Au-delà, c'est un signe que :
-- Des entrées sont devenues de la documentation (→ les déplacer dans le code ou un README)
-- Des entrées sont obsolètes (→ les supprimer ou archiver)
-- Le fichier couvre trop de domaines (→ le découper en deux fichiers cortex)
+Each cortex file should stay under **50 entries**. Beyond that, it's a sign that:
+- Entries have become documentation (-> move them to the code or a README)
+- Entries are obsolete (-> delete or archive them)
+- The file covers too many domains (-> split it into two cortex files)
 
-#### 3. Mettre à jour le sommaire
+#### 3. Update the summary
 
-Après la consolidation :
-- Mettre à jour le compteur dans `MEMORY.md`
-- Mettre à jour le **résumé vivant** (3-5 lignes qui décrivent l'état actuel du projet)
-- Ajouter le sprint à `cortex/sprints.md`
+After consolidation:
+- Update the counter in `MEMORY.md`
+- Update the **living summary** (3-5 lines describing the current project state)
+- Add the sprint to `cortex/sprints.md`
 
-#### 4. Valider avec l'humain
+#### 4. Validate with the human
 
-La consolidation est proposée par l'agent, validée par l'humain. On ne supprime pas de la mémoire sans accord.
-
----
-
-## Rédaction d'issues
-
-### Issue feature (issue-feature.md)
-
-Pour les fonctionnalités complexes, multi-fichiers :
-
-- **Contexte** : pourquoi l'issue existe — pas juste "il faut faire X", mais "parce que Y"
-- **Solution proposée** : description concrète, pas vague
-- **Checklist** : tâches précises avec fichiers concernés, groupées par domaine
-- **Fichiers concernés** : tous les fichiers impactés, listés explicitement
-
-### Issue task (issue-task.md)
-
-Pour les micro-tâches (XS/S) :
-
-- **Quoi faire** : une ou deux phrases max
-- **Fichiers concernés** : le ou les fichiers à toucher
-- **Critère de done** : comment on sait que c'est terminé
-
-### Règles communes
-
-- Le titre de l'issue commence par un verbe d'action : "Ajouter", "Corriger", "Refactorer"
-- L'ID suit le format ISS-XXXX (numérotation séquentielle)
-- Le champ `Depends` est renseigné si l'issue dépend d'une autre
-- Le skill à invoquer est toujours précisé
+Consolidation is proposed by the agent, validated by the human. Memory is never deleted without approval.
 
 ---
 
-## Checklist avant de considérer la documentation terminée
+## Writing issues
 
-- [ ] Toutes les fonctions publiques nouvelles ou modifiées ont une PHPDoc/JSDoc
-- [ ] Les décisions non évidentes sont commentées (le pourquoi, pas le quoi)
-- [ ] La memory est mise à jour si un apprentissage a eu lieu
-- [ ] Les issues sont rédigées avec contexte, solution et checklist
-- [ ] Les modules nouveaux ont un README minimal
+### Feature issue (issue-feature.md)
+
+For complex, multi-file features:
+
+- **Context**: why the issue exists — not just "we need to do X", but "because Y"
+- **Proposed solution**: concrete description, not vague
+- **Checklist**: precise tasks with affected files, grouped by domain
+- **Affected files**: all impacted files, listed explicitly
+
+### Task issue (issue-task.md)
+
+For micro-tasks (XS/S):
+
+- **What to do**: one or two sentences max
+- **Affected files**: the file(s) to touch
+- **Done criterion**: how we know it's finished
+
+### Common rules
+
+- The issue title starts with an action verb: "Add", "Fix", "Refactor"
+- The ID follows the format ISS-XXXX (sequential numbering)
+- The `Depends` field is filled if the issue depends on another
+- The skill to invoke is always specified
 
 ---
 
-*Ce skill est opérationnel immédiatement. Un agent qui le charge peut documenter du code, rédiger des issues et mettre à jour la memory sans interprétation supplémentaire.*
+## Checklist before considering documentation complete
+
+- [ ] All new or modified public functions have PHPDoc/JSDoc
+- [ ] Non-obvious decisions are commented (the why, not the what)
+- [ ] The memory is updated if a learning occurred
+- [ ] Issues are written with context, solution, and checklist
+- [ ] New modules have a minimal README
+
+---
+
+*This skill is immediately operational. An agent that loads it can document code, write issues, and update the memory without further interpretation.*

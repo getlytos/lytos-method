@@ -1,27 +1,27 @@
-# ISS-XXXX — [Titre de la tâche]
+# ISS-XXXX — [Task Title]
 
-**Type** : `task`
-**Priorité** : `P1-haute` | `P2-normale` | `P3-basse`
-**Effort** : `XS` | `S`
-**Agent-skill** : [skill à invoquer]
-**Status** : `open` | `in-progress` | `done`
-**Créé** : YYYY-MM-DD
-**Depends** : ISS-XXXX | —
-
----
-
-## Quoi faire
-
-*Une ou deux phrases max. Si c'est plus long, utilise issue-feature.md.*
-
-## Fichiers concernés
-
-- `chemin/vers/fichier`
-
-## Critère de done
-
-*Comment on sait que c'est terminé.*
+**Type**: `task`
+**Priority**: `P1-high` | `P2-normal` | `P3-low`
+**Effort**: `XS` | `S`
+**Agent-skill**: [skill to invoke]
+**Status**: `open` | `in-progress` | `done`
+**Created**: YYYY-MM-DD
+**Depends**: ISS-XXXX | —
 
 ---
 
-*Dernière mise à jour : YYYY-MM-DD*
+## What to do
+
+*One or two sentences max. If it's longer, use issue-feature.md.*
+
+## Relevant files
+
+- `path/to/file`
+
+## Definition of done
+
+*How we know it's finished.*
+
+---
+
+*Last updated: YYYY-MM-DD*

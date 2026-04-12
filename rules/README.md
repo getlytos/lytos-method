@@ -1,88 +1,88 @@
 # Rules
 
-*Ce dossier contient les critères de qualité du projet. Les règles définissent ce que "bien fait" signifie — elles sont lues par les agents avant chaque tâche.*
+*This folder contains the project's quality criteria. Rules define what "well done" means — they are read by agents before each task.*
 
 ---
 
-## Fonctionnement
+## How It Works
 
-Les règles sont des fichiers markdown dans ce dossier. Elles sont chargées par les agents au même titre que les skills, mais avec un rôle différent :
+Rules are markdown files in this folder. They are loaded by agents just like skills, but with a different role:
 
-- **Skills** = comment faire (procédures)
-- **Rules** = quoi respecter (critères)
+- **Skills** = how to do it (procedures)
+- **Rules** = what to comply with (criteria)
 
-Un agent qui fait une code review charge le skill `code-review` **et** les rules du projet. Le skill lui dit comment procéder, les rules lui disent quoi vérifier.
-
----
-
-## Fichiers fournis
-
-| Fichier | Contenu |
-|---------|---------|
-| `default-rules.md` | Règles universelles applicables à tout projet Le Socle |
+An agent doing a code review loads the `code-review` skill **and** the project rules. The skill tells it how to proceed, the rules tell it what to check.
 
 ---
 
-## Créer ses propres rules
+## Included Files
 
-Pour ajouter des règles spécifiques à votre projet, créez un nouveau fichier dans ce dossier.
+| File | Content |
+|------|---------|
+| `default-rules.md` | Universal rules applicable to any Le Socle project |
+
+---
+
+## Creating Your Own Rules
+
+To add rules specific to your project, create a new file in this folder.
 
 ### Format
 
 ```markdown
-# Rules — [Nom du domaine]
+# Rules — [Domain Name]
 
-*Description courte de ce que couvrent ces règles.*
+*Short description of what these rules cover.*
 
 ---
 
-## [Catégorie]
+## [Category]
 
-| Règle | Détail |
-|-------|--------|
-| Nom de la règle | Ce qui est attendu |
+| Rule | Detail |
+|------|--------|
+| Rule name | What is expected |
 
 ---
 ```
 
-### Exemples de rules spécifiques
+### Examples of Specific Rules
 
-**`api-rules.md`** — pour une API REST :
+**`api-rules.md`** — for a REST API:
 ```markdown
-| Règle | Détail |
-|-------|--------|
-| Codes HTTP corrects | 201 pour création, 204 pour suppression, pas 200 partout |
-| Pagination obligatoire | Tout endpoint qui liste des ressources est paginé |
-| Versioning | Toutes les routes commencent par /api/v1/ |
+| Rule | Detail |
+|------|--------|
+| Correct HTTP codes | 201 for creation, 204 for deletion, not 200 everywhere |
+| Mandatory pagination | Every endpoint that lists resources is paginated |
+| Versioning | All routes start with /api/v1/ |
 ```
 
-**`frontend-rules.md`** — pour une app React/Next.js :
+**`frontend-rules.md`** — for a React/Next.js app:
 ```markdown
-| Règle | Détail |
-|-------|--------|
-| Composants < 150 lignes | Au-delà, découper en sous-composants |
-| Server Components par défaut | `'use client'` uniquement quand nécessaire |
-| Accessibilité | Tout composant interactif navigable au clavier + ARIA |
+| Rule | Detail |
+|------|--------|
+| Components < 150 lines | Beyond that, split into sub-components |
+| Server Components by default | `'use client'` only when necessary |
+| Accessibility | Every interactive component navigable by keyboard + ARIA |
 ```
 
-### Principes pour écrire de bonnes rules
+### Principles for Writing Good Rules
 
-1. **Vérifiables** — une règle doit pouvoir être vérifiée par un agent de façon binaire (respectée / pas respectée)
-2. **Spécifiques** — "écrire du bon code" n'est pas une règle. "Fichiers < 300 lignes" en est une
-3. **Justifiées** — chaque règle a une raison d'être. Si on ne peut pas l'expliquer, elle ne sert à rien
-4. **Peu nombreuses** — mieux vaut 10 règles appliquées que 50 règles ignorées
-
----
-
-## Hiérarchie
-
-Les règles se cumulent :
-
-1. `default-rules.md` — toujours actives
-2. Fichiers spécifiques au projet — s'ajoutent par-dessus, ne remplacent pas
-
-En cas de conflit, les règles spécifiques au projet priment sur les règles par défaut.
+1. **Verifiable** — a rule must be checkable by an agent in a binary way (met / not met)
+2. **Specific** — "write good code" is not a rule. "Files < 300 lines" is one
+3. **Justified** — every rule has a reason for existing. If you can't explain it, it's useless
+4. **Few in number** — better 10 rules that are applied than 50 rules that are ignored
 
 ---
 
-*Les rules sont un des quatre piliers du Socle. Elles garantissent un niveau de qualité constant, quel que soit l'agent qui travaille.*
+## Hierarchy
+
+Rules are cumulative:
+
+1. `default-rules.md` — always active
+2. Project-specific files — added on top, do not replace
+
+In case of conflict, project-specific rules take precedence over default rules.
+
+---
+
+*Rules are one of the four pillars of Le Socle. They guarantee a consistent quality level, regardless of which agent is working.*

@@ -1,144 +1,144 @@
 # Skill — Deployment
 
-*Ce skill définit comment préparer, exécuter et valider un déploiement. Un agent chargé de ce skill sait quoi vérifier avant de déployer, comment le faire, et comment confirmer que tout fonctionne.*
+*This skill defines how to prepare, execute, and validate a deployment. An agent loaded with this skill knows what to check before deploying, how to do it, and how to confirm everything works.*
 
 ---
 
-## Quand invoquer ce skill
+## When to invoke this skill
 
-- Avant chaque mise en production
-- Lors de la mise en place d'un pipeline CI/CD
-- Après un fix critique qui doit partir rapidement
-- Pour documenter la procédure de déploiement d'un nouveau projet
+- Before each production release
+- When setting up a CI/CD pipeline
+- After a critical fix that needs to ship quickly
+- To document the deployment procedure for a new project
 
 ---
 
-## Procédure
+## Procedure
 
-### 1. Pré-déploiement — Checklist
+### 1. Pre-deployment — Checklist
 
-Avant tout déploiement, vérifier chaque point :
+Before any deployment, verify each point:
 
 #### Code
 
-- [ ] Tous les tests passent (unitaires + E2E)
-- [ ] La branche est à jour avec la branche principale
-- [ ] Pas de conflit de merge
-- [ ] Pas de `TODO` ou de code temporaire oublié
-- [ ] Pas de secret en dur (clés API, mots de passe, tokens)
+- [ ] All tests pass (unit + E2E)
+- [ ] The branch is up to date with the main branch
+- [ ] No merge conflicts
+- [ ] No forgotten `TODO` or temporary code
+- [ ] No hardcoded secrets (API keys, passwords, tokens)
 
-#### Dépendances
+#### Dependencies
 
-- [ ] Les dépendances sont verrouillées (lock file à jour)
-- [ ] Pas de dépendance ajoutée sans justification dans l'issue
-- [ ] Les versions de production sont cohérentes avec le développement
+- [ ] Dependencies are locked (lock file up to date)
+- [ ] No dependency added without justification in the issue
+- [ ] Production versions are consistent with development
 
 #### Configuration
 
-- [ ] Les variables d'environnement de production sont définies
-- [ ] Les URLs, ports et chemins pointent vers la production (pas le dev)
-- [ ] Les migrations de base de données sont prêtes et réversibles
+- [ ] Production environment variables are set
+- [ ] URLs, ports, and paths point to production (not dev)
+- [ ] Database migrations are ready and reversible
 
 #### Review
 
-- [ ] La PR a été revue (skill code-review)
-- [ ] Les critères de done de l'issue sont remplis
-- [ ] L'humain a validé le déploiement
+- [ ] The PR has been reviewed (code-review skill)
+- [ ] The issue's done criteria are met
+- [ ] The human has approved the deployment
 
-### 2. Déploiement — Exécution
+### 2. Deployment — Execution
 
-Le déploiement suit le pipeline défini par le projet. Formats courants :
+The deployment follows the pipeline defined by the project. Common formats:
 
-#### Via CI/CD (recommandé)
+#### Via CI/CD (recommended)
 
 ```bash
-# Le merge sur la branche de production déclenche le pipeline
+# Merging to the production branch triggers the pipeline
 git checkout main
 git merge --no-ff feat/ISS-XXXX-slug
 git push origin main
-# → Le CI/CD prend le relais (build, test, deploy)
+# -> CI/CD takes over (build, test, deploy)
 ```
 
-#### Via commande manuelle
+#### Via manual command
 
 ```bash
 # 1. Build
-npm run build          # ou python -m build, cargo build --release, etc.
+npm run build          # or python -m build, cargo build --release, etc.
 
-# 2. Test de production
-npm run test:prod      # tests sur le build de production
+# 2. Production test
+npm run test:prod      # tests on the production build
 
 # 3. Deploy
-npm run deploy         # ou rsync, scp, docker push, kubectl apply, etc.
+npm run deploy         # or rsync, scp, docker push, kubectl apply, etc.
 ```
 
-#### Rollback — toujours prévoir
+#### Rollback — always plan for it
 
-Avant de déployer, s'assurer qu'un rollback est possible :
+Before deploying, make sure a rollback is possible:
 
 ```bash
-# Identifier la version actuelle en production
+# Identify the current version in production
 git log --oneline -1 origin/production
 
-# En cas de problème
+# In case of a problem
 git revert HEAD
 git push origin main
-# ou : redéployer le tag précédent
+# or: redeploy the previous tag
 ```
 
-### 3. Post-déploiement — Validation
+### 3. Post-deployment — Validation
 
-Après le déploiement, vérifier que tout fonctionne :
+After deployment, verify everything works:
 
-- [ ] L'application répond (health check, page d'accueil)
-- [ ] Les fonctionnalités critiques marchent (test manuel ou smoke test automatisé)
-- [ ] Les logs ne montrent pas d'erreur
-- [ ] Les métriques sont normales (temps de réponse, taux d'erreur)
-- [ ] Les migrations de base de données se sont appliquées correctement
+- [ ] The application responds (health check, home page)
+- [ ] Critical features work (manual test or automated smoke test)
+- [ ] Logs show no errors
+- [ ] Metrics are normal (response time, error rate)
+- [ ] Database migrations were applied correctly
 
 ### 4. Documentation
 
-Après un déploiement réussi :
+After a successful deployment:
 
-- Mettre à jour l'issue (status → `5-done`)
-- Mettre à jour le BOARD.md
-- Si un problème a été rencontré et résolu → ajouter dans `cortex/bugs.md`
-- Si une procédure de déploiement a changé → mettre à jour ce skill ou les notes du projet
-
----
-
-## Stratégies de déploiement
-
-| Stratégie | Quand l'utiliser | Risque |
-|-----------|-----------------|--------|
-| **Direct** (push to prod) | Petits projets, équipe solo | Élevé — pas de filet |
-| **Blue-green** | Applications critiques | Faible — rollback instantané |
-| **Canary** | Beaucoup d'utilisateurs | Faible — exposition progressive |
-| **Feature flags** | Fonctionnalités risquées | Faible — activation/désactivation sans redéploiement |
-
-Pour la plupart des projets utilisant Le Socle, la stratégie **CI/CD avec merge sur main** est suffisante.
+- Update the issue (status -> `5-done`)
+- Update the BOARD.md
+- If a problem was encountered and resolved -> add it to `cortex/bugs.md`
+- If a deployment procedure changed -> update this skill or the project notes
 
 ---
 
-## Environnements
+## Deployment strategies
 
-| Environnement | Usage | Qui déploie |
-|---------------|-------|-------------|
-| `local` | Développement | L'agent ou le développeur |
-| `staging` | Test avant production | CI/CD automatique sur merge vers `dev` ou `staging` |
-| `production` | Utilisateurs finaux | CI/CD automatique sur merge vers `main` (après validation humaine) |
+| Strategy | When to use | Risk |
+|----------|------------|------|
+| **Direct** (push to prod) | Small projects, solo team | High — no safety net |
+| **Blue-green** | Critical applications | Low — instant rollback |
+| **Canary** | Many users | Low — progressive exposure |
+| **Feature flags** | Risky features | Low — enable/disable without redeploying |
 
----
-
-## Checklist finale
-
-- [ ] Pré-déploiement vérifié (code, dépendances, config, review)
-- [ ] Rollback préparé
-- [ ] Déploiement exécuté
-- [ ] Post-déploiement validé (health check, fonctionnalités, logs)
-- [ ] Issue et BOARD.md mis à jour
-- [ ] Memory enrichie si apprentissage
+For most projects using Le Socle, the **CI/CD with merge to main** strategy is sufficient.
 
 ---
 
-*Ce skill est opérationnel immédiatement. Un agent qui le charge peut préparer et valider un déploiement sans interprétation supplémentaire.*
+## Environments
+
+| Environment | Usage | Who deploys |
+|-------------|-------|-------------|
+| `local` | Development | The agent or developer |
+| `staging` | Pre-production testing | CI/CD automatic on merge to `dev` or `staging` |
+| `production` | End users | CI/CD automatic on merge to `main` (after human validation) |
+
+---
+
+## Final checklist
+
+- [ ] Pre-deployment verified (code, dependencies, config, review)
+- [ ] Rollback prepared
+- [ ] Deployment executed
+- [ ] Post-deployment validated (health check, features, logs)
+- [ ] Issue and BOARD.md updated
+- [ ] Memory enriched if learning occurred
+
+---
+
+*This skill is immediately operational. An agent that loads it can prepare and validate a deployment without further interpretation.*
