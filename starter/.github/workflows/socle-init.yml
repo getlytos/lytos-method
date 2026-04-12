@@ -1,0 +1,46 @@
+# This workflow is included in the starter template.
+# It runs once when the repo is created from the template,
+# then disables itself.
+#
+# What it does:
+# - Replaces "My Project" with the actual repo name in all .socle/ files
+# - Commits the changes
+# - Deletes this workflow file (one-time setup)
+
+name: Initialize Le Socle
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    # Only run if the manifest still has the default name
+    if: contains(github.event.head_commit.message, 'Initial commit') || contains(github.event.head_commit.message, 'initial commit')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Replace project name
+        run: |
+          REPO_NAME="${{ github.event.repository.name }}"
+          # Replace "My Project" with the repo name in all .socle files
+          find .socle -name "*.md" -exec sed -i "s/My Project/$REPO_NAME/g" {} +
+          sed -i "s/My Project/$REPO_NAME/g" README.md
+          sed -i "s/My Project/$REPO_NAME/g" CLAUDE.md 2>/dev/null || true
+
+      - name: Update dates
+        run: |
+          TODAY=$(date +%Y-%m-%d)
+          find .socle -name "*.md" -exec sed -i "s/YYYY-MM-DD/$TODAY/g" {} +
+
+      - name: Self-destruct this workflow
+        run: rm -f .github/workflows/socle-init.yml
+
+      - name: Commit
+        run: |
+          git config user.name "Le Socle"
+          git config user.email "noreply@le-socle.dev"
+          git add -A
+          git diff --staged --quiet || git commit -m "chore: initialize Le Socle for ${{ github.event.repository.name }}"
+          git push

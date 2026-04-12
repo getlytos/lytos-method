@@ -22,11 +22,24 @@ Une installation. Ton IA comprend ton projet, se souvient de ce qu'elle apprend,
 
 ## Démarrer
 
-Une seule commande :
+Choisis ton chemin :
+
+### Nouveau projet (vibe coders, pas besoin d'IDE)
+
+Utilise le [template starter](https://github.com/le-socle/starter) → clique **"Use this template"** sur GitHub → ouvre dans Claude Code ou Codex → dis **"Aide-moi à configurer le Socle."**
+
+### Projet existant (terminal)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh -o install.sh
+bash install.sh
 ```
+
+### Projet existant (GitHub Actions, pas de terminal)
+
+Copie [`.github/workflows/init-socle.yml`](../../.github/workflows/init-socle.yml) dans ton repo → va dans Actions → lance **"Add Le Socle"**.
+
+---
 
 Puis ouvre ton outil IA et dis-lui : **"Aide-moi à configurer le Socle pour ce projet."**
 

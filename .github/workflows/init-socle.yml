@@ -1,0 +1,50 @@
+# GitHub Action to add Le Socle to an existing repository.
+#
+# Usage: copy this file to your repo's .github/workflows/ and run it manually.
+# Or trigger it via the Actions tab → "Add Le Socle" → Run workflow.
+#
+# What it does:
+# - Downloads the essential Le Socle files from GitHub
+# - Creates the .socle/ directory structure
+# - Creates CLAUDE.md at the root
+# - Commits everything
+
+name: Add Le Socle
+
+on:
+  workflow_dispatch:
+    inputs:
+      project_name:
+        description: 'Project name'
+        required: true
+        default: 'My Project'
+      ai_tool:
+        description: 'AI tool (claude, cursor, or none)'
+        required: false
+        default: 'claude'
+
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check if Le Socle already exists
+        run: |
+          if [ -d ".socle" ]; then
+            echo "Error: .socle/ already exists in this repo."
+            exit 1
+          fi
+
+      - name: Download and run installer
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh -o /tmp/install.sh
+          bash /tmp/install.sh --name "${{ github.event.inputs.project_name }}" --tool "${{ github.event.inputs.ai_tool }}"
+
+      - name: Commit
+        run: |
+          git config user.name "Le Socle"
+          git config user.email "noreply@le-socle.dev"
+          git add -A
+          git commit -m "feat: add Le Socle (${{ github.event.inputs.project_name }})"
+          git push

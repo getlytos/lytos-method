@@ -22,15 +22,24 @@ One install. Your AI understands your project, remembers what it learns, follows
 
 ## Get started
 
+Choose your path:
+
+### New project (vibe coders, no IDE needed)
+
+Use the [starter template](https://github.com/le-socle/starter) → click **"Use this template"** on GitHub → open in Claude Code or Codex → say **"Help me configure Le Socle."**
+
+### Existing project (terminal)
+
 ```bash
-curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh -o install.sh && bash install.sh
+curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh -o install.sh
+bash install.sh
 ```
 
-The script asks your project name and AI tool, then creates everything. Or pass options directly:
+### Existing project (GitHub Actions, no terminal)
 
-```bash
-bash install.sh --name "My API" --tool claude
-```
+Copy [`.github/workflows/init-socle.yml`](.github/workflows/init-socle.yml) into your repo → go to Actions → run **"Add Le Socle"**.
+
+---
 
 Then open your AI tool and say: **"Help me configure Le Socle for this project."**
 
