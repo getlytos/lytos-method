@@ -18,7 +18,8 @@ mon-plugin-reservation/
 │   ├── manifest.md              ← constitution du projet
 │   ├── sprint.md                ← sprint en cours
 │   ├── memory/
-│   │   └── MEMORY.md            ← mémoire persistante
+│   │   ├── MEMORY.md            ← sommaire de la mémoire
+│   │   └── cortex/              ← zones spécialisées
 │   ├── skills/                  ← skills du Socle (via submodule)
 │   ├── rules/                   ← rules du Socle + rules WordPress
 │   └── issue-board/

@@ -21,7 +21,8 @@ mon-projet/
 │   ├── skills/                ← procédures
 │   ├── rules/                 ← critères qualité
 │   ├── memory/
-│   │   └── MEMORY.md          ← mémoire persistante
+│   │   ├── MEMORY.md          ← sommaire (lu à chaque session)
+│   │   └── cortex/            ← zones spécialisées (à la demande)
 │   └── issue-board/           ← issues Kanban (dossier = statut)
 │       ├── BOARD.md
 │       ├── 0-icebox/
@@ -53,7 +54,7 @@ Ce projet utilise Le Socle comme méthode de travail humain-IA.
 Au démarrage de chaque session, lis ces fichiers dans cet ordre :
 
 1. `.socle/manifest.md` — la constitution du projet
-2. `.socle/memory/MEMORY.md` — les connaissances accumulées
+2. `.socle/memory/MEMORY.md` — le sommaire de la mémoire (pas les sous-fichiers)
 3. `.socle/rules/default-rules.md` — les critères qualité par défaut
 4. `.socle/sprint.md` — le sprint en cours (si existant)
 

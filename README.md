@@ -72,6 +72,8 @@ Le socle crée automatiquement la structure dans ton projet :
 ├── skills/           ← procédures réutilisables
 ├── rules/            ← critères qualité
 ├── memory/           ← mémoire persistante du projet
+│   ├── MEMORY.md     ← sommaire (lu à chaque session)
+│   └── cortex/       ← zones spécialisées (chargées à la demande)
 └── issue-board/      ← issues au format .md (Kanban par dossier)
 ```
 

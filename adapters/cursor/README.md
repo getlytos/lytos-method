@@ -46,7 +46,7 @@ Ce projet utilise Le Socle comme méthode de travail humain-IA.
 Lis ces fichiers dans cet ordre pour prendre le contexte :
 
 1. .socle/manifest.md — la constitution du projet
-2. .socle/memory/MEMORY.md — les connaissances accumulées
+2. .socle/memory/MEMORY.md — le sommaire de la mémoire (pas les sous-fichiers)
 3. .socle/rules/default-rules.md — les critères qualité
 
 ## Quand tu travailles sur une tâche
