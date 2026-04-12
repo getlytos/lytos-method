@@ -150,4 +150,43 @@ La review a besoin de tout le cadre qualité, pas du contexte technique détaill
 
 ---
 
-*Ce skill est opérationnel immédiatement. Un agent qui le charge sait exactement quoi lire et dans quel ordre avant de commencer à travailler.*
+## Fin de tâche — 3 actions obligatoires
+
+Quand la tâche est terminée (tous les critères de done remplis), l'agent effectue ces 3 actions dans cet ordre :
+
+### 1. Mettre à jour le frontmatter de l'issue
+
+Le frontmatter YAML est la **source de vérité**. Mettre à jour le champ `status` :
+
+```yaml
+status: 5-done    # était 3-in-progress
+updated: 2026-04-12
+```
+
+### 2. Déplacer le fichier d'issue
+
+Le dossier représente le statut visuellement. Déplacer le fichier :
+
+```bash
+git mv .socle/issue-board/3-in-progress/ISS-XXXX-titre.md .socle/issue-board/5-done/
+```
+
+### 3. Mettre à jour le BOARD.md
+
+Déplacer la ligne de l'issue dans la section correspondante du BOARD.md. Si l'issue passe en `5-done`, ajouter la date de complétion.
+
+### Si apprentissage
+
+Si un apprentissage significatif a eu lieu pendant la tâche, ajouter une entrée dans le fichier cortex correspondant et mettre à jour le compteur dans `MEMORY.md`.
+
+---
+
+## Source de vérité
+
+Le frontmatter YAML de l'issue est la source de vérité pour le statut, les dépendances et le skill assigné.
+
+Le BOARD.md est une **vue d'ensemble maintenue par l'agent** — pas une source de vérité indépendante. En cas de conflit entre le frontmatter et le BOARD.md, c'est le frontmatter qui prime.
+
+---
+
+*Ce skill est opérationnel immédiatement. Un agent qui le charge sait exactement quoi lire, comment travailler, et comment clôturer proprement.*

@@ -105,4 +105,12 @@ _Aucune issue._
 
 ---
 
-*Le dossier est le statut. Le fichier est le périmètre. Le BOARD.md est la vue d'ensemble.*
+## Source de vérité
+
+Le **frontmatter YAML** de chaque issue est la source de vérité pour le statut, les dépendances et le skill assigné. Ce BOARD.md est une vue d'ensemble maintenue par l'agent en fin de tâche — pas une source de vérité indépendante.
+
+En cas de conflit entre le frontmatter d'une issue et ce fichier, **le frontmatter prime**.
+
+---
+
+*Le frontmatter est la vérité. Le dossier est le statut visuel. Le BOARD.md est la carte.*
