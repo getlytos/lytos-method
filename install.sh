@@ -107,6 +107,10 @@ for skill in session-start code-review testing documentation git-workflow code-s
 done
 ok "7 skills installés"
 
+info "Téléchargement du briefing IA..."
+download "$REPO_RAW/SOCLE.md" "$SOCLE_DIR/SOCLE.md"
+ok "Briefing installé"
+
 info "Téléchargement des rules..."
 download "$REPO_RAW/rules/default-rules.md" "$SOCLE_DIR/rules/default-rules.md"
 download "$REPO_RAW/rules/README.md" "$SOCLE_DIR/rules/README.md"
@@ -248,17 +252,128 @@ cat > "$SOCLE_DIR/memory/MEMORY.md" << MEMORY
 *Le dossier est la structure. Le fichier est le contenu. Ce sommaire est la carte.*
 MEMORY
 
-# Créer les fichiers cortex vides avec en-tête
-for cortex_file in architecture backend frontend patterns bugs business sprints; do
-    cat > "$SOCLE_DIR/memory/cortex/$cortex_file.md" << CORTEX
-# Memory — ${cortex_file^}
+# Créer les fichiers cortex pré-remplis avec exemples
+cat > "$SOCLE_DIR/memory/cortex/architecture.md" << 'CORTEX'
+# Memory — Architecture & Décisions techniques
 
-*Charger ce fichier quand la tâche concerne ce domaine.*
+*Charger ce fichier pour toute tâche qui touche à la structure du projet.*
 
 ---
 
+<!-- Exemple à adapter ou supprimer :
+
+### 2026-04-12 — Choix de la base de données
+
+**Contexte** : Hésitation entre SQLite (simple) et PostgreSQL (robuste).
+**Décision** : PostgreSQL dès le début.
+**Conséquence** : Besoin de Docker pour le dev local, mais pas de migration douloureuse plus tard.
+
+-->
 CORTEX
-done
+
+cat > "$SOCLE_DIR/memory/cortex/backend.md" << 'CORTEX'
+# Memory — Backend
+
+*Charger ce fichier pour toute tâche backend : API, base de données, services.*
+
+---
+
+<!-- Exemple à adapter ou supprimer :
+
+### Fichiers clés
+
+| Fichier | Rôle |
+|---------|------|
+| `src/main.py` | Point d'entrée de l'application |
+| `src/models/` | Modèles de données |
+| `src/routes/` | Endpoints API |
+
+-->
+CORTEX
+
+cat > "$SOCLE_DIR/memory/cortex/frontend.md" << 'CORTEX'
+# Memory — Frontend
+
+*Charger ce fichier pour toute tâche frontend : UI, composants, styles.*
+
+---
+
+<!-- Exemple à adapter ou supprimer :
+
+### Fichiers clés
+
+| Fichier | Rôle |
+|---------|------|
+| `src/App.tsx` | Composant racine |
+| `src/components/` | Composants réutilisables |
+| `src/hooks/` | Hooks custom |
+
+-->
+CORTEX
+
+cat > "$SOCLE_DIR/memory/cortex/patterns.md" << 'CORTEX'
+# Memory — Patterns découverts
+
+*Charger ce fichier pour du code review, du refactoring, ou de l'écriture de nouveau code.*
+
+---
+
+<!-- Exemple à adapter ou supprimer :
+
+### Nom du pattern
+
+**Quoi** : Description du pattern en une phrase.
+**Où** : Fichier(s) où il est appliqué.
+**Pourquoi ça marche** : Ce qui le rend efficace dans ce contexte.
+
+-->
+CORTEX
+
+cat > "$SOCLE_DIR/memory/cortex/bugs.md" << 'CORTEX'
+# Memory — Problèmes récurrents & Solutions
+
+*Charger ce fichier avant de debug — le problème a peut-être déjà été résolu.*
+
+---
+
+<!-- Exemple à adapter ou supprimer :
+
+| Problème | Cause | Solution |
+|----------|-------|----------|
+| Les tests échouent sur CI mais passent en local | Variables d'env manquantes dans le pipeline | Ajouter les secrets dans les settings CI |
+
+-->
+CORTEX
+
+cat > "$SOCLE_DIR/memory/cortex/business.md" << 'CORTEX'
+# Memory — Contexte métier
+
+*Charger ce fichier pour toute tâche qui touche à la logique métier ou à l'UX.*
+
+---
+
+<!-- Exemple à adapter ou supprimer :
+
+### Nom du concept métier
+
+**Règle** : Ce que le métier impose.
+**Pourquoi** : La raison métier (pas technique).
+**Impact code** : Ce que ça implique concrètement.
+
+-->
+CORTEX
+
+cat > "$SOCLE_DIR/memory/cortex/sprints.md" << 'CORTEX'
+# Memory — Historique des sprints
+
+*Charger ce fichier en début de sprint, en rétrospective, ou en planification.*
+
+---
+
+| Sprint | Objectif | Résultat | Apprentissage clé |
+|--------|----------|----------|-------------------|
+
+CORTEX
 ok "Memory initialisée"
 
 # --- Créer le BOARD.md ---
@@ -313,34 +428,59 @@ if [ "$TOOL" = "claude" ]; then
     cat > "CLAUDE.md" << CLAUDE
 # CLAUDE.md
 
-Au démarrage de chaque session, lis ces fichiers dans l'ordre :
+Ce projet utilise **Le Socle** — une méthode de travail humain-IA.
 
-1. .socle/manifest.md — la constitution du projet
-2. .socle/memory/MEMORY.md — le sommaire de la mémoire (puis charge les sections pertinentes dans cortex/)
+## Première session (setup)
+
+Si le manifest est vide ou incomplet, lis d'abord :
+- .socle/SOCLE.md — comprendre la méthode et comment aider à remplir les fichiers
+
+## À chaque session
+
+Lis ces fichiers dans l'ordre :
+1. .socle/manifest.md — la constitution du projet (identité, stack, principes, modèles IA)
+2. .socle/memory/MEMORY.md — le sommaire de la mémoire (puis charge les sections cortex/ pertinentes)
 3. .socle/rules/default-rules.md — les critères de qualité
 
-Pour travailler sur une tâche, charge aussi :
-4. .socle/issue-board/BOARD.md — l'état du board
-5. .socle/skills/session-start.md — la procédure de démarrage
+## Pour travailler sur une tâche
 
-Méthode : Le Socle (https://github.com/le-socle/socle)
+4. .socle/issue-board/BOARD.md — l'état du board
+5. .socle/skills/session-start.md — la procédure complète de démarrage et de fin de tâche
+
+## Règles
+
+- Le frontmatter YAML des issues est la source de vérité
+- Ne pas interpréter silencieusement — demander si une instruction est ambiguë
+- En fin de tâche : mettre à jour le frontmatter, déplacer le fichier, mettre à jour le BOARD.md
+- Consulter le champ \`complexity\` de l'issue + la table du manifest pour savoir quel modèle utiliser
+
+Documentation : https://github.com/le-socle/socle
 CLAUDE
     ok "CLAUDE.md créé à la racine du projet"
 
 elif [ "$TOOL" = "cursor" ]; then
     info "Création du .cursorrules..."
     cat > ".cursorrules" << CURSOR
-Au démarrage de chaque session, lis ces fichiers dans l'ordre :
+Ce projet utilise Le Socle — une méthode de travail humain-IA.
 
-1. .socle/manifest.md — la constitution du projet
-2. .socle/memory/MEMORY.md — le sommaire de la mémoire (puis charge les sections pertinentes dans cortex/)
-3. .socle/rules/default-rules.md — les critères de qualité
+Première session (setup) : si le manifest est vide, lis @.socle/SOCLE.md pour comprendre la méthode.
 
-Pour travailler sur une tâche, charge aussi :
-4. .socle/issue-board/BOARD.md — l'état du board
-5. .socle/skills/session-start.md — la procédure de démarrage
+À chaque session, lis dans l'ordre :
+1. @.socle/manifest.md — la constitution du projet
+2. @.socle/memory/MEMORY.md — le sommaire de la mémoire (puis les sections cortex/ pertinentes)
+3. @.socle/rules/default-rules.md — les critères de qualité
 
-Méthode : Le Socle (https://github.com/le-socle/socle)
+Pour travailler sur une tâche :
+4. @.socle/issue-board/BOARD.md — l'état du board
+5. @.socle/skills/session-start.md — procédure de démarrage et fin de tâche
+
+Règles :
+- Le frontmatter YAML des issues est la source de vérité
+- Ne pas interpréter silencieusement — demander si une instruction est ambiguë
+- En fin de tâche : mettre à jour le frontmatter, déplacer le fichier, mettre à jour le BOARD.md
+- Consulter le champ complexity de l'issue + la table du manifest pour le modèle à utiliser
+
+Documentation : https://github.com/le-socle/socle
 CURSOR
     ok ".cursorrules créé à la racine du projet"
 fi
