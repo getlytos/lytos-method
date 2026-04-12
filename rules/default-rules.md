@@ -93,6 +93,16 @@ Aucune valeur magique dans le code de production.
 
 ---
 
+## Comportement des agents
+
+| Règle | Détail |
+|-------|--------|
+| Pas d'interprétation silencieuse | Si une instruction (skill, rule, issue) est ambiguë, l'agent **signale l'ambiguïté à l'humain** au lieu de deviner. Combler un trou sans le dire est pire que poser une question |
+| Pas de "si approprié" | Un agent ne décide pas seul de ce qui est "approprié". Si une étape d'un skill n'est pas applicable dans le contexte, il le signale — il ne la saute pas |
+| Traçabilité des décisions | Quand un agent fait un choix technique (entre deux approches, une lib plutôt qu'une autre), il le mentionne explicitement avec la raison, pour que l'humain puisse valider ou corriger |
+
+---
+
 ## Comment appliquer ces règles
 
 1. Les agents chargent ce fichier **avant chaque tâche**

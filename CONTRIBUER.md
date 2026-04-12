@@ -28,7 +28,24 @@ Un skill est une procédure opérationnelle qu'un agent peut appliquer immédiat
 1. **Opérationnel** — un agent peut l'appliquer sans interprétation supplémentaire
 2. **Réutilisable** — utile sur plusieurs projets, pas spécifique à un seul contexte
 3. **Structuré** — suit le format des skills existants (titre, quand invoquer, procédure, checklist)
-4. **En français** — le contenu conceptuel est en français, les exemples de code en anglais
+4. **Vérifiable** — chaque étape produit un résultat observable. Pas de verbes flous
+5. **En français** — le contenu conceptuel est en français, les exemples de code en anglais
+
+### Écrire des étapes non ambiguës
+
+Un skill mal écrit produit de l'hallucination procédurale : l'agent croit suivre la procédure mais comble les trous avec sa propre logique, sans le signaler.
+
+**Mots interdits** dans les étapes d'un skill :
+
+| Interdit | Pourquoi | Remplacer par |
+|----------|----------|---------------|
+| "si approprié" | L'agent décide seul, sans signaler | Critère explicite ou "signaler à l'humain si..." |
+| "évaluer" (seul) | Trop vague — évaluer quoi, comment ? | Checklist de points à vérifier |
+| "considérer" | Aucun résultat observable | Action concrète avec output |
+| "améliorer" | Subjectif — améliorer selon quel critère ? | Critère mesurable ("< 300 lignes", "0 warning") |
+| "si nécessaire" | L'agent interprète le "nécessaire" | Condition explicite ("si le fichier dépasse 300 lignes") |
+
+**Test de qualité** : pour chaque étape du skill, se demander — "un agent peut-il suivre cette étape mécaniquement, sans jugement subjectif ?" Si la réponse est non, l'étape est trop floue.
 
 ### Format attendu
 
