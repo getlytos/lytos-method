@@ -1,18 +1,20 @@
-# ISS-XXXX — [Titre de l'issue]
-
-**Type** : `feat` | `fix` | `refactor` | `chore`
-**Priorité** : `P0-critique` | `P1-haute` | `P2-moyenne` | `P3-basse`
-**Effort** : `XS` | `S` | `M` | `L` | `XL`
-**Domaine** : [domaines concernés]
-**Agent-skill** : [skill à invoquer]
-**Assignee** : —
-**Branche** : `type/ISS-XXXX-slug-titre`
-**Status** : `0-icebox` | `1-backlog` | `2-sprint` | `3-in-progress` | `4-review` | `5-done`
-**Créé** : YYYY-MM-DD
-**Modifié** : YYYY-MM-DD
-**Depends** : ISS-XXXX | —
-
 ---
+id: ISS-XXXX
+title: "[Titre de l'issue]"
+type: feat | fix | refactor | chore
+priority: P0-critique | P1-haute | P2-moyenne | P3-basse
+effort: XS | S | M | L | XL
+domain: []
+skill: "[skill principal à invoquer]"
+skills_aux: []
+status: 0-icebox
+branch: "type/ISS-XXXX-slug-titre"
+depends: []
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+---
+
+# ISS-XXXX — [Titre de l'issue]
 
 ## Contexte
 
@@ -22,34 +24,30 @@
 
 *Ce qu'on va faire concrètement pour résoudre le problème.*
 
+## Critère de done
+
+*Comment on sait que cette issue est terminée. Plus l'issue est grosse, plus le done doit être précis.*
+
+- [ ] Critère vérifiable 1
+- [ ] Critère vérifiable 2
+- [ ] Tests écrits et passants
+- [ ] Documentation à jour
+
 ## Checklist
 
-### [Domaine 1 — ex: PHP]
+### [Domaine 1]
 - [ ] Tâche précise avec fichier concerné
 - [ ] Tâche précise avec fichier concerné
 
-### [Domaine 2 — ex: JS]
+### [Domaine 2]
 - [ ] Tâche précise avec fichier concerné
 - [ ] Tâche précise avec fichier concerné
-
-### QA
-- [ ] Test unitaire écrit et passant
-- [ ] Test Playwright écrit et passant
-- [ ] Validation visuelle
 
 ## Fichiers concernés
 
-### [Partie 1 — ex: Plugin]
-- `chemin/vers/fichier.php`
-- `chemin/vers/fichier.js`
-
-### [Partie 2 — ex: Thème]
-- `chemin/vers/fichier.css`
+- `chemin/vers/fichier`
+- `chemin/vers/fichier`
 
 ## Notes
 
 *Références, liens, dépendances documentées, décisions d'implémentation.*
-
----
-
-*Dernière mise à jour : YYYY-MM-DD*
