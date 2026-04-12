@@ -83,10 +83,12 @@ Autres         : Playwright pour les tests E2E
 
 ## Principes de développement
 
-- Toutes les fonctions préfixées par `mpr_` (Mon Plugin Réservation)
-- Pas de requêtes SQL directes — utiliser `$wpdb->prepare()` systématiquement
-- Le formulaire front est rendu via un template PHP surchargeable par le thème
-- Les styles ne doivent pas casser le thème existant (namespace CSS)
+*Quand un agent hésite entre deux approches, il consulte ces principes pour trancher.*
+
+- **WordPress natif plutôt que custom** — on utilise les API WordPress ($wpdb, WP_REST, wp_mail) plutôt que des librairies externes. Moins de dépendances = moins de risques de casse sur les mises à jour.
+- **Simplicité plutôt que flexibilité** — ce plugin fait de la réservation. Pas un framework de réservation. On ne prévoit pas ce qui n'est pas dans le sprint.
+- **Isolation plutôt qu'intégration** — le plugin ne doit jamais casser le thème existant. Préfixe `mpr_` sur tout, namespace CSS, template surchargeable.
+- **Sécurité par défaut** — `$wpdb->prepare()` systématique, nonces sur tout, `esc_html()` sur tout output. Pas d'exception, pas de raccourci.
 
 ---
 

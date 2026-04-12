@@ -78,11 +78,16 @@ Autres         :
 
 ## Principes de développement
 
-*Les principes qui guident les décisions techniques sur ce projet spécifique.*
+*Les principes qui guident les décisions techniques sur ce projet spécifique. Ce ne sont pas des vœux pieux — ce sont des critères de décision. Quand un agent hésite entre deux approches, il consulte cette section pour trancher.*
 
-- 
-- 
-- 
+*Chaque principe doit être formulé comme un arbitrage : "On préfère X plutôt que Y, parce que Z."*
+
+Exemples (à remplacer par les vôtres) :
+
+- **Simplicité plutôt que flexibilité** — on ne construit pas pour un cas d'usage hypothétique. Si on n'a pas le besoin aujourd'hui, on ne le code pas.
+- **Lisibilité plutôt que concision** — un code que tout le monde comprend vaut mieux qu'un code élégant que personne ne maintient.
+- **Convention plutôt que configuration** — on suit les conventions du framework plutôt que d'inventer les nôtres. Moins de décisions = moins d'erreurs.
+- **Stabilité plutôt que nouveauté** — on ne met pas à jour une dépendance sans raison. Une version stable qui fonctionne vaut mieux qu'une version récente non testée.
 
 ---
 

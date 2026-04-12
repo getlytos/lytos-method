@@ -67,6 +67,18 @@ Consulter le sommaire `MEMORY.md` → charger les fichiers selon le domaine de l
 
 Si des fichiers de rules spécifiques au projet existent (ex: `rules/wordpress-rules.md`), les charger aussi.
 
+#### Les principes du manifest pour arbitrer
+
+Quand un choix technique se présente (deux approches possibles, un compromis à faire), consulter la section **Principes de développement** du manifest. Ces principes sont formulés comme des arbitrages ("on préfère X plutôt que Y") — ils servent exactement à trancher ce genre de décision.
+
+```
+Exemple :
+Le manifest dit "Simplicité plutôt que flexibilité"
+→ Je choisis l'approche directe, pas l'abstraction générique.
+```
+
+Si les principes ne couvrent pas la situation, signaler l'arbitrage à l'humain plutôt que deviner.
+
 ### 4. Vérifier l'état du travail
 
 Avant de commencer à coder :
