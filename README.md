@@ -6,76 +6,114 @@
 
 ---
 
-## Le problème
+## Par où commencer ?
 
-Depuis l'émergence des agents IA, l'industrie reproduit par réflexe l'organisation humaine — des agents avec des rôles, des titres, des personas. Un "LeadDev", un "Expert UX", un "Data Scientist", tous artificiels, tous en costume.
+**Tu veux démarrer maintenant** → [DEMARRER.md](./DEMARRER.md) — opérationnel en 5 minutes
 
-C'est le même réflexe qu'avec les premières voitures, appelées "horseless carriages". On comprend le nouveau par analogie avec l'ancien.
+**Tu veux comprendre la philosophie** → [MANIFESTE.md](./MANIFESTE.md) — pourquoi cette méthode existe
 
-**Le Socle propose un renversement.**
+**Tu veux contribuer** → [CONTRIBUER.md](./CONTRIBUER.md) — comment participer au projet
 
 ---
 
-## La philosophie
+## Le problème
 
-L'équipe agile a été inventée pour compenser les limites humaines — mémoire limitée, fatigue cognitive, coût de communication. Un agent IA n'a aucune de ces contraintes.
+L'industrie IA reproduit l'organisation humaine — des agents avec des rôles, des titres, des personas. Un "LeadDev", un "Expert UX", tous en costume. C'est rassurant. Ce n'est pas efficace.
 
-Lui imposer un rôle fixe, c'est le limiter. Le compléter, c'est construire autour de ce qu'il est vraiment.
+Un agent IA n'a pas de mémoire limitée, pas de fatigue, pas d'ego. Lui imposer un rôle fixe, c'est le limiter.
 
-**Les agents ne sont pas le sujet. Le socle l'est.**
+**Le Socle propose un renversement** : on ne gère plus les agents, on définit le cadre dans lequel ils opèrent.
 
 ---
 
 ## Comment ça marche
 
-Le Socle s'inspire de Kubernetes : tu ne gères pas les containers individuellement, tu définis un **état désiré** et l'orchestrateur alloue les ressources.
-
 ```
 L'humain définit          →    Les agents exécutent
 ─────────────────               ──────────────────
-skills/                         Invoqués selon le besoin
-rules/                          Stateless, sans identité fixe  
-memory/                         Libérés après exécution
-manifest.md                     Scalables selon la complexité
-sprint.md
+manifest.md                     Invoqués selon le besoin
+skills/                         Stateless, sans identité fixe  
+rules/                          Libérés après exécution
+memory/                         Scalables selon la complexité
 ```
 
 ### Les 4 piliers
 
-| Pilier | Rôle |
-|--------|------|
-| **Skills** | Les procédures réutilisables, le savoir-faire capitalisé |
-| **Rules** | Les critères de qualité, les contraintes du projet |
-| **Memory** | Le cerveau persistant qui s'enrichit à chaque sprint |
-| **Manifest** | La constitution — l'intention humaine, le pourquoi |
+| Pilier | C'est quoi | Exemple concret |
+|--------|-----------|-----------------|
+| **Manifest** | La constitution du projet — le pourquoi | "Ce projet est un plugin WordPress de réservation pour..." |
+| **Skills** | Les procédures réutilisables — le comment | "Pour faire une code review, vérifier lisibilité, sécurité, tests..." |
+| **Rules** | Les critères de qualité — le standard | "Fichiers < 300 lignes, pas de valeurs en dur, tests obligatoires" |
+| **Memory** | Le cerveau persistant — ce qu'on a appris | "On a choisi l'API REST plutôt que admin-ajax parce que..." |
 
-Les agents sont des pods — de l'intelligence scalable sans forme fixe.
+Les agents ne sont pas le sujet. Le socle l'est.
 
 ---
 
-## Démarrage rapide
+## 3 niveaux d'adoption
 
-```bash
-# Cloner le socle dans ton projet
-git submodule add https://github.com/le-socle/socle .socle
+Le Socle s'adapte à ton besoin. Pas besoin de tout utiliser dès le premier jour.
 
-# Ou via le CLI (bientôt disponible)
-npx le-socle init
-```
+### Niveau 1 — Le minimum (5 minutes)
 
-Le socle crée automatiquement la structure dans ton projet :
+Tu remplis ton **manifest** et tu initialises ta **memory**. Ton IA comprend ton projet et se souvient de ce qu'elle apprend.
+
+> Idéal pour : commencer avec l'IA, améliorer chaque session sans effort.
 
 ```
 .socle/
-├── manifest.md       ← à remplir par l'humain
-├── sprint.md         ← kanban du sprint en cours
-├── skills/           ← procédures réutilisables
-├── rules/            ← critères qualité
-├── memory/           ← mémoire persistante du projet
-│   ├── MEMORY.md     ← sommaire (lu à chaque session)
-│   └── cortex/       ← zones spécialisées (chargées à la demande)
-└── issue-board/      ← issues au format .md (Kanban par dossier)
+├── manifest.md
+└── memory/
+    ├── MEMORY.md
+    └── cortex/
 ```
+
+### Niveau 2 — La qualité (30 minutes)
+
+Tu ajoutes les **rules** et tu charges les **skills**. Ton IA suit des procédures précises et respecte des critères de qualité.
+
+> Idéal pour : des projets sérieux, du code maintenable, du travail en équipe.
+
+```
+.socle/
+├── manifest.md
+├── memory/
+├── rules/
+└── skills/
+```
+
+### Niveau 3 — La méthode complète (1 heure)
+
+Tu utilises l'**issue-board**, le **sprint** et l'**orchestrateur**. Tu gères un vrai projet structuré avec des agents coordonnés.
+
+> Idéal pour : des projets complexes, multi-domaines, multi-sprints.
+
+```
+.socle/
+├── manifest.md
+├── memory/
+├── rules/
+├── skills/
+├── sprint.md
+└── issue-board/
+```
+
+---
+
+## Compatible avec tout
+
+### Tout langage
+
+Le Socle est agnostique. Les skills et les rules fonctionnent avec Python, JavaScript, PHP, Go, Rust, Swift, ou tout autre langage.
+
+### Tout outil IA
+
+| Outil | Adapter | Status |
+|-------|---------|--------|
+| Claude Code | [adapters/claude-code/](./adapters/claude-code/) | Disponible |
+| Cursor | [adapters/cursor/](./adapters/cursor/) | Disponible |
+| OpenAI / GPT | [adapters/openai/](./adapters/openai/) | Disponible |
+| Autre | [Créer un adapter](./adapters/README.md) | Guide fourni |
 
 ---
 
@@ -83,23 +121,25 @@ Le socle crée automatiquement la structure dans ton projet :
 
 ```
 le-socle/
+├── DEMARRER.md               ← guide de démarrage rapide
 ├── MANIFESTE.md              ← la philosophie complète
-├── README.md                 ← ce fichier
-├── templates/
-│   ├── manifest.md           ← template manifest projet
-│   ├── sprint.md             ← template sprint
-│   ├── memory/MEMORY.md      ← template mémoire
-│   └── issue/
-│       ├── issue-feature.md  ← template issue complexe
-│       └── issue-task.md     ← template micro-tâche
-├── skills/                   ← skills de base fournis
-├── rules/                    ← rules par défaut
+├── CONTRIBUER.md             ← guide de contribution
+├── templates/                ← templates à copier dans ton projet
+├── skills/                   ← 6 skills de base
+│   ├── session-start.md      ← démarrage de session
+│   ├── code-review.md        ← revue de code
+│   ├── testing.md            ← tests unitaires et E2E
+│   ├── documentation.md      ← documentation et memory
+│   ├── git-workflow.md       ← conventions Git
+│   └── code-structure.md     ← structure et nommage
+├── rules/                    ← règles de qualité par défaut
+├── memory/                   ← template de mémoire
+│   ├── MEMORY.md             ← sommaire (lu à chaque session)
+│   └── cortex/               ← zones spécialisées (à la demande)
 ├── agents/                   ← documentation orchestrateur
 ├── adapters/                 ← connecteurs multi-IA
-│   ├── claude-code/
-│   ├── cursor/
-│   └── openai/
-└── examples/                 ← projets concrets
+├── issue-board/              ← board Kanban (dossier = statut)
+└── examples/                 ← exemple concret (WordPress)
 ```
 
 ---
@@ -108,23 +148,10 @@ le-socle/
 
 1. **Le manifest prime.** Tout part de ce que l'humain a défini.
 2. **Les agents sont sans forme.** Pas de persona, pas de rôle fixe.
-3. **La mémoire est vivante.** Elle grandit à chaque sprint.
+3. **La mémoire est vivante.** Elle grandit à chaque sprint — et elle se consolide.
 4. **Le contrôle est humain.** Les agents exécutent. L'humain valide et oriente.
 5. **Complémentarité, pas mimétisme.** L'IA n'est pas un humain dématérialisé.
-
----
-
-## Multi-IA
-
-Le Socle ne dépend d'aucun vendor. Claude Code aujourd'hui, autre chose demain. Les adapters font le pont — la méthode reste identique, l'outil change.
-
----
-
-## Contribuer
-
-Le Socle est en construction. Les contributions sont les bienvenues — qu'il s'agisse de nouveaux skills, d'adapters pour d'autres IAs, ou d'améliorer la méthode elle-même.
-
-Lire [CONTRIBUER.md](./CONTRIBUER.md) avant de soumettre une PR.
+6. **Progressif par design.** On commence petit, on ajoute quand on en a besoin.
 
 ---
 
