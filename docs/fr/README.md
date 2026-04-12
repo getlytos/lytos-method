@@ -92,6 +92,18 @@ Manifest + memory. Ton IA comprend ton projet et se souvient de ce qu'elle appre
 
 ---
 
+## Auteur
+
+Créé par **Frederic Galliné** — [ubeez.com](https://ubeez.com)
+
+- GitHub : [@FredericGalline](https://github.com/FredericGalline)
+- X : [@fred](https://x.com/fred)
+- Email : frederic@galline.fr
+
+Questions, retours, idées ? Ouvre une [Discussion](https://github.com/le-socle/socle/discussions) ou contacte-moi directement.
+
+---
+
 ## Licence
 
 MIT — voir [LICENSE](../../LICENSE)

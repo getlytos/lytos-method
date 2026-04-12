@@ -166,6 +166,18 @@ le-socle/
 
 ---
 
+## Author
+
+Created by **Frederic Galliné** — [ubeez.com](https://ubeez.com)
+
+- GitHub: [@FredericGalline](https://github.com/FredericGalline)
+- X: [@fred](https://x.com/fred)
+- Email: frederic@galline.fr
+
+Questions, feedback, ideas? Open a [Discussion](https://github.com/le-socle/socle/discussions) or reach out directly.
+
+---
+
 ## License
 
 MIT — see [LICENSE](./LICENSE)
