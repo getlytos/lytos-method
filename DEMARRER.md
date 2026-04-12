@@ -30,16 +30,22 @@ git submodule add https://github.com/le-socle/socle .socle
 cp .socle/templates/manifest.md .socle/manifest.md
 ```
 
-## Étape 2 — Remplir ton manifest (3 minutes)
+## Étape 2 — Configurer avec ton IA (3 minutes)
 
-Ouvre `.socle/manifest.md` et remplis **seulement ces 4 sections** :
+Lance ton outil IA et dis-lui :
+
+> **"Aide-moi à configurer le Socle pour ce projet."**
+
+L'IA va lire le briefing (`.socle/SOCLE.md`), comprendre la méthode, et te poser les bonnes questions pour remplir ton manifest : nom du projet, pourquoi il existe, stack technique, principes de décision, modèles IA à utiliser.
+
+Tu n'as pas besoin de tout remplir toi-même — l'IA peut aussi détecter ta stack en lisant ton `package.json`, `requirements.txt` ou `go.mod`.
+
+Si tu préfères le faire manuellement, ouvre `.socle/manifest.md` et remplis ces 4 sections :
 
 1. **Identité** — le nom et la description courte du projet
 2. **Pourquoi ce projet existe** — 3 phrases max, le "pourquoi"
 3. **Stack technique** — les langages et outils utilisés
 4. **Principes de développement** — 2-3 règles de décision ("on préfère X plutôt que Y")
-
-Le reste peut attendre. Ces 4 sections suffisent pour qu'un agent IA comprenne ton projet.
 
 ## Étape 3 — C'est fait
 
