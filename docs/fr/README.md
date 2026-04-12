@@ -134,6 +134,22 @@ C'est exactement le problème du vendor lock-in qu'on a connu avec AWS, Salesfor
 
 ---
 
+## Les 9 skills intégrés
+
+| Skill | Ce qu'il couvre |
+|-------|----------------|
+| **session-start** | Démarrage de session, chargement du contexte, clôture |
+| **code-review** | Revue de code avec checklist, self-review, taille de PR |
+| **testing** | Tests unitaires, intégration, E2E, stratégie de mocking |
+| **documentation** | Docstrings, ADR, documentation API, changelog, mémoire |
+| **git-workflow** | Branches, commits, CI checks, hooks, semantic versioning |
+| **code-structure** | SOLID, 300 lignes max, injection de dépendances, nommage |
+| **deployment** | Pré/post-deploy, observabilité, SLOs, migrations, incidents |
+| **security** | OWASP Top 10, authentification, autorisation, secrets |
+| **api-design** | Conventions REST, pagination, erreurs, rate limiting |
+
+---
+
 ## Auteur
 
 Créé par **Frederic Galliné** — [ubeez.com](https://ubeez.com)

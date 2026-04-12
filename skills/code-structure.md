@@ -13,6 +13,19 @@
 
 ---
 
+## Foundational principles
+
+The rules in this skill are practical applications of established software design principles:
+
+- **Single Responsibility (SRP)** — each file, class, or function has one reason to change. This is why we enforce the 300-line rule and one-function-one-job.
+- **Dependency Inversion (DIP)** — depend on abstractions, not implementations. High-level modules should not import low-level details directly. This enables testing and swapping implementations.
+- **High cohesion, low coupling** — related code stays together (cohesion), unrelated modules interact through narrow interfaces (coupling). A module that needs to import half the codebase is a design smell.
+- **YAGNI** — You Aren't Gonna Need It. Do not build abstractions for hypothetical future requirements. Three similar lines of code is better than a premature abstraction.
+
+You do not need to memorize these names. The rules below make them concrete.
+
+---
+
 ## Fundamental rule — 300 lines max per file
 
 A file must never exceed 300 lines of code (excluding comments and blank lines).
@@ -53,6 +66,37 @@ module/
 └── __tests__/
     ├── service.test.js
     └── validator.test.js
+```
+
+### Dependency injection
+
+Functions and classes should receive their dependencies, not create them internally. This is the single most impactful practice for testability.
+
+```python
+# ✅ Good — dependency is injected
+class OrderService:
+    def __init__(self, repository, email_service):
+        self.repository = repository
+        self.email_service = email_service
+
+# ❌ Bad — dependency is hardcoded
+class OrderService:
+    def __init__(self):
+        self.repository = PostgresRepository()
+        self.email_service = SendGridService()
+```
+
+```javascript
+// ✅ Good — dependency is injected
+function createOrderService({ repository, emailService }) {
+  return { /* ... */ };
+}
+
+// ❌ Bad — dependency is imported directly
+import { pgRepository } from '../db/postgres';
+function createOrderService() {
+  // locked to postgres, untestable without real DB
+}
 ```
 
 ---
@@ -142,6 +186,33 @@ import { ProductService } from '@/services/product';
 // 4. Relative
 import { formatPrice } from './helpers';
 ```
+
+---
+
+## Circular dependencies
+
+If module A imports module B and module B imports module A, the design is broken. Circular dependencies cause:
+- Unpredictable initialization order
+- Difficult-to-trace bugs
+- Impossible-to-test modules in isolation
+
+**How to fix:**
+1. Extract the shared logic into a third module that both A and B import
+2. Use dependency injection — pass the dependency instead of importing it
+3. Rethink the boundary — maybe A and B should be one module, or the shared part should be its own
+
+If your language's import system raises a circular import error, do not work around it — fix the design.
+
+---
+
+## Module public API
+
+Every module should have a clear boundary — what it exports (public) and what it keeps internal.
+
+- Use an `index` file (or `__init__.py`, `mod.rs`) as the single entry point
+- Only export what other modules need — everything else is internal
+- If a module exports more than 10 symbols, it may be doing too much
+- Renaming or removing a public export is a breaking change — be deliberate about what you expose
 
 ---
 

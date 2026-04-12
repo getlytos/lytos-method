@@ -174,14 +174,16 @@ le-socle/
 ├── MANIFESTO.md              ← the full philosophy
 ├── CONTRIBUTING.md           ← contribution guide
 ├── templates/                ← templates to copy into your project
-├── skills/                   ← 7 built-in skills
+├── skills/                   ← 9 built-in skills
 │   ├── session-start.md      ← session start & end
 │   ├── code-review.md        ← code review
-│   ├── testing.md            ← unit & E2E tests
-│   ├── documentation.md      ← documentation & memory
-│   ├── git-workflow.md       ← Git conventions
-│   ├── code-structure.md     ← structure & naming
-│   └── deployment.md         ← deployment & CI/CD
+│   ├── testing.md            ← unit, integration & E2E tests
+│   ├── documentation.md      ← documentation, ADR & memory
+│   ├── git-workflow.md       ← Git conventions & CI
+│   ├── code-structure.md     ← structure, SOLID & naming
+│   ├── deployment.md         ← deployment, observability & CI/CD
+│   ├── security.md           ← OWASP, auth & secure coding
+│   └── api-design.md         ← REST conventions & API quality
 ├── scripts/                  ← automation tools
 │   └── generate-board.py     ← regenerate BOARD.md from frontmatter
 ├── rules/                    ← default quality rules
@@ -205,6 +207,22 @@ le-socle/
 5. **Complement, don't mimic.** AI is not a virtual human.
 6. **Progressive by design.** Start small, add when needed.
 7. **Sovereignty through text.** Project knowledge lives in files you own — not inside a vendor. The AI is an interchangeable engine.
+
+---
+
+## The 9 built-in skills
+
+| Skill | What it covers |
+|-------|---------------|
+| **session-start** | Session startup, context loading, task closure |
+| **code-review** | Code review with checklist, self-review, PR size limits |
+| **testing** | Unit, integration, E2E tests, mocking strategy |
+| **documentation** | Docstrings, ADR, API docs, changelog, memory |
+| **git-workflow** | Branches, commits, CI checks, hooks, semantic versioning |
+| **code-structure** | SOLID, 300-line rule, dependency injection, naming |
+| **deployment** | Pre/post-deploy, observability, SLOs, migrations, incidents |
+| **security** | OWASP Top 10, authentication, authorization, secrets |
+| **api-design** | REST conventions, pagination, error format, rate limiting |
 
 ---
 
