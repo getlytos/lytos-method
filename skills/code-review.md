@@ -14,6 +14,15 @@
 
 ## Procedure
 
+### 0. Self-review (before requesting review)
+
+Before requesting a review from others:
+
+- Re-read your own diff as if you were the reviewer
+- Check for forgotten debug code, TODOs, commented-out code
+- Verify the PR description explains the "why"
+- Confirm all tests pass locally
+
 ### 1. Gather context
 
 Before starting the review:
@@ -26,6 +35,11 @@ Before starting the review:
 ### 2. Review checklist
 
 Apply each point of this checklist to the submitted code:
+
+#### PR size
+- [ ] The PR is under 400 lines of meaningful changes (excluding generated files, lock files)
+- [ ] If larger, the PR is split into logical, reviewable chunks
+- [ ] Each PR has a single focus — one feature, one fix, one refactoring
 
 #### Readability
 - [ ] The code reads top to bottom effortlessly
@@ -143,6 +157,15 @@ At the end of the review, produce a summary:
 - Do not review your own code — another agent or the human must validate
 - If a problematic pattern is recurring, flag it for addition to the **rules**
 - If an architectural decision is discovered during the review, document it in the **memory**
+
+---
+
+## Review turnaround
+
+- Aim to respond to a review request within 24 hours (or one working day)
+- A fast review cycle is more valuable than a perfect review — unblock the author
+- If a full review will take time, leave a quick comment: "Seen, will review by [time]"
+- DORA research shows that review speed directly correlates with team performance
 
 ---
 

@@ -136,6 +136,97 @@ $result = MyModule::do($input);
 
 ---
 
+## Architecture Decision Records (ADR)
+
+When a significant technical decision is made (choice of framework, database, API strategy, authentication approach), document it as an ADR.
+
+### Format
+
+```markdown
+# ADR-XXXX — [Short title]
+
+**Date**: YYYY-MM-DD
+**Status**: Accepted | Superseded by ADR-YYYY | Deprecated
+
+## Context
+
+What is the situation that requires a decision?
+
+## Decision
+
+What did we decide, and why?
+
+## Consequences
+
+What changes as a result? What are the trade-offs?
+```
+
+### Where to store
+
+- In `memory/cortex/architecture.md` for lightweight ADRs (1-3 paragraphs)
+- In a dedicated `docs/adr/` folder for formal ADRs (if the project needs full traceability)
+
+### When to write an ADR
+
+- Choosing a framework, database, or major dependency
+- Changing API strategy (REST → GraphQL, monolith → microservices)
+- Security architecture decisions (auth flow, encryption)
+- Any decision you would have to re-explain to a new team member
+
+The memory entries in Le Socle (context/decision/consequence format) are lightweight ADRs. For most projects, they are sufficient. Use formal ADRs only when external traceability is required.
+
+---
+
+## API documentation
+
+If the project exposes an API, it must be documented with a machine-readable specification:
+
+| Standard | When to use |
+|----------|------------|
+| **OpenAPI / Swagger** | REST APIs (the industry default) |
+| **GraphQL Schema** | GraphQL APIs (self-documenting by nature) |
+| **AsyncAPI** | Event-driven APIs (WebSocket, message queues) |
+
+### OpenAPI best practices
+
+- Keep the spec in sync with the code — generate from annotations or validate against the spec in CI
+- Every endpoint has: summary, description, request body schema, response schemas (success + errors), authentication requirements
+- Include realistic examples in the spec
+- Serve interactive docs (Swagger UI, Redoc) at `/docs` or `/api/docs`
+
+---
+
+## Changelog
+
+Every project that ships releases maintains a CHANGELOG.md at the root.
+
+### Format (Keep a Changelog)
+
+```markdown
+# Changelog
+
+## [1.2.0] — 2026-04-12
+
+### Added
+- New endpoint for bulk user import (#ISS-0045)
+
+### Fixed
+- Cart total calculation rounding error (#ISS-0038)
+
+### Changed
+- Migrated authentication from session to JWT (#ISS-0041)
+```
+
+### Rules
+
+- Group changes by: Added, Changed, Fixed, Removed, Security
+- Link to issues or PRs
+- Write for humans, not machines
+- If using conventional commits, the changelog can be auto-generated (release-please, standard-version)
+- The changelog is updated in the same PR as the change — not retroactively
+
+---
+
 ## Updating the Memory
 
 The memory is the project's persistent brain. It must be updated in these situations:

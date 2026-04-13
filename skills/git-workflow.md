@@ -13,6 +13,22 @@
 
 ---
 
+## Workflow models — choose your fit
+
+Le Socle does not impose a single workflow. Choose the one that matches your project:
+
+| Model | How it works | Best for |
+|-------|-------------|----------|
+| **GitHub Flow** | `main` + feature branches. Merge to main, deploy from main. | Most projects, small teams, continuous deployment |
+| **Git Flow** | `main` + `dev` + feature branches. Release branches for staging. | Projects with scheduled releases, multiple environments |
+| **Trunk-Based** | Everyone commits to `main` (or very short-lived branches). Feature flags for incomplete work. | High-velocity teams, strong CI, DORA top performers |
+
+The rest of this skill uses **GitHub Flow** as the default (main + feature branches). If your project uses Git Flow, add a `dev` branch as the PR target. If trunk-based, skip branches entirely and commit to main behind feature flags.
+
+**DORA research consistently shows**: shorter-lived branches and faster integration correlate with higher team performance. When in doubt, prefer simpler workflows.
+
+---
+
 ## Branch naming convention
 
 ### Format
@@ -140,6 +156,8 @@ The issue folder represents its status. Move the `.md` file at each step change.
 | `dev` | Integration — default PR target | After approved review |
 | `type/ISS-XXXX-*` | Work branch — ephemeral | The PR author |
 
+> **Note**: the `dev` branch is optional. Many successful projects deploy directly from `main` using GitHub Flow. Use `dev` only if you need a staging integration branch.
+
 ### Merge rules
 
 - **Never** push directly to `main` or `dev`
@@ -199,6 +217,65 @@ Why this PR exists — link to the issue.
 5. Push the updated branch
 
 **Never** resolve a conflict by blindly overwriting changes from the other branch.
+
+---
+
+## Git hooks
+
+Automate quality checks before they reach the PR:
+
+| Hook | What it does | Example tools |
+|------|-------------|---------------|
+| `pre-commit` | Lint, format, check secrets | Husky, pre-commit (Python), lefthook |
+| `commit-msg` | Validate commit message format | commitlint |
+| `pre-push` | Run tests before pushing | Custom script |
+
+A basic setup with Husky (JavaScript) or pre-commit (Python):
+
+```bash
+# JavaScript — Husky + lint-staged
+npx husky init
+echo "npx lint-staged" > .husky/pre-commit
+```
+
+```yaml
+# Python — .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    hooks:
+      - id: trailing-whitespace
+      - id: check-added-large-files
+      - id: detect-private-key
+```
+
+Hooks are recommended, not mandatory. But if the project has them, every contributor uses them — no `--no-verify`.
+
+---
+
+## CI checks — required before merge
+
+No PR is merged without CI passing. At minimum:
+
+- [ ] All tests pass (unit + integration + E2E)
+- [ ] Linter passes with zero warnings
+- [ ] Security audit passes (dependency scan)
+- [ ] Build succeeds
+
+Configure branch protection rules to enforce this. A green CI is not a suggestion — it is a gate.
+
+---
+
+## Semantic versioning
+
+If the project publishes releases (library, API, CLI):
+
+- **MAJOR** (v2.0.0) — breaking changes
+- **MINOR** (v1.1.0) — new features, backward compatible
+- **PATCH** (v1.0.1) — bug fixes, backward compatible
+
+Tag releases in git: `git tag -a v1.2.0 -m "Release v1.2.0"`
+
+Conventional commits enable automatic changelog generation from commit history (tools: standard-version, release-please, semantic-release).
 
 ---
 

@@ -5,6 +5,7 @@
 **Effort**: `XS` | `S` | `M` | `L` | `XL`
 **Domain**: [relevant domains]
 **Agent-skill**: [skill to invoke]
+**Skills-aux**: [auxiliary skills] | —
 **Assignee**: —
 **Branch**: `type/ISS-XXXX-slug-title`
 **Status**: `open` | `in-progress` | `review` | `done`

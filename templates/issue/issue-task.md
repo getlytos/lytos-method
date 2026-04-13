@@ -4,6 +4,7 @@
 **Priority**: `P1-high` | `P2-normal` | `P3-low`
 **Effort**: `XS` | `S`
 **Agent-skill**: [skill to invoke]
+**Skills-aux**: [auxiliary skills] | —
 **Status**: `open` | `in-progress` | `done`
 **Created**: YYYY-MM-DD
 **Depends**: ISS-XXXX | —

@@ -170,6 +170,8 @@ Le Socle is the interface between the two.
 
 7. **Structure before scale.** You do not scale chaos. A well-defined socle first, agents in numbers second.
 
+8. **Sovereignty through text.** Project knowledge does not live inside a vendor. It lives in files you own, you version, you migrate freely. The manifest is markdown. Skills are markdown. Memory is markdown. Rules are markdown. The AI is an interchangeable engine. The socle is what persists. The day a vendor changes its terms, raises its prices, or ships a model that breaks your workflow — you switch the engine. You do not start over.
+
 ---
 
 ## X. For whom
