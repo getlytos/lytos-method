@@ -28,9 +28,9 @@ Systematic rename in order: package identity first, then source code, then docs.
 ### Package identity
 - [ ] `package.json` name: `le-socle` → `lytos`
 - [ ] `package.json` bin: `"socle"` → `"lytos"`
-- [ ] `package.json` repository URL → `github.com/lytos/lytos-cli`
-- [ ] `package.json` homepage → `github.com/lytos/lytos`
-- [ ] `package.json` bugs URL → `github.com/lytos/lytos-cli/issues`
+- [ ] `package.json` repository URL → `github.com/getlytos/lytos-cli`
+- [ ] `package.json` homepage → `github.com/getlytos/lytos-method`
+- [ ] `package.json` bugs URL → `github.com/getlytos/lytos-cli/issues`
 - [ ] `package.json` keywords: update
 - [ ] `package-lock.json` — regenerate after changes
 
@@ -39,8 +39,8 @@ Systematic rename in order: package identity first, then source code, then docs.
 - [ ] `src/cli.ts` — description text
 
 ### Source code URLs
-- [ ] `src/lib/templates.ts` — `REPO_URL` constant
-- [ ] `src/lib/scaffold.ts` — `REPO_RAW` constant
+- [ ] `src/lib/templates.ts` — `REPO_URL` constant → `github.com/getlytos/lytos-method`
+- [ ] `src/lib/scaffold.ts` — `REPO_RAW` constant → `raw.githubusercontent.com/getlytos/lytos-method`
 - [ ] `src/commands/init.ts` — documentation link
 
 ### Directory references (`.socle/` → `.lytos/`)

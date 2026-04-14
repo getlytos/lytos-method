@@ -44,8 +44,6 @@
 
 | # | Title | Priority | Effort | Depends |
 |---|-------|----------|--------|---------|
-| [ISS-0007](2-sprint/ISS-0007-rename-github-org.md) | Rename GitHub organization le-socle → lytos | P0-critical | XS | — |
-| [ISS-0008](2-sprint/ISS-0008-rename-repos.md) | Rename repositories socle → lytos, socle-cli → lytos-cli | P0-critical | XS | ISS-0007 |
 | [ISS-0009](2-sprint/ISS-0009-rename-method-repo-content.md) | Replace all socle references in method repo | P0-critical | L | ISS-0008 |
 | [ISS-0010](2-sprint/ISS-0010-rename-cli-repo-content.md) | Replace all socle references in CLI repo | P0-critical | L | ISS-0008 |
 | [ISS-0011](2-sprint/ISS-0011-rename-website-content.md) | Replace all socle references in website repo | P0-critical | M | ISS-0008 |
@@ -68,6 +66,8 @@ _No issues._
 |---|-------|-----------|
 | [ISS-0001](5-done/ISS-0001-installer-socle.md) | Install Le Socle in the project | 2026-04-12 |
 | [ISS-0002](5-done/ISS-0002-remplir-manifest.md) | Fill in the project manifest | 2026-04-12 |
+| [ISS-0007](5-done/ISS-0007-rename-github-org.md) | Create GitHub organization getlytos | 2026-04-14 |
+| [ISS-0008](5-done/ISS-0008-create-repos.md) | Create repositories under getlytos | 2026-04-14 |
 
 ---
 
