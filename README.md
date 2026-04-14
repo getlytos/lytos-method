@@ -64,22 +64,24 @@ This is not a dogma about prompting. It is a design choice: keep the most stable
 ```
 The human defines          →    Agents execute
 ─────────────────               ──────────────
-manifest.md                     Invoked as needed
-skills/                         Stateless, no fixed identity
-rules/                          Released after execution
-memory/                         Scalable to complexity
+manifest.md    (Intent)         Invoked as needed
+skills/        (Design)         Stateless, no fixed identity
+rules/         (Standards)      Released after execution
+issue-board/   (Progress)       Scalable to complexity
+memory/        (Memory)
 ```
 
-### The 4 pillars
+### The 5 pillars
 
-| Pillar | What it is | Concrete example |
-|--------|-----------|-----------------|
-| **Manifest** | The project's constitution — the why | "This project is a library management API for..." |
-| **Skills** | Reusable procedures — the how | "For code review, check readability, security, tests..." |
-| **Rules** | Quality criteria — the standard | "Files < 300 lines, no magic numbers, tests required" |
-| **Memory** | Persistent, external memory — what we learned | "We chose REST API over admin-ajax because..." |
+| Pillar | Name | What it is | Concrete example |
+|--------|------|-----------|-----------------|
+| 1 | **Intent** | The project's constitution — the why | `manifest.md` — "This project is a library management API for..." |
+| 2 | **Design** | Reusable procedures — the how | `skills/` — "For code review, check readability, security, tests..." |
+| 3 | **Standards** | Quality criteria — the non-negotiable | `rules/` — "Files < 300 lines, no magic numbers, tests required" |
+| 4 | **Progress** | Issues and sprint — what's moving, what's blocked | `issue-board/` — kanban board with YAML frontmatter as source of truth |
+| 5 | **Memory** | Persistent knowledge — what we learned | `memory/` — "We chose REST API over admin-ajax because..." |
 
-Agents are not the subject. The foundation is.
+These 5 pillars are the method. Agents are not the subject — the foundation is.
 
 ---
 

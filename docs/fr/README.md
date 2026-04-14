@@ -64,22 +64,24 @@ Ce n'est pas un dogme sur le prompting. C'est un choix de design : placer la cou
 ```
 L'humain définit          →    Les agents exécutent
 ─────────────────               ──────────────────
-manifest.md                     Invoqués selon le besoin
-skills/                         Stateless, sans identité fixe  
-rules/                          Libérés après exécution
-memory/                         Scalables selon la complexité
+manifest.md    (Intent)         Invoqués selon le besoin
+skills/        (Design)         Stateless, sans identité fixe
+rules/         (Standards)      Libérés après exécution
+issue-board/   (Progress)       Scalables selon la complexité
+memory/        (Memory)
 ```
 
-### Les 4 piliers
+### Les 5 piliers
 
-| Pilier | C'est quoi | Exemple concret |
-|--------|-----------|-----------------|
-| **Manifest** | La constitution du projet — le pourquoi | "Ce projet est une API de gestion de bibliothèque pour..." |
-| **Skills** | Les procédures réutilisables — le comment | "Pour faire une code review, vérifier lisibilité, sécurité, tests..." |
-| **Rules** | Les critères de qualité — le standard | "Fichiers < 300 lignes, pas de valeurs en dur, tests obligatoires" |
-| **Memory** | La mémoire externe et persistante — ce qu'on a appris | "On a choisi l'API REST plutôt que admin-ajax parce que..." |
+| Pilier | Nom | C'est quoi | Exemple concret |
+|--------|-----|-----------|-----------------|
+| 1 | **Intent** | La constitution du projet — le pourquoi | `manifest.md` — "Ce projet est une API de gestion de bibliothèque pour..." |
+| 2 | **Design** | Les procédures réutilisables — le comment | `skills/` — "Pour faire une code review, vérifier lisibilité, sécurité, tests..." |
+| 3 | **Standards** | Les critères de qualité — le non-négociable | `rules/` — "Fichiers < 300 lignes, pas de valeurs en dur, tests obligatoires" |
+| 4 | **Progress** | Les issues et le sprint — ce qui avance, ce qui bloque | `issue-board/` — kanban board avec frontmatter YAML comme source de vérité |
+| 5 | **Memory** | Le savoir accumulé — ce qu'on a appris | `memory/` — "On a choisi l'API REST plutôt que admin-ajax parce que..." |
 
-Les agents ne sont pas le sujet. Lytos l'est.
+Ces 5 piliers sont la méthode. Les agents ne sont pas le sujet — la fondation l'est.
 
 ---
 
