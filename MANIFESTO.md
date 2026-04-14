@@ -18,7 +18,7 @@ We build virtual agile teams. We name agents "LeadDev", "UX Expert", "Data Scien
 
 We put a costume on artificial intelligence.
 
-And in doing so, we limited it.
+And in doing so, we may also be limiting it.
 
 ---
 
@@ -34,13 +34,15 @@ But it was designed to compensate for specifically human constraints:
 - **Skill acquisition** — learning takes years, hence early specialization
 - **Ego and motivation** — humans need identity, role, recognition
 
-An AI agent has none of these constraints.
+An AI agent does not have these constraints in the same form.
 
-It can be expert in ten languages simultaneously. It does not get tired. Communication between instances costs nothing. It has no ego to manage. It can "forget" or "know" instantly depending on the context in which it is invoked.
+It can work across ten languages simultaneously. It does not get tired. Communication between instances costs almost nothing. It has no ego to manage. It can "forget" or "know" instantly depending on the context in which it is invoked.
 
-Imposing a fixed role on it — telling it "you are a senior LeadDev, behave accordingly" — does not improve its performance. It steers its response register, filters it toward certain angles, certain vocabulary. It is reassuring for the human who needs an identifiable counterpart.
+Imposing a fixed role on it — telling it "you are a senior LeadDev, behave accordingly" — does not, in our experience, reliably improve its performance on the dimensions that matter here. It steers its response register, filters it toward certain angles, certain vocabulary. It is reassuring for the human who needs an identifiable counterpart.
 
-It is not architecture. It is theater.
+Taken on its own, this is closer to rhetorical framing than to operational architecture.
+
+If future model updates make persona-driven prompting a more reliable lever, the method can absorb it. Le Socle is not a dogma. It is an attempt to place the most robust layer in the files you control.
 
 ---
 
@@ -81,7 +83,7 @@ The manifest is the source of truth. Not the agents.
 
 ### Skills — capitalized know-how
 
-Skills are procedures. Not personas.
+Skills are procedures first. Not personas by default.
 
 "How we do a code review in this project." "How we structure a module." "How we document an API." "How we write a Playwright test."
 
@@ -100,6 +102,8 @@ Memory is transversal across all sprints.
 It accumulates architectural decisions, discovered patterns, recurring problems, solutions that worked. It grows with the project. An agent starting a new sprint is not a blank slate — it has access to everything learned before it.
 
 This is close to project-specific machine learning: an accumulation that makes the system genuinely better in that precise context.
+
+This is not a vendor "memory feature". It is external project memory: readable, editable, diffable, reviewable, backed up, and portable.
 
 ### Manifest — human intent
 
@@ -154,11 +158,27 @@ Le Socle is the interface between the two.
 
 ---
 
-## IX. The principles
+## IX. What sovereignty changes in practice
+
+Le Socle does more than make context portable. It changes the nature of what an AI project produces.
+
+**Auditability** — what guides the AI is no longer hidden in proprietary conversations. It becomes visible, reviewable project material.
+
+**Reversibility** — when a model, API, or vendor changes, you do not lose your operating method. You switch engines without rebuilding the socle from scratch.
+
+**Knowledge compounding** — each sprint leaves assets behind: decisions, procedures, rules, patterns. The system gets better through accumulation.
+
+**Team continuity** — project knowledge survives session resets, personnel changes, and tool migrations. It is attached to the project, not trapped in a person's chat history.
+
+**Governance** — memory, rules, and skills can be versioned, reviewed, backed up, shared, and audited like the rest of the codebase.
+
+---
+
+## X. The principles
 
 1. **The manifest comes first.** Everything starts from what the human has defined. An agent without a manifest is blind.
 
-2. **Agents are formless.** No persona, no fixed role. They take the shape of the need, defined by the skill invoked.
+2. **Agents are formless.** No required persona, no fixed role. They take the shape of the need, defined by the skill invoked.
 
 3. **Memory is alive.** It grows with every sprint. A project that has been using Le Socle for six months is smarter than on day one.
 
@@ -170,11 +190,11 @@ Le Socle is the interface between the two.
 
 7. **Structure before scale.** You do not scale chaos. A well-defined socle first, agents in numbers second.
 
-8. **Sovereignty through text.** Project knowledge does not live inside a vendor. It lives in files you own, you version, you migrate freely. The manifest is markdown. Skills are markdown. Memory is markdown. Rules are markdown. The AI is an interchangeable engine. The socle is what persists. The day a vendor changes its terms, raises its prices, or ships a model that breaks your workflow — you switch the engine. You do not start over.
+8. **Sovereignty through text.** Project knowledge does not live inside a vendor. It lives in files you own, you version, you review, you back up, and you migrate freely. The manifest is markdown. Skills are markdown. Memory is markdown. Rules are markdown. The AI is an interchangeable engine. The socle is what persists. This does not guarantee identical outputs across models. It guarantees continuity of context, process, and memory when the engine changes. The day a vendor changes its terms, raises its prices, or ships a model that breaks your workflow — you switch the engine. You do not start over.
 
 ---
 
-## X. For whom
+## XI. For whom
 
 For developers, designers, project managers who work with AI agents and seek a method rather than a pile of tools.
 
@@ -182,7 +202,7 @@ For those who understand that "vibe coding" and "traditional engineering" are no
 
 For those who want their AI projects to be maintainable, auditable, and improved by accumulated experience.
 
-For those who refuse to put a costume on artificial intelligence.
+For those who do not want to reduce artificial intelligence to a costume.
 
 ---
 

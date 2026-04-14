@@ -18,7 +18,7 @@ On construit des équipes agiles virtuelles. On nomme des agents "LeadDev", "Exp
 
 On a mis un costume à l'intelligence artificielle.
 
-Et ce faisant, on l'a limitée.
+Et ce faisant, on la limite peut-être plus qu'on ne le pense.
 
 ---
 
@@ -34,13 +34,15 @@ Mais elle a été conçue pour compenser des contraintes spécifiquement humaine
 - **La montée en compétence** — apprendre prend des années, d'où la spécialisation précoce
 - **L'ego et la motivation** — les humains ont besoin d'identité, de rôle, de reconnaissance
 
-Un agent IA n'a aucune de ces contraintes.
+Un agent IA n'a pas ces contraintes sous la même forme.
 
-Il peut être expert en dix langages simultanément. Il ne se fatigue pas. La communication entre instances ne coûte rien. Il n'a pas d'ego à ménager. Il peut "oublier" ou "savoir" instantanément selon le contexte dans lequel on l'invoque.
+Il peut travailler sur dix langages simultanément. Il ne se fatigue pas. La communication entre instances ne coûte presque rien. Il n'a pas d'ego à ménager. Il peut "oublier" ou "savoir" instantanément selon le contexte dans lequel on l'invoque.
 
-Lui imposer un rôle fixe — lui dire "tu es un LeadDev senior, comporte-toi comme tel" — n'améliore pas ses performances. Cela oriente son registre de réponse, le filtre vers certains angles, certain vocabulaire. C'est rassurant pour l'humain qui a besoin d'un interlocuteur identifiable.
+Lui imposer un rôle fixe — lui dire "tu es un LeadDev senior, comporte-toi comme tel" — n'améliore pas, dans notre expérience, ses performances de manière fiable sur les dimensions qui comptent ici. Cela oriente son registre de réponse, le filtre vers certains angles, certain vocabulaire. C'est rassurant pour l'humain qui a besoin d'un interlocuteur identifiable.
 
-Ce n'est pas une architecture. C'est du théâtre.
+Pris isolément, c'est davantage un cadrage rhétorique qu'une architecture opérationnelle.
+
+Si les futures mises à jour des modèles rendent le prompting par personas plus fiable, la méthode pourra l'intégrer. Le Socle n'est pas un dogme. Il cherche à placer la couche la plus robuste dans des fichiers que l'on contrôle.
 
 ---
 
@@ -81,7 +83,7 @@ Le manifest est la source de vérité. Pas les agents.
 
 ### Skills — le savoir-faire capitalisé
 
-Les skills sont des procédures. Pas des personas.
+Les skills sont d'abord des procédures. Pas des personas par défaut.
 
 "Comment on fait une code review dans ce projet." "Comment on structure un module." "Comment on documente une API." "Comment on écrit un test Playwright."
 
@@ -99,7 +101,9 @@ La memory est transversale à tous les sprints.
 
 Elle accumule les décisions architecturales, les patterns découverts, les problèmes récurrents, les solutions qui ont fonctionné. Elle grandit avec le projet. Un agent qui démarre un nouveau sprint n'est pas vierge — il a accès à tout ce qui a été appris avant lui.
 
-C'est proche du machine learning spécifique à un projet : une accumulation qui rend le système genuinement meilleur sur ce contexte précis.
+C'est proche du machine learning spécifique à un projet : une accumulation qui rend le système réellement meilleur sur ce contexte précis.
+
+Ce n'est pas une fonctionnalité de mémoire propriétaire fournie par un vendor. C'est une mémoire projet externe : lisible, éditable, diffable, révisable, sauvegardable et portable.
 
 ### Manifest — l'intention humaine
 
@@ -154,11 +158,27 @@ Le Socle est l'interface entre les deux.
 
 ---
 
-## IX. Les principes
+## IX. Ce que la souveraineté change concrètement
+
+Le Socle ne rend pas seulement le contexte portable. Il change la nature de ce qu'un projet IA produit.
+
+**Auditabilité** — ce qui guide l'IA n'est plus caché dans des conversations propriétaires. Cela devient de la matière projet visible et révisable.
+
+**Réversibilité** — quand un modèle, une API ou un vendor change, tu ne perds pas ta méthode de travail. Tu changes de moteur sans reconstruire le socle depuis zéro.
+
+**Capitalisation du savoir** — chaque sprint laisse des actifs derrière lui : décisions, procédures, règles, patterns. Le système s'améliore par accumulation.
+
+**Continuité d'équipe** — le savoir projet survit aux resets de session, aux changements de personnes et aux migrations d'outils. Il est attaché au projet, pas enfermé dans l'historique de chat de quelqu'un.
+
+**Gouvernance** — memory, rules et skills peuvent être versionnés, relus, sauvegardés, partagés et audités comme le reste du codebase.
+
+---
+
+## X. Les principes
 
 1. **Le manifest prime.** Tout part de ce que l'humain a défini. Un agent sans manifest est aveugle.
 
-2. **Les agents sont sans forme.** Pas de persona, pas de rôle fixe. Ils prennent la forme du besoin, définie par le skill invoqué.
+2. **Les agents sont sans forme.** Pas de persona obligatoire, pas de rôle fixe. Ils prennent la forme du besoin, définie par le skill invoqué.
 
 3. **La mémoire est vivante.** Elle grandit à chaque sprint. Un projet qui utilise Le Socle depuis six mois est plus intelligent qu'au premier jour.
 
@@ -170,11 +190,11 @@ Le Socle est l'interface entre les deux.
 
 7. **La structure avant l'échelle.** On ne scale pas le chaos. Un socle bien défini d'abord, des agents en nombre ensuite.
 
-8. **La souveraineté par le texte.** Le savoir projet ne vit pas chez un vendor. Il vit dans des fichiers que tu possèdes, que tu versionnes, que tu migres librement. Le manifest est du markdown. Les skills sont du markdown. La memory est du markdown. Les rules sont du markdown. L'IA est un moteur interchangeable. Le socle est ce qui persiste. Le jour où un vendor change ses conditions, augmente ses prix, ou sort un modèle qui casse ton workflow — tu changes le moteur. Tu ne recommences pas à zéro.
+8. **La souveraineté par le texte.** Le savoir projet ne vit pas chez un vendor. Il vit dans des fichiers que tu possèdes, que tu versionnes, que tu relis, que tu sauvegardes et que tu migres librement. Le manifest est du markdown. Les skills sont du markdown. La memory est du markdown. Les rules sont du markdown. L'IA est un moteur interchangeable. Le socle est ce qui persiste. Cela ne garantit pas des outputs identiques entre tous les modèles. Cela garantit la continuité du contexte, des procédures et de la mémoire quand le moteur change. Le jour où un vendor change ses conditions, augmente ses prix, ou sort un modèle qui casse ton workflow — tu changes le moteur. Tu ne recommences pas à zéro.
 
 ---
 
-## X. Pour qui
+## XI. Pour qui
 
 Pour les développeurs, designers, chefs de projet qui travaillent avec des agents IA et qui cherchent une méthode plutôt qu'un empilement d'outils.
 
@@ -182,7 +202,7 @@ Pour ceux qui ont compris que "vibe coding" et "ingénierie traditionnelle" ne s
 
 Pour ceux qui veulent que leurs projets IA soient maintenables, auditables, et améliorés par l'expérience accumulée.
 
-Pour ceux qui refusent de mettre un costume à une intelligence artificielle.
+Pour ceux qui ne veulent pas réduire l'intelligence artificielle à un costume.
 
 ---
 

@@ -1,6 +1,6 @@
 # Le Socle
 
-> A human-first method for working with AI agents. Skills, Memory and Rules — not personas.
+> A human-first method for working with AI agents. Skills, Memory and Rules first — not just personas.
 
 [Lire en français](./docs/fr/README.md)
 
@@ -10,9 +10,9 @@
 
 You use AI to code. Every session, you start from scratch — re-explaining your project, your constraints, your conventions. The AI forgets everything. You repeat yourself. The output is generic.
 
-You've tried giving your agent a persona — "You are a Senior Developer with 20 years of experience." It changes the tone. It doesn't change the quality.
+You've tried giving your agent a persona — "You are a Senior Developer with 20 years of experience." It can change the tone. In our experience, it is not the most reliable lever for improving quality over time.
 
-**Le Socle fixes this.** Instead of dressing up your AI in a costume, you give it what actually makes it better: context that persists, procedures that are precise, and quality criteria that are verifiable.
+**Le Socle approaches this differently.** Instead of dressing up your AI in a costume, you give it what tends to make it better more reliably: context that persists, procedures that are precise, and quality criteria that are verifiable.
 
 One install. Your AI understands your project, remembers what it learns, follows your procedures, and respects your standards — from the first session.
 
@@ -49,9 +49,11 @@ Full guide → [QUICKSTART.md](./docs/en/QUICKSTART.md) | [Guide en français](.
 
 ## The idea
 
-The AI industry copies human organization — agents with roles, titles, personas. It's comforting. It's not effective.
+The AI industry often copies human organization — agents with roles, titles, personas. It's comforting. In our experience, it's not the most robust mechanism for quality, memory, or consistency.
 
-An AI agent has no fatigue, no ego, no office politics. But it does have a limited context window — and it forgets everything between sessions. Giving it a fixed role doesn't solve this. Giving it the right context does.
+An AI agent has no fatigue, no ego, no office politics. But it does have a limited context window — and it forgets everything between sessions. Giving it a fixed role can help frame a response, but it does not reliably solve this. Giving it the right context does more.
+
+This is not a dogma about prompting. It is a design choice: keep the most stable layer in files you control, especially while models keep changing.
 
 **Le Socle proposes a reversal**: instead of managing agents, you define the framework in which they operate.
 
@@ -75,7 +77,7 @@ memory/                         Scalable to complexity
 | **Manifest** | The project's constitution — the why | "This project is a library management API for..." |
 | **Skills** | Reusable procedures — the how | "For code review, check readability, security, tests..." |
 | **Rules** | Quality criteria — the standard | "Files < 300 lines, no magic numbers, tests required" |
-| **Memory** | Persistent brain — what we learned | "We chose REST API over admin-ajax because..." |
+| **Memory** | Persistent, external memory — what we learned | "We chose REST API over admin-ajax because..." |
 
 Agents are not the subject. The foundation is.
 
@@ -148,7 +150,7 @@ Le Socle is language-agnostic. Skills and rules work with Python, JavaScript, PH
 
 ---
 
-## Interoperability — a matter of survival
+## Interoperability and sovereignty — a matter of survival
 
 This is not a technical advantage. It is a philosophical position.
 
@@ -158,9 +160,19 @@ Without Le Socle, your project context lives inside proprietary conversations. Y
 
 This is the vendor lock-in problem we already lived through with AWS, Salesforce, Adobe. Except now it changes four times a year.
 
-**Le Socle's answer:** everything is markdown. The manifest, the skills, the memory, the rules — plain text files that you own, version in git, and migrate freely. The AI is an engine. Engines are swapped. The socle is what persists.
+**Le Socle's answer:** everything is markdown. The manifest, the skills, the memory, the rules — plain text files that you own, version in git, review, back up, and migrate freely. The AI is an engine. Engines are swapped. The socle is what persists.
+
+This is not a promise that every model will behave identically. It is a guarantee that your project context, procedures, and memory remain portable when models, APIs, or vendors change.
 
 It runs on Claude Code today. It will run on tomorrow's model. It can run on a local LLM if a vendor's conditions become unacceptable.
+
+What this changes in practice:
+
+- **Auditability** — what guides the AI is visible, readable, reviewable, and diffable in git.
+- **Reversibility** — changing model or vendor does not erase your project memory or your way of working.
+- **Team continuity** — knowledge survives sessions, chat histories, and individual contributors.
+- **Governance** — rules, decisions, and procedures become compatible with review, backup, onboarding, and compliance.
+- **Compounding value** — each sprint leaves reusable assets behind, not just another transient conversation.
 
 **Your project knowledge belongs to you. Not to a vendor.**
 
@@ -201,12 +213,12 @@ le-socle/
 ## Founding principles
 
 1. **The manifest comes first.** Everything starts from what the human defined.
-2. **Agents are formless.** No persona, no fixed role.
+2. **Agents are formless.** No required persona, no fixed role.
 3. **Memory is alive.** It grows with each sprint — and it consolidates.
 4. **Control is human.** Agents execute. The human validates and steers.
 5. **Complement, don't mimic.** AI is not a virtual human.
 6. **Progressive by design.** Start small, add when needed.
-7. **Sovereignty through text.** Project knowledge lives in files you own — not inside a vendor. The AI is an interchangeable engine.
+7. **Sovereignty through text.** Project knowledge lives in files you own, version, review, and migrate — not inside a vendor. The AI is an interchangeable engine.
 
 ---
 
