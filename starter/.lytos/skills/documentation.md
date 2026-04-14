@@ -1,6 +1,6 @@
 # Skill — Documentation
 
-*This skill defines how to document code, modules, and learnings on a project using Le Socle. An agent loaded with this skill knows what to document, in what format, and when to update the project memory.*
+*This skill defines how to document code, modules, and learnings on a project using Lytos. An agent loaded with this skill knows what to document, in what format, and when to update the project memory.*
 
 ---
 

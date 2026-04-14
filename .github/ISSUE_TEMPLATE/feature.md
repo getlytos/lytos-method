@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Proposer une amélioration ou une nouvelle fonctionnalité pour Le Socle
+about: Proposer une amélioration ou une nouvelle fonctionnalité pour Lytos
 title: "[feat] "
 labels: enhancement
 assignees: ''
@@ -16,7 +16,7 @@ assignees: ''
 
 ## Bénéfice attendu
 
-*En quoi cette feature améliore Le Socle pour ses utilisateurs ?*
+*En quoi cette feature améliore Lytos pour ses utilisateurs ?*
 
 ## Alternatives considérées
 

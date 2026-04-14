@@ -1,6 +1,6 @@
 # Exemple — App React (Next.js)
 
-*Cet exemple montre comment utiliser Le Socle sur un projet frontend React/Next.js. Tous les fichiers `.socle/` sont remplis avec des données réalistes.*
+*Cet exemple montre comment utiliser Lytos sur un projet frontend React/Next.js. Tous les fichiers `.lytos/` sont remplis avec des données réalistes.*
 
 ---
 
@@ -16,7 +16,7 @@ Stack : TypeScript, Next.js 14 (App Router), Tailwind CSS, Zustand, Vitest, Play
 
 ```
 taskflow/
-├── .socle/
+├── .lytos/
 │   ├── manifest.md
 │   ├── sprint.md
 │   ├── memory/
@@ -41,8 +41,8 @@ taskflow/
 
 ```bash
 cd votre-projet/
-git submodule add https://github.com/le-socle/socle .socle
-cp .socle/templates/manifest.md .socle/manifest.md
+git submodule add https://github.com/getlytos/lytos-method .lytos
+cp .lytos/templates/manifest.md .lytos/manifest.md
 # Remplir le manifest, initialiser la memory, c'est parti
 ```
 

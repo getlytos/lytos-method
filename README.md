@@ -1,4 +1,4 @@
-# Le Socle
+# Lytos
 
 > A human-first method for working with AI agents. Skills, Memory and Rules first — not just personas.
 
@@ -6,13 +6,13 @@
 
 ---
 
-## Why Le Socle?
+## Why Lytos?
 
 You use AI to code. Every session, you start from scratch — re-explaining your project, your constraints, your conventions. The AI forgets everything. You repeat yourself. The output is generic.
 
 You've tried giving your agent a persona — "You are a Senior Developer with 20 years of experience." It can change the tone. In our experience, it is not the most reliable lever for improving quality over time.
 
-**Le Socle approaches this differently.** Instead of dressing up your AI in a costume, you give it what tends to make it better more reliably: context that persists, procedures that are precise, and quality criteria that are verifiable.
+**Lytos approaches this differently.** Instead of dressing up your AI in a costume, you give it what tends to make it better more reliably: context that persists, procedures that are precise, and quality criteria that are verifiable.
 
 One install. Your AI understands your project, remembers what it learns, follows your procedures, and respects your standards — from the first session.
 
@@ -26,22 +26,22 @@ Choose your path:
 
 ### New project (vibe coders, no IDE needed)
 
-Use the [starter template](https://github.com/le-socle/starter) → click **"Use this template"** on GitHub → open in Claude Code or Codex → say **"Help me configure Le Socle."**
+Use the [starter template](https://github.com/getlytos/starter) → click **"Use this template"** on GitHub → open in Claude Code or Codex → say **"Help me configure Lytos."**
 
 ### Existing project (terminal)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh -o install.sh
+curl -fsSL https://raw.githubusercontent.com/getlytos/lytos-method/main/install.sh -o install.sh
 bash install.sh
 ```
 
 ### Existing project (GitHub Actions, no terminal)
 
-Copy [`.github/workflows/init-socle.yml`](.github/workflows/init-socle.yml) into your repo → go to Actions → run **"Add Le Socle"**.
+Copy [`.github/workflows/init-lytos.yml`](.github/workflows/init-lytos.yml) into your repo → go to Actions → run **"Add Lytos"**.
 
 ---
 
-Then open your AI tool and say: **"Help me configure Le Socle for this project."**
+Then open your AI tool and say: **"Help me configure Lytos for this project."**
 
 Full guide → [QUICKSTART.md](./docs/en/QUICKSTART.md) | [Guide en français](./docs/fr/DEMARRER.md)
 
@@ -55,7 +55,7 @@ An AI agent has no fatigue, no ego, no office politics. But it does have a limit
 
 This is not a dogma about prompting. It is a design choice: keep the most stable layer in files you control, especially while models keep changing.
 
-**Le Socle proposes a reversal**: instead of managing agents, you define the framework in which they operate.
+**Lytos proposes a reversal**: instead of managing agents, you define the framework in which they operate.
 
 ---
 
@@ -85,7 +85,7 @@ Agents are not the subject. The foundation is.
 
 ## 3 adoption levels
 
-Le Socle adapts to your needs. No need to use everything on day one.
+Lytos adapts to your needs. No need to use everything on day one.
 
 ### Level 1 — The minimum (5 minutes)
 
@@ -94,7 +94,7 @@ Fill in your **manifest** and initialize your **memory**. Your AI understands yo
 > Ideal for: getting started with AI, improving every session effortlessly.
 
 ```
-.socle/
+.lytos/
 ├── manifest.md
 └── memory/
     ├── MEMORY.md
@@ -108,7 +108,7 @@ Add **rules** and load **skills**. Your AI follows precise procedures and respec
 > Ideal for: serious projects, maintainable code, team work.
 
 ```
-.socle/
+.lytos/
 ├── manifest.md
 ├── memory/
 ├── rules/
@@ -122,7 +122,7 @@ Use the **issue-board**, the **sprint** and the **orchestrator**. Manage a struc
 > Ideal for: complex projects, multi-domain, multi-sprint.
 
 ```
-.socle/
+.lytos/
 ├── manifest.md
 ├── memory/
 ├── rules/
@@ -137,7 +137,7 @@ Use the **issue-board**, the **sprint** and the **orchestrator**. Manage a struc
 
 ### Any language
 
-Le Socle is language-agnostic. Skills and rules work with Python, JavaScript, PHP, Go, Rust, Swift, or any other language.
+Lytos is language-agnostic. Skills and rules work with Python, JavaScript, PHP, Go, Rust, Swift, or any other language.
 
 ### Any AI tool
 
@@ -156,11 +156,11 @@ This is not a technical advantage. It is a philosophical position.
 
 GPT-4 replaced by GPT-4o replaced by o1 replaced by o3. Claude 2 → 3 → 3.5 → 4. Models change every 3–6 months. APIs evolve. Prices shift. Features disappear. Vendors pivot.
 
-Without Le Socle, your project context lives inside proprietary conversations. Your workflow is wired to a specific tool. The day the vendor changes terms, raises prices, or ships a new model that breaks your workflow — you start over from zero.
+Without Lytos, your project context lives inside proprietary conversations. Your workflow is wired to a specific tool. The day the vendor changes terms, raises prices, or ships a new model that breaks your workflow — you start over from zero.
 
 This is the vendor lock-in problem we already lived through with AWS, Salesforce, Adobe. Except now it changes four times a year.
 
-**Le Socle's answer:** everything is markdown. The manifest, the skills, the memory, the rules — plain text files that you own, version in git, review, back up, and migrate freely. The AI is an engine. Engines are swapped. The socle is what persists.
+**Lytos's answer:** everything is markdown. The manifest, the skills, the memory, the rules — plain text files that you own, version in git, review, back up, and migrate freely. The AI is an engine. Engines are swapped. The foundation is what persists.
 
 This is not a promise that every model will behave identically. It is a guarantee that your project context, procedures, and memory remain portable when models, APIs, or vendors change.
 
@@ -181,7 +181,7 @@ What this changes in practice:
 ## Repository structure
 
 ```
-le-socle/
+getlytos/
 ├── docs/                     ← localized documentation (fr, en, ...)
 ├── MANIFESTO.md              ← the full philosophy
 ├── CONTRIBUTING.md           ← contribution guide
@@ -246,7 +246,7 @@ Created by **Frederic Galliné** — [ubeez.com](https://ubeez.com)
 - X: [@fred](https://x.com/fred)
 - Email: frederic@galline.fr
 
-Questions, feedback, ideas? Open a [Discussion](https://github.com/le-socle/socle/discussions) or reach out directly.
+Questions, feedback, ideas? Open a [Discussion](https://github.com/getlytos/lytos-method/discussions) or reach out directly.
 
 ---
 
@@ -256,4 +256,4 @@ MIT — see [LICENSE](./LICENSE)
 
 ---
 
-*Le Socle was born from a simple observation: you don't ask an entity fundamentally different from a human to behave like one. You build around what it truly is.*
+*Lytos was born from a simple observation: you don't ask an entity fundamentally different from a human to behave like one. You build around what it truly is.*

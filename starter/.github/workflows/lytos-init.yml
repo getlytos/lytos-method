@@ -3,11 +3,11 @@
 # then disables itself.
 #
 # What it does:
-# - Replaces "My Project" with the actual repo name in all .socle/ files
+# - Replaces "My Project" with the actual repo name in all .lytos/ files
 # - Commits the changes
 # - Deletes this workflow file (one-time setup)
 
-name: Initialize Le Socle
+name: Initialize Lytos
 
 on:
   push:
@@ -24,23 +24,23 @@ jobs:
       - name: Replace project name
         run: |
           REPO_NAME="${{ github.event.repository.name }}"
-          # Replace "My Project" with the repo name in all .socle files
-          find .socle -name "*.md" -exec sed -i "s/My Project/$REPO_NAME/g" {} +
+          # Replace "My Project" with the repo name in all .lytos files
+          find .lytos -name "*.md" -exec sed -i "s/My Project/$REPO_NAME/g" {} +
           sed -i "s/My Project/$REPO_NAME/g" README.md
           sed -i "s/My Project/$REPO_NAME/g" CLAUDE.md 2>/dev/null || true
 
       - name: Update dates
         run: |
           TODAY=$(date +%Y-%m-%d)
-          find .socle -name "*.md" -exec sed -i "s/YYYY-MM-DD/$TODAY/g" {} +
+          find .lytos -name "*.md" -exec sed -i "s/YYYY-MM-DD/$TODAY/g" {} +
 
       - name: Self-destruct this workflow
-        run: rm -f .github/workflows/socle-init.yml
+        run: rm -f .github/workflows/lytos-init.yml
 
       - name: Commit
         run: |
-          git config user.name "Le Socle"
-          git config user.email "noreply@le-socle.dev"
+          git config user.name "Lytos"
+          git config user.email "noreply@lytos.dev"
           git add -A
-          git diff --staged --quiet || git commit -m "chore: initialize Le Socle for ${{ github.event.repository.name }}"
+          git diff --staged --quiet || git commit -m "chore: initialize Lytos for ${{ github.event.repository.name }}"
           git push

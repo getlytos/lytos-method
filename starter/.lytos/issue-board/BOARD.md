@@ -5,7 +5,7 @@
 > **Last updated**: YYYY-MM-DD
 > **Next number**: ISS-0001
 
-> Regenerate: `python .socle/scripts/generate-board.py`
+> Regenerate: `python .lytos/scripts/generate-board.py`
 
 ---
 

@@ -1,4 +1,4 @@
-# Le Socle
+# Lytos
 
 > Une méthode de travail humain-IA qui place les Skills, la Memory et les Rules au centre — pas seulement les personas.
 
@@ -6,13 +6,13 @@
 
 ---
 
-## Pourquoi Le Socle ?
+## Pourquoi Lytos ?
 
 Tu utilises l'IA pour coder. À chaque session, tu repars de zéro — tu réexpliques ton projet, tes contraintes, tes conventions. L'IA oublie tout. Tu te répètes. Le résultat est générique.
 
 Tu as essayé de donner un persona à ton agent — "Tu es un développeur Senior avec 20 ans d'expérience." Ça peut changer le ton. D'après notre expérience, ce n'est pas le levier le plus fiable pour améliorer durablement la qualité.
 
-**Le Socle prend le problème autrement.** Au lieu de déguiser ton IA, tu lui donnes ce qui tend à la rendre meilleure de façon plus fiable : du contexte qui persiste, des procédures précises, et des critères de qualité vérifiables.
+**Lytos prend le problème autrement.** Au lieu de déguiser ton IA, tu lui donnes ce qui tend à la rendre meilleure de façon plus fiable : du contexte qui persiste, des procédures précises, et des critères de qualité vérifiables.
 
 Une installation. Ton IA comprend ton projet, se souvient de ce qu'elle apprend, suit tes procédures, et respecte tes standards — dès la première session.
 
@@ -26,22 +26,22 @@ Choisis ton chemin :
 
 ### Nouveau projet (vibe coders, pas besoin d'IDE)
 
-Utilise le [template starter](https://github.com/le-socle/starter) → clique **"Use this template"** sur GitHub → ouvre dans Claude Code ou Codex → dis **"Aide-moi à configurer le Socle."**
+Utilise le [template starter](https://github.com/getlytos/starter) → clique **"Use this template"** sur GitHub → ouvre dans Claude Code ou Codex → dis **"Aide-moi à configurer Lytos."**
 
 ### Projet existant (terminal)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh -o install.sh
+curl -fsSL https://raw.githubusercontent.com/getlytos/lytos-method/main/install.sh -o install.sh
 bash install.sh
 ```
 
 ### Projet existant (GitHub Actions, pas de terminal)
 
-Copie [`.github/workflows/init-socle.yml`](../../.github/workflows/init-socle.yml) dans ton repo → va dans Actions → lance **"Add Le Socle"**.
+Copie [`.github/workflows/init-lytos.yml`](../../.github/workflows/init-lytos.yml) dans ton repo → va dans Actions → lance **"Add Lytos"**.
 
 ---
 
-Puis ouvre ton outil IA et dis-lui : **"Aide-moi à configurer le Socle pour ce projet."**
+Puis ouvre ton outil IA et dis-lui : **"Aide-moi à configurer Lytos pour ce projet."**
 
 Guide complet → [DEMARRER.md](./DEMARRER.md)
 
@@ -55,7 +55,7 @@ Un agent IA n'a pas de fatigue, pas d'ego, pas de politique de bureau. Mais il a
 
 Ce n'est pas un dogme sur le prompting. C'est un choix de design : placer la couche la plus stable dans des fichiers que tu contrôles, surtout dans un monde où les modèles changent vite.
 
-**Le Socle propose un renversement** : on ne gère plus les agents, on définit le cadre dans lequel ils opèrent.
+**Lytos propose un renversement** : on ne gère plus les agents, on définit le cadre dans lequel ils opèrent.
 
 ---
 
@@ -79,7 +79,7 @@ memory/                         Scalables selon la complexité
 | **Rules** | Les critères de qualité — le standard | "Fichiers < 300 lignes, pas de valeurs en dur, tests obligatoires" |
 | **Memory** | La mémoire externe et persistante — ce qu'on a appris | "On a choisi l'API REST plutôt que admin-ajax parce que..." |
 
-Les agents ne sont pas le sujet. Le socle l'est.
+Les agents ne sont pas le sujet. Lytos l'est.
 
 ---
 
@@ -112,11 +112,11 @@ Ce n'est pas un avantage technique. C'est une position philosophique.
 
 GPT-4 remplacé par GPT-4o remplacé par o1 remplacé par o3. Claude 2 → 3 → 3.5 → 4. Les modèles changent tous les 3–6 mois. Les APIs évoluent. Les prix changent. Des features disparaissent. Des vendors pivotent.
 
-Sans Le Socle, ton contexte projet vit dans des conversations propriétaires. Ton workflow est câblé sur un outil spécifique. Le jour où le vendor change ses conditions, augmente ses prix, ou sort un nouveau modèle qui casse ton workflow — tu recommences à zéro.
+Sans Lytos, ton contexte projet vit dans des conversations propriétaires. Ton workflow est câblé sur un outil spécifique. Le jour où le vendor change ses conditions, augmente ses prix, ou sort un nouveau modèle qui casse ton workflow — tu recommences à zéro.
 
 C'est exactement le problème du vendor lock-in qu'on a connu avec AWS, Salesforce, Adobe. Sauf que là, ça change quatre fois par an.
 
-**La réponse du Socle :** tout est du markdown. Le manifest, les skills, la memory, les rules — des fichiers texte que tu possèdes, que tu versionnes dans git, que tu relis, sauvegardes et migres librement. L'IA est un moteur. Les moteurs se changent. Le socle est ce qui persiste.
+**La réponse de Lytos :** tout est du markdown. Le manifest, les skills, la memory, les rules — des fichiers texte que tu possèdes, que tu versionnes dans git, que tu relis, sauvegardes et migres librement. L'IA est un moteur. Les moteurs se changent. Lytos est ce qui persiste.
 
 Ce n'est pas une promesse d'équivalence parfaite entre tous les modèles. C'est une garantie de portabilité de ton contexte, de tes procédures et de ta mémoire quand les modèles, les APIs ou les vendors changent.
 
@@ -170,7 +170,7 @@ Créé par **Frederic Galliné** — [ubeez.com](https://ubeez.com)
 - X : [@fred](https://x.com/fred)
 - Email : frederic@galline.fr
 
-Questions, retours, idées ? Ouvre une [Discussion](https://github.com/le-socle/socle/discussions) ou contacte-moi directement.
+Questions, retours, idées ? Ouvre une [Discussion](https://github.com/getlytos/lytos-method/discussions) ou contacte-moi directement.
 
 ---
 
@@ -180,4 +180,4 @@ MIT — voir [LICENSE](../../LICENSE)
 
 ---
 
-*Le Socle est né d'un constat simple : on ne demande pas à une entité différente de l'humain de se comporter comme un humain. On construit autour de ce qu'elle est vraiment.*
+*Lytos est né d'un constat simple : on ne demande pas à une entité différente de l'humain de se comporter comme un humain. On construit autour de ce qu'elle est vraiment.*

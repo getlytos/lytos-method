@@ -1,15 +1,15 @@
-# GitHub Action to add Le Socle to an existing repository.
+# GitHub Action to add Lytos to an existing repository.
 #
 # Usage: copy this file to your repo's .github/workflows/ and run it manually.
-# Or trigger it via the Actions tab → "Add Le Socle" → Run workflow.
+# Or trigger it via the Actions tab → "Add Lytos" → Run workflow.
 #
 # What it does:
-# - Downloads the essential Le Socle files from GitHub
-# - Creates the .socle/ directory structure
+# - Downloads the essential Lytos files from GitHub
+# - Creates the .lytos/ directory structure
 # - Creates CLAUDE.md at the root
 # - Commits everything
 
-name: Add Le Socle
+name: Add Lytos
 
 on:
   workflow_dispatch:
@@ -29,22 +29,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check if Le Socle already exists
+      - name: Check if Lytos already exists
         run: |
-          if [ -d ".socle" ]; then
-            echo "Error: .socle/ already exists in this repo."
+          if [ -d ".lytos" ]; then
+            echo "Error: .lytos/ already exists in this repo."
             exit 1
           fi
 
       - name: Download and run installer
         run: |
-          curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh -o /tmp/install.sh
+          curl -fsSL https://raw.githubusercontent.com/getlytos/lytos-method/main/install.sh -o /tmp/install.sh
           bash /tmp/install.sh --name "${{ github.event.inputs.project_name }}" --tool "${{ github.event.inputs.ai_tool }}"
 
       - name: Commit
         run: |
-          git config user.name "Le Socle"
-          git config user.email "noreply@le-socle.dev"
+          git config user.name "Lytos"
+          git config user.email "noreply@lytos.dev"
           git add -A
-          git commit -m "feat: add Le Socle (${{ github.event.inputs.project_name }})"
+          git commit -m "feat: add Lytos (${{ github.event.inputs.project_name }})"
           git push

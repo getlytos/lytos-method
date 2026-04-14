@@ -10,7 +10,7 @@
 
 ```bash
 cd your-project/
-curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh -o install.sh
+curl -fsSL https://raw.githubusercontent.com/getlytos/lytos-method/main/install.sh -o install.sh
 bash install.sh
 ```
 
@@ -27,21 +27,21 @@ bash install.sh --name "My Project" --tool claude
 If you prefer the full repo (examples, documentation, adapters):
 
 ```bash
-git submodule add https://github.com/le-socle/socle .socle
-cp .socle/templates/manifest.md .socle/manifest.md
+git submodule add https://github.com/getlytos/lytos-method .lytos
+cp .lytos/templates/manifest.md .lytos/manifest.md
 ```
 
 ## Step 2 — Configure with your AI (3 minutes)
 
 Open your AI tool and say:
 
-> **"Help me configure Le Socle for this project."**
+> **"Help me configure Lytos for this project."**
 
-The AI will read the briefing (`.socle/SOCLE.md`), understand the method, and ask you the right questions to fill your manifest: project name, why it exists, tech stack, decision principles, AI models to use.
+The AI will read the briefing (`.lytos/LYTOS.md`), understand the method, and ask you the right questions to fill your manifest: project name, why it exists, tech stack, decision principles, AI models to use.
 
 You don't need to fill everything yourself — the AI can also detect your stack by reading your `package.json`, `requirements.txt` or `go.mod`.
 
-If you prefer doing it manually, open `.socle/manifest.md` and fill these 4 sections:
+If you prefer doing it manually, open `.lytos/manifest.md` and fill these 4 sections:
 
 1. **Identity** — project name and short description
 2. **Why this project exists** — 3 sentences max, the "why"
@@ -62,10 +62,10 @@ When you want to go further, here are the next steps — in order:
 
 | When | What | File |
 |------|------|------|
-| You want quality criteria | Read the rules | `.socle/rules/default-rules.md` |
-| You want to structure your tasks | Create your first sprint | `.socle/templates/sprint.md` |
-| You want your AI to follow a precise procedure | Load a skill | `.socle/skills/` |
-| You want visual progress tracking | Use the board | `.socle/issue-board/BOARD.md` |
+| You want quality criteria | Read the rules | `.lytos/rules/default-rules.md` |
+| You want to structure your tasks | Create your first sprint | `.lytos/templates/sprint.md` |
+| You want your AI to follow a precise procedure | Load a skill | `.lytos/skills/` |
+| You want visual progress tracking | Use the board | `.lytos/issue-board/BOARD.md` |
 
 Everything is optional. The manifest + memory are enough to start.
 
