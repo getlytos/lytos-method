@@ -4,9 +4,9 @@
 > Each issue = a `ISS-XXXX-title.md` file in the folder corresponding to its status.
 > Move the file from one folder to another when the status changes.
 >
-> **Last updated**: 2026-04-12
+> **Last updated**: 2026-04-14
 >
-> **Next number**: ISS-0007
+> **Next number**: ISS-0014
 
 > This file can be regenerated automatically: `python .socle/scripts/generate-board.py`
 
@@ -42,7 +42,15 @@
 
 ### 2-sprint (committed)
 
-_No issues in sprint._
+| # | Title | Priority | Effort | Depends |
+|---|-------|----------|--------|---------|
+| [ISS-0007](2-sprint/ISS-0007-rename-github-org.md) | Rename GitHub organization le-socle → lytos | P0-critical | XS | — |
+| [ISS-0008](2-sprint/ISS-0008-rename-repos.md) | Rename repositories socle → lytos, socle-cli → lytos-cli | P0-critical | XS | ISS-0007 |
+| [ISS-0009](2-sprint/ISS-0009-rename-method-repo-content.md) | Replace all socle references in method repo | P0-critical | L | ISS-0008 |
+| [ISS-0010](2-sprint/ISS-0010-rename-cli-repo-content.md) | Replace all socle references in CLI repo | P0-critical | L | ISS-0008 |
+| [ISS-0011](2-sprint/ISS-0011-rename-website-content.md) | Replace all socle references in website repo | P0-critical | M | ISS-0008 |
+| [ISS-0012](2-sprint/ISS-0012-publish-npm-and-deprecate.md) | Publish lytos on npm, deprecate le-socle | P0-critical | S | ISS-0010 |
+| [ISS-0013](2-sprint/ISS-0013-configure-domains.md) | Configure lytos.org and lytos.dev domains | P1-high | S | ISS-0007 |
 
 ### 3-in-progress (in dev)
 
