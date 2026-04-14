@@ -1,12 +1,12 @@
 # Agents
 
-*This folder documents how agents work in Le Socle. Agents are not the subject — Le Socle is. But understanding how they are invoked and orchestrated is essential.*
+*This folder documents how agents work in Lytos. Agents are not the subject — Lytos is. But understanding how they are invoked and orchestrated is essential.*
 
 ---
 
 ## Philosophy
 
-In Le Socle, agents are treated as **Kubernetes pods** — scalable computational intelligence, with no fixed identity.
+In Lytos, agents are treated as **Kubernetes pods** — scalable computational intelligence, with no fixed identity.
 
 ### What agents are
 
@@ -128,4 +128,4 @@ The orchestrator does not assign more skills to make tasks better — it assigns
 
 ---
 
-*Agents are the vehicle. Le Socle is the road. The manifest is the destination.*
+*Agents are the vehicle. Lytos is the road. The manifest is the destination.*

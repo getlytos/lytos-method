@@ -1,4 +1,4 @@
-# The Manifesto of Le Socle
+# The Manifesto of Lytos
 
 *Version 1.0 — April 2026*
 
@@ -42,23 +42,23 @@ Imposing a fixed role on it — telling it "you are a senior LeadDev, behave acc
 
 Taken on its own, this is closer to rhetorical framing than to operational architecture.
 
-If future model updates make persona-driven prompting a more reliable lever, the method can absorb it. Le Socle is not a dogma. It is an attempt to place the most robust layer in the files you control.
+If future model updates make persona-driven prompting a more reliable lever, the method can absorb it. Lytos is not a dogma. It is an attempt to place the most robust layer in the files you control.
 
 ---
 
 ## III. The reversal
 
-Le Socle starts from a hypothesis that is the inverse of the dominant orthodoxy.
+Lytos starts from a hypothesis that is the inverse of the dominant orthodoxy.
 
 **What the industry does today:**
 Agents at the center → skills, memory, rules as configuration accessories
 
-**What Le Socle proposes:**
+**What Lytos proposes:**
 Skills, memory, rules at the center → agents as scalable computational resource
 
 This reversal changes everything.
 
-The agent is no longer the subject — it is the vehicle. What matters is what it carries and the framework within which it operates. An agent without a socle is intelligence without direction. A socle without an agent is a system on standby. It is their articulation that creates value.
+The agent is no longer the subject — it is the vehicle. What matters is what it carries and the framework within which it operates. An agent without a foundation is intelligence without direction. A foundation without an agent is a system on standby. It is their articulation that creates value.
 
 ---
 
@@ -71,7 +71,7 @@ After: *what is the desired state of my system?*
 
 You no longer manage machines individually. You define a manifest — the desired state — and the orchestrator allocates resources to reach it. Pods scale up and down as needed. You do not give them names, you do not give them costumes. They are compute, not people.
 
-Le Socle applies this same reversal to AI agents.
+Lytos applies this same reversal to AI agents.
 
 The human defines the manifest — the intent, the constraints, the procedures, the quality criteria. The orchestrator allocates agents as needed. Agents execute, then release. The system improves with every cycle.
 
@@ -121,7 +121,7 @@ The human is no longer a "doer".
 
 This is not a loss — it is a reallocation toward what the human does best and what AI cannot replace.
 
-**System architect** — they define the socle. The skills, the rules, the structure, the criteria. No one else can do this, because it demands an intimate understanding of the project, its stakes, its business context.
+**System architect** — they define the foundation. The skills, the rules, the structure, the criteria. No one else can do this, because it demands an intimate understanding of the project, its stakes, its business context.
 
 **Conductor** — they set the desired state. The sprint, the objectives, the priorities. They do not manage agents individually, but they decide where the system must go.
 
@@ -142,29 +142,29 @@ An AI agent can read and understand every programming language in existence. No 
 The human brings: meaning, intent, business context, judgment, vision.
 The agent brings: execution, scalability, technical precision, perfect recall of procedures.
 
-Le Socle is the interface between the two.
+Lytos is the interface between the two.
 
 ---
 
-## VIII. What Le Socle is not
+## VIII. What Lytos is not
 
-**It is not an agent framework.** There is no code to install to "run agents". Le Socle is agnostic — it works with Claude Code, Cursor, GPT, any LLM.
+**It is not an agent framework.** There is no code to install to "run agents". Lytos is agnostic — it works with Claude Code, Cursor, GPT, any LLM.
 
 **It is not an AI tool.** It is a method. Like Agile is a method. Like DevOps is a method. It is implemented with whatever tools you choose.
 
 **It is not a virtual team.** There are no permanent agent "members". There are resources invoked as needed, that vanish once the task is done.
 
-**It is not a turnkey solution.** Le Socle provides the structure and the templates. The human fills in the manifest, defines the skills, sets the rules. Without this initial human investment, the system has no direction.
+**It is not a turnkey solution.** Lytos provides the structure and the templates. The human fills in the manifest, defines the skills, sets the rules. Without this initial human investment, the system has no direction.
 
 ---
 
 ## IX. What sovereignty changes in practice
 
-Le Socle does more than make context portable. It changes the nature of what an AI project produces.
+Lytos does more than make context portable. It changes the nature of what an AI project produces.
 
 **Auditability** — what guides the AI is no longer hidden in proprietary conversations. It becomes visible, reviewable project material.
 
-**Reversibility** — when a model, API, or vendor changes, you do not lose your operating method. You switch engines without rebuilding the socle from scratch.
+**Reversibility** — when a model, API, or vendor changes, you do not lose your operating method. You switch engines without rebuilding the foundation from scratch.
 
 **Knowledge compounding** — each sprint leaves assets behind: decisions, procedures, rules, patterns. The system gets better through accumulation.
 
@@ -180,17 +180,17 @@ Le Socle does more than make context portable. It changes the nature of what an 
 
 2. **Agents are formless.** No required persona, no fixed role. They take the shape of the need, defined by the skill invoked.
 
-3. **Memory is alive.** It grows with every sprint. A project that has been using Le Socle for six months is smarter than on day one.
+3. **Memory is alive.** It grows with every sprint. A project that has been using Lytos for six months is smarter than on day one.
 
 4. **Control is human.** Agents execute and propose. The human validates, steers, arbitrates. The "why" always remains on the human side.
 
 5. **Complementarity, not mimicry.** We do not ask AI to be human. We ask it to be what it is — and we build around that.
 
-6. **Agnostic by principle.** Le Socle depends on no vendor. Claude Code today, something else tomorrow. The method persists, the tools change.
+6. **Agnostic by principle.** Lytos depends on no vendor. Claude Code today, something else tomorrow. The method persists, the tools change.
 
-7. **Structure before scale.** You do not scale chaos. A well-defined socle first, agents in numbers second.
+7. **Structure before scale.** You do not scale chaos. A well-defined foundation first, agents in numbers second.
 
-8. **Sovereignty through text.** Project knowledge does not live inside a vendor. It lives in files you own, you version, you review, you back up, and you migrate freely. The manifest is markdown. Skills are markdown. Memory is markdown. Rules are markdown. The AI is an interchangeable engine. The socle is what persists. This does not guarantee identical outputs across models. It guarantees continuity of context, process, and memory when the engine changes. The day a vendor changes its terms, raises its prices, or ships a model that breaks your workflow — you switch the engine. You do not start over.
+8. **Sovereignty through text.** Project knowledge does not live inside a vendor. It lives in files you own, you version, you review, you back up, and you migrate freely. The manifest is markdown. Skills are markdown. Memory is markdown. Rules are markdown. The AI is an interchangeable engine. The foundation is what persists. This does not guarantee identical outputs across models. It guarantees continuity of context, process, and memory when the engine changes. The day a vendor changes its terms, raises its prices, or ships a model that breaks your workflow — you switch the engine. You do not start over.
 
 ---
 
@@ -206,12 +206,12 @@ For those who do not want to reduce artificial intelligence to a costume.
 
 ---
 
-*Le Socle was born from an observation and a conviction: the AI revolution is not won by imitating what we know. It is won by inventing what we do not yet know.*
+*Lytos was born from an observation and a conviction: the AI revolution is not won by imitating what we know. It is won by inventing what we do not yet know.*
 
 *This manifesto is a starting point, not a conclusion. It will evolve with the experiences of those who use it.*
 
 ---
 **Author**: Frédéric Galliné
 **License**: MIT
-**Repo**: [github.com/le-socle/socle](https://github.com/le-socle/socle)
-**Site**: [le-socle.org](https://le-socle.org)
+**Repo**: [github.com/getlytos/lytos-method](https://github.com/getlytos/lytos-method)
+**Site**: [lytos.org](https://lytos.org)

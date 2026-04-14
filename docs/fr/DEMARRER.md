@@ -10,7 +10,7 @@
 
 ```bash
 cd ton-projet/
-curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh -o install.sh
+curl -fsSL https://raw.githubusercontent.com/getlytos/lytos-method/main/install.sh -o install.sh
 bash install.sh
 ```
 
@@ -27,21 +27,21 @@ bash install.sh --name "Mon Projet" --tool claude
 Si tu préfères avoir le repo complet (exemples, documentation, adapters) :
 
 ```bash
-git submodule add https://github.com/le-socle/socle .socle
-cp .socle/templates/manifest.md .socle/manifest.md
+git submodule add https://github.com/getlytos/lytos-method .lytos
+cp .lytos/templates/manifest.md .lytos/manifest.md
 ```
 
 ## Étape 2 — Configurer avec ton IA (3 minutes)
 
 Lance ton outil IA et dis-lui :
 
-> **"Aide-moi à configurer le Socle pour ce projet."**
+> **"Aide-moi à configurer Lytos pour ce projet."**
 
-L'IA va lire le briefing (`.socle/SOCLE.md`), comprendre la méthode, et te poser les bonnes questions pour remplir ton manifest : nom du projet, pourquoi il existe, stack technique, principes de décision, modèles IA à utiliser.
+L'IA va lire le briefing (`.lytos/LYTOS.md`), comprendre la méthode, et te poser les bonnes questions pour remplir ton manifest : nom du projet, pourquoi il existe, stack technique, principes de décision, modèles IA à utiliser.
 
 Tu n'as pas besoin de tout remplir toi-même — l'IA peut aussi détecter ta stack en lisant ton `package.json`, `requirements.txt` ou `go.mod`.
 
-Si tu préfères le faire manuellement, ouvre `.socle/manifest.md` et remplis ces 4 sections :
+Si tu préfères le faire manuellement, ouvre `.lytos/manifest.md` et remplis ces 4 sections :
 
 1. **Identité** — le nom et la description courte du projet
 2. **Pourquoi ce projet existe** — 3 phrases max, le "pourquoi"
@@ -55,7 +55,7 @@ Si tu as utilisé le script d'installation, la memory est initialisée et ton ou
 Si tu as utilisé le submodule, initialise la memory :
 
 ```bash
-# Remplacer [Nom du projet] dans .socle/memory/MEMORY.md
+# Remplacer [Nom du projet] dans .lytos/memory/MEMORY.md
 ```
 
 Et crée le fichier de connexion pour ton outil (voir ci-dessous).
@@ -68,9 +68,9 @@ Le script crée automatiquement `CLAUDE.md`. Sinon, crée-le à la racine :
 # CLAUDE.md
 
 Au démarrage de chaque session, lis ces fichiers :
-1. .socle/manifest.md
-2. .socle/memory/MEMORY.md
-3. .socle/rules/default-rules.md
+1. .lytos/manifest.md
+2. .lytos/memory/MEMORY.md
+3. .lytos/rules/default-rules.md
 ```
 
 ### Connexion pour Cursor
@@ -91,10 +91,10 @@ Quand tu voudras aller plus loin, voici les prochaines étapes — dans l'ordre 
 
 | Quand | Quoi | Fichier |
 |-------|------|---------|
-| Tu veux poser des critères de qualité | Lis les rules | `.socle/rules/default-rules.md` |
-| Tu veux structurer tes tâches | Crée ton premier sprint | `.socle/templates/sprint.md` |
-| Tu veux que l'IA suive une procédure précise | Charge un skill | `.socle/skills/` |
-| Tu veux un suivi visuel de l'avancement | Utilise le board | `.socle/issue-board/BOARD.md` |
+| Tu veux poser des critères de qualité | Lis les rules | `.lytos/rules/default-rules.md` |
+| Tu veux structurer tes tâches | Crée ton premier sprint | `.lytos/templates/sprint.md` |
+| Tu veux que l'IA suive une procédure précise | Charge un skill | `.lytos/skills/` |
+| Tu veux un suivi visuel de l'avancement | Utilise le board | `.lytos/issue-board/BOARD.md` |
 
 Tout est optionnel. Le manifest + la memory suffisent pour commencer.
 

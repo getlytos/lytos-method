@@ -1,6 +1,6 @@
 ---
 name: Skill Request
-about: Proposer un nouveau skill pour Le Socle
+about: Proposer un nouveau skill pour Lytos
 title: "[skill] "
 labels: skill-request
 assignees: ''

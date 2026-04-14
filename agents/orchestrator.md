@@ -314,7 +314,7 @@ Notice:
 - Dynamic skill composition based on task analysis
 - Automated quality gate verification
 
-Le Socle is designed for this transition. The method is ready, the tools will follow.
+Lytos is designed for this transition. The method is ready, the tools will follow.
 
 ---
 

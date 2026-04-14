@@ -1,4 +1,4 @@
-# Le Manifeste du Socle
+# Le Manifeste de Lytos
 
 *Version 1.0 — Avril 2026*
 
@@ -42,23 +42,23 @@ Lui imposer un rôle fixe — lui dire "tu es un LeadDev senior, comporte-toi co
 
 Pris isolément, c'est davantage un cadrage rhétorique qu'une architecture opérationnelle.
 
-Si les futures mises à jour des modèles rendent le prompting par personas plus fiable, la méthode pourra l'intégrer. Le Socle n'est pas un dogme. Il cherche à placer la couche la plus robuste dans des fichiers que l'on contrôle.
+Si les futures mises à jour des modèles rendent le prompting par personas plus fiable, la méthode pourra l'intégrer. Lytos n'est pas un dogme. Il cherche à placer la couche la plus robuste dans des fichiers que l'on contrôle.
 
 ---
 
 ## III. Le renversement
 
-Le Socle part d'une hypothèse inverse à la doxa dominante.
+Lytos part d'une hypothèse inverse à la doxa dominante.
 
 **Ce que fait l'industrie aujourd'hui :**
 Les agents au centre → skills, memory, rules comme accessoires de configuration
 
-**Ce que propose Le Socle :**
+**Ce que propose Lytos :**
 Skills, memory, rules au centre → agents comme ressource computationnelle scalable
 
 Ce renversement change tout.
 
-L'agent n'est plus le sujet — il est le véhicule. Ce qui compte, c'est ce qu'il transporte et dans quel cadre il opère. Un agent sans socle est une intelligence sans direction. Un socle sans agent est un système en attente. C'est leur articulation qui crée la valeur.
+L'agent n'est plus le sujet — il est le véhicule. Ce qui compte, c'est ce qu'il transporte et dans quel cadre il opère. Un agent sans fondation est une intelligence sans direction. Une fondation sans agent est un système en attente. C'est leur articulation qui crée la valeur.
 
 ---
 
@@ -71,7 +71,7 @@ Après : *quel est l'état désiré de mon système ?*
 
 Tu ne gères plus les machines individuellement. Tu définis un manifest — l'état désiré — et l'orchestrateur alloue les ressources pour l'atteindre. Les pods montent et descendent selon le besoin. Tu ne leur donnes pas de noms, tu ne leur fais pas de costumes. Ils sont de la compute, pas des personnes.
 
-Le Socle applique ce même renversement aux agents IA.
+Lytos applique ce même renversement aux agents IA.
 
 L'humain définit le manifest — l'intention, les contraintes, les procédures, les critères de qualité. L'orchestrateur alloue les agents selon le besoin. Les agents s'exécutent, se libèrent. Le système s'améliore à chaque cycle.
 
@@ -121,7 +121,7 @@ L'humain n'est plus un "faiseur".
 
 Ce n'est pas une perte — c'est une réaffectation vers ce que l'humain fait de mieux et que l'IA ne peut pas remplacer.
 
-**Architecte du système** — il définit le socle. Les skills, les rules, la structure, les critères. Personne d'autre ne peut faire ça, parce que ça demande une compréhension intime du projet, de ses enjeux, de son contexte métier.
+**Architecte du système** — il définit lytos. Les skills, les rules, la structure, les critères. Personne d'autre ne peut faire ça, parce que ça demande une compréhension intime du projet, de ses enjeux, de son contexte métier.
 
 **Chef d'orchestre** — il fixe l'état désiré. Le sprint, les objectifs, les priorités. Il ne gère pas les agents individuellement, mais il décide où le système doit aller.
 
@@ -142,29 +142,29 @@ Un agent IA peut lire et comprendre tous les langages de programmation existants
 L'humain apporte : le sens, l'intention, le contexte métier, le jugement, la vision.
 L'agent apporte : l'exécution, la scalabilité, la précision technique, la mémoire parfaite des procédures.
 
-Le Socle est l'interface entre les deux.
+Lytos est l'interface entre les deux.
 
 ---
 
-## VIII. Ce que Le Socle n'est pas
+## VIII. Ce que Lytos n'est pas
 
-**Ce n'est pas un framework d'agents.** Il n'y a pas de code à installer pour "faire tourner des agents". Le Socle est agnostique — il fonctionne avec Claude Code, Cursor, GPT, n'importe quel LLM.
+**Ce n'est pas un framework d'agents.** Il n'y a pas de code à installer pour "faire tourner des agents". Lytos est agnostique — il fonctionne avec Claude Code, Cursor, GPT, n'importe quel LLM.
 
 **Ce n'est pas un outil IA.** C'est une méthode. Comme Agile est une méthode. Comme DevOps est une méthode. Elle s'implémente avec les outils que tu choisis.
 
 **Ce n'est pas une équipe virtuelle.** Il n'y a pas de "membres" agents permanents. Il y a des ressources invoquées selon le besoin, qui disparaissent une fois la tâche accomplie.
 
-**Ce n'est pas une solution clé en main.** Le Socle fournit la structure et les templates. L'humain remplit le manifest, définit les skills, pose les rules. Sans cet investissement humain initial, le système n'a pas de direction.
+**Ce n'est pas une solution clé en main.** Lytos fournit la structure et les templates. L'humain remplit le manifest, définit les skills, pose les rules. Sans cet investissement humain initial, le système n'a pas de direction.
 
 ---
 
 ## IX. Ce que la souveraineté change concrètement
 
-Le Socle ne rend pas seulement le contexte portable. Il change la nature de ce qu'un projet IA produit.
+Lytos ne rend pas seulement le contexte portable. Il change la nature de ce qu'un projet IA produit.
 
 **Auditabilité** — ce qui guide l'IA n'est plus caché dans des conversations propriétaires. Cela devient de la matière projet visible et révisable.
 
-**Réversibilité** — quand un modèle, une API ou un vendor change, tu ne perds pas ta méthode de travail. Tu changes de moteur sans reconstruire le socle depuis zéro.
+**Réversibilité** — quand un modèle, une API ou un vendor change, tu ne perds pas ta méthode de travail. Tu changes de moteur sans reconstruire lytos depuis zéro.
 
 **Capitalisation du savoir** — chaque sprint laisse des actifs derrière lui : décisions, procédures, règles, patterns. Le système s'améliore par accumulation.
 
@@ -180,17 +180,17 @@ Le Socle ne rend pas seulement le contexte portable. Il change la nature de ce q
 
 2. **Les agents sont sans forme.** Pas de persona obligatoire, pas de rôle fixe. Ils prennent la forme du besoin, définie par le skill invoqué.
 
-3. **La mémoire est vivante.** Elle grandit à chaque sprint. Un projet qui utilise Le Socle depuis six mois est plus intelligent qu'au premier jour.
+3. **La mémoire est vivante.** Elle grandit à chaque sprint. Un projet qui utilise Lytos depuis six mois est plus intelligent qu'au premier jour.
 
 4. **Le contrôle est humain.** Les agents exécutent et proposent. L'humain valide, oriente, arbitre. Le "pourquoi" reste toujours côté humain.
 
 5. **La complémentarité, pas le mimétisme.** On ne demande pas à l'IA d'être un humain. On lui demande d'être ce qu'elle est — et on construit autour de ça.
 
-6. **Agnostique par principe.** Le Socle ne dépend d'aucun vendor. Claude Code aujourd'hui, autre chose demain. La méthode persiste, les outils changent.
+6. **Agnostique par principe.** Lytos ne dépend d'aucun vendor. Claude Code aujourd'hui, autre chose demain. La méthode persiste, les outils changent.
 
-7. **La structure avant l'échelle.** On ne scale pas le chaos. Un socle bien défini d'abord, des agents en nombre ensuite.
+7. **La structure avant l'échelle.** On ne scale pas le chaos. Une fondation bien défini d'abord, des agents en nombre ensuite.
 
-8. **La souveraineté par le texte.** Le savoir projet ne vit pas chez un vendor. Il vit dans des fichiers que tu possèdes, que tu versionnes, que tu relis, que tu sauvegardes et que tu migres librement. Le manifest est du markdown. Les skills sont du markdown. La memory est du markdown. Les rules sont du markdown. L'IA est un moteur interchangeable. Le socle est ce qui persiste. Cela ne garantit pas des outputs identiques entre tous les modèles. Cela garantit la continuité du contexte, des procédures et de la mémoire quand le moteur change. Le jour où un vendor change ses conditions, augmente ses prix, ou sort un modèle qui casse ton workflow — tu changes le moteur. Tu ne recommences pas à zéro.
+8. **La souveraineté par le texte.** Le savoir projet ne vit pas chez un vendor. Il vit dans des fichiers que tu possèdes, que tu versionnes, que tu relis, que tu sauvegardes et que tu migres librement. Le manifest est du markdown. Les skills sont du markdown. La memory est du markdown. Les rules sont du markdown. L'IA est un moteur interchangeable. Lytos est ce qui persiste. Cela ne garantit pas des outputs identiques entre tous les modèles. Cela garantit la continuité du contexte, des procédures et de la mémoire quand le moteur change. Le jour où un vendor change ses conditions, augmente ses prix, ou sort un modèle qui casse ton workflow — tu changes le moteur. Tu ne recommences pas à zéro.
 
 ---
 
@@ -206,12 +206,12 @@ Pour ceux qui ne veulent pas réduire l'intelligence artificielle à un costume.
 
 ---
 
-*Le Socle est né d'un constat et d'une conviction : la révolution IA ne se gagne pas en imitant ce qu'on connaît. Elle se gagne en inventant ce qu'on ne connaît pas encore.*
+*Lytos est né d'un constat et d'une conviction : la révolution IA ne se gagne pas en imitant ce qu'on connaît. Elle se gagne en inventant ce qu'on ne connaît pas encore.*
 
 *Ce manifeste est un point de départ, pas une conclusion. Il évoluera avec les expériences de ceux qui l'utilisent.*
 
 ---
 **Auteur** : Frédéric Galliné
 **Licence** : MIT
-**Repo** : [github.com/le-socle/socle](https://github.com/le-socle/socle)
-**Site** : [le-socle.org](https://le-socle.org)
+**Repo** : [github.com/getlytos/lytos-method](https://github.com/getlytos/lytos-method)
+**Site** : [lytos.org](https://lytos.org)

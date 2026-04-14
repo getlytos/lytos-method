@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 #
-# Le Socle — Installation
+# Lytos — Installation
 #
 # Usage :
-#   curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/getlytos/lytos-method/main/install.sh | bash
 #
 #   ou avec options :
-#   curl -fsSL https://raw.githubusercontent.com/le-socle/socle/main/install.sh | bash -s -- --name "Mon Projet" --tool claude
+#   curl -fsSL https://raw.githubusercontent.com/getlytos/lytos-method/main/install.sh | bash -s -- --name "Mon Projet" --tool claude
 #
-# Ce script crée la structure .socle/ dans le dossier courant avec le minimum
+# Ce script crée la structure .lytos/ dans le dossier courant avec le minimum
 # opérationnel : manifest, memory, rules, skills, issue-board, scripts.
 #
 set -euo pipefail
 
 # --- Configuration ---
-SOCLE_DIR=".socle"
-REPO_RAW="https://raw.githubusercontent.com/le-socle/socle/main"
+LYTOS_DIR=".lytos"
+REPO_RAW="https://raw.githubusercontent.com/getlytos/lytos-method/main"
 PROJECT_NAME=""
 TOOL=""
 
@@ -49,9 +49,9 @@ while [[ $# -gt 0 ]]; do
     case $1 in
         --name)  PROJECT_NAME="$2"; shift 2 ;;
         --tool)  TOOL="$2"; shift 2 ;;
-        --dir)   SOCLE_DIR="$2"; shift 2 ;;
+        --dir)   LYTOS_DIR="$2"; shift 2 ;;
         --help|-h)
-            echo "Usage : install.sh [--name \"Nom du projet\"] [--tool claude|cursor|openai] [--dir .socle]"
+            echo "Usage : install.sh [--name \"Nom du projet\"] [--tool claude|cursor|openai] [--dir .lytos]"
             exit 0 ;;
         *)       shift ;;
     esac
@@ -60,7 +60,7 @@ done
 # --- Mode interactif si pas d'arguments ---
 if [ -t 0 ] && [ -z "$PROJECT_NAME" ]; then
     echo ""
-    echo -e "${BOLD}Le Socle${NC} — Installation"
+    echo -e "${BOLD}Lytos${NC} — Installation"
     echo ""
     read -p "Project name: " PROJECT_NAME
     echo ""
@@ -81,21 +81,21 @@ fi
 PROJECT_NAME="${PROJECT_NAME:-My Project}"
 
 # --- Vérifications ---
-if [ -d "$SOCLE_DIR" ]; then
-    err "Directory $SOCLE_DIR already exists. Remove it first or use --dir."
+if [ -d "$LYTOS_DIR" ]; then
+    err "Directory $LYTOS_DIR already exists. Remove it first or use --dir."
 fi
 
 echo ""
-info "Installing Le Socle in $SOCLE_DIR/"
+info "Installing Lytos in $LYTOS_DIR/"
 
 # --- Créer la structure ---
 info "Creating directory structure..."
 
-mkdir -p "$SOCLE_DIR"/{memory/cortex,rules,skills,issue-board/{0-icebox,1-backlog,2-sprint,3-in-progress,4-review,5-done,templates},scripts}
+mkdir -p "$LYTOS_DIR"/{memory/cortex,rules,skills,issue-board/{0-icebox,1-backlog,2-sprint,3-in-progress,4-review,5-done,templates},scripts}
 
 # .gitkeep pour les dossiers vides
 for dir in 0-icebox 1-backlog 2-sprint 3-in-progress 4-review 5-done; do
-    touch "$SOCLE_DIR/issue-board/$dir/.gitkeep"
+    touch "$LYTOS_DIR/issue-board/$dir/.gitkeep"
 done
 
 ok "Structure created"
@@ -103,33 +103,33 @@ ok "Structure created"
 # --- Télécharger les fichiers essentiels ---
 info "Downloading skills..."
 for skill in session-start code-review testing documentation git-workflow code-structure deployment; do
-    download "$REPO_RAW/skills/$skill.md" "$SOCLE_DIR/skills/$skill.md"
+    download "$REPO_RAW/skills/$skill.md" "$LYTOS_DIR/skills/$skill.md"
 done
 ok "7 skills installed"
 
 info "Downloading AI briefing..."
-download "$REPO_RAW/SOCLE.md" "$SOCLE_DIR/SOCLE.md"
+download "$REPO_RAW/LYTOS.md" "$LYTOS_DIR/LYTOS.md"
 ok "Briefing installed"
 
 info "Downloading rules..."
-download "$REPO_RAW/rules/default-rules.md" "$SOCLE_DIR/rules/default-rules.md"
-download "$REPO_RAW/rules/README.md" "$SOCLE_DIR/rules/README.md"
+download "$REPO_RAW/rules/default-rules.md" "$LYTOS_DIR/rules/default-rules.md"
+download "$REPO_RAW/rules/README.md" "$LYTOS_DIR/rules/README.md"
 ok "Rules installed"
 
 info "Downloading templates..."
-download "$REPO_RAW/templates/sprint.md" "$SOCLE_DIR/templates/sprint.md"
-download "$REPO_RAW/issue-board/templates/issue-feature.md" "$SOCLE_DIR/issue-board/templates/issue-feature.md"
-download "$REPO_RAW/issue-board/templates/issue-task.md" "$SOCLE_DIR/issue-board/templates/issue-task.md"
+download "$REPO_RAW/templates/sprint.md" "$LYTOS_DIR/templates/sprint.md"
+download "$REPO_RAW/issue-board/templates/issue-feature.md" "$LYTOS_DIR/issue-board/templates/issue-feature.md"
+download "$REPO_RAW/issue-board/templates/issue-task.md" "$LYTOS_DIR/issue-board/templates/issue-task.md"
 ok "Templates installed"
 
 info "Downloading generate-board script..."
-download "$REPO_RAW/scripts/generate-board.py" "$SOCLE_DIR/scripts/generate-board.py"
-chmod +x "$SOCLE_DIR/scripts/generate-board.py"
+download "$REPO_RAW/scripts/generate-board.py" "$LYTOS_DIR/scripts/generate-board.py"
+chmod +x "$LYTOS_DIR/scripts/generate-board.py"
 ok "Script installed"
 
 # --- Create pre-filled manifest ---
 info "Creating manifest..."
-cat > "$SOCLE_DIR/manifest.md" << MANIFEST
+cat > "$LYTOS_DIR/manifest.md" << MANIFEST
 # Manifest — $PROJECT_NAME
 
 *This file is the project's constitution. It is read by agents at the start of each work session.*
@@ -220,7 +220,7 @@ ok "Manifest created — to be filled in"
 
 # --- Create memory ---
 info "Creating memory..."
-cat > "$SOCLE_DIR/memory/MEMORY.md" << MEMORY
+cat > "$LYTOS_DIR/memory/MEMORY.md" << MEMORY
 # Memory — $PROJECT_NAME
 
 *This file is the project memory's table of contents. Do not read everything — load only what is relevant to the current task.*
@@ -254,7 +254,7 @@ cat > "$SOCLE_DIR/memory/MEMORY.md" << MEMORY
 MEMORY
 
 # Create pre-filled cortex files with examples
-cat > "$SOCLE_DIR/memory/cortex/architecture.md" << 'CORTEX'
+cat > "$LYTOS_DIR/memory/cortex/architecture.md" << 'CORTEX'
 # Memory — Architecture & Technical Decisions
 
 *Load this file for any task that affects the project structure.*
@@ -272,7 +272,7 @@ cat > "$SOCLE_DIR/memory/cortex/architecture.md" << 'CORTEX'
 -->
 CORTEX
 
-cat > "$SOCLE_DIR/memory/cortex/backend.md" << 'CORTEX'
+cat > "$LYTOS_DIR/memory/cortex/backend.md" << 'CORTEX'
 # Memory — Backend
 
 *Load this file for any backend task: API, database, services.*
@@ -292,7 +292,7 @@ cat > "$SOCLE_DIR/memory/cortex/backend.md" << 'CORTEX'
 -->
 CORTEX
 
-cat > "$SOCLE_DIR/memory/cortex/frontend.md" << 'CORTEX'
+cat > "$LYTOS_DIR/memory/cortex/frontend.md" << 'CORTEX'
 # Memory — Frontend
 
 *Load this file for any frontend task: UI, components, styles.*
@@ -312,7 +312,7 @@ cat > "$SOCLE_DIR/memory/cortex/frontend.md" << 'CORTEX'
 -->
 CORTEX
 
-cat > "$SOCLE_DIR/memory/cortex/patterns.md" << 'CORTEX'
+cat > "$LYTOS_DIR/memory/cortex/patterns.md" << 'CORTEX'
 # Memory — Discovered Patterns
 
 *Load this file for code review, refactoring, or writing new code.*
@@ -330,7 +330,7 @@ cat > "$SOCLE_DIR/memory/cortex/patterns.md" << 'CORTEX'
 -->
 CORTEX
 
-cat > "$SOCLE_DIR/memory/cortex/bugs.md" << 'CORTEX'
+cat > "$LYTOS_DIR/memory/cortex/bugs.md" << 'CORTEX'
 # Memory — Recurring Problems & Solutions
 
 *Load this file before debugging — the problem may have already been solved.*
@@ -346,7 +346,7 @@ cat > "$SOCLE_DIR/memory/cortex/bugs.md" << 'CORTEX'
 -->
 CORTEX
 
-cat > "$SOCLE_DIR/memory/cortex/business.md" << 'CORTEX'
+cat > "$LYTOS_DIR/memory/cortex/business.md" << 'CORTEX'
 # Memory — Business Context
 
 *Load this file for any task involving business logic or UX.*
@@ -364,7 +364,7 @@ cat > "$SOCLE_DIR/memory/cortex/business.md" << 'CORTEX'
 -->
 CORTEX
 
-cat > "$SOCLE_DIR/memory/cortex/sprints.md" << 'CORTEX'
+cat > "$LYTOS_DIR/memory/cortex/sprints.md" << 'CORTEX'
 # Memory — Sprint History
 
 *Load this file at sprint start, retrospective, or planning.*
@@ -379,7 +379,7 @@ ok "Memory initialized"
 
 # --- Create BOARD.md ---
 info "Creating board..."
-cat > "$SOCLE_DIR/issue-board/BOARD.md" << BOARD
+cat > "$LYTOS_DIR/issue-board/BOARD.md" << BOARD
 # Issue Board — $PROJECT_NAME
 
 > Each issue = a \`ISS-XXXX-title.md\` file in the folder matching its status.
@@ -387,7 +387,7 @@ cat > "$SOCLE_DIR/issue-board/BOARD.md" << BOARD
 > **Last updated**: $(date +%Y-%m-%d)
 > **Next number**: ISS-0001
 
-> Regenerate: \`python .socle/scripts/generate-board.py\`
+> Regenerate: \`python .lytos/scripts/generate-board.py\`
 
 ---
 
@@ -429,24 +429,24 @@ if [ "$TOOL" = "claude" ]; then
     cat > "CLAUDE.md" << CLAUDE
 # CLAUDE.md
 
-Ce projet utilise **Le Socle** — une méthode de travail humain-IA.
+Ce projet utilise **Lytos** — une méthode de travail humain-IA.
 
 ## Première session (setup)
 
 Si le manifest est vide ou incomplet, lis d'abord :
-- .socle/SOCLE.md — comprendre la méthode et comment aider à remplir les fichiers
+- .lytos/LYTOS.md — comprendre la méthode et comment aider à remplir les fichiers
 
 ## À chaque session
 
 Lis ces fichiers dans l'ordre :
-1. .socle/manifest.md — la constitution du projet (identité, stack, principes, modèles IA)
-2. .socle/memory/MEMORY.md — le sommaire de la mémoire (puis charge les sections cortex/ pertinentes)
-3. .socle/rules/default-rules.md — les critères de qualité
+1. .lytos/manifest.md — la constitution du projet (identité, stack, principes, modèles IA)
+2. .lytos/memory/MEMORY.md — le sommaire de la mémoire (puis charge les sections cortex/ pertinentes)
+3. .lytos/rules/default-rules.md — les critères de qualité
 
 ## Pour travailler sur une tâche
 
-4. .socle/issue-board/BOARD.md — l'état du board
-5. .socle/skills/session-start.md — la procédure complète de démarrage et de fin de tâche
+4. .lytos/issue-board/BOARD.md — l'état du board
+5. .lytos/skills/session-start.md — la procédure complète de démarrage et de fin de tâche
 
 ## Règles
 
@@ -455,25 +455,25 @@ Lis ces fichiers dans l'ordre :
 - En fin de tâche : mettre à jour le frontmatter, déplacer le fichier, mettre à jour le BOARD.md
 - Consulter le champ \`complexity\` de l'issue + la table du manifest pour savoir quel modèle utiliser
 
-Documentation : https://github.com/le-socle/socle
+Documentation : https://github.com/getlytos/lytos-method
 CLAUDE
     ok "CLAUDE.md created at project root"
 
 elif [ "$TOOL" = "cursor" ]; then
     info "Creating .cursorrules..."
     cat > ".cursorrules" << CURSOR
-Ce projet utilise Le Socle — une méthode de travail humain-IA.
+Ce projet utilise Lytos — une méthode de travail humain-IA.
 
-Première session (setup) : si le manifest est vide, lis @.socle/SOCLE.md pour comprendre la méthode.
+Première session (setup) : si le manifest est vide, lis @.lytos/LYTOS.md pour comprendre la méthode.
 
 À chaque session, lis dans l'ordre :
-1. @.socle/manifest.md — la constitution du projet
-2. @.socle/memory/MEMORY.md — le sommaire de la mémoire (puis les sections cortex/ pertinentes)
-3. @.socle/rules/default-rules.md — les critères de qualité
+1. @.lytos/manifest.md — la constitution du projet
+2. @.lytos/memory/MEMORY.md — le sommaire de la mémoire (puis les sections cortex/ pertinentes)
+3. @.lytos/rules/default-rules.md — les critères de qualité
 
 Pour travailler sur une tâche :
-4. @.socle/issue-board/BOARD.md — l'état du board
-5. @.socle/skills/session-start.md — procédure de démarrage et fin de tâche
+4. @.lytos/issue-board/BOARD.md — l'état du board
+5. @.lytos/skills/session-start.md — procédure de démarrage et fin de tâche
 
 Règles :
 - Le frontmatter YAML des issues est la source de vérité
@@ -481,25 +481,25 @@ Règles :
 - En fin de tâche : mettre à jour le frontmatter, déplacer le fichier, mettre à jour le BOARD.md
 - Consulter le champ complexity de l'issue + la table du manifest pour le modèle à utiliser
 
-Documentation : https://github.com/le-socle/socle
+Documentation : https://github.com/getlytos/lytos-method
 CURSOR
     ok ".cursorrules created at project root"
 fi
 
 # --- Résumé ---
 echo ""
-echo -e "${BOLD}${GREEN}Le Socle est installé.${NC}"
+echo -e "${BOLD}${GREEN}Lytos est installé.${NC}"
 echo ""
 echo "  Next step — open your AI tool and say:"
 echo ""
-echo -e "  ${BOLD}\"Help me configure Le Socle for this project.\"${NC}"
+echo -e "  ${BOLD}\"Help me configure Lytos for this project.\"${NC}"
 echo ""
 echo "  The AI will read the briefing, understand the method, and ask"
 echo "  you the right questions to fill your manifest."
 echo ""
 echo "  Installed structure:"
-echo "  $SOCLE_DIR/"
-echo "  ├── SOCLE.md              <- AI briefing (read on first session)"
+echo "  $LYTOS_DIR/"
+echo "  ├── LYTOS.md              <- AI briefing (read on first session)"
 echo "  ├── manifest.md           <- fill with your AI's help"
 echo "  ├── memory/"
 echo "  │   ├── MEMORY.md"
@@ -509,5 +509,5 @@ echo "  ├── rules/                <- quality criteria"
 echo "  ├── issue-board/          <- Kanban board"
 echo "  └── scripts/              <- automation tools"
 echo ""
-echo "  Documentation : https://github.com/le-socle/socle"
+echo "  Documentation : https://github.com/getlytos/lytos-method"
 echo ""

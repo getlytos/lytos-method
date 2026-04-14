@@ -1,19 +1,19 @@
-# Contributing to Le Socle
+# Contributing to Lytos
 
-*Contribution guide for Le Socle project. Before submitting a PR, read this document in full.*
+*Contribution guide for Lytos project. Before submitting a PR, read this document in full.*
 
 ---
 
 ## How to contribute
 
-Le Socle is an open project. Contributions are welcome in the following areas:
+Lytos is an open project. Contributions are welcome in the following areas:
 
 | Contribution type | Description |
 |-------------------|-------------|
 | **New skill** | A reusable procedure for an uncovered use case |
 | **New adapter** | A connector for an AI tool not yet supported |
 | **Improvement** | Fix or enhancement of an existing skill, rule, or template |
-| **Example** | A concrete example of using Le Socle on a project type |
+| **Example** | A concrete example of using Lytos on a project type |
 | **Documentation** | Correction, clarification, or translation |
 | **Bug report** | Reporting an inconsistency or error |
 
@@ -85,7 +85,7 @@ A poorly written skill produces procedural hallucination: the agent believes it 
 
 ## Proposing a new adapter
 
-An adapter bridges Le Socle and an AI tool. To propose a new adapter:
+An adapter bridges Lytos and an AI tool. To propose a new adapter:
 
 ### Acceptance criteria
 
@@ -149,7 +149,7 @@ How to verify the contribution works.
 ### Style
 
 - Each file starts with a sentence stating what it is and what it is for
-- No unnecessary jargon — Le Socle should be understandable by a non-developer
+- No unnecessary jargon — Lytos should be understandable by a non-developer
 - Bullet lists rather than paragraphs when possible
 - Tables for structured information
 
@@ -178,4 +178,4 @@ For any question before contributing, open an issue with the `question` tag.
 
 ---
 
-*Le Socle is a community project. Every contribution improves it for everyone who uses it.*
+*Lytos is a community project. Every contribution improves it for everyone who uses it.*

@@ -10,7 +10,7 @@
 **Short description**: 
 **Creation date**: 
 **Owner**: 
-**Le Socle version**: 
+**Lytos version**: 
 
 ---
 
@@ -93,7 +93,7 @@ Examples (replace with your own):
 
 ## AI models by complexity
 
-*Le Socle defines 3 complexity levels for tasks. Each project maps its own models based on its budget and tools. Update this table when better models come out.*
+*Lytos defines 3 complexity levels for tasks. Each project maps its own models based on its budget and tools. Update this table when better models come out.*
 
 | Complexity | Usage | Model |
 |------------|-------|-------|

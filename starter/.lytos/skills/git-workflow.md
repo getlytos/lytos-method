@@ -1,6 +1,6 @@
 # Skill — Git Workflow
 
-*This skill defines the Git conventions to follow on a project using Le Socle. It covers branch naming, commit format, merge workflow, and collaboration rules. An agent loaded with this skill applies these conventions without deviation.*
+*This skill defines the Git conventions to follow on a project using Lytos. It covers branch naming, commit format, merge workflow, and collaboration rules. An agent loaded with this skill applies these conventions without deviation.*
 
 ---
 

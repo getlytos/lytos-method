@@ -1,19 +1,19 @@
 # Adapter — OpenAI API / Assistants
 
-*Comment utiliser Le Socle avec l'API OpenAI ou les Assistants GPT. Ce guide explique comment mapper les concepts du Socle vers les mécanismes d'OpenAI.*
+*Comment utiliser Lytos avec l'API OpenAI ou les Assistants GPT. Ce guide explique comment mapper les concepts de Lytos vers les mécanismes d'OpenAI.*
 
 ---
 
 ## Prérequis
 
 - Un compte OpenAI avec accès à l'API ou aux Assistants
-- Un projet avec Le Socle initialisé dans `.socle/`
+- Un projet avec Lytos initialisé dans `.lytos/`
 
 ---
 
 ## Mapping des concepts
 
-| Le Socle | OpenAI Assistants | OpenAI API (chat) |
+| Lytos | OpenAI Assistants | OpenAI API (chat) |
 |----------|-------------------|-------------------|
 | Manifest | Instructions système (partie fixe) | Message système |
 | Memory | File search / knowledge base | Injecté dans le contexte |
@@ -35,18 +35,18 @@ import openai
 
 client = openai.OpenAI()
 
-# Lire les fichiers du Socle
-with open('.socle/manifest.md') as f:
+# Lire les fichiers de Lytos
+with open('.lytos/manifest.md') as f:
     manifest = f.read()
-with open('.socle/rules/default-rules.md') as f:
+with open('.lytos/rules/default-rules.md') as f:
     rules = f.read()
-with open('.socle/memory/MEMORY.md') as f:
+with open('.lytos/memory/MEMORY.md') as f:
     memory = f.read()
 
 assistant = client.beta.assistants.create(
-    name="Socle Agent",
+    name="Lytos Agent",
     instructions=f"""
-Tu es un agent qui travaille selon la méthode Le Socle.
+Tu es un agent qui travaille selon la méthode Lytos.
 
 # Manifest du projet
 {manifest}
@@ -72,10 +72,10 @@ Tu es un agent qui travaille selon la méthode Le Socle.
 Quand une tâche est assignée, le skill est injecté dans le thread :
 
 ```python
-with open('.socle/skills/code-review.md') as f:
+with open('.lytos/skills/code-review.md') as f:
     skill = f.read()
 
-with open('.socle/issue-board/ISS-0012.md') as f:
+with open('.lytos/issue-board/ISS-0012.md') as f:
     issue = f.read()
 
 thread = client.beta.threads.create()
@@ -103,7 +103,7 @@ Pour les projets avec une memory volumineuse, utiliser le File Search des Assist
 ```python
 # Upload de la memory comme fichier searchable
 file = client.files.create(
-    file=open('.socle/memory/MEMORY.md', 'rb'),
+    file=open('.lytos/memory/MEMORY.md', 'rb'),
     purpose='assistants'
 )
 
@@ -118,22 +118,22 @@ file = client.files.create(
 ### Structure du message système
 
 ```python
-def construire_contexte_socle(skill_name, issue_id):
-    """Construit le contexte Socle pour un appel API."""
+def construire_contexte_lytos(skill_name, issue_id):
+    """Construit le contexte Lytos pour un appel API."""
 
-    with open('.socle/manifest.md') as f:
+    with open('.lytos/manifest.md') as f:
         manifest = f.read()
-    with open('.socle/rules/default-rules.md') as f:
+    with open('.lytos/rules/default-rules.md') as f:
         rules = f.read()
-    with open('.socle/memory/MEMORY.md') as f:
+    with open('.lytos/memory/MEMORY.md') as f:
         memory = f.read()
-    with open(f'.socle/skills/{skill_name}.md') as f:
+    with open(f'.lytos/skills/{skill_name}.md') as f:
         skill = f.read()
-    with open(f'.socle/issue-board/{issue_id}.md') as f:
+    with open(f'.lytos/issue-board/{issue_id}.md') as f:
         issue = f.read()
 
     return f"""
-Tu es un agent qui travaille selon la méthode Le Socle.
+Tu es un agent qui travaille selon la méthode Lytos.
 Tu n'as pas de persona, pas de rôle fixe. Tu appliques une procédure.
 
 # Manifest
@@ -159,7 +159,7 @@ response = client.chat.completions.create(
     messages=[
         {
             "role": "system",
-            "content": construire_contexte_socle("code-review", "ISS-0012")
+            "content": construire_contexte_lytos("code-review", "ISS-0012")
         },
         {
             "role": "user",
@@ -179,8 +179,8 @@ Pour paralléliser des tâches (comme décrit dans `agents/orchestrator.md`), la
 import asyncio
 
 async def executer_tache(skill_name, issue_id):
-    """Exécute une tâche du Socle via l'API OpenAI."""
-    contexte = construire_contexte_socle(skill_name, issue_id)
+    """Exécute une tâche de Lytos via l'API OpenAI."""
+    contexte = construire_contexte_lytos(skill_name, issue_id)
 
     response = await client.chat.completions.create(
         model="gpt-4o",
@@ -244,4 +244,4 @@ La tâche est terminée. Y a-t-il des apprentissages à ajouter
 
 ---
 
-*Cet adapter fait le pont entre l'API OpenAI et Le Socle. La méthode reste la même — seul le mécanisme d'appel change.*
+*Cet adapter fait le pont entre l'API OpenAI et Lytos. La méthode reste la même — seul le mécanisme d'appel change.*

@@ -1,6 +1,6 @@
 # Exemple — API Python (FastAPI)
 
-*Cet exemple montre comment utiliser Le Socle sur un projet d'API REST Python. Tous les fichiers `.socle/` sont remplis avec des données réalistes.*
+*Cet exemple montre comment utiliser Lytos sur un projet d'API REST Python. Tous les fichiers `.lytos/` sont remplis avec des données réalistes.*
 
 ---
 
@@ -16,7 +16,7 @@ Stack : Python 3.12, FastAPI, SQLAlchemy, PostgreSQL, Pytest.
 
 ```
 bookshelf-api/
-├── .socle/
+├── .lytos/
 │   ├── manifest.md              ← constitution du projet
 │   ├── sprint.md                ← sprint en cours
 │   ├── memory/
@@ -42,8 +42,8 @@ bookshelf-api/
 
 ```bash
 cd votre-projet/
-git submodule add https://github.com/le-socle/socle .socle
-cp .socle/templates/manifest.md .socle/manifest.md
+git submodule add https://github.com/getlytos/lytos-method .lytos
+cp .lytos/templates/manifest.md .lytos/manifest.md
 # Remplir le manifest, initialiser la memory, c'est parti
 ```
 
