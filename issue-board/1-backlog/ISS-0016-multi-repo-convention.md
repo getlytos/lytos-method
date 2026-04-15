@@ -58,6 +58,14 @@ Each issue is independent: its own branch, its own checklist, its own close phas
 
 Numbers are scoped to the repo. No global numbering. The SaaS will display them as `method#ISS-0001`, `cli#ISS-0012` etc.
 
+### Upstream/downstream coherence rule
+
+When a change in an upstream repo (e.g. lytos-method) affects what a downstream repo generates or distributes (e.g. lytos-cli), a mirror issue must be created in the downstream repo to ensure coherence.
+
+Example: adding a new rule in `lytos-method/rules/default-rules.md` must trigger an issue in `lytos-cli` to verify that `lyt init` downloads and installs the updated file, and that `lyt upgrade` (when available) will propagate the change to existing users.
+
+> **Rule: any change in lytos-method that affects generated content must have a corresponding issue in lytos-cli.**
+
 ## Checklist
 
 - [ ] Add "Multi-repo projects" section to LYTOS.md (the method reference)
