@@ -18,7 +18,8 @@ bash install.sh
 Or use the CLI:
 
 ```bash
-npx le-lytos init
+npm install -g lytos-cli
+lyt init
 ```
 
 Then open your AI tool and say: **"Help me configure Lytos for this project."**
@@ -28,7 +29,7 @@ Then open your AI tool and say: **"Help me configure Lytos for this project."**
 | Repo | What it is |
 |------|-----------|
 | **[lytos-method](https://github.com/getlytos/lytos-method)** | The method — skills, rules, memory, manifesto, install script |
-| **[lytos-cli](https://github.com/getlytos/lytos-cli)** | The CLI tool — `lytos init`, `lytos board`, and more |
+| **[lytos-cli](https://github.com/getlytos/lytos-cli)** | The CLI tool — `lyt init`, `lyt board`, and more |
 
 ## The idea
 
