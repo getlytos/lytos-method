@@ -9,6 +9,10 @@
 
 ---
 
+**TL;DR** — Your AI resets every session. Lytos gives it a persistent memory, a set of rules, and the right context — in plain Markdown files, in your Git repo. One command to set up. Works with Claude Code, Cursor, Codex, or any LLM. No vendor lock-in.
+
+---
+
 ## The problem
 
 AI agents are powerful but stateless. Every session starts from zero. They don't know your conventions, your sprint priorities, or what was tried last week. Giving them a persona doesn't fix this — it changes the tone, not the quality.
@@ -27,6 +31,24 @@ lyt init
 One command. Your AI understands your project from the first session.
 
 > *"Agile structured human collaboration. Lytos structures collaboration with AI."*
+
+---
+
+## What changes immediately
+
+**Without Lytos**, at the start of every session:
+```
+You: "We use Tailwind, not CSS modules. And we write tests before committing."
+AI:  "Got it!" (until the next session, when it forgets again)
+```
+
+**With Lytos**, the AI reads `.lytos/` at startup and already knows:
+- what the project is and what it's trying to do
+- which conventions, rules, and patterns to follow
+- what was decided in previous sprints
+- what's currently in progress
+
+No re-explaining. No hallucinated conventions. Just a working session from line one.
 
 ---
 
@@ -107,6 +129,23 @@ Python, JavaScript, TypeScript, Go, Rust, PHP, Swift — Lytos is language-agnos
 
 ---
 
+## Why not just a CLAUDE.md?
+
+A single context file is a good start. Lytos is what comes next:
+
+| | Single file | Lytos |
+|---|---|---|
+| Project intent | Inline text | Structured `manifest.md` |
+| Conventions | Mixed into one file | Versioned `rules/` |
+| Procedures | Absent or repeated | Reusable `skills/` |
+| Sprint tracking | None | `issue-board/` with CLI |
+| Accumulated knowledge | None | Growing `memory/` |
+| AI tool portability | Tied to one format | Adapter per tool, method is shared |
+
+The single file tells the AI what you are. Lytos tells it what to do, how to do it, and what was learned doing it.
+
+---
+
 ## 3 adoption levels
 
 ### Level 1 — The minimum (5 minutes)
@@ -129,9 +168,19 @@ Use the **issue-board**, the **sprint** and the **orchestrator**. Manage a struc
 
 ## For teams: consistency that was impossible before
 
-In traditional development, you can't ask 10 developers to code the same way. With AI + Lytos, you can. One manifest, one set of rules, one set of skills — shared by the whole team. The code is produced by the same engine, with the same context.
+In traditional development, you can't make 10 developers write code the same way. With AI + Lytos, you can.
+
+One manifest, one set of rules, one set of skills — committed to the repo, shared by the whole team. Every developer's AI sessions operate from the same foundation. The code is produced by the same engine, with the same context.
+
+**What this means in practice:**
+- A new developer onboards in one session instead of one week
+- Code reviews stop rehashing the same conventions — they're enforced by context
+- When the AI hallucinates a pattern, it gets corrected once in `memory/`, not repeated in every session
+- Project knowledge survives personnel changes, tool migrations, and model upgrades
 
 > *"The developer brainstorms. Lytos harmonizes."*
+
+**For the CTO**: skills, rules, and memory are versioned in Git. They can be reviewed, audited, and approved like any other project file. The foundation that guides your AI is visible, not hidden in private chat histories.
 
 ---
 
@@ -146,6 +195,8 @@ Everything in Lytos is markdown in Git. The AI is an engine. Engines get swapped
 | Context in chat history | Context in versioned files |
 | Workflow tied to one tool | Works with any AI tool |
 | Vendor change = start over | Vendor change = swap engine |
+| Conventions in someone's head | Conventions in auditable files |
+| Knowledge lost between sessions | Knowledge compounds across sprints |
 
 **Your project knowledge belongs to you. Not to a vendor.**
 
@@ -164,6 +215,15 @@ Everything in Lytos is markdown in Git. The AI is an engine. Engines get swapped
 | **deployment** | Pre/post-deploy, observability, SLOs, migrations, incidents |
 | **security** | OWASP Top 10, authentication, authorization, secrets |
 | **api-design** | REST conventions, pagination, error format, rate limiting |
+
+---
+
+## See it in action
+
+Browse working examples with realistic `.lytos/` configurations:
+
+- [React / Next.js app](./examples/app-react/) — TypeScript, Tailwind, Vitest, Playwright
+- [Python API](./examples/api-python/) — FastAPI, SQLAlchemy, pytest
 
 ---
 

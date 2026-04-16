@@ -9,6 +9,10 @@
 
 ---
 
+**En bref** — Ton IA repart de zéro à chaque session. Lytos lui donne une mémoire persistante, des règles, et le bon contexte — dans des fichiers Markdown dans ton repo Git. Une commande pour démarrer. Compatible Claude Code, Cursor, Codex, ou n'importe quel LLM. Zéro vendor lock-in.
+
+---
+
 ## Le problème
 
 Les agents IA sont puissants mais stateless. Chaque session repart de zéro. Ils ne connaissent pas tes conventions, tes priorités de sprint, ni ce qui a été tenté la semaine dernière. Leur donner un persona ne règle pas ça — ça change le ton, pas la qualité.
@@ -27,6 +31,24 @@ lyt init
 Une commande. Ton IA comprend ton projet dès la première session.
 
 > *"L'agile a structuré la collaboration humaine. Lytos structure la collaboration avec l'IA."*
+
+---
+
+## Ce qui change immédiatement
+
+**Sans Lytos**, au début de chaque session :
+```
+Toi : "On utilise Tailwind, pas CSS modules. Et on écrit les tests avant de commiter."
+IA  : "Compris !" (jusqu'à la prochaine session, où elle oublie tout)
+```
+
+**Avec Lytos**, l'IA lit `.lytos/` au démarrage et sait déjà :
+- ce qu'est le projet et ce qu'il cherche à faire
+- quelles conventions, règles et patterns respecter
+- ce qui a été décidé dans les sprints précédents
+- ce qui est en cours
+
+Fini de réexpliquer. Fini des conventions hallucineées. Une vraie session de travail dès la première ligne.
 
 ---
 
@@ -107,6 +129,23 @@ Python, JavaScript, TypeScript, Go, Rust, PHP, Swift — Lytos est language-agno
 
 ---
 
+## Pourquoi pas juste un CLAUDE.md ?
+
+Un fichier de contexte unique, c'est un bon début. Lytos, c'est la suite logique :
+
+| | Fichier unique | Lytos |
+|---|---|---|
+| Intent du projet | Texte libre | `manifest.md` structuré |
+| Conventions | Mélangées dans un seul fichier | `rules/` versionnées |
+| Procédures | Absentes ou répétées | `skills/` réutilisables |
+| Suivi de sprint | Aucun | `issue-board/` + CLI |
+| Savoir accumulé | Aucun | `memory/` qui grandit |
+| Portabilité multi-IA | Liée à un format | Adaptateur par outil, méthode partagée |
+
+Le fichier unique dit à l'IA ce que tu es. Lytos lui dit quoi faire, comment le faire, et ce qu'on a appris en le faisant.
+
+---
+
 ## 3 niveaux d'adoption
 
 ### Niveau 1 — Le minimum (5 minutes)
@@ -129,9 +168,19 @@ Manifest + memory. Ton IA comprend ton projet et se souvient de ce qu'elle appre
 
 ## En équipe : une cohérence impossible avant l'IA
 
-En développement traditionnel, on ne peut pas demander à 10 développeurs de coder pareil. Avec l'IA + Lytos, c'est possible. Un manifest, des rules, des skills — partagés par toute l'équipe. Le code est produit par le même moteur, avec le même contexte.
+En développement traditionnel, on ne peut pas demander à 10 développeurs de coder pareil. Avec l'IA + Lytos, c'est possible.
+
+Un manifest, des rules, des skills — commitées dans le repo, partagés par toute l'équipe. Les sessions IA de chaque développeur partent de la même fondation. Le code est produit par le même moteur, avec le même contexte.
+
+**Ce que ça change concrètement :**
+- Un nouveau développeur monte en compétence en une session au lieu d'une semaine
+- Les code reviews arrêtent de ressasser les mêmes conventions — elles sont imposées par le contexte
+- Quand l'IA hallucine un pattern, on le corrige une fois dans `memory/`, pas à chaque session
+- Le savoir projet survit aux changements d'équipe, aux migrations d'outils, et aux mises à jour de modèles
 
 > *"Le développeur brainstorme. Lytos harmonise."*
+
+**Pour le CTO** : skills, rules et memory sont versionnées dans Git. Elles peuvent être relues, auditées et approuvées comme n'importe quel autre fichier du projet. La fondation qui guide ton IA est visible — pas enfouie dans des historiques de chat privés.
 
 ---
 
@@ -146,6 +195,8 @@ Tout dans Lytos est du markdown dans Git. L'IA est un moteur. Les moteurs se cha
 | Contexte dans l'historique de chat | Contexte dans des fichiers versionnés |
 | Workflow lié à un outil | Fonctionne avec n'importe quel outil IA |
 | Changement de vendor = recommencer | Changement de vendor = changer de moteur |
+| Conventions dans la tête de quelqu'un | Conventions dans des fichiers auditables |
+| Savoir perdu entre les sessions | Savoir qui s'accumule sprint après sprint |
 
 **Ton savoir projet t'appartient. Pas à un vendor.**
 
@@ -167,6 +218,15 @@ Tout dans Lytos est du markdown dans Git. L'IA est un moteur. Les moteurs se cha
 
 ---
 
+## Voir des exemples concrets
+
+Des exemples complets avec des configurations `.lytos/` réalistes :
+
+- [App React / Next.js](../../examples/app-react/) — TypeScript, Tailwind, Vitest, Playwright
+- [API Python](../../examples/api-python/) — FastAPI, SQLAlchemy, pytest
+
+---
+
 ## Principes fondateurs
 
 1. **Le manifest prime.** Tout part de ce que l'humain a défini.
@@ -177,7 +237,7 @@ Tout dans Lytos est du markdown dans Git. L'IA est un moteur. Les moteurs se cha
 6. **Progressif par design.** On commence petit, on ajoute quand on en a besoin.
 7. **La souveraineté par le texte.** Le savoir projet vit dans des fichiers que tu possèdes — pas chez un vendor.
 
-[Lire la philosophie complète → MANIFESTO.md](./MANIFESTE.md)
+[Lire la philosophie complète → MANIFESTE.md](./MANIFESTE.md)
 
 ---
 
