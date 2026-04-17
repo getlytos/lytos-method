@@ -89,6 +89,19 @@ Le CLI donne vie à la méthode :
 
 ## Démarrer
 
+### Option 0 — Tutoriel (apprendre en faisant)
+
+Cloner le projet tutoriel — une todo API pré-configurée avec Lytos, des issues dans chaque statut, et un guide pas-à-pas :
+
+```bash
+npm install -g lytos-cli
+git clone https://github.com/getlytos/lytos-learn.git
+cd lytos-learn
+lyt board
+```
+
+Suivre le [parcours en 7 étapes](https://github.com/getlytos/lytos-learn/blob/main/docs/README-fr.md) et expérimenter le workflow complet en 15 minutes.
+
 ### Option 1 — CLI (recommandé)
 
 ```bash
