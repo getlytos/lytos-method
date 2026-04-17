@@ -5,56 +5,58 @@
 
 > Une méthode humain-IA qui place le contexte au centre — pas les personas.
 
-**[Documentation](https://lytos.org)** · **[CLI sur npm](https://www.npmjs.com/package/lytos-cli)** · **[Read in English](../../README.md)**
+**[Documentation — lytos.org](https://lytos.org/fr/)** · **[CLI sur npm](https://www.npmjs.com/package/lytos-cli)** · **[Read in English](../../README.md)**
 
 ---
 
-**En bref** — Ton IA repart de zéro à chaque session. Lytos lui donne une mémoire persistante, des règles, et le bon contexte — dans des fichiers Markdown dans ton repo Git. Une commande pour démarrer. Compatible Claude Code, Cursor, Codex, ou n'importe quel LLM. Zéro vendor lock-in.
+### Le problème que tout le monde reconnaît
 
----
+Un développeur code avec un agent IA. Il explique sa stack, ses conventions, ses contraintes. L'IA produit du bon code. Session suivante — elle a tout oublié. Il réexplique. Encore. Et encore.
 
-## Le problème
+Alors il essaie un persona : *"Tu es un développeur Senior avec 15 ans d'expérience."* Le ton change. La qualité non. Un costume ne crée pas de la connaissance. C'est le contexte qui en crée.
 
-Les agents IA sont puissants mais stateless. Chaque session repart de zéro. Ils ne connaissent pas tes conventions, tes priorités de sprint, ni ce qui a été tenté la semaine dernière. Leur donner un persona ne règle pas ça — ça change le ton, pas la qualité.
+Le problème n'est pas l'IA. C'est ce que l'IA sait quand elle commence à travailler.
 
-> *"Un agent déguisé en senior dev ne connaît pas ton code. Il connaît le mot 'senior'."*
+> *"Un agent déguisé en senior dev ne connaît pas votre code. Il connaît le mot 'senior'."*
 
-## La réponse
+### Et si l'IA se souvenait ?
 
-**Lytos** donne à ton IA un contexte structuré qui persiste : ce qu'est le projet, comment travailler, ce que "fini" signifie, ce qui est en cours, et ce qu'on a appris. Tout en markdown, dans ton repo Git. Pas de vendor lock-in, pas d'API, pas de compte.
+Chaque session commence avec la constitution du projet, les conventions de l'équipe, les décisions passées, le sprint en cours — chargés automatiquement, depuis des fichiers qui vivent dans le dépôt Git.
+
+C'est Lytos. Pas un outil IA de plus. Une **méthode** qui structure ce dont n'importe quel agent IA a besoin pour faire son meilleur travail.
 
 ```bash
 npm install -g lytos-cli
 lyt init
 ```
 
-Une commande. Ton IA comprend ton projet dès la première session.
+Une commande. L'IA comprend le projet dès la première session.
 
 > *"L'agile a structuré la collaboration humaine. Lytos structure la collaboration avec l'IA."*
 
 ---
 
-## Ce qui change immédiatement
+### Ce qui change immédiatement
 
-**Sans Lytos**, au début de chaque session :
+**Sans Lytos :**
 ```
-Toi : "On utilise Tailwind, pas CSS modules. Et on écrit les tests avant de commiter."
+Dev : "On utilise Tailwind, pas CSS modules. Et on écrit les tests avant de commiter."
 IA  : "Compris !" (jusqu'à la prochaine session, où elle oublie tout)
 ```
 
-**Avec Lytos**, l'IA lit `.lytos/` au démarrage et sait déjà :
-- ce qu'est le projet et ce qu'il cherche à faire
-- quelles conventions, règles et patterns respecter
-- ce qui a été décidé dans les sprints précédents
-- ce qui est en cours
+**Avec Lytos :**
+```
+L'IA lit .lytos/ au démarrage → stack, conventions, sprint, décisions passées.
+Fini de réexpliquer. Une vraie session de travail dès la première ligne.
+```
 
-Fini de réexpliquer. Fini des conventions hallucineées. Une vraie session de travail dès la première ligne.
+[Découvrir la méthode complète sur lytos.org →](https://lytos.org/fr/)
 
 ---
 
 ## Les 5 piliers
 
-| Pilier | Nom | C'est quoi | Fichier |
+| Pilier | Nom | Description | Fichier |
 |--------|-----|-----------|---------|
 | 1 | **Intent** | La constitution du projet — le pourquoi | `manifest.md` |
 | 2 | **Design** | Les procédures réutilisables — le comment | `skills/` |
@@ -64,6 +66,8 @@ Fini de réexpliquer. Fini des conventions hallucineées. Une vraie session de t
 
 Ces 5 piliers sont la méthode. L'agent IA les lit au début de chaque session et les suit.
 
+[Explorer chaque pilier en détail →](https://lytos.org/fr/method/manifest/)
+
 ---
 
 ## Commandes CLI
@@ -72,13 +76,13 @@ Le CLI donne vie à la méthode :
 
 | Commande | Ce qu'elle fait |
 |----------|----------------|
-| `lyt init` | Génère `.lytos/` dans ton projet (interactif, détecte ta stack) |
+| `lyt init` | Génère `.lytos/` dans un projet (interactif, détecte la stack) |
 | `lyt board` | Régénère le kanban board depuis le frontmatter des issues |
 | `lyt lint` | Valide la structure et le contenu de `.lytos/` |
 | `lyt doctor` | Diagnostic complet — liens cassés, memory obsolète, score de santé |
 | `lyt show [ISS-XXXX]` | Détail d'une issue avec barre de progression |
-| `lyt start ISS-XXXX` | Démarrer une issue — move en in-progress, crée la branche, update le board |
-| `lyt close ISS-XXXX` | Fermer une issue — move en done, update le board |
+| `lyt start ISS-XXXX` | Démarrer une issue — déplace en in-progress, crée la branche, met à jour le board |
+| `lyt close ISS-XXXX` | Fermer une issue — déplace en done, met à jour le board |
 | `lyt update` | Met à jour lytos-cli |
 
 ---
@@ -89,15 +93,15 @@ Le CLI donne vie à la méthode :
 
 ```bash
 npm install -g lytos-cli
-cd ton-projet
+cd mon-projet
 lyt init
 ```
 
-`lyt init` détecte ta stack, pose quelques questions, et génère la structure `.lytos/` complète. Fonctionne avec n'importe quel langage, n'importe quel outil IA.
+`lyt init` détecte la stack, pose quelques questions, et génère la structure `.lytos/` complète. Fonctionne avec n'importe quel langage, n'importe quel outil IA.
 
 ### Option 2 — Template starter (sans terminal)
 
-Utilise le [template starter](https://github.com/getlytos/starter) → clique **"Use this template"** sur GitHub → ouvre dans Claude Code ou Codex → dis **"Aide-moi à configurer Lytos."**
+Utiliser le [template starter](https://github.com/getlytos/starter) → cliquer **"Use this template"** sur GitHub → ouvrir dans Claude Code ou Codex → dire **"Aide-moi à configurer Lytos."**
 
 ### Option 3 — Installation manuelle
 
@@ -105,8 +109,6 @@ Utilise le [template starter](https://github.com/getlytos/starter) → clique **
 curl -fsSL https://raw.githubusercontent.com/getlytos/lytos-method/main/install.sh -o install.sh
 bash install.sh
 ```
-
-Puis ouvre ton outil IA et dis-lui : **"Lis .lytos/manifest.md et aide-moi à configurer ce projet."**
 
 ---
 
@@ -125,13 +127,11 @@ Python, JavaScript, TypeScript, Go, Rust, PHP, Swift — Lytos est language-agno
 | **Codex (OpenAI)** | `lyt init` génère `agents.md` |
 | **Autres** | Le markdown est universel — tout LLM peut le lire |
 
-> *"Choisis ton IA. Ne lui appartiens pas."*
-
 ---
 
 ## Pourquoi pas juste un CLAUDE.md ?
 
-Un fichier de contexte unique, c'est un bon début. Lytos, c'est la suite logique :
+Un fichier de contexte unique est un bon début. Lytos est la suite logique :
 
 | | Fichier unique | Lytos |
 |---|---|---|
@@ -142,7 +142,7 @@ Un fichier de contexte unique, c'est un bon début. Lytos, c'est la suite logiqu
 | Savoir accumulé | Aucun | `memory/` qui grandit |
 | Portabilité multi-IA | Liée à un format | Adaptateur par outil, méthode partagée |
 
-Le fichier unique dit à l'IA ce que tu es. Lytos lui dit quoi faire, comment le faire, et ce qu'on a appris en le faisant.
+Un fichier unique dit à l'IA ce qu'est le projet. Lytos lui dit quoi faire, comment le faire, et ce qu'on a appris en le faisant.
 
 ---
 
@@ -150,17 +150,17 @@ Le fichier unique dit à l'IA ce que tu es. Lytos lui dit quoi faire, comment le
 
 ### Niveau 1 — Le minimum (5 minutes)
 
-Manifest + memory. Ton IA comprend ton projet et se souvient de ce qu'elle apprend.
+Manifest + memory. L'IA comprend le projet et se souvient de ce qu'elle apprend.
 
 ### Niveau 2 — La qualité (30 minutes)
 
-+ rules + skills. Ton IA suit des procédures précises et respecte des critères de qualité.
+Ajouter rules et skills. L'IA suit des procédures précises et respecte des critères de qualité.
 
 > *"Ce qui ne se vérifie pas ne se respecte pas."*
 
 ### Niveau 3 — La méthode complète (1 heure)
 
-+ issue-board + sprint + orchestrateur. Tu gères un vrai projet structuré avec des agents coordonnés.
+Issue board, sprint et orchestrateur. Un projet structuré avec des agents coordonnés.
 
 > *"Un projet sans process est une conversation. Pas une livraison."*
 
@@ -168,27 +168,27 @@ Manifest + memory. Ton IA comprend ton projet et se souvient de ce qu'elle appre
 
 ## En équipe : une cohérence impossible avant l'IA
 
-En développement traditionnel, on ne peut pas demander à 10 développeurs de coder pareil. Avec l'IA + Lytos, c'est possible.
+En développement traditionnel, 10 développeurs produisent 10 styles différents. Avec l'IA + Lytos, un manifest, un jeu de rules, un jeu de skills — committés dans le repo, partagés par toute l'équipe. Chaque session IA part de la même fondation.
 
-Un manifest, des rules, des skills — commitées dans le repo, partagés par toute l'équipe. Les sessions IA de chaque développeur partent de la même fondation. Le code est produit par le même moteur, avec le même contexte.
-
-**Ce que ça change concrètement :**
+Ce que ça change concrètement :
 - Un nouveau développeur monte en compétence en une session au lieu d'une semaine
 - Les code reviews arrêtent de ressasser les mêmes conventions — elles sont imposées par le contexte
-- Quand l'IA hallucine un pattern, on le corrige une fois dans `memory/`, pas à chaque session
+- Quand l'IA hallucine un pattern, il est corrigé une fois dans `memory/`, pas à chaque session
 - Le savoir projet survit aux changements d'équipe, aux migrations d'outils, et aux mises à jour de modèles
 
 > *"Le développeur brainstorme. Lytos harmonise."*
 
-**Pour le CTO** : skills, rules et memory sont versionnées dans Git. Elles peuvent être relues, auditées et approuvées comme n'importe quel autre fichier du projet. La fondation qui guide ton IA est visible — pas enfouie dans des historiques de chat privés.
+Skills, rules et memory sont versionnées dans Git. Elles peuvent être relues, auditées et approuvées comme n'importe quel autre fichier du projet. La fondation qui guide l'IA est visible — pas enfouie dans des historiques de chat privés.
+
+[Guide équipes et formateurs →](https://lytos.org/fr/philosophy/trainers/)
 
 ---
 
-## Souveraineté — pourquoi c'est important
+## Un projet ne devrait pas dépendre d'un modèle
 
-GPT-4 → GPT-4o → o1 → o3. Claude 2 → 3 → 3.5 → 4. Les modèles changent tous les 3-6 mois. Sans structure portable, chaque changement = recommencer.
+Claude aujourd'hui. GPT demain. Gemini le mois prochain. Les modèles changent tous les 3-6 mois — les APIs évoluent, les prix bougent, des fonctionnalités disparaissent. Quand le contexte projet vit dans l'historique de chat d'un fournisseur, chaque changement signifie recommencer à zéro.
 
-Tout dans Lytos est du markdown dans Git. L'IA est un moteur. Les moteurs se changent. La fondation est ce qui persiste.
+Tout dans Lytos est du **Markdown dans Git**. Le manifest, les rules, la memory — des fichiers texte que l'équipe possède, versionne, relit et migre librement. L'IA est un moteur. Les moteurs se changent. La fondation reste.
 
 | Sans Lytos | Avec Lytos |
 |---|---|
@@ -198,7 +198,9 @@ Tout dans Lytos est du markdown dans Git. L'IA est un moteur. Les moteurs se cha
 | Conventions dans la tête de quelqu'un | Conventions dans des fichiers auditables |
 | Savoir perdu entre les sessions | Savoir qui s'accumule sprint après sprint |
 
-**Ton savoir projet t'appartient. Pas à un vendor.**
+> *"Choisissez votre IA. Ne lui appartenez pas."*
+
+[En savoir plus sur la souveraineté →](https://lytos.org/fr/philosophy/sovereignty/)
 
 ---
 
@@ -218,15 +220,6 @@ Tout dans Lytos est du markdown dans Git. L'IA est un moteur. Les moteurs se cha
 
 ---
 
-## Voir des exemples concrets
-
-Des exemples complets avec des configurations `.lytos/` réalistes :
-
-- [App React / Next.js](../../examples/app-react/) — TypeScript, Tailwind, Vitest, Playwright
-- [API Python](../../examples/api-python/) — FastAPI, SQLAlchemy, pytest
-
----
-
 ## Principes fondateurs
 
 1. **Le manifest prime.** Tout part de ce que l'humain a défini.
@@ -235,36 +228,23 @@ Des exemples complets avec des configurations `.lytos/` réalistes :
 4. **Le contrôle est humain.** Les agents exécutent. L'humain valide et oriente.
 5. **Complémentarité, pas mimétisme.** L'IA n'est pas un humain dématérialisé.
 6. **Progressif par design.** On commence petit, on ajoute quand on en a besoin.
-7. **La souveraineté par le texte.** Le savoir projet vit dans des fichiers que tu possèdes — pas chez un vendor.
+7. **La souveraineté par le texte.** Le savoir projet vit dans des fichiers que l'équipe possède — pas chez un fournisseur.
 
 [Lire la philosophie complète → MANIFESTE.md](./MANIFESTE.md)
 
 ---
 
-## Liens
-
-- **Documentation** — [lytos.org](https://lytos.org)
-- **CLI** — [npmjs.com/package/lytos-cli](https://www.npmjs.com/package/lytos-cli)
-- **Code source CLI** — [github.com/getlytos/lytos-cli](https://github.com/getlytos/lytos-cli)
-
----
-
 ## Auteur
 
-Créé par **Frederic Galliné** — [ubeez.com](https://ubeez.com)
+Créé par **Frederic Galliné**
 
 - GitHub : [@FredericGalline](https://github.com/FredericGalline)
 - X : [@fred](https://x.com/fred)
-- Email : frederic@galline.fr
 
-Questions, retours, idées ? Ouvre une [Discussion](https://github.com/getlytos/lytos-method/discussions) ou contacte-moi directement.
+Questions, retours, idées ? Ouvrir une [Discussion](https://github.com/getlytos/lytos-method/discussions).
 
 ---
 
 ## Licence
 
 MIT — voir [LICENSE](../../LICENSE)
-
----
-
-*"Le role-play ne remplace pas le contexte."*

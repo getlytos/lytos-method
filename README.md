@@ -5,50 +5,52 @@
 
 > A human-first method for working with AI agents. Context, not costumes.
 
-**[Documentation](https://lytos.org)** · **[CLI on npm](https://www.npmjs.com/package/lytos-cli)** · **[Lire en français](./docs/fr/README.md)**
+**[Documentation — lytos.org](https://lytos.org)** · **[CLI on npm](https://www.npmjs.com/package/lytos-cli)** · **[Lire en français](./docs/fr/README.md)**
 
 ---
 
-**TL;DR** — Your AI resets every session. Lytos gives it a persistent memory, a set of rules, and the right context — in plain Markdown files, in your Git repo. One command to set up. Works with Claude Code, Cursor, Codex, or any LLM. No vendor lock-in.
+### The problem everyone recognizes
 
----
+A developer codes with an AI agent. They explain the stack, the conventions, the constraints. The AI produces great code. Next session — it forgot everything. They explain again. And again.
 
-## The problem
+Then they try a persona: *"You are a Senior Developer with 15 years of experience."* The tone changes. The quality doesn't. A costume doesn't create knowledge. Context does.
 
-AI agents are powerful but stateless. Every session starts from zero. They don't know your conventions, your sprint priorities, or what was tried last week. Giving them a persona doesn't fix this — it changes the tone, not the quality.
+The problem isn't the AI. It's what the AI knows when it starts working.
 
 > *"An agent dressed as a senior dev doesn't know your code. It knows the word 'senior'."*
 
-## The answer
+### What if the AI remembered?
 
-**Lytos** gives your AI structured context that persists: what the project is, how to work, what "done" means, what's in progress, and what's been learned. Everything in markdown, in your Git repo. No vendor lock-in, no API, no account.
+Every session starts with the project's constitution, the team's conventions, past decisions, the current sprint — loaded automatically, from files that live in the Git repo.
+
+That's Lytos. Not another AI tool. A **method** that structures what any AI agent needs to do its best work.
 
 ```bash
 npm install -g lytos-cli
 lyt init
 ```
 
-One command. Your AI understands your project from the first session.
+One command. The AI understands the project from the first session.
 
 > *"Agile structured human collaboration. Lytos structures collaboration with AI."*
 
 ---
 
-## What changes immediately
+### What changes immediately
 
-**Without Lytos**, at the start of every session:
+**Without Lytos:**
 ```
-You: "We use Tailwind, not CSS modules. And we write tests before committing."
+Dev: "We use Tailwind, not CSS modules. And we write tests before committing."
 AI:  "Got it!" (until the next session, when it forgets again)
 ```
 
-**With Lytos**, the AI reads `.lytos/` at startup and already knows:
-- what the project is and what it's trying to do
-- which conventions, rules, and patterns to follow
-- what was decided in previous sprints
-- what's currently in progress
+**With Lytos:**
+```
+The AI reads .lytos/ at startup → stack, conventions, sprint, past decisions.
+No re-explaining. A real working session from line one.
+```
 
-No re-explaining. No hallucinated conventions. Just a working session from line one.
+[See the full method on lytos.org →](https://lytos.org)
 
 ---
 
@@ -62,7 +64,9 @@ No re-explaining. No hallucinated conventions. Just a working session from line 
 | 4 | **Progress** | Issues and sprint — what's moving | `issue-board/` |
 | 5 | **Memory** | Persistent knowledge — what we learned | `memory/` |
 
-These 5 pillars are the method. The AI agent reads them at the start of each session and follows them.
+These 5 pillars are the method. The AI reads them at the start of each session and follows them.
+
+[Explore each pillar in detail →](https://lytos.org/en/method/manifest/)
 
 ---
 
@@ -72,7 +76,7 @@ The CLI brings the method to life:
 
 | Command | What it does |
 |---------|-------------|
-| `lyt init` | Scaffold `.lytos/` in your project (interactive, detects your stack) |
+| `lyt init` | Scaffold `.lytos/` in a project (interactive, detects the stack) |
 | `lyt board` | Regenerate the kanban board from issue frontmatter |
 | `lyt lint` | Validate `.lytos/` structure and content |
 | `lyt doctor` | Full diagnostic — broken links, stale memory, health score |
@@ -89,11 +93,11 @@ The CLI brings the method to life:
 
 ```bash
 npm install -g lytos-cli
-cd your-project
+cd my-project
 lyt init
 ```
 
-`lyt init` detects your stack, asks a few questions, and generates the full `.lytos/` structure. Works with any language, any AI tool.
+`lyt init` detects the stack, asks a few questions, and generates the full `.lytos/` structure. Works with any language, any AI tool.
 
 ### Option 2 — Starter template (no terminal needed)
 
@@ -105,8 +109,6 @@ Use the [starter template](https://github.com/getlytos/starter) → click **"Use
 curl -fsSL https://raw.githubusercontent.com/getlytos/lytos-method/main/install.sh -o install.sh
 bash install.sh
 ```
-
-Then open your AI tool and say: **"Read .lytos/manifest.md and help me configure this project."**
 
 ---
 
@@ -125,8 +127,6 @@ Python, JavaScript, TypeScript, Go, Rust, PHP, Swift — Lytos is language-agnos
 | **Codex (OpenAI)** | `lyt init` generates `agents.md` |
 | **Others** | Markdown is universal — any LLM can read it |
 
-> *"Choose your AI. Don't belong to it."*
-
 ---
 
 ## Why not just a CLAUDE.md?
@@ -140,9 +140,9 @@ A single context file is a good start. Lytos is what comes next:
 | Procedures | Absent or repeated | Reusable `skills/` |
 | Sprint tracking | None | `issue-board/` with CLI |
 | Accumulated knowledge | None | Growing `memory/` |
-| AI tool portability | Tied to one format | Adapter per tool, method is shared |
+| AI tool portability | Tied to one format | Adapter per tool, shared method |
 
-The single file tells the AI what you are. Lytos tells it what to do, how to do it, and what was learned doing it.
+A single file tells the AI what the project is. Lytos tells it what to do, how to do it, and what was learned doing it.
 
 ---
 
@@ -150,17 +150,17 @@ The single file tells the AI what you are. Lytos tells it what to do, how to do 
 
 ### Level 1 — The minimum (5 minutes)
 
-Fill in your **manifest** and initialize your **memory**. Your AI understands your project and remembers what it learns.
+Manifest + memory. The AI understands the project and remembers what it learns.
 
 ### Level 2 — Quality (30 minutes)
 
-Add **rules** and load **skills**. Your AI follows precise procedures and respects quality criteria.
+Add rules and skills. The AI follows precise procedures and respects quality criteria.
 
 > *"What can't be verified won't be respected."*
 
 ### Level 3 — The full method (1 hour)
 
-Use the **issue-board**, the **sprint** and the **orchestrator**. Manage a structured project with coordinated agents.
+Issue board, sprint, and orchestrator. A structured project with coordinated agents.
 
 > *"A project without process is a conversation. Not a delivery."*
 
@@ -168,27 +168,27 @@ Use the **issue-board**, the **sprint** and the **orchestrator**. Manage a struc
 
 ## For teams: consistency that was impossible before
 
-In traditional development, you can't make 10 developers write code the same way. With AI + Lytos, you can.
+In traditional development, 10 developers produce 10 different styles. With AI + Lytos, one manifest, one set of rules, one set of skills — committed to the repo, shared by the whole team. Every AI session operates from the same foundation.
 
-One manifest, one set of rules, one set of skills — committed to the repo, shared by the whole team. Every developer's AI sessions operate from the same foundation. The code is produced by the same engine, with the same context.
-
-**What this means in practice:**
+What this means in practice:
 - A new developer onboards in one session instead of one week
-- Code reviews stop rehashing the same conventions — they're enforced by context
-- When the AI hallucinates a pattern, it gets corrected once in `memory/`, not repeated in every session
+- Code reviews stop rehashing conventions — they're enforced by context
+- When the AI hallucinates a pattern, it gets corrected once in `memory/`, not every session
 - Project knowledge survives personnel changes, tool migrations, and model upgrades
 
 > *"The developer brainstorms. Lytos harmonizes."*
 
-**For the CTO**: skills, rules, and memory are versioned in Git. They can be reviewed, audited, and approved like any other project file. The foundation that guides your AI is visible, not hidden in private chat histories.
+Skills, rules, and memory are versioned in Git. They can be reviewed, audited, and approved like any other project file. The foundation that guides the AI is visible — not hidden in private chat histories.
+
+[Teams & trainers guide →](https://lytos.org/en/philosophy/trainers/)
 
 ---
 
-## Sovereignty — why it matters
+## A project shouldn't depend on a model
 
-GPT-4 → GPT-4o → o1 → o3. Claude 2 → 3 → 3.5 → 4. Models change every 3-6 months. Without portable structure, every change means starting over.
+Claude today. GPT tomorrow. Gemini next month. Models change every 3-6 months — APIs evolve, prices shift, features disappear. When project context lives in a vendor's chat history, every change means starting over.
 
-Everything in Lytos is markdown in Git. The AI is an engine. Engines get swapped. The foundation is what persists.
+Everything in Lytos is **Markdown in Git**. The manifest, the rules, the memory — plain text files the team owns, versions, reviews, and migrates freely. The AI is an engine. Engines get swapped. The foundation stays.
 
 | Without Lytos | With Lytos |
 |---|---|
@@ -198,7 +198,9 @@ Everything in Lytos is markdown in Git. The AI is an engine. Engines get swapped
 | Conventions in someone's head | Conventions in auditable files |
 | Knowledge lost between sessions | Knowledge compounds across sprints |
 
-**Your project knowledge belongs to you. Not to a vendor.**
+> *"Choose your AI. Don't belong to it."*
+
+[Read more about sovereignty →](https://lytos.org/en/philosophy/sovereignty/)
 
 ---
 
@@ -218,15 +220,6 @@ Everything in Lytos is markdown in Git. The AI is an engine. Engines get swapped
 
 ---
 
-## See it in action
-
-Browse working examples with realistic `.lytos/` configurations:
-
-- [React / Next.js app](./examples/app-react/) — TypeScript, Tailwind, Vitest, Playwright
-- [Python API](./examples/api-python/) — FastAPI, SQLAlchemy, pytest
-
----
-
 ## Founding principles
 
 1. **The manifest comes first.** Everything starts from what the human defined.
@@ -235,36 +228,23 @@ Browse working examples with realistic `.lytos/` configurations:
 4. **Control is human.** Agents execute. The human validates and steers.
 5. **Complement, don't mimic.** AI is not a virtual human.
 6. **Progressive by design.** Start small, add when needed.
-7. **Sovereignty through text.** Project knowledge lives in files you own — not inside a vendor.
+7. **Sovereignty through text.** Project knowledge lives in files the team owns — not inside a vendor.
 
 [Read the full philosophy → MANIFESTO.md](./MANIFESTO.md)
 
 ---
 
-## Links
-
-- **Documentation** — [lytos.org](https://lytos.org)
-- **CLI** — [npmjs.com/package/lytos-cli](https://www.npmjs.com/package/lytos-cli)
-- **CLI source** — [github.com/getlytos/lytos-cli](https://github.com/getlytos/lytos-cli)
-
----
-
 ## Author
 
-Created by **Frederic Galliné** — [ubeez.com](https://ubeez.com)
+Created by **Frederic Galliné**
 
 - GitHub: [@FredericGalline](https://github.com/FredericGalline)
 - X: [@fred](https://x.com/fred)
-- Email: frederic@galline.fr
 
-Questions, feedback, ideas? Open a [Discussion](https://github.com/getlytos/lytos-method/discussions) or reach out directly.
+Questions, feedback, ideas? Open a [Discussion](https://github.com/getlytos/lytos-method/discussions).
 
 ---
 
 ## License
 
 MIT — see [LICENSE](./LICENSE)
-
----
-
-*"Role-play doesn't replace context."*
