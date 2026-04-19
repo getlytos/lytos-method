@@ -1,0 +1,41 @@
+name: Check starter sync
+
+on:
+  push:
+    paths:
+      - 'LYTOS.md'
+      - 'rules/default-rules.md'
+      - 'starter/.lytos/LYTOS.md'
+      - 'starter/.lytos/rules/default-rules.md'
+  pull_request:
+    paths:
+      - 'LYTOS.md'
+      - 'rules/default-rules.md'
+      - 'starter/.lytos/LYTOS.md'
+      - 'starter/.lytos/rules/default-rules.md'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check LYTOS.md is in sync
+        run: |
+          if ! diff LYTOS.md starter/.lytos/LYTOS.md > /dev/null 2>&1; then
+            echo "❌ starter/.lytos/LYTOS.md is out of sync with LYTOS.md"
+            echo "Run: bash scripts/sync-starter.sh"
+            diff LYTOS.md starter/.lytos/LYTOS.md || true
+            exit 1
+          fi
+          echo "✓ LYTOS.md in sync"
+
+      - name: Check default-rules.md is in sync
+        run: |
+          if ! diff rules/default-rules.md starter/.lytos/rules/default-rules.md > /dev/null 2>&1; then
+            echo "❌ starter/.lytos/rules/default-rules.md is out of sync"
+            echo "Run: bash scripts/sync-starter.sh"
+            diff rules/default-rules.md starter/.lytos/rules/default-rules.md || true
+            exit 1
+          fi
+          echo "✓ default-rules.md in sync"
