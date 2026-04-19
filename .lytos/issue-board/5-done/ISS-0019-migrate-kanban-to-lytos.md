@@ -6,10 +6,11 @@ priority: P2-normal
 effort: S
 complexity: light
 skill: code-structure
-status: 3-in-progress
+status: 5-done
 branch: chore/ISS-0019-migrate-kanban-to-lytos
 depends: []
 created: 2026-04-19
+updated: 2026-04-19
 ---
 # ISS-0019 — Migrate method's own kanban from issue-board/ to .lytos/
 
