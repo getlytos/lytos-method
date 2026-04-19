@@ -95,7 +95,7 @@ An adapter bridges Lytos and an AI tool. To propose a new adapter:
 
 ### Process
 
-1. Create the folder `adapters/[tool-name]/`
+1. Create the folder `docs/en/adapters/[tool-name]/`
 2. Place a complete `README.md` in it
 3. Submit a PR
 

@@ -79,7 +79,9 @@ Le manifest est la source de vérité. Pas les agents.
 
 ---
 
-## V. Les quatre piliers
+## V. Les cinq piliers
+
+Lytos s'organise autour de cinq piliers nommés — **Intent**, **Design**, **Standards**, **Progress**, **Memory** — chacun matérialisé par un fichier ou un dossier dans chaque projet. Ils sont présentés ici par leur nom opérationnel (Manifest, Skills, Rules, Progress, Memory) parce que c'est ainsi que les agents et les humains les rencontrent au quotidien.
 
 ### Skills — le savoir-faire capitalisé
 
@@ -94,6 +96,14 @@ Ce sont des process réutilisables, versionnés, auditables. Ils s'enrichissent 
 Les rules définissent ce que "bien fait" signifie dans ce projet.
 
 Fichiers sous 300 lignes. PHPDoc systématique. Couverture de tests minimum 80%. Pas de couleurs en dur dans les composants. Ces règles ne sont pas génériques — elles sont spécifiques au projet, définies par l'humain, et elles ne changent pas selon l'agent qui travaille.
+
+### Progress — l'état visible du travail
+
+L'issue-board est l'état opérationnel du projet. Chaque tâche est un fichier. Chaque fichier porte un frontmatter YAML avec son statut, son skill, ses dépendances et sa checklist. Le dossier dans lequel le fichier se trouve reflète son statut — les issues sont physiquement déplacées du backlog au done à mesure qu'elles avancent.
+
+Progress n'est pas un rapport. C'est l'état réel du projet, versionné dans git, diffable, révisable. Un agent qui lit le board sait exactement ce qui avance, ce qui est bloqué, ce qui suit — pas parce qu'un humain l'a résumé, mais parce que le système de fichiers lui-même le garantit.
+
+La source de vérité est le frontmatter, pas le dashboard. On ne peut pas falsifier le progrès en déplaçant une carte.
 
 ### Memory — le cerveau persistant
 

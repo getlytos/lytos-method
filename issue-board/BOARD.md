@@ -25,7 +25,6 @@
 | [ISS-0015](1-backlog/ISS-0015-improve-issue-format.md) | Improve issue format — sequential checklists and incomplete status | P1-high | S | — |
 | [ISS-0016](1-backlog/ISS-0016-multi-repo-convention.md) | Document multi-repo convention — one issue per repo, independent numbering | P1-high | S | — |
 | [ISS-0017](1-backlog/ISS-0017-token-optimization.md) | Optimize token usage — index rules, separate sprint history, trim LYTOS.md | P1-high | M | — |
-| [ISS-0018](1-backlog/ISS-0018-reorg-repo-and-pillars.md) | Reorganize repo root — move agents/ and adapters/ into docs/, reference 5 pillars in LYTOS.md and MANIFESTO.md | P1-high | S | — |
 
 ### 2-sprint (committed)
 
@@ -49,6 +48,7 @@ _No issues._
 | [ISS-0002](5-done/ISS-0002-remplir-manifest.md) | Fill in the project manifest | YYYY-MM-DD |
 | [ISS-0007](5-done/ISS-0007-rename-github-org.md) | Create GitHub organization getlytos | 2026-04-14 |
 | [ISS-0008](5-done/ISS-0008-create-repos.md) | Create repositories under getlytos | 2026-04-14 |
+| [ISS-0018](5-done/ISS-0018-reorg-repo-and-pillars.md) | Reorganize repo root — move agents/ and adapters/ into docs/, reference 5 pillars in LYTOS.md and MANIFESTO.md | 2026-04-18 |
 
 ---
 

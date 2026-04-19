@@ -26,19 +26,24 @@ Your AI now understands your project, follows your procedures, and remembers wha
 
 ## What's inside
 
+Lytos is organized around **5 pillars**. The starter contains all of them, plus a few supporting files.
+
 ```
 .lytos/
-├── LYTOS.md              <- AI briefing (read once)
-├── manifest.md           <- your project's constitution (fill this first)
-├── memory/
-│   ├── MEMORY.md         <- memory index
-│   └── cortex/           <- specialized zones (fill as you work)
-├── skills/               <- 7 operational skills
-├── rules/                <- quality criteria
-├── issue-board/          <- Kanban board (folder = status)
-├── templates/            <- sprint template
-└── scripts/              <- automation (generate-board.py)
+├── manifest.md           <- PILLAR 1 · Intent     — your project's constitution (fill this first)
+├── skills/               <- PILLAR 2 · Design     — 7 operational skills
+├── rules/                <- PILLAR 3 · Standards  — quality criteria
+├── issue-board/          <- PILLAR 4 · Progress   — Kanban board (folder = status)
+├── memory/               <- PILLAR 5 · Memory     — persistent knowledge
+│   ├── MEMORY.md         ·    memory index
+│   └── cortex/           ·    specialized zones (fill as you work)
+│
+├── LYTOS.md              <- AI briefing (read once, not a pillar)
+├── templates/            <- sprint template (supporting material)
+└── scripts/              <- automation like generate-board.py (supporting material)
 ```
+
+The 5 pillars are the method. `LYTOS.md`, `templates/`, and `scripts/` are supporting material that makes the method operational day to day.
 
 ---
 

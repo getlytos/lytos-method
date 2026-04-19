@@ -8,6 +8,20 @@
 
 Lytos is a human-AI working method. It replaces agent "personas" (LeadDev, UX Expert...) with operational procedures (skills), quality criteria (rules), and persistent memory (memory). The human is the architect, the AI executes within the defined framework.
 
+## The 5 pillars
+
+Lytos is organized around five named pillars. Every project contains all five, each materialized as a file or directory.
+
+| Pillar | Name | Purpose | Directory |
+|--------|------|---------|-----------|
+| 1 | **Intent** | The project's constitution — why it exists | `manifest.md` |
+| 2 | **Design** | Procedures for recurring tasks | `skills/` |
+| 3 | **Standards** | Non-negotiable quality criteria | `rules/` |
+| 4 | **Progress** | What's moving, what's blocked | `issue-board/` |
+| 5 | **Memory** | Accumulated knowledge, sovereign and portable | `memory/` |
+
+These 5 pillars are the method. Everything else (agent documentation, tool adapters, scripts, templates) is supporting material.
+
 ## Files and their roles
 
 | File | Role | When to read it |
