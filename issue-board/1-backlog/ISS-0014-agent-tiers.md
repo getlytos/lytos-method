@@ -148,7 +148,7 @@ With:
 - [ ] Create `.lytos/models.yml` with default mappings
 - [ ] Document agent tiers in README and docs
 - [ ] Update MANIFESTO.md — replace "no sub-agents" with calibration language
-- [ ] Update adapters/ to show how agents map to Claude Code, Cursor, OpenAI
+- [ ] Update docs/en/adapters/ to show how agents map to Claude Code, Cursor, OpenAI
 - [ ] Add agents to starter template
 
 ### CLI repo (lytos-cli)

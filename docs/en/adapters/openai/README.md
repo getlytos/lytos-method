@@ -173,7 +173,7 @@ response = client.chat.completions.create(
 
 ## Orchestration multi-agents
 
-Pour paralléliser des tâches (comme décrit dans `agents/orchestrator.md`), lancer plusieurs appels API en parallèle :
+Pour paralléliser des tâches (comme décrit dans `docs/en/agents/orchestrator.md`), lancer plusieurs appels API en parallèle :
 
 ```python
 import asyncio

@@ -79,7 +79,9 @@ The manifest is the source of truth. Not the agents.
 
 ---
 
-## V. The four pillars
+## V. The five pillars
+
+Lytos is organized around five named pillars — **Intent**, **Design**, **Standards**, **Progress**, **Memory** — each materialized as a file or directory in every project. They are introduced here by their operational names (Manifest, Skills, Rules, Progress, Memory) because that is how agents and humans encounter them day to day.
 
 ### Skills — capitalized know-how
 
@@ -94,6 +96,14 @@ These are reusable, versioned, auditable processes. They grow richer with projec
 Rules define what "well done" means in this project.
 
 Files under 300 lines. Systematic PHPDoc. Minimum 80% test coverage. No hardcoded colors in components. These rules are not generic — they are project-specific, defined by the human, and they do not change depending on which agent is working.
+
+### Progress — the visible state of work
+
+The issue-board is the project's operational state. Every task is a file. Every file carries a YAML frontmatter with its status, skill, dependencies, and checklist. The folder the file lives in mirrors its status — issues are physically moved from backlog to done as they advance.
+
+Progress is not a report. It is the project's actual state, versioned in git, diffable, reviewable. An agent reading the board knows exactly what is moving, what is blocked, and what is next — not because a human summarized it, but because the file system itself enforces it.
+
+The source of truth is the frontmatter, not the dashboard. You cannot fake progress by moving a card.
 
 ### Memory — the persistent brain
 

@@ -31,7 +31,7 @@ Les adapters documentent comment configurer chaque outil pour qu'il charge et re
 
 Pour ajouter un adapter pour un nouvel outil IA :
 
-1. Créer un dossier `adapters/[nom-de-loutil]/`
+1. Créer un dossier `docs/en/adapters/[nom-de-loutil]/`
 2. Y placer un `README.md` qui explique :
    - Comment configurer l'outil pour charger le manifest + memory au démarrage
    - Comment invoquer un skill explicitement

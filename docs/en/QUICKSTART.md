@@ -52,7 +52,7 @@ If you prefer doing it manually, open `.lytos/manifest.md` and fill these 4 sect
 
 If you used the install script, memory is initialized and your AI tool is configured. Everything is ready.
 
-If you used the submodule, initialize the memory and create the connection file for your tool (see the adapters/ folder).
+If you used the submodule, initialize the memory and create the connection file for your tool (see `docs/en/adapters/`).
 
 ---
 

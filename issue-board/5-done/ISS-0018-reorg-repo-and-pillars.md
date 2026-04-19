@@ -6,10 +6,11 @@ priority: P1-high
 effort: S
 complexity: standard
 skill: documentation
-status: 1-backlog
+status: 5-done
 branch: "chore/ISS-0018-reorg-repo-and-pillars"
 depends: []
 created: 2026-04-18
+updated: 2026-04-18
 ---
 
 # ISS-0018 — Reorganize repo root — move agents/ and adapters/ into docs/, reference 5 pillars in LYTOS.md and MANIFESTO.md
@@ -39,19 +40,19 @@ This issue was originally filed as `lytos-cli/ISS-0016` but misplaced — all th
 ## Checklist
 
 ### Reorganize repo root
-- [ ] Move `agents/` → `docs/en/agents/` (documentation, not a pillar)
-- [ ] Move `adapters/` → `docs/en/adapters/` (per-tool guides, not a pillar)
-- [ ] Grep for internal links pointing to `agents/` and `adapters/` and update them
-- [ ] Update README.md (EN and FR) if they reference the moved folders
+- [x] Move `agents/` → `docs/en/agents/` (documentation, not a pillar)
+- [x] Move `adapters/` → `docs/en/adapters/` (per-tool guides, not a pillar)
+- [x] Grep for internal links pointing to `agents/` and `adapters/` and update them (fixed: CONTRIBUTING.md, docs/en/QUICKSTART.md, docs/en/adapters/README.md, docs/en/adapters/openai/README.md, ISS-0014)
+- [x] Update README.md (EN and FR) if they reference the moved folders (no references to update)
 
 ### Reference the 5 pillars in the installed method files
-- [ ] Add a "The 5 pillars" section in `LYTOS.md` (becomes visible in every `.lytos/` installed)
-- [ ] Reference the 5 pillars by name in `MANIFESTO.md`
-- [ ] Same in `MANIFESTE.md` (French) if it exists
+- [x] Add a "The 5 pillars" section in `LYTOS.md` (becomes visible in every `.lytos/` installed)
+- [x] Reference the 5 pillars by name in `MANIFESTO.md` (section V renamed "four" → "five pillars", Progress subsection added)
+- [x] Same in `MANIFESTE.md` (French) — section V translated and updated
 
 ### Starter verification
-- [ ] `starter/.lytos/` already contains the 5 pillar dirs + `LYTOS.md` + `scripts/` + `templates/` — confirm scripts/ and templates/ belong (or document why)
-- [ ] Update `starter/README.md` to explicitly name the 5 pillars
+- [x] `starter/.lytos/` already contains the 5 pillar dirs + `LYTOS.md` + `scripts/` + `templates/` — confirmed: LYTOS.md, scripts/, templates/ are supporting material, not pillars, and kept for operational convenience
+- [x] Update `starter/README.md` to explicitly name the 5 pillars (tree now labels each pillar)
 
 ## Definition of done
 
