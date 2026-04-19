@@ -40,15 +40,9 @@ _No issues._
 
 _No issues._
 
-### 5-done (completed)
+### Done
 
-| # | Title | Completed |
-|---|-------|-----------|
-| [ISS-0001](5-done/ISS-0001-installer-socle.md) | Install Le Socle in the project | YYYY-MM-DD |
-| [ISS-0002](5-done/ISS-0002-remplir-manifest.md) | Fill in the project manifest | YYYY-MM-DD |
-| [ISS-0007](5-done/ISS-0007-rename-github-org.md) | Create GitHub organization getlytos | 2026-04-14 |
-| [ISS-0008](5-done/ISS-0008-create-repos.md) | Create repositories under getlytos | 2026-04-14 |
-| [ISS-0018](5-done/ISS-0018-reorg-repo-and-pillars.md) | Reorganize repo root — move agents/ and adapters/ into docs/, reference 5 pillars in LYTOS.md and MANIFESTO.md | 2026-04-18 |
+_No archived issues yet._
 
 ---
 
