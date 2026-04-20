@@ -5,10 +5,10 @@ type: docs
 priority: P0-critical
 effort: S
 skill: documentation
-status: 5-done
+status: 3-in-progress
 depends: [ISS-0001]
 created: YYYY-MM-DD
-updated: YYYY-MM-DD
+updated: 2026-04-20
 ---
 
 # ISS-0002 — Fill in the project manifest

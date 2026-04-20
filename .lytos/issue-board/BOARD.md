@@ -34,6 +34,7 @@ _No issues._
 
 | # | Title | Priority | Effort | Depends |
 |---|-------|----------|--------|---------|
+| [ISS-0002](3-in-progress/ISS-0002-remplir-manifest.md) | Fill in the project manifest | P0-critical | S | ISS-0001 |
 | [ISS-0003](3-in-progress/ISS-0003-definir-rules-projet.md) | Define project-specific rules | P1-high | S | ISS-0002 |
 
 ### 4-review (review/test)
