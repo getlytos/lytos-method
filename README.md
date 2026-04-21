@@ -9,48 +9,40 @@
 
 ---
 
-### The problem everyone recognizes
+## Do you develop with AI?
 
-A developer codes with an AI agent. They explain the stack, the conventions, the constraints. The AI produces great code. Next session — it forgot everything. They explain again. And again.
+You switch models. You open a new session. You go from Claude to Codex.
+And each time, the same ritual: re-supply the context, repeat the conventions, correct the same drifts.
 
-Then they try a persona: *"You are a Senior Developer with 15 years of experience."* The tone changes. The quality doesn't. A costume doesn't create knowledge. Context does.
+Meanwhile, the debt sets in. Today's generated code no longer matches yesterday's. Conventions slip. The project grows faster than the AI's ability to find its way in it.
 
-The problem isn't the AI. It's what the AI knows when it starts working.
+Many have come to accept this friction as normal. It isn't.
 
-> *"An agent dressed as a senior dev doesn't know your code. It knows the word 'senior'."*
+**Lytos addresses this by anchoring the context where it belongs: in the repo.**
 
-### What if the AI remembered?
+---
 
-Every session starts with the project's constitution, the team's conventions, past decisions, the current sprint — loaded automatically, from files that live in the Git repo.
+## Who it's for
 
-That's Lytos. Not another AI tool. A **method** that structures what any AI agent needs to do its best work.
+| Profile | Typical setup | What Lytos brings |
+|---|---|---|
+| **Vibe-coder / maker** | Claude Code, Codex, AI apps + GitHub | A manifest the AI reads every session. Less re-explaining, a context that compounds. |
+| **Developer** | IDE + Git (GitHub / GitLab) + AI as a tool | Versioned rules, a memory that builds, a board that traces the work — in the repo, not in a SaaS. |
+| **Team** | IDE + Git + CI + reviews + product ticketing | Shared manifest, skills, rules. The AI produces in the project's style. Technical specs for the AI live in the repo, next to the code. |
+| **Decision-maker / CTO / Eng leader** | Product view + AI teams + compliance | Reproducible and auditable AI output, sovereign project context (never in third-party SaaS), accelerated onboarding. [See the organization impact →](https://lytos.org/en/business/) |
+
+---
+
+## Install
 
 ```bash
 npm install -g lytos-cli
 lyt init
 ```
 
-One command. The AI understands the project from the first session.
+In 2 minutes, your repo has its manifest, rules, and board. From there, the AI knows your project.
 
 > *"Agile structured human collaboration. Lytos structures collaboration with AI."*
-
----
-
-### What changes immediately
-
-**Without Lytos:**
-```
-Dev: "We use Tailwind, not CSS modules. And we write tests before committing."
-AI:  "Got it!" (until the next session, when it forgets again)
-```
-
-**With Lytos:**
-```
-The AI reads .lytos/ at startup → stack, conventions, sprint, past decisions.
-No re-explaining. A real working session from line one.
-```
-
-[See the full method on lytos.org →](https://lytos.org)
 
 ---
 
