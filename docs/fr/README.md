@@ -9,48 +9,40 @@
 
 ---
 
-### Le problème que tout le monde reconnaît
+## Vous développez avec l'IA ?
 
-Un développeur code avec un agent IA. Il explique sa stack, ses conventions, ses contraintes. L'IA produit du bon code. Session suivante — elle a tout oublié. Il réexplique. Encore. Et encore.
+Vous changez de modèle. Vous ouvrez une nouvelle session. Vous passez de Claude à Codex.
+Et chaque fois, le même rituel : il faut redonner le contexte, répéter les conventions, corriger les mêmes dérives.
 
-Alors il essaie un persona : *"Tu es un développeur Senior avec 15 ans d'expérience."* Le ton change. La qualité non. Un costume ne crée pas de la connaissance. C'est le contexte qui en crée.
+Pendant ce temps, la dette s'installe. Le code généré aujourd'hui ne ressemble plus à celui d'hier. Les conventions glissent. Le projet grossit plus vite que la capacité de l'IA à s'y repérer.
 
-Le problème n'est pas l'IA. C'est ce que l'IA sait quand elle commence à travailler.
+Cette friction, beaucoup ont fini par l'accepter comme normale. Elle ne l'est pas.
 
-> *"Un agent déguisé en senior dev ne connaît pas votre code. Il connaît le mot 'senior'."*
+**Lytos répond à ce problème en ancrant le contexte à l'endroit où il doit vivre : dans le repo.**
 
-### Et si l'IA se souvenait ?
+---
 
-Chaque session commence avec la constitution du projet, les conventions de l'équipe, les décisions passées, le sprint en cours — chargés automatiquement, depuis des fichiers qui vivent dans le dépôt Git.
+## Pour qui, pour quoi
 
-C'est Lytos. Pas un outil IA de plus. Une **méthode** qui structure ce dont n'importe quel agent IA a besoin pour faire son meilleur travail.
+| Profil | Setup typique | Ce que Lytos apporte |
+|---|---|---|
+| **Vibe-coder / maker** | Claude Code, Codex, apps IA + GitHub | Un manifest que l'IA lit à chaque session. Moins de réexplication, un contexte qui s'enrichit. |
+| **Développeur** | IDE + Git (GitHub / GitLab) + IA en appoint | Règles versionnées, mémoire qui se construit, board qui trace le travail — dans le repo, pas dans un SaaS. |
+| **Équipe** | IDE + Git + CI + revues + ticketing produit | Manifest, skills, rules partagés. L'IA produit dans le style du projet. Les specs techniques pour l'IA vivent dans le repo, à côté du code. |
+| **Décideur / CTO / DSI** | Vue produit + équipes IA + conformité | Output IA reproductible et auditable, contexte projet souverain (jamais en SaaS tiers), onboarding accéléré. [Voir l'impact organisation →](https://lytos.org/fr/business/) |
+
+---
+
+## Installation
 
 ```bash
 npm install -g lytos-cli
 lyt init
 ```
 
-Une commande. L'IA comprend le projet dès la première session.
+En 2 minutes, votre dépôt a son manifest, ses rules, son board. À partir de là, l'IA connaît votre projet.
 
 > *"L'agile a structuré la collaboration humaine. Lytos structure la collaboration avec l'IA."*
-
----
-
-### Ce qui change immédiatement
-
-**Sans Lytos :**
-```
-Dev : "On utilise Tailwind, pas CSS modules. Et on écrit les tests avant de commiter."
-IA  : "Compris !" (jusqu'à la prochaine session, où elle oublie tout)
-```
-
-**Avec Lytos :**
-```
-L'IA lit .lytos/ au démarrage → stack, conventions, sprint, décisions passées.
-Fini de réexpliquer. Une vraie session de travail dès la première ligne.
-```
-
-[Découvrir la méthode complète sur lytos.org →](https://lytos.org/fr/)
 
 ---
 
