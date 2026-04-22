@@ -95,8 +95,9 @@ Issues have YAML frontmatter. The important fields:
 
 1. **Don't interpret silently** — if an instruction is ambiguous, ask rather than guess
 2. **Trace decisions** — when a technical choice is made, mention it with the reason
-3. **At the end of a task** — update the issue's frontmatter, move the file, update the BOARD.md
-4. **Enrich the memory** — if a significant learning occurs, add it to the corresponding cortex file
+3. **Tick the DoD as you go** — when a Definition-of-Done item is done, tick it immediately in the issue file, before moving to the next. Batching ticks at end-of-task silently misses items and produces false NO_GO verdicts in review
+4. **At the end of a task** — update the issue's frontmatter, move the file, update the BOARD.md
+5. **Enrich the memory** — if a significant learning occurs, add it to the corresponding cortex file
 
 ---
 
