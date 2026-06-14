@@ -40,11 +40,11 @@ The rest of the README stays intact.
 
 ## Definition of done
 
-- [ ] EN README opens with hook + audience table
-- [ ] FR README mirrors EN structurally, copy pulled from the website FR home
-- [ ] Cross-links EN ↔ FR still resolve
-- [ ] Method-specific sections (5 pillars, CLI, adoption levels, teams, sovereignty, skills, principles) are preserved
-- [ ] No broken internal or external links introduced
+- [x] EN README opens with hook + audience table
+- [x] FR README mirrors EN structurally, copy pulled from the website FR home
+- [x] Cross-links EN ↔ FR still resolve
+- [x] Method-specific sections (5 pillars, CLI, adoption levels, teams, sovereignty, skills, principles) are preserved
+- [x] No broken internal or external links introduced
 
 ## Relevant files
 
