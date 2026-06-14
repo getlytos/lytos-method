@@ -1,20 +1,22 @@
 ---
 id: ISS-0023
-title: "Gitignore .lytos/review/ in starter scaffold"
+title: Gitignore .lytos/review/ in starter scaffold
 type: chore
 priority: P2-normal
 effort: XS
 complexity: light
 domain: [starter]
-skill: "code-structure"
+skill: code-structure
 skills_aux: []
-status: 4-review
-branch: "chore/ISS-0023-propagate-review-gitignore"
+status: 5-done
+branch: chore/ISS-0023-propagate-review-gitignore
 depends: []
 created: 2026-04-24
-updated: 2026-04-24
+updated: 2026-06-14
+schema_version: 2
+completed_at: 2026-06-14
+commits: [dd6ce5f, f4260cf]
 ---
-
 # ISS-0023 — Gitignore `.lytos/review/` in starter scaffold
 
 ## Context

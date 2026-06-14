@@ -1,20 +1,21 @@
 ---
 id: ISS-0020
-title: "Align lytos-method README opening with the website's hook + audience pattern"
+title: Align lytos-method README opening with the website's hook + audience pattern
 type: chore
 priority: P2-normal
 effort: S
 complexity: light
 domain: [docs]
-skill: ""
+skill: 
 skills_aux: []
-status: 4-review
-branch: "chore/ISS-0020-readme-alignment"
+status: 5-done
+branch: chore/ISS-0020-readme-alignment
 depends: []
 created: 2026-04-21
-updated: 2026-04-21
+updated: 2026-06-14
+schema_version: 2
+completed_at: 2026-06-14
 ---
-
 # ISS-0020 — Align README opening with the website's hook + audience pattern
 
 ## Context
