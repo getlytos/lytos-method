@@ -1,2 +1,5 @@
 issue-board/6-private-notes/*
 !issue-board/6-private-notes/.gitkeep
+
+# Audit-prompt work area for `lyt review` — transient, never commit
+review/
